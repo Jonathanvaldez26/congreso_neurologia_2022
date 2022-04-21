@@ -778,6 +778,14 @@
         </footer> -->
         </div>
     </main>
+
+    <script type='text/javascript'>
+    $(function(){
+        $(document).bind("contextmenu",function(e){
+            return false;
+        });
+    });
+    </script>
 </body>
 
 <?php echo $footer; ?>
