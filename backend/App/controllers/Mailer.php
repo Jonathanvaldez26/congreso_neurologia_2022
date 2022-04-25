@@ -27,29 +27,26 @@ class Mailer
             $mail->isSMTP();                                            //Send using SMTP
             $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'contacto@convencionasofarma2022.mx';                     //SMTP username contacto@convencionasofarma2022.mx
-            $mail->Password   = 'lxwqdkznaznpwpcg';                               //SMTP password
+            $mail->Username   = 'mujersalud2022@gmail.com';                     //SMTP username
+            $mail->Password   = 'grupolahe664';                               //SMTP password
             $mail->SMTPSecure = 'ssl';
             $mail->SMTPAutoTLS = false;            //Enable implicit TLS encryption
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom($msg['email'], 'Conave 2022 Asofarma');
-            $mail->addAddress($msg['email'], $msg['name']);     //Add a recipient
+            $mail->setFrom($msg['email'], 'MUSA 2022 Registro');
+            $mail->addAddress($msg['email'], 'a');     //Add a recipient
 
 
             $html = '     
     <!DOCTYPE html>
-        <html lang="es">
+        <html lang="en">
 
         <!-- Define Charset -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <!-- Responsive Meta Tag -->
         <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-        
-        <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/aso_icon.png">
-        <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/aso_icon.png">
 
         <title>Email Template</title>
 
@@ -78,35 +75,33 @@ class Mailer
                 width: 100%;
             }
 
-            .code-v{
-                background: yellow;
-            }
-
         
         </style>
 
         </head>
 
         <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
-            
-            <div class="container">
-                <img src="https://convencionasofarma2022.mx/assets/img/img_correo_n.png" alt="">
-                <br>
-                <p>
-                    Hola <b>'.$msg['name'].'</b>
-                </p>
-                <br>
-                <p>
-                Le informamos que su itinerario se encuentra disponible, si desea consultarlo de clic en el siguiente enlace, <a href="https://convencionasofarma2022.mx/">https://convencionasofarma2022.mx/</a>, ingrese su correo electrónico y su contraseña, diríjase a itinerarios, de clic en ITINERARIO y visualice si sus datos son correctos, si usted detecta un error, comuníquese a la línea de soporte a través de WhatsApp en el siguiente enlace.<br>
-                <a href="https://api.whatsapp.com/send?phone=52558010%204181&text=Buen%20d%C3%ADa">https://api.whatsapp.com/send?phone=52558010%204181&text=Buen%20d%C3%ADa<a/> 
-                </p>
-                <br>
-                <p>
-                Recuerde que sus pases de abordar estarán disponibles hasta 48 horas de anticipación al vuelo, debe tener cargado y validado con éxito su comprobante de vacunación y su prueba SARS-CoV-2 con un lapso no mayor a 48 horas del vuelo.
-                </p>
-                <img src="https://convencionasofarma2022.mx/assets/img/img_equipo_asofarma_n.jpeg" alt="firma">
-
                     
+            <div class="container">
+                <img src="https://registro.foromusa.com/img/musa-01.png" alt="">
+                <br>
+                <p>
+                    Estamos ansiosos de volverlo a ver…
+                </p>
+                <p>
+                    Este mensaje se le envió porque usted está intentando registrar su cuenta de correo electrónico a <b>Mujer Salud 2022 - MUSA</b>. Si no fue usted ignore este mensaje.
+                </p>
+                
+                <p>
+                    Copie este código de verificación y péguelo en el formulario de la plataforma a la que usted está intentando registrarse.
+                </p>
+
+                <p>
+                    Su código es: <span><b style="background: #e389;">'. $msg['code'] .'</b></span>
+                </p>
+                <p>
+                    El código es válido por 24 horas y sólo se puede usar una vez, atentamente su equipo ADIUM.
+                </p> 
                 
             </div>
             
@@ -115,22 +110,27 @@ class Mailer
 
 </html>';
 
+            // $message = "<img src='https://convencionasofarma2022.mx/img/img_email.jpeg'/>";
+            // $message .= "<h5>¡Thank you for submitting your pre-registration form!</h5>";
+            // $message .= "<h5>" . $msg['code'] . "</h5><br>";
 
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'AVISO, ITINERARIO DISPONIBLE PARA CONSULTA.';
+            $mail->Subject = 'Código de Registro';
             $mail->Body    = $html;
             $mail->CharSet = 'UTF-8';
 
             $mail->send();
-           //echo 'El mensaje ha sido enviado';
+           // echo 'El mensaje ha sido enviado';
+            
         } catch (Exception $e) {
-           //echo "No se pudo enviar el email: {$mail->ErrorInfo}";
+            //echo "No se pudo enviar el email: {$mail->ErrorInfo}";
         }
     }
 
 
-    public function mailVuelos($msg) {
+    public function mailerRegister($msg)
+    {
         $mail = new PHPMailer(true);
 
         try {
@@ -139,229 +139,90 @@ class Mailer
             $mail->isSMTP();                                            //Send using SMTP
             $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'contacto@convencionasofarma2022.mx';                     //SMTP username contacto@convencionasofarma2022.mx
-            $mail->Password   = 'lxwqdkznaznpwpcg';                               //SMTP password
+            $mail->Username   = 'mujersalud2022@gmail.com';                     //SMTP username
+            $mail->Password   = 'grupolahe664';                               //SMTP password
             $mail->SMTPSecure = 'ssl';
             $mail->SMTPAutoTLS = false;            //Enable implicit TLS encryption
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom($msg['email'], 'Conave 2022 Asofarma');
-            $mail->addAddress($msg['email'], $msg['name']);     //Add a recipient
-
+            $mail->setFrom($msg['email'], 'MUSA 2022 Registro');
+            $mail->addAddress($msg['email'], 'a');     //Add a recipient
 
             $html = '     
-    <!DOCTYPE html>
-        <html lang="es">
-
-        <!-- Define Charset -->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <!-- Responsive Meta Tag -->
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+            <!DOCTYPE html>
+                <html lang="en">
         
-        <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/aso_icon.png">
-        <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/aso_icon.png">
-
-        <title>Email Template</title>
-
-        <!-- Responsive and Valid Styles -->
-        <style type="text/css">
-            body {
-                width: 100%;
-                background-color: #FFF;
-                margin: 0;
-                padding: 0;
-                -webkit-font-smoothing: antialiased;
-                font-family: arial;
-            }
-
-            html {
-                width: 100%;
-            }
-            .container{
-                width: 80%;
-                padding: 20px;
-                margin: 0 auto;
-                
-            }
-
-            img{
-                width: 100%;
-            }
-
-            .code-v{
-                background: yellow;
-            }
-
+                <!-- Define Charset -->
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        </style>
-
-        </head>
-
-        <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
-            
-            <div class="container">
-                <img src="https://convencionasofarma2022.mx/assets/img/img_correo_n.png" alt="">
-                <br>
-                <p>
-                    Hola <b>'.$msg['name'].'</b>
-                </p>
-                <br>
-                <p style="text-align: justify;">
-                    Le informamos que sus pases de abordar rumbo a la CONAVE 2022, fueron cargados con éxito, usted puede consultarlos en su app móvil en la sección de Pases de Abordar que ya se encuentra activa o a través del siguiente link para consulta automática
-                    <br> <br><a href="'.$msg['url'].'"></a>'.$msg['url'].'<br> <br>
-                    Si usted necesita ayuda, comuníquese a la línea de soporte a través de WhatsApp en el siguiente enlace 
-                    <br>
-                    <br><a href="shorturl.at/afsuQ">shorturl.at/afsuQ<a/>
-                </p>
-                <p>
-                    
-                </p>
-                <br>
-                <img src="https://convencionasofarma2022.mx/assets/img/img_equipo_asofarma_n.jpeg" alt="firma">
-
-                    
+                <!-- Responsive Meta Tag -->
+                <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+        
+                <title>Email Template</title>
+        
+                <!-- Responsive and Valid Styles -->
+                <style type="text/css">
+                    body {
+                        width: 100%;
+                        background-color: #FFF;
+                        margin: 0;
+                        padding: 0;
+                        -webkit-font-smoothing: antialiased;
+                        font-family: arial;
+                    }
+        
+                    html {
+                        width: 100%;
+                    }
+                    .container{
+                        width: 80%;
+                        padding: 20px;
+                        margin: 0 auto;
+                        
+                    }
+        
+                    img{
+                        width: 100%;
+                    }
+        
                 
-            </div>
-            
-                
-        </body>
+                </style>
+        
+                </head>
+        
+                <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+                    
+                    <div class="container">
+                    <img src="https://registro.foromusa.com/img/musa-01.png" alt="">
+                        <p style="text-align: center !important;">
+                            Estimado, ' . $msg['name'] . ' : 
+                            <strong>¡Su registro a MUSA fue exitoso! </strong>
+                        </p>
+                    </div>
+                    
+                        
+                </body>
+        
+        </html>';
+        
 
-</html>';
+            // $message = "<img src='https://convencionasofarma2022.mx/img/img_email.jpeg'/>";
+            // $message .= "<h2>Estimado " . $msg['nombre'] . "</h2><br>";
+            // $message .= "<h5>Se ha generado tu registro exitosamente</h5><br>";
 
 
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'PASE DE ABORDAR RUMBO A LA CONAVE.';
+            $mail->Subject = 'Registro';
             $mail->Body    = $html;
             $mail->CharSet = 'UTF-8';
 
-            $mail->send();
-           //echo 'El mensaje ha sido enviado';
-        } catch (Exception $e) {
-           //echo "No se pudo enviar el email: {$mail->ErrorInfo}";
-        }
-    }
-
-    public function mailVuelosRegreso($msg) {
-        $mail = new PHPMailer(true);
-
-        try {
-            //Server settings
-            $mail->SMTPDebug = 0;                      //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'contacto@convencionasofarma2022.mx';                     //SMTP username contacto@convencionasofarma2022.mx
-            $mail->Password   = 'lxwqdkznaznpwpcg';                               //SMTP password
-            $mail->SMTPSecure = 'ssl';
-            $mail->SMTPAutoTLS = false;            //Enable implicit TLS encryption
-            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-            //Recipients
-            $mail->setFrom($msg['email'], 'Conave 2022 Asofarma');
-            $mail->addAddress($msg['email'], $msg['name']);     //Add a recipient
-
-
-            $html = '     
-    <!DOCTYPE html>
-        <html lang="es">
-
-        <!-- Define Charset -->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <!-- Responsive Meta Tag -->
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-        
-        <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/aso_icon.png">
-        <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/aso_icon.png">
-
-        <title>Email Template</title>
-
-        <!-- Responsive and Valid Styles -->
-        <style type="text/css">
-            body {
-                width: 100%;
-                background-color: #FFF;
-                margin: 0;
-                padding: 0;
-                -webkit-font-smoothing: antialiased;
-                font-family: arial;
-            }
-
-            html {
-                width: 100%;
-            }
-            .container{
-                width: 80%;
-                padding: 20px;
-                margin: 0 auto;
-                
-            }
-
-            img{
-                width: 100%;
-            }
-
-            .code-v{
-                background: yellow;
-            }
-
-        
-        </style>
-
-        </head>
-
-        <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
-            
-            <div class="container">
-                <img src="https://convencionasofarma2022.mx/assets/img/img_correo_n.png" alt="">
-                <br>
-                <p>
-                    Hola <b>'.$msg['name'].'</b>
-                </p>
-                <br>
-                <p style="text-align: justify;">
-                    Le informamos que sus pases de abordar de regreso a casa, fueron cargados con éxito, usted puede consultarlos en su app móvil en la sección de Pases de Abordar que ya se encuentra activa o a través del siguiente link para consulta automática
-                    <br> <br><a href="'.$msg['url'].'"></a>'.$msg['url'].'<br> <br>
-                    Si usted necesita ayuda, comuníquese a la línea de soporte a través de WhatsApp en el siguiente enlace 
-                    <br>
-                    <br><a href="shorturl.at/afsuQ">shorturl.at/afsuQ<a/>
-                </p>
-                <p>
-                    
-                </p>
-                <br>
-                <img src="https://convencionasofarma2022.mx/assets/img/img_equipo_asofarma_n.jpeg" alt="firma">
-
-                    
-                
-            </div>
-            
-                
-        </body>
-
-</html>';
-
-
-            //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'PASE DE ABORDAR REGRESO A CASA.';
-            $mail->Body    = $html;
-            $mail->CharSet = 'UTF-8';
 
             $mail->send();
-           //echo 'El mensaje ha sido enviado';
+            // echo 'El mensaje ha sido enviado';
         } catch (Exception $e) {
-           //echo "No se pudo enviar el email: {$mail->ErrorInfo}";
+            // echo "No se pudo enviar el email: {$mail->ErrorInfo}";
         }
     }
-
-
-
 }
-
-
-// Le informamos que su itinerario se encuentra disponible, si desea consultarlo de clic en el siguiente enlace, <a href="https://convencionasofarma2022.mx/">https://convencionasofarma2022.mx/</a>, ingrese su correo electrónico y su contraseña, diríjase a itinerarios, de clic en ITINERARIO y visualice si sus datos son correctos, si usted detecta un error, comuníquese a la línea de soporte a través de WhatsApp en el siguiente enlace.<br>
-//     <a href="https://api.whatsapp.com/send?phone=52558010%204181&text=Buen%20d%C3%ADa">https://api.whatsapp.com/send?phone=52558010%204181&text=Buen%20d%C3%ADa<a/> 
