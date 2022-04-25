@@ -9,7 +9,7 @@ echo $header;
 
             <nav class="navbar navbar-expand-lg  blur blur-rounded top-0  z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid">
-                    <!-- <img src="/img/adium.png" height="40" alt=""> &nbsp;&nbsp;&nbsp; -->
+                    <img src="/assets/img/neuro_negro.png" height="40" alt=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 ">
                         Congreso Neurología 2022
                     </a>
@@ -112,7 +112,7 @@ echo $header;
                 </div>
             </nav>
 
-
+            
 
             <div class="page-header min-vh-75" style="height: 90%;">
                 <div class="container">
@@ -121,31 +121,27 @@ echo $header;
                             <div class="card card-plain mt-7">
                                 <div class="card-header pb-0 text-start">
                                     <h5 class="font-weight-bolder text-info text-dark text-center">Congreso Anual de la Sociedad Mexicana de Neurología Pediátrica 2022</h5>
+                                    <div id="counter" class="group text-center mt-4">
+                                        <!-- <span><em>days</em></span> 
+                                        <span><em>hours</em></span>
+                                        <span><em>minutes</em></span>
+                                        <span><em>seconds</em></span>  -->
+                                        <div class="row mt-4">
+                                            <div class="col-3 text-lg"><h3><span id="days"></span></h3></div>
+                                            <div class="col-3 text-lg"><h3><span id="hours"></span></h3></div>
+                                            <div class="col-3 text-lg"><h3><span id="minutes"></span></h3></div>
+                                            <div class="col-3 text-lg"><h3><span id="seconds"></span></h3></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">Días</div>
+                                            <div class="col-3">Horas</div>
+                                            <div class="col-3">Minutos</div>
+                                            <div class="col-3">Segundos</div>
+                                        </div>
+                                    </div>
                                     <p class="mb-0 mt-5">Introduzca sus credenciales para iniciar sesión.</p>
                                 </div>
-                                <!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal" id="doc_programa" tabindex="-1" role="dialog" aria-labelledby="doc_programaLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="doc_programaLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+                                <!-- Button trigger modal -->                                
                                 <div class="card-body">
                                     <form role="form" class="text-start" id="login" action="/Login/crearSession" method="POST" class="form-horizontal">
                                         <label style="font-weight:bold; font-size: 15px">Correo electrónico</label>
@@ -197,15 +193,88 @@ echo $header;
             </div>
         </section>
     </main>
+    <!-- Modal -->
+        <div class="modal" id="doc_programa" role="dialog" aria-labelledby="doc_programaLabel" aria-hidden="true" >
+            <div class="modal-dialog" role="document" style="max-width: 590px;">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title text-center" id="doc_programaLabel">Programa</h5>
+                        <button type="button" class="btn bg-gradient-danger close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe src="/assets/pdf/pdf-prueba.pdf" frameborder="0" style="width: -webkit-fill-available;
+    max-width: -webkit-fill-available; height:700px;"></iframe>
+                    </div>
+                    <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
     <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
     <script>
+        
+        ////===========Funcion JS para el contador==========////
+        //===
+        // VARIABLES
+        //===
+        const DATE_TARGET = new Date('05/25/2022 0:01 AM');
+        // DOM for render
+        const SPAN_DAYS = document.querySelector('span#days');
+        const SPAN_HOURS = document.querySelector('span#hours');
+        const SPAN_MINUTES = document.querySelector('span#minutes');
+        const SPAN_SECONDS = document.querySelector('span#seconds');
+        // Milliseconds for the calculations
+        const MILLISECONDS_OF_A_SECOND = 1000;
+        const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
+        const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
+        const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24
+
+        //===
+        // FUNCTIONS
+        //===
+
+        /**
+        * Method that updates the countdown and the sample
+        */
+        function updateCountdown() {
+            // Calcs
+            const NOW = new Date()
+            const DURATION = DATE_TARGET - NOW;
+            const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
+            const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
+            const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
+            const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
+            // Thanks Pablo Monteserín (https://pablomonteserin.com/cuenta-regresiva/)
+
+            // Render
+            SPAN_DAYS.textContent = REMAINING_DAYS;
+            SPAN_HOURS.textContent = REMAINING_HOURS;
+            SPAN_MINUTES.textContent = REMAINING_MINUTES;
+            SPAN_SECONDS.textContent = REMAINING_SECONDS;
+        }
+
+        //===
+        // INIT
+        //===
+        updateCountdown();
+        // Refresh every second
+        setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+
+
+
+
+        /// -------- CODIGO PARTICULAS ----------///
         particlesJS("particles-js", {
             "particles": {
                 "number": {
-                "value": 300,
+                "value": 109,
                 "density": {
                     "enable": true,
-                    "value_area": 800
+                    "value_area": 710
                 }
             },
                 "color": {
@@ -237,7 +306,7 @@ echo $header;
                 }
                 },
                 "size": {
-                "value": 3,
+                "value": 31.6,
                 "random": true,
                 "anim": {
                     "enable": false,

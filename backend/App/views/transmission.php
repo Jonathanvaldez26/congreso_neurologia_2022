@@ -26,6 +26,28 @@
             video.prop('autoplay',true);
 
             video.on('timeupdate', function(){
+                $('#time_1').html(video[0].currentTime);
+            });
+            // console.log(doc);
+            // var frame = document.getElementById('iframe-video');
+            // var v = frame.contentDocument.getElementsByTagName('video');
+            // document.getElementById('txt2').value = txt;
+
+            // var v = document.getElementById("transmision_prueba");
+            // v[0].attr('muted',true);
+            // v[0].addEventListener("timeupdate",function(ev){
+            //     document.getElementById("time_2").innerHTML = v[0].currentTime;
+            //     // console.log(v[0].currentTime);
+            // },true);
+        }
+        function textodeiframeJQ2(){
+            let frame = $('#iframe-video-2');
+            let video = frame.contents().find('video');
+
+            video.prop('muted',true);
+            video.prop('autoplay',true);
+
+            video.on('timeupdate', function(){
                 $('#time_2').html(video[0].currentTime);
             });
             // console.log(doc);
@@ -114,12 +136,16 @@
                             <br>
                             <span type="text" name="time_2" id="time_2" ><span>
                         </h3>
-                        <!-- <iframe id="iframe-video" src="/videos/dfic.mp4" frameborder="0">a</iframe> -->
-                        <iframe id="iframe-video" src="https://player.vimeo.com/video/83275796?h=e4a776aa7e" width="640" height="521" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        <iframe id="iframe-video-2" onload="textodeiframeJQ2()" src="/videos/dfic.mp4" frameborder="0">a</iframe>
+                        <h3>Este es el contenido del control del iframe:
+                            <br>
+                            <span type="text" name="time_1" id="time_1" ><span>
+                        </h3>
+                        <iframe id="iframe-video" onload="textodeiframeJQ()" src="https://player.vimeo.com/video/83275796?h=e4a776aa7e" width="640" height="521" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                             <!-- <p><a href="https://vimeo.com/83275796">Daft Punk - Instant Crush Ft. Julian Casablancas</a> from <a href="https://vimeo.com/strokeee">stroke</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
                         <br><br>
                         <h4>iframe</h4>
-                        <!-- <iframe id="iframe-video" class="bg-gradient-warning" onload="textodeiframe()" src="/html/videos.php" frameborder="0">a</iframe> -->
+                        <!-- <iframe id="iframe-video-2" class="bg-gradient-warning" onload="textodeiframe()" src="/html/videos.php" frameborder="0">a</iframe> -->
                         <!-- <div class="col-12">
                             
                         </div> -->
