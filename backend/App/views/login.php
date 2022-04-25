@@ -3,6 +3,7 @@ echo $header;
 ?>
 
 <body class="">
+    
     <main class="main-content main-content-bg mt-0">
         <section>
 
@@ -21,7 +22,7 @@ echo $header;
                     </button>
                     <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
                         <ul class="navbar-nav navbar-nav-hover mx-auto">
-                            <li class="nav-item dropdown dropdown-hover mx-2">
+                            <!-- <li class="nav-item dropdown dropdown-hover mx-2">
                                 <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center " id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
                                     Datos del evento
                                     <img src=" ../../../assets/img/down-arrow-dark.svg " alt="down-arrow" class="arrow ms-1 d-lg-block d-none">
@@ -95,7 +96,7 @@ echo $header;
                                     Farmacovigilancia
 
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                         <ul class="navbar-nav d-lg-block d-none">
                             <li class="nav-item">
@@ -119,7 +120,7 @@ echo $header;
                         <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                             <div class="card card-plain mt-7">
                                 <div class="card-header pb-0 text-start">
-                                    <h4 class="font-weight-bolder text-info text-dark">Congreso Neurología 2022</h4>
+                                    <h5 class="font-weight-bolder text-info text-dark text-center">Congreso Anual de la Sociedad Mexicana de Neurología Pediátrica 2022</h5>
                                     <p class="mb-0 mt-5">Introduzca sus credenciales para iniciar sesión.</p>
                                 </div>
                                 <!-- Button trigger modal -->
@@ -180,12 +181,16 @@ echo $header;
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n9">
+                            <div id="particles-js" class="oblique position-absolute top-0 h-100 d-md-block d-none me-n9">
                                 <!-- <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('/assets/img/curved-images/curved9.jpg')"></div>-->
-                                <video autoplay muted loop>
+                                <!-- <video autoplay muted loop>
                                     <source class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" src="/assets/img/curved-images/Musa_Web.mp4" type="video/mp4">
-                                </video>
+                                </video> -->
                             </div>
+                            <div class="count-particles" hidden>
+                                <span class="js-count-particles">--</span> particles
+                            </div>
+                            <div ></div>
                         </div>
                     </div>
                 </div>
@@ -193,7 +198,140 @@ echo $header;
         </section>
     </main>
     <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                "value": 300,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+                "color": {
+                "value": "#ffffff"
+                },
+                "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                },
+                "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                }
+                },
+                "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+                },
+                "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+                },
+                "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+                },
+                "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "grab"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+                },
+                "modes": {
+                "grab": {
+                    "distance": 140,
+                    "line_linked": {
+                    "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+                }
+            },
+            "retina_detect": true
+            });
 
+
+            /* ---- stats.js config ---- */
+
+            var count_particles, stats, update;
+            stats = new Stats;
+            stats.setMode(0);
+            stats.domElement.style.position = 'absolute';
+            stats.domElement.style.display = 'none';
+            stats.domElement.style.left = '0px';
+            stats.domElement.style.top = '0px';
+            document.body.appendChild(stats.domElement);
+            count_particles = document.querySelector('.js-count-particles');
+            update = function() {
+            stats.begin();
+            stats.end();
+            if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+                count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+            }
+            requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+    </script>
 
 </body>
 
