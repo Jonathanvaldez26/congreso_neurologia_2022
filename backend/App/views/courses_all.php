@@ -125,14 +125,17 @@
             </div>
             <div class="card col-lg-8 mt-lg-5 mt-1" >
                 <div class="card-header pb-0 p-3">
-                    <h3 class="mb-1 text-center">Cursos</h3>
+                    <div class="row">
+                    <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px;" alt="">
+                    </div>
+                    <h3 class="mb-1 mt-4 text-center">Cursos</h3>
                     <!-- <p class="text-sm text-center">Lista de sus cursos</p> -->
                 </div>
                 <div class="card-body p-3">
                     <div class="row">
                         <!-- <video id="transmision_prueba" src="/videos/dfic.mp4" muted="true" autoplay="false" loop controls></video>
                         <h3 id="tiempo_segundos"></h3> -->
-                        <h5>Esta es la lista de sus cursos:</h5>
+                        <h5 class="text-center">Usted tiene disponible los siguientes cursos:</h5>
 
 
                         <!-- <p><a href="https://vimeo.com/83275796">Daft Punk - Instant Crush Ft. Julian Casablancas</a> from <a href="https://vimeo.com/strokeee">stroke</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
@@ -144,6 +147,14 @@
                     </div>
 
                     <div class="row mt-4">
+                        <!-- <div class="col-12 col-md-6">
+                            <div class="card card-body">
+                            </div>
+                        </div> -->
+                        <?php echo $card_cursos ?>
+                    </div>
+
+                    <div hidden class="row mt-4">
                         <div class="col-xl-4 col-md-3 mb-xl-0 mb-4 "></div>
                         <table class="table align-items-center mb-0 table table-striped table-bordered">
                             <thead>

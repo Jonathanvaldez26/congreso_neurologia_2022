@@ -155,7 +155,46 @@ html;
             </tr>
 html;
 
+        $card_cursos = '';
+
+        foreach ($cursos as $key => $value) {
+            $card_cursos .= <<<html
+            <div class="col-12 col-md-6">
+                <div class="card card-body card-course">
+                    <h3 class="text-center">{$value['nombre_curso']}</h3>
+                    <br>
+                    <h4 class="text-center">{$value['fecha_curso']}</h4>
+                    <br>
+            
+html;
+            if ($value['gratis'] == 0) {
+                $card_cursos .= <<<html
+                <h6 class="text-center">¿Tiene costo?: Si<br>
+html;
+            } else {
+                $card_cursos .= <<<html
+                <h6 class="text-center">¿Tiene costo?: No<br>
+html;
+            }
+
+            if ($value['tipo'] == 1) {
+                $card_cursos .= <<<html
+                Modalidad: Presencial<br></h6>
+html;
+            } else {
+                $card_cursos .= <<<html
+                Modalidad: Virtual<br></h6>
+html;
+            }
+            $card_cursos .= <<<html
+            </div>
+        </div>
+html;
+        }
+
+
         View::set('tabla_cursos',$tabla_cursos);
+        View::set('card_cursos',$card_cursos);
         View::set('header',$this->_contenedor->header($extraHeader));
         View::set('footer',$this->_contenedor->footer($extraFooter));
         View::render("courses_all");

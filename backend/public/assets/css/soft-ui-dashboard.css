@@ -37059,4 +37059,8 @@ canvas {
 .count-particles{
   border-radius: 0 0 3px 3px;
 }
+
+.card-course{
+  box-shadow: 0px 0px 20px 0px lightcoral;
+}
 /*# sourceMappingURL=dashboard-pro.css.map */
