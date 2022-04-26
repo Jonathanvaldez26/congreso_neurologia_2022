@@ -243,7 +243,7 @@
     <script type='text/javascript'>
     $(function(){
         $(document).bind("contextmenu",function(e){
-            return false;
+            return true;
         });
     });
     </script>
