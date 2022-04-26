@@ -264,6 +264,17 @@ html;
 
         
 html;
+
+        $usuarios = LoginDao::getAllUsers();
+        $free_courses = LoginDao::getFreeCourses();
+        
+
+        foreach ($usuarios as $key => $value) {
+            foreach ($free_courses as $key => $value) {
+                
+            }
+        }
+
         View::set('header',$extraHeader);
         View::set('footer',$extraFooter);
         View::render("login");
@@ -297,7 +308,7 @@ html;
         session_start();
         $_SESSION['usuario'] = $user['email'];
         $_SESSION['nombre'] = $user['nombre'];
-        $_SESSION['id_registros_acceso'] = $user['id_registros_acceso'];
+        $_SESSION['id_registrado'] = $user['id_registrado'];
 
         header("location: /Home/");
     }

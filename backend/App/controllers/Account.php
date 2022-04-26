@@ -29,7 +29,7 @@ class Account extends Controller{
     public function index() {
         $extraHeader =<<<html
         <title>
-            Cuenta - AMETD
+            Cuenta - Congreso Neurología
         </title>
 
 html;
@@ -123,8 +123,6 @@ html;
                         processData: false,
                         beforeSend: function() {
                             console.log("Procesando....");
-        
-        
                         },
                         success: function(respuesta) {
                             console.log(respuesta);
@@ -144,19 +142,20 @@ html;
         
             });
         </script>
-        <footer class="footer mt-4">
+
+    <footer class="footer mt-4">
       <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
-              <div class="col-lg-6 mb-lg-0 mb-4">
-                  <div class="copyright text-center text-sm text-muted text-lg-start">
+              <div hidden class="col-lg-6 mb-lg-0 mb-4">
+                  <div hidden class="copyright text-center text-sm text-muted text-lg-start">
                       © <script>
                           document.write(new Date().getFullYear())
                       </script>,
-                      made with <i class="fa fa-heart"></i> by
-                      <a href="https://www.creative-tim.com" class="font-weight-bold" target="www.grupolahe.com">Creative GRUPO LAHE</a>.
+                      <!--made with <i class="fa fa-heart"></i> by-->
+                      <a hidden href="https://www.creative-tim.com" class="font-weight-bold" target="www.grupolahe.com">Creative GRUPO LAHE</a>.
                   </div>
               </div>
-              <div class="col-lg-6">
+              <div hidden class="col-lg-6">
                   <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                       <li class="nav-item">
                           <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">privacy policies</a>
@@ -165,7 +164,7 @@ html;
               </div>
           </div>
       </div>
-  </footer>
+    </footer>
 html;
 
         $userData = LoginDao::getUser($_SESSION['usuario'])[0];
@@ -221,9 +220,9 @@ html;
 
         $userData = RegisterDao::getUserRegister($userData['email'])[0];
 
-        if($userData['img'] != ''){
+        if($userData['avatar_img'] != ''){
             $imgUser=<<<html
-            <img src="../../../img/users_musa/{$userData['img']}" alt="img" id="img-user" class="w-100 h-100 border-radius-lg shadow-sm">
+            <img src="../../../img/users_musa/{$userData['avatar_img']}" alt="img" id="img-user" class="w-100 h-100 border-radius-lg shadow-sm">
 html;
 
         }else{
@@ -269,26 +268,26 @@ html;
 
             $id_registro = $_POST['id_registro'];
             $nombre = $_POST['nombre'];
-            $segundo_nombre = $_POST['segundo_nombre'];
+            // $segundo_nombre = $_POST['segundo_nombre'];
             $apellido_paterno = $_POST['apellido_paterno'];
             $apellido_materno = $_POST['apellido_materno'];
-            $genero = $_POST['genero'];
+            // $genero = $_POST['genero'];
             // $pais = $_POST['pais'];
             $email = $_POST['email'];
             $telefono = $_POST['telefono'];
             $especialidad = $_POST['especialidad'];
-            $alergia = $_POST['alergia'];
+            // $alergia = $_POST['alergia'];
 
             $documento->_nombre = $nombre;
-            $documento->_segundo_nombre = $segundo_nombre;
+            // $documento->_segundo_nombre = $segundo_nombre;
             $documento->_apellido_paterno = $apellido_paterno;
             $documento->_apellido_materno = $apellido_materno;
-            $documento->_genero = $genero;
+            // $documento->_genero = $genero;
             // $documento->_pais = $pais;
             $documento->_email = $email;
             $documento->_telefono = $telefono;
             $documento->_especialidad = $especialidad;
-            $documento->_alergia = $alergia;
+            // $documento->_alergia = $alergia;
 
               $id = DataDao::updateAccount($documento);
 

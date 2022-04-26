@@ -3,9 +3,9 @@ namespace App\controllers;
 
 use \Core\View;
 use \Core\Controller;
-use \App\models\Transmision AS TransmisionDao;
+use \App\models\Courses AS CoursesDao;
 
-class Transmission extends Controller{
+class Courses extends Controller{
 
     private $_contenedor;
 
@@ -87,7 +87,7 @@ html;
                      console.log(value);
                   }
                   $.ajax({
-                      url:"/Transmision/uploadComprobante",
+                      url:"/Courses/uploadComprobante",
                       type: "POST",
                       data: formData,
                       cache: false,
@@ -102,7 +102,7 @@ html;
                          
                           swal("¡Se ha guardado tu prueba correctamente!", "", "success").
                           then((value) => {
-                              window.location.replace("/Transmision/");
+                              window.location.replace("/Courses/");
                           });
                       }
                       console.log(respuesta);
@@ -118,10 +118,47 @@ html;
 </script>
 
 html;
+        // var_dump($_SESSION['id_registrado']);
 
+        $cursos = CoursesDao::getAsignaCurso($_SESSION['id_registrado']);
+        $tabla_cursos = '';
+
+        foreach ($cursos as $key => $value) {
+            $tabla_cursos .= <<<html
+            <tr>
+                <td class="text-center">{$value['nombre_curso']}</td>
+                <td class="text-center">{$value['fecha_curso']}</td>
+            
+html;
+            if ($value['gratis'] == 0) {
+                $tabla_cursos .= <<<html
+                <td class="text-center">Si</td>
+html;
+            } else {
+                $tabla_cursos .= <<<html
+                <td class="text-center">No</td>
+html;
+            }
+
+            if ($value['tipo'] == 1) {
+                $tabla_cursos .= <<<html
+                <td class="text-center">Presencial</td>
+html;
+            } else {
+                $tabla_cursos .= <<<html
+                <td class="text-center">Virtual</td>
+html;
+            }
+        }
+
+        $tabla_cursos .= <<<html
+            </tr>
+html;
+
+        View::set('tabla_cursos',$tabla_cursos);
         View::set('header',$this->_contenedor->header($extraHeader));
-        View::set('footer',$extraFooter);
-        View::render("transmission");
+        View::set('footer',$this->_contenedor->footer($extraFooter));
+        View::render("courses_all");
     }
 
     public function uploadComprobante(){
@@ -148,7 +185,7 @@ html;
             $documento->_numero_dosis = $numero_dosis;
             $documento->_marca_dosis = $marca;
 
-            $id = TransmisionDao::insert($documento);
+            $id = CoursesDao::insert($documento);
 
             if ($id) {
                 echo 'success';

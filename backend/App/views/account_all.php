@@ -69,7 +69,9 @@
                                     <div class="avatar avatar-xl position-relative">
                                         <?php echo $imgUser; ?>
                                     </div>
-                                    <span id="btn-edit" class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-2 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-edit" aria-hidden="true"></i></span> 
+                                    <span id="btn-edit" class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-2 btn-sm d-flex align-items-center justify-content-center">
+                                        <i class="fas fa-edit" aria-hidden="true"></i>
+                                    </span> 
                                 </label>
                                 
                                 <input id="file-input" name="file-input" type="file" />
@@ -82,10 +84,10 @@
                         <div class="col-sm-auto col-8 my-auto">
                             <div class="h-100">
                                 <h5 class="mb-1 font-weight-bolder">
-                                    <?= $userData['nombre'] . " " . $userData['segundo_nombre'] . " " . $userData['apellido_paterno'] . " " . $userData['apellido_materno'] ?>
+                                    <?= $userData['prefijo'] . " " . $userData['nombre'] . " " . $userData['apellidop'] . " " . $userData['apellidom'] ?>
                                 </h5>
                                 <p class="mb-0 font-weight-bold text-sm">
-                                    Equipo Adium
+                                    <span class="badge badge-info"><?php echo $userData['nombre_modalidad']; ?></span>
                                 </p>
                             </div>
                         </div>
@@ -116,69 +118,85 @@
                                         <input id="nombre" name="nombre" maxlength="29" pattern="[a-zA-Z ÑñáÁéÉíÍóÚ]*" class="form-control" type="text" placeholder="Alec" required="" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['nombre'] ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-4">
+                                <!-- <div class="col-12 col-lg-4">
                                     <label class="form-label">Segundo nombre </label>
                                     <div class="input-group">
                                         <input id="segundo_nombre" name="segundo_nombre" maxlength="49" pattern="[a-zA-Z ÑñáÁéÉíÍóÚ]*" class="form-control" type="text" placeholder="Alec" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['segundo_nombre'] ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-12 col-lg-4">
                                     <label class="form-label">Apellido paterno *</label>
                                     <div class="input-group">
-                                        <input id="apellido_paterno" name="apellido_paterno" maxlength="29" pattern="[a-zA-Z ÑñáÁéÉíÍóÚ]*" class="form-control" type="text" placeholder="Thompson" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['apellido_paterno'] ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                        <input id="apellido_paterno" name="apellido_paterno" maxlength="29" pattern="[a-zA-Z ÑñáÁéÉíÍóÚ]*" class="form-control" type="text" placeholder="Thompson" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['apellidop'] ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                     </div>
                                 </div>
+
+                                <div class="col-12 col-lg-4">
+                                    <label class="form-label">Apellido paterno *</label>
+                                    <div class="input-group">
+                                        <input id="apellido_materno" name="apellido_materno" maxlength="29" pattern="[a-zA-Z ÑñáÁéÉíÍóÚ]*" class="form-control" type="text" placeholder="Thompson" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['apellidom'] ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                    </div>
+                                </div>
+
 
                             </div>
 
                             <div class="row">
-                                <div class="col-12 col-lg-4">
+                                <!-- <div class="col-12 col-lg-4">
                                     <label class="form-label mt-4">Apellido materno *</label>
                                     <div class="input-group">
                                         <input id="apellido_materno" name="apellido_materno" maxlength="29" pattern="[a-zA-Z ÑñáÁéÉíÍóÚ]*" class="form-control" type="text" placeholder="Thompson" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['apellido_materno'] ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                     </div>
-                                </div>
-                                <div class="col-sm-6 col-12 col-lg-4">
+                                </div> -->
+                                <!-- <div class="col-sm-6 col-12 col-lg-4">
                                     <label class="form-label mt-4">Me identifico como: *</label>
                                     <select class="form-control" style="cursor: pointer;" name="genero" id="genero" placeholder="Genero">
                                         <option value="">Selecciona una opción</option>
-                                        <!-- <option value="Mujer">Mujer</option>
-                                            <option value="Otro">Otro</option> -->
+                                        <option value="Mujer">Mujer</option>
+                                            <option value="Otro">Otro</option>
                                         <?php echo $optionsGenero; ?>
                                     </select>
-                                    <!-- <input type="text" class="form-control" value="<?= $userData['genero'] ?>" disabled> -->
-                                </div>
-                                <div class="col-sm-6 col-12 col-lg-4">
-
+                                    <input type="text" class="form-control" value="<?= $userData['genero'] ?>" disabled>
+                                </div> -->
+                                <div class="col-sm-6 col-12 col-lg-6">
                                     <label class="form-label mt-4">País *</label>
                                     <input class="form-control" id="pais" maxlength="149" required name="pais" data-color="dark" type="text" value="<?= $userData['pais'] ?>" placeholder="Ej: México" readonly/>
+                                </div>
 
+                                <div class="col-sm-6 col-12 col-lg-6">
+                                    <label class="form-label mt-4">Estado *</label>
+                                    <input class="form-control" id="estado" maxlength="149" required name="estado" data-color="dark" type="text" value="<?= $userData['estado'] ?>" placeholder="Ej: México" readonly/>
+                                </div>
+
+                                <div class="col-lg-7 col-12">
+                                    <label class="form-label mt-4">Correo electrónico</label>
+                                    <div class="input-group">
+                                        <input id="email" name="email" maxlength="49" class="form-control" type="email" placeholder="example@email.com" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['email'] ?>" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-5 col-12">
+                                    <label class="form-label mt-4">Número de teléfono</label>
+                                    <div class="input-group">
+                                        <input id="telefono" name="telefono" maxlength="10" pattern="[0-9]" class="form-control" type="number" placeholder="+40 735 631 620" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['telefono'] ?>">
+                                    </div>
                                 </div>
 
                             </div>
 
                             <div class="row">
-                                    <div class="col-lg-5 col-12">
-                                        <label class="form-label mt-4">Correo electrónico</label>
-                                        <div class="input-group">
-                                            <input id="email" name="email" maxlength="49" class="form-control" type="email" placeholder="example@email.com" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['email'] ?>" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label mt-4">Número de teléfono</label>
-                                        <div class="input-group">
-                                            <input id="telefono" name="telefono" maxlength="10" pattern="[0-9]" class="form-control" type="number" placeholder="+40 735 631 620" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['telefono'] ?>">
-                                        </div>
-                                    </div>
+                                   
+                                    
                                     <div class="col-lg-4 col-12">
                                         <label class="form-label mt-4">Especialidad</label>
                                         <!-- <select class="form-control" style="cursor: pointer;" name="linea_principal" id="linea_principal" tabindex="-1" data-choice="active">
                                                 <option value="" disabled>Selecciona una opción</option>
                                                 <?php echo $optionsLineaPrincipal; ?>
                                             </select>  -->
-                                            <select class="form-control" style="cursor: pointer;" name="especialidad" id="especialidad" tabindex="-1" data-choice="active">
+                                            <!-- <select class="form-control" style="cursor: pointer;" name="especialidad" id="especialidad" tabindex="-1" data-choice="active">
                                                 <?php echo $optionsLineaPrincipal; ?>
-                                            </select>
+                                            </select> -->
+                                            <input class="form-control" id="especialidad" maxlength="149" required name="especialidad" data-color="dark" type="text" value="<?= $userData['especialidad'] ?>" placeholder="Ej: México" readonly/>
                                     </div>
                                 </div>
                                 <!-- <div class="row">
@@ -198,11 +216,11 @@
 
                                 <div class="row">
                                         
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <label class="form-label mt-4">Restricciones alimenticias *</label>
-                                        <!-- <input class="form-control" id="alergia" maxlength="149" required name="alergia" data-color="dark" type="text" value="<?= $userData['alergia'] ?>" placeholder="Escribe las restricciones alimenticias" readonly/> -->
+                                        <input class="form-control" id="alergia" maxlength="149" required name="alergia" data-color="dark" type="text" value="<?= $userData['alergia'] ?>" placeholder="Escribe las restricciones alimenticias" readonly/>
                                         <?php echo $restricciones; ?>
-                                    </div>
+                                    </div> -->
                                     <br>
                                 </div>
 

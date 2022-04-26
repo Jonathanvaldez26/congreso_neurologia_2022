@@ -99,7 +99,7 @@
                                                     <span class="fas fa-user-edit text-large"></span>
                                                 </div>
 
-                                                <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Cuenta</h6>
+                                                <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Datos Personales</h6>
                                                 <!-- <p class="opacity-8 mb-0 text-sm">Disponible <i class="fa fa-check-circle me-sm-0" style="color: #01a31c"></i></p> -->
                                             </div>
                                         </div>
@@ -198,7 +198,7 @@
                             </a>
                         </div>
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="/News/">
+                            <a href="/Courses/">
                                 <div class="card card-link btn-menu-home">
                                     <div class="card-body mt-md-5 text-center content-card-home">
                                         <div class="col-12 text-center">

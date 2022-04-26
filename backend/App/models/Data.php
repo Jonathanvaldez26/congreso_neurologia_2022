@@ -41,18 +41,18 @@ sql;
   public static function updateAccount($user){
     $mysqli = Database::getInstance(true);
     $query=<<<sql
-    UPDATE registros_acceso SET especialidad = :especialidad, nombre = :nombre, segundo_nombre = :segundo_nombre, apellido_materno = :apellido_materno, apellido_paterno = :apellido_paterno, genero = :genero, telefono = :telefono, alergia = :alergia  WHERE email = :email;
+    UPDATE registrados SET especialidad = :especialidad, nombre = :nombre, apellido_materno = :apellido_materno, apellido_paterno = :apellido_paterno, telefono = :telefono  WHERE email = :email;
 sql;
     $parametros = array(
       ':especialidad'=>$user->_especialidad,
       ':nombre'=>$user->_nombre,
-      ':segundo_nombre'=>$user->_segundo_nombre,
+      // ':segundo_nombre'=>$user->_segundo_nombre,
       ':apellido_paterno'=>$user->_apellido_paterno,
       ':apellido_materno'=>$user->_apellido_materno,
-      ':genero'=>$user->_genero,
+      // ':genero'=>$user->_genero,
       // ':pais'=>$user->_pais,
       ':telefono'=>$user->_telefono,
-      ':alergia'=>$user->_alergia,
+      // ':alergia'=>$user->_alergia,
       ':email'=>$user->_email
       
     );

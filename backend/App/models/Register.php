@@ -10,7 +10,13 @@ class Register
     public static function getUserRegister($email){
         $mysqli = Database::getInstance(true);
         $query =<<<sql
-        SELECT * FROM registros_acceso WHERE email = '$email'
+        SELECT r.*, p.pais, e.estado
+        FROM registrados r 
+        INNER JOIN paises p
+        ON p.id_pais = r.id_pais
+        INNER JOIN estados e
+        ON e.id_estado = r.id_estado
+        WHERE email = '$email'
 sql;
 
         return $mysqli->queryAll($query);
@@ -68,9 +74,9 @@ sql;
 
     public static function updateImg($user){
         $mysqli = Database::getInstance(true);
-
+        // var_dump($user);
         $query=<<<sql
-        UPDATE registros_acceso SET img = ''  WHERE email = :email;
+        UPDATE registrados SET avatar_img = ''  WHERE email = :email;
 sql;
         $parametros = array(
           ':email'=>$user->_email
@@ -87,7 +93,7 @@ sql;
 
 
         $query1=<<<sql
-        UPDATE registros_acceso SET img = :img  WHERE email = :email;
+        UPDATE registrados SET avatar_img = :img  WHERE email = :email;
 sql;
         $parametros1 = array(
           ':img'=>$user->_img,
