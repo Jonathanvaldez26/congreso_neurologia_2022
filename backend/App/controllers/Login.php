@@ -17,6 +17,7 @@ class Login{
     // }
 
     public function index() {
+        
         $extraHeader =<<<html
         <!DOCTYPE html>
         <html lang="en">
@@ -203,6 +204,7 @@ html;
                         url: "/Login/isUserValidate",
                         data: {usuario: $("#usuario").val()},
                         success: function(data) {
+                            console.log(data);
                             if(data=="true"){
                                 $('#btnEntrar').attr("disabled", false);
                                 response = true;

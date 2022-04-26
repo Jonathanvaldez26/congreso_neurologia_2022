@@ -23,8 +23,8 @@ sql;
     public static function getUserRAById($usuario){
         $mysqli = Database::getInstance(true);
         $query =<<<sql
-        SELECT ra.* FROM registros_acceso ra 
-        WHERE ra.email LIKE :usuario
+        SELECT * FROM registrados r
+        WHERE email LIKE :usuario
 sql;
         $params = array(
             ':usuario'=> $usuario->_usuario,
@@ -51,7 +51,7 @@ sql;
         $mysqli = Database::getInstance(true);
         $query =<<<sql
         SELECT *
-        FROM registros_acceso 
+        FROM registrados 
         WHERE email = '$email'
 sql;
 
