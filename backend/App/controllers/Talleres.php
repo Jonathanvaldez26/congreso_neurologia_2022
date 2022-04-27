@@ -3,9 +3,9 @@ namespace App\controllers;
 
 use \Core\View;
 use \Core\Controller;
-use \App\models\Courses AS CoursesDao;
+use \App\models\Talleres AS TalleresDao;
 
-class Courses extends Controller{
+class Talleres extends Controller{
 
     private $_contenedor;
 
@@ -87,7 +87,7 @@ html;
                      console.log(value);
                   }
                   $.ajax({
-                      url:"/Courses/uploadComprobante",
+                      url:"/Talleres/uploadComprobante",
                       type: "POST",
                       data: formData,
                       cache: false,
@@ -102,7 +102,7 @@ html;
                          
                           swal("¡Se ha guardado tu prueba correctamente!", "", "success").
                           then((value) => {
-                              window.location.replace("/Courses/");
+                              window.location.replace("/Talleres/");
                           });
                       }
                       console.log(respuesta);
@@ -120,7 +120,7 @@ html;
 html;
         // var_dump($_SESSION['id_registrado']);
 
-        $cursos = CoursesDao::getAsignaCurso($_SESSION['id_registrado']);
+        $cursos = TalleresDao::getAsignaCurso($_SESSION['id_registrado']);
         $tabla_cursos = '';
 
         foreach ($cursos as $key => $value) {
@@ -130,7 +130,7 @@ html;
                 <td class="text-center">{$value['fecha_curso']}</td>
             
 html;
-            if ($value['gratis'] == 0) {
+            if ($value['free'] == 0) {
                 $tabla_cursos .= <<<html
                 <td class="text-center">Si</td>
 html;
@@ -161,13 +161,14 @@ html;
             $card_cursos .= <<<html
             <div class="col-12 col-md-6">
                 <div class="card card-body card-course">
+                    <input class="curso" hidden type="text" value="{$value['clave']}" readonly>
                     <h3 class="text-center">{$value['nombre_curso']}</h3>
                     <br>
                     <h4 class="text-center">{$value['fecha_curso']}</h4>
                     <br>
             
 html;
-            if ($value['gratis'] == 0) {
+            if ($value['free'] == 0) {
                 $card_cursos .= <<<html
                 <h6 class="text-center">¿Tiene costo?: Si<br>
 html;
@@ -197,7 +198,111 @@ html;
         View::set('card_cursos',$card_cursos);
         View::set('header',$this->_contenedor->header($extraHeader));
         View::set('footer',$this->_contenedor->footer($extraFooter));
-        View::render("courses_all");
+        View::render("talleres_all");
+    }
+
+    public function Video(){
+        $extraHeader =<<<html
+html;
+        $extraFooter =<<<html
+            <!--footer class="footer pt-0">
+                    <div class="container-fluid">
+                        <div class="row align-items-center justify-content-lg-between">
+                            <div class="col-lg-6 mb-lg-0 mb-4">
+                                <div class="copyright text-center text-sm text-muted text-lg-start">
+                                    © <script>
+                                        document.write(new Date().getFullYear())
+                                    </script>,
+                                    made with <i class="fa fa-heart"></i> by
+                                    <a href="https://www.creative-tim.com" class="font-weight-bold" target="www.grupolahe.com">Creative GRUPO LAHE</a>.
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                                    <li class="nav-item">
+                                        <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">privacy policies</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer--    >
+                <!-- jQuery -->
+                    <script src="/js/jquery.min.js"></script>
+                    <!--   Core JS Files   -->
+                    <script src="/assets/js/core/popper.min.js"></script>
+                    <script src="/assets/js/core/bootstrap.min.js"></script>
+                    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+                    <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+                    <!-- Kanban scripts -->
+                    <script src="/assets/js/plugins/dragula/dragula.min.js"></script>
+                    <script src="/assets/js/plugins/jkanban/jkanban.js"></script>
+                    <script src="/assets/js/plugins/chartjs.min.js"></script>
+                    <script src="/assets/js/plugins/threejs.js"></script>
+                    <script src="/assets/js/plugins/orbit-controls.js"></script>
+                    
+                <!-- Github buttons -->
+                    <script async defer src="https://buttons.github.io/buttons.js"></script>
+                <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+                    <script src="/assets/js/soft-ui-dashboard.min.js?v=1.0.5"></script>
+
+                <!-- VIEJO INICIO -->
+                    <script src="/js/jquery.min.js"></script>
+                
+                    <script src="/js/custom.min.js"></script>
+
+                    <script src="/js/validate/jquery.validate.js"></script>
+                    <script src="/js/alertify/alertify.min.js"></script>
+                    <script src="/js/login.js"></script>
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                <!-- VIEJO FIN -->
+        <script>
+            $( document ).ready(function() {
+
+                $("#form_vacunacion").on("submit",function(event){
+                    event.preventDefault();
+                    
+                        var formData = new FormData(document.getElementById("form_vacunacion"));
+                        for (var value of formData.values()) 
+                        {
+                            console.log(value);
+                        }
+                        $.ajax({
+                            url:"/Talleres/uploadComprobante",
+                            type: "POST",
+                            data: formData,
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            beforeSend: function(){
+                            console.log("Procesando....");
+                        },
+                        success: function(respuesta){
+                            if(respuesta == 'success'){
+                                // $('#modal_payment_ticket').modal('toggle');
+                                
+                                swal("¡Se ha guardado tu prueba correctamente!", "", "success").
+                                then((value) => {
+                                    window.location.replace("/Talleres/");
+                                });
+                            }
+                            console.log(respuesta);
+                        },
+                        error:function (respuesta)
+                        {
+                            console.log(respuesta);
+                        }
+                    });
+                });
+
+            });
+        </script>
+
+html;
+
+        View::set('header',$this->_contenedor->header($extraHeader));
+        View::set('footer',$this->_contenedor->footer($extraFooter));
+        View::render("talleres_all");
     }
 
     public function uploadComprobante(){
@@ -224,7 +329,7 @@ html;
             $documento->_numero_dosis = $numero_dosis;
             $documento->_marca_dosis = $marca;
 
-            $id = CoursesDao::insert($documento);
+            $id = TalleresDao::insert($documento);
 
             if ($id) {
                 echo 'success';

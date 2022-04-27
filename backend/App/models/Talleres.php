@@ -7,7 +7,7 @@ use \Core\MasterDom;
 use \App\interfaces\Crud;
 use \App\controllers\UtileriasLog;
 
-class Courses{
+class Talleres{
 
     public static function getAll(){
       $mysqli = Database::getInstance();
@@ -67,7 +67,7 @@ sql;
     public static function getAsignaCurso($usuario){
       $mysqli = Database::getInstance(true);
       $query =<<<sql
-      SELECT r.*, c.nombre AS nombre_curso, c.fecha_curso, c.gratis, c.tipo
+      SELECT r.*, c.nombre AS nombre_curso, c.fecha_curso, c.free, c.tipo, c.clave
       FROM asigna_curso ac
       INNER JOIN registrados r
       ON ac.id_registrado = r.id_registrado

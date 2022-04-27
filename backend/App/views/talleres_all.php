@@ -1,5 +1,5 @@
 <title>
-    Transmisión 
+    Cursos - Neuropediatría 
 </title>
 <?php echo $header; ?>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Home/">Inicio</a></li>
-                    <li class="breadcrumb-item text-sm">Transmisión</li>
+                    <li class="breadcrumb-item text-sm">Cursos</li>
                 </ol>
             </nav>
 
@@ -125,76 +125,56 @@
             </div>
             <div class="card col-lg-8 mt-lg-5 mt-1" >
                 <div class="card-header pb-0 p-3">
-                    <h6 class="mb-1 text-center">Transmisión en Vivo</h6>
-                    <p class="text-sm text-center">Su video aquí</p>
+                    <div class="row">
+                    <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px;" alt="">
+                    </div>
+                    <h3 class="mb-1 mt-4 text-center">Talleres</h3>
+                    <!-- <p class="text-sm text-center">Lista de sus cursos</p> -->
                 </div>
-                <div class="row text-center">
-                    <div class="col-lg-12 col-md-12 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-                        <div class="nav-wrapper position-relative end-0">
-                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
-                                <li class="nav-item transmisiones">
-                                    <a class="nav-link mb-0 px-0 py-1 active" href="#transmision_1" data-bs-toggle="tab" role="tab" aria-selected="true">
-                                        <span class="fa fa-handshake-o"></span>
-                                        <span class="ms-1">Transmisión 1</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item transmisiones">
-                                    <a class="nav-link mb-0 px-0 py-1" href="#transmision_2" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                        <span class="fa fa-hourglass"></span>
-                                        <span class="ms-1">Transmisión 2</span>
-                                    </a>
-                                </li>
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link mb-0 px-0 py-1" href="#transmision_3" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                        <span class="fa fa-times"></span>
-                                        <span class="ms-1">Transmisión 3</span>
-                                    </a>
-                                </li> -->
-                            </ul>
+                <div class="card-body p-3">
+                    <div class="row">
+                        <!-- <video id="transmision_prueba" src="/videos/dfic.mp4" muted="true" autoplay="false" loop controls></video>
+                        <h3 id="tiempo_segundos"></h3> -->
+                        <h5 class="text-center">Usted tiene disponible los siguientes cursos:</h5>
+                        <!-- <p><a href="https://vimeo.com/83275796">Daft Punk - Instant Crush Ft. Julian Casablancas</a> from <a href="https://vimeo.com/strokeee">stroke</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
+
+                        <!-- <iframe id="iframe-video-2" class="bg-gradient-warning" onload="textodeiframe()" src="/html/videos.php" frameborder="0">a</iframe> -->
+                        <!-- <div class="col-12">
+                            
+                        </div> -->
+                    </div>
+
+                    <div class="row mt-5">
+                        <!-- <div class="col-12 col-md-6">
+                            <div class="card card-body">
+                            </div>
+                        </div> -->
+                        <?php echo $card_cursos ?>
+                    </div>
+
+                    <div hidden class="row mt-4">
+                        <div class="col-xl-4 col-md-3 mb-xl-0 mb-4 "></div>
+                        <table class="table align-items-center mb-0 table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-10">Nombre</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-10">Fecha de curso</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-10">¿Tiene costo?</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-10">Modalidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php echo $tabla_cursos ?>
+                            </tbody>
+                        </table>
+                        <div class="col-xl-4 col-md-0 mb-xl-0 mb-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="button-row d-flex mt-4 col-12">
+                            <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
                         </div>
                     </div>
                 </div>
-                <div class="card-body p-1 mt-1">
-                    <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade show position-relative active height-350 border-radius-lg" id="transmision_1" role="tabpanel" aria-labelledby="transmision_1">
-                            <div class="row mt-4">
-                                <div class="card mb-4">
-                                    <div class="card-header pb-0">
-                                        <h6 class="text-center">Transmisión 1</h6>
-                                    
-                                        <div class="card-body px-0 pt-0 pb-2">
-                                            <div class="row text-center">
-                                                <h3>Este es el contenido del control del iframe:
-                                                <br>
-                                                <span type="text" name="time_2" id="time_2" ><span>
-                                                </h3>
-                                                <iframe id="iframe-video-2" onload="textodeiframeJQ2()" src="/videos/dfic.mp4" width="640" height="521" frameborder="0">a</iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade position-relative height-350 border-radius-lg" id="transmision_2" role="tabpanel" aria-labelledby="transmision_2">
-                            <div class="row mt-4">
-                                <div class="card mb-4">
-                                    <div class="card-header pb-0">
-                                        <h6 class="text-center">Transmisión 2</h6>
-                                        <div class="card-body px-0 pt-0 pb-2 text-center">
-                                            <h3>Este es el contenido del control del iframe:
-                                            <br>
-                                            <span type="text" name="time_1" id="time_1" ><span>
-                                            </h3>
-                                            <iframe id="iframe-video" onload="textodeiframeJQ()" src="https://player.vimeo.com/video/83275796?h=e4a776aa7e" width="640" height="521" frameborder="0" allowfullscreen></iframe>
-                                            <br><br>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
         </div>
         <br>
@@ -312,14 +292,6 @@
 
 <script>
     $(document).ready(function(){
-
-        $('.transmisiones').on('click', function(){
-            let t1 = $('#transmision_1').html();
-            let t2 = $('#transmision_2').html();
-            // let x = $(this);
-            // console.log(x);
-        });
-
         let identificadorIntervaloDeTiempo;
 
         function repetirCadaSegundo() {

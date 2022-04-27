@@ -128,7 +128,7 @@
                     <div class="row">
                     <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px;" alt="">
                     </div>
-                    <h3 class="mb-1 mt-4 text-center">Cursos</h3>
+                    <h3 class="mb-1 mt-4 text-center">Talleres</h3>
                     <!-- <p class="text-sm text-center">Lista de sus cursos</p> -->
                 </div>
                 <div class="card-body p-3">

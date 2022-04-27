@@ -37066,6 +37066,6 @@ canvas {
 
 .card-course:hover{
   transform: translateY(-8px);
-  box-shadow: 0px 0px 20px 0px darkgoldenrod;
+  box-shadow: 0px 0px 25px 0px cadetblue;
 }
 /*# sourceMappingURL=dashboard-pro.css.map */
