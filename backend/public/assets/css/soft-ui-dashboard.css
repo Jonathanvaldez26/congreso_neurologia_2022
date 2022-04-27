@@ -37061,11 +37061,44 @@ canvas {
 }
 
 .card-course{
-  box-shadow: 0px 0px 20px 0px lightcoral;
+  /* box-shadow: 0px 0px 20px 0px lightcoral; */
+  font-family: Roboto, Arial, sans-serif;
+  border-radius: 0px !important;
+  color: black;
 }
 
 .card-course:hover{
+  /* transform: translateY(-8px); */
+  transform: scale(1.2);
+  transition: transform 1s ease-in-out 1s;
+  z-index: 2;
+  /* margin-left: 100px; */
+  box-shadow: 0px 0px 10px 0px cadetblue;
+}
+
+.card-course-2{
+  box-shadow: 0px 0px 20px 0px lightcoral;
+}
+
+.card-course-2:hover{
   transform: translateY(-8px);
   box-shadow: 0px 0px 25px 0px cadetblue;
+}
+
+.caratula-img{
+  /* border-radius: 15px;  */
+  height: 150px; 
+  width: 100%;
+}
+
+.duracion{
+  position: absolute;
+  right: 1rem;
+  top: 7rem;
+  color: white;
+}
+
+.duracion p{
+  background: #00000080;
 }
 /*# sourceMappingURL=dashboard-pro.css.map */

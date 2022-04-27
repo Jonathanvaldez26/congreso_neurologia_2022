@@ -85,4 +85,81 @@ sql;
 sql;
     return $mysqli->queryAll($query);
   }
+
+
+  public static function getAllUsers(){
+    $mysqli = Database::getInstance(true);
+    $query =<<<sql
+    SELECT r.*
+    FROM registrados r
+sql;
+
+    return $mysqli->queryAll($query);
+  }
+
+  public static function getFreeCourses(){
+      $mysqli = Database::getInstance(true);
+      $query =<<<sql
+      SELECT *
+      FROM cursos
+      WHERE free = 1
+  sql;
+
+      return $mysqli->queryAll($query);
+  }
+
+  public static function getAsignaCursoByUser($registrado, $curso){
+    $mysqli = Database::getInstance(true);
+    $query =<<<sql
+    SELECT *
+    FROM asigna_curso
+    WHERE id_registrado = '$registrado' AND id_curso = '$curso'
+sql;
+
+    return $mysqli->queryOne($query);
+  }
+
+  public static function insertCursos($registrado, $curso){
+    $mysqli = Database::getInstance(1);
+    $query=<<<sql
+    INSERT INTO asigna_curso (
+        id_asigna_curso, 
+        id_registrado, 
+        id_curso, 
+        fecha_asignacion,
+        status)
+
+    VALUES (
+        null, 
+        $registrado, 
+        $curso, 
+        NOW(), 
+        1)
+sql;
+      // $parametros = array(
+      //     ':utilerias_asistentes_id'=>$data->_utilerias_asistentes_id,
+      //     ':utilerias_administradores_id'=>$data->_utilerias_administradores_id,
+      //     ':clave'=>$data->_clave,
+      //     ':escala'=>$data->_escala,
+      //     ':url'=>$data->_url,
+      //     ':nota'=>$data->_notas
+      // );
+
+      $id = $mysqli->insert($query);
+
+      // $accion = new \stdClass();
+      // $accion->_sql= $query;
+      // $accion->_id_asistente = $data->_utilerias_asistentes_id;
+      // $accion->_titulo = "Pase de abordar";
+      // $accion->_descripcion = 'Un ejecutivo ha cargado su '.$accion->_titulo;
+      // $accion->_id = $id;
+
+      $log = new \stdClass();
+      $log->_sql= $query;
+      // $log->_parametros = $parametros;
+      $log->_id = $id;
+
+  return $id;
+
+  }
 }

@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Home/">Inicio</a></li>
-                    <li class="breadcrumb-item text-sm">Cursos</li>
+                    <li class="breadcrumb-item text-sm">Talleres</li>
                 </ol>
             </nav>
 
@@ -120,35 +120,20 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-">
-        <div class="row mt-2">
-            <div class="col-lg-2">
+        <div class="row mt-0 m-auto">
+            <div class="col-lg-1">
             </div>
-            <div class="card col-lg-8 mt-lg-5 mt-1" >
+            <div class="card col-lg-10 mt-lg-5 mt-1" >
                 <div class="card-header pb-0 p-3">
                     <div class="row">
-                    <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px;" alt="">
+                    <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
                     </div>
-                    <h3 class="mb-1 mt-4 text-center">Talleres</h3>
-                    <!-- <p class="text-sm text-center">Lista de sus cursos</p> -->
+                    <h4 class="mb-1 mt-4 text-center">Talleres</h4>
+                    <p class="text-center">Usted tiene disponible los siguientes cursos:</p>
                 </div>
                 <div class="card-body p-3">
-                    <div class="row">
-                        <!-- <video id="transmision_prueba" src="/videos/dfic.mp4" muted="true" autoplay="false" loop controls></video>
-                        <h3 id="tiempo_segundos"></h3> -->
-                        <h5 class="text-center">Usted tiene disponible los siguientes cursos:</h5>
-                        <!-- <p><a href="https://vimeo.com/83275796">Daft Punk - Instant Crush Ft. Julian Casablancas</a> from <a href="https://vimeo.com/strokeee">stroke</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
 
-                        <!-- <iframe id="iframe-video-2" class="bg-gradient-warning" onload="textodeiframe()" src="/html/videos.php" frameborder="0">a</iframe> -->
-                        <!-- <div class="col-12">
-                            
-                        </div> -->
-                    </div>
-
-                    <div class="row mt-5">
-                        <!-- <div class="col-12 col-md-6">
-                            <div class="card card-body">
-                            </div>
-                        </div> -->
+                    <div class="row mt-3">
                         <?php echo $card_cursos ?>
                     </div>
 

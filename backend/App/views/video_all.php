@@ -1,73 +1,10 @@
 <title>
-    Cursos - Neuropediatría 
+    Cursos Video - Neuropediatría 
 </title>
 <?php echo $header; ?>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
-    <script language="javascript" type="text/javascript">
-        // function textodeiframe(){
-        //     var frame = document.getElementById('iframe-video');
-        //     var v = frame.contentDocument.getElementsByTagName('video');
-        //     // document.getElementById('txt2').value = txt;
 
-        //     // var v = document.getElementById("transmision_prueba");
-        //     // v[0].attr('muted',true);
-        //     v[0].addEventListener("timeupdate",function(ev){
-        //         document.getElementById("time_2").innerHTML = v[0].currentTime;
-        //         // console.log(v[0].currentTime);
-        //     },true);
-        // }
-
-        function textodeiframeJQ(){
-            let frame = $('#iframe-video');
-            let video = frame.contents().find('video');
-
-            video.prop('muted',true);
-            video.prop('autoplay',true);
-
-            video.on('timeupdate', function(){
-                $('#time_1').html(video[0].currentTime);
-            });
-            // console.log(doc);
-            // var frame = document.getElementById('iframe-video');
-            // var v = frame.contentDocument.getElementsByTagName('video');
-            // document.getElementById('txt2').value = txt;
-
-            // var v = document.getElementById("transmision_prueba");
-            // v[0].attr('muted',true);
-            // v[0].addEventListener("timeupdate",function(ev){
-            //     document.getElementById("time_2").innerHTML = v[0].currentTime;
-            //     // console.log(v[0].currentTime);
-            // },true);
-        }
-        function textodeiframeJQ2(){
-            let frame = $('#iframe-video-2');
-            let video = frame.contents().find('video');
-
-            video.prop('muted',true);
-            video.prop('autoplay',true);
-
-            video.on('timeupdate', function(){
-                $('#time_2').html(video[0].currentTime);
-            });
-            // console.log(doc);
-            // var frame = document.getElementById('iframe-video');
-            // var v = frame.contentDocument.getElementsByTagName('video');
-            // document.getElementById('txt2').value = txt;
-
-            // var v = document.getElementById("transmision_prueba");
-            // v[0].attr('muted',true);
-            // v[0].addEventListener("timeupdate",function(ev){
-            //     document.getElementById("time_2").innerHTML = v[0].currentTime;
-            //     // console.log(v[0].currentTime);
-            // },true);
-        }
-
-        $(document).ready(function(){
-            // textodeiframe();
-            textodeiframeJQ();
-        })
-    </script>
     <nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky" id="navbarBlur" data-scroll="true">
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
@@ -90,7 +27,9 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Home/">Inicio</a></li>
-                    <li class="breadcrumb-item text-sm">Cursos</li>
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Talleres/">Talleres</a></li>
+                    <li class="breadcrumb-item text-sm">Video</li>
+                    <li class="breadcrumb-item text-sm"><?php echo $nombre_taller; ?></li>
                 </ol>
             </nav>
 
@@ -128,20 +67,21 @@
                     <div class="row">
                     <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px;" alt="">
                     </div>
-                    <h3 class="mb-1 mt-4 text-center">Talleres</h3>
+                    <h3 class="mb-1 mt-4 text-center"><?php echo $nombre_taller;?></h3>
                     <!-- <p class="text-sm text-center">Lista de sus cursos</p> -->
                 </div>
                 <div class="card-body p-3">
                     <div class="row">
                         <!-- <video id="transmision_prueba" src="/videos/dfic.mp4" muted="true" autoplay="false" loop controls></video>
                         <h3 id="tiempo_segundos"></h3> -->
-                        <h5 class="text-center">Usted tiene disponible los siguientes cursos:</h5>
-                        <!-- <p><a href="https://vimeo.com/83275796">Daft Punk - Instant Crush Ft. Julian Casablancas</a> from <a href="https://vimeo.com/strokeee">stroke</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
+                        <!-- <h5 class="text-center">Video aquí</h5> -->
 
-                        <!-- <iframe id="iframe-video-2" class="bg-gradient-warning" onload="textodeiframe()" src="/html/videos.php" frameborder="0">a</iframe> -->
-                        <!-- <div class="col-12">
-                            
-                        </div> -->
+                        <!-- <h6 class="text-center"><?php echo $clave;?></h6> -->
+                        <!-- <p><a href="https://vimeo.com/83275796">Daft Punk - Instant Crush Ft. Julian Casablancas</a> from <a href="https://vimeo.com/strokeee">stroke</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
+                        
+                        <iframe id="iframe" class="bg-gradient-warning" src="<?php echo $url;?>" width="640" height="521" frameborder="0">a</iframe>
+
+
                     </div>
 
                     <div class="row mt-5">
@@ -150,6 +90,12 @@
                             </div>
                         </div> -->
                         <?php echo $card_cursos ?>
+                    </div>
+
+                    <div>
+                        <p>
+                            <h6 class="mb-1 mt-2 text-center"><?php echo $descripcion;?></h6>
+                        </p>
                     </div>
 
                     <div hidden class="row mt-4">
@@ -292,24 +238,16 @@
 
 <script>
     $(document).ready(function(){
-        let identificadorIntervaloDeTiempo;
+        
+        setTimeout(mandarMensaje, 10000);
 
-        function repetirCadaSegundo() {
-            identificadorIntervaloDeTiempo = setInterval(mandarMensaje, 1000);
-        }
-
+        var vista = 0;
         function mandarMensaje() {
-            console.log("Ha pasado 1 segundo.");
+            vista++;
+            console.log("Vista nueva al video: "+vista);
         }
 
-        // repetirCadaSegundo();
-
-        var v = document.getElementById("transmision_prueba");
-
-        // v.addEventListener("timeupdate",function(ev){
-        //     document.getElementById("tiempo_segundos").innerHTML = v.currentTime;
-        //     // console.log(v);
-        // },true);
+        repetirCadaSegundo();
     })
     
 </script>

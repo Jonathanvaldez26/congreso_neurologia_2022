@@ -185,7 +185,7 @@
                                             <br>
                                             <span type="text" name="time_1" id="time_1" ><span>
                                             </h3>
-                                            <iframe id="iframe-video" onload="textodeiframeJQ()" src="https://player.vimeo.com/video/83275796?h=e4a776aa7e" width="640" height="521" frameborder="0" allowfullscreen></iframe>
+                                            <iframe id="iframe-video" onload="textodeiframeJQ()" src="https://player.vimeo.com/video/83275796?h=e4a776aa7e" width="640" height="540" frameborder="0" allowfullscreen></iframe>
                                             <br><br>
                                         </div>
                                     </div>

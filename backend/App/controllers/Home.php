@@ -51,6 +51,19 @@ html;
 
         $permisos_mexico = $data_user['pais'] != 'México' ? "style=\"display:none;\"" : "";
 
+        $usuarios = HomeDao::getAllUsers();
+        $free_courses = HomeDao::getFreeCourses();
+
+
+        foreach ($free_courses as $key => $value) {
+            // HomeDao::insertCursos($_SESSION['id_registrado'],$value['id_curso']);
+            $hay = HomeDao::getAsignaCursoByUser($_SESSION['id_registrado'],$value['id_curso']);
+            // var_dump($hay);
+            if ($hay == NULL || $hay == 'NULL ') {
+              HomeDao::insertCursos($_SESSION['id_registrado'],$value['id_curso']);
+            }
+        }
+
 
         View::set('header',$this->_contenedor->header($extraHeader));
         View::set('permisos_mexico',$permisos_mexico);

@@ -118,90 +118,53 @@ html;
 </script>
 
 html;
-        // var_dump($_SESSION['id_registrado']);
 
         $cursos = TalleresDao::getAsignaCurso($_SESSION['id_registrado']);
-        $tabla_cursos = '';
-
-        foreach ($cursos as $key => $value) {
-            $tabla_cursos .= <<<html
-            <tr>
-                <td class="text-center">{$value['nombre_curso']}</td>
-                <td class="text-center">{$value['fecha_curso']}</td>
-            
-html;
-            if ($value['free'] == 0) {
-                $tabla_cursos .= <<<html
-                <td class="text-center">Si</td>
-html;
-            } else {
-                $tabla_cursos .= <<<html
-                <td class="text-center">No</td>
-html;
-            }
-
-            if ($value['tipo'] == 1) {
-                $tabla_cursos .= <<<html
-                <td class="text-center">Presencial</td>
-html;
-            } else {
-                $tabla_cursos .= <<<html
-                <td class="text-center">Virtual</td>
-html;
-            }
-        }
-
-        $tabla_cursos .= <<<html
-            </tr>
-html;
 
         $card_cursos = '';
 
         foreach ($cursos as $key => $value) {
             $card_cursos .= <<<html
-            <div class="col-12 col-md-6">
-                <div class="card card-body card-course">
-                    <input class="curso" hidden type="text" value="{$value['clave']}" readonly>
-                    <h3 class="text-center">{$value['nombre_curso']}</h3>
-                    <br>
-                    <h4 class="text-center">{$value['fecha_curso']}</h4>
-                    <br>
             
+            
+            <div class="col-12 col-md-3">
+                <a href="/Talleres/Video/{$value['clave']}">
+                    <div class="card card-body card-course p-0">
+                        <input class="curso" hidden type="text" value="{$value['clave']}" readonly>
+                        <div class="caratula-content">
+                            <img class="caratula-img" src="/caratulas/{$value['caratula']}">
+                            <div class="duracion"><p>{$value['duracion']}</p></div>
+                        </div>
+                        <h6 class="text-left mx-3 mt-2" style="color: black;">{$value['nombre_curso']}</h3>
+                        <p class="text-left mx-3 text-sm">{$value['fecha_curso']}<br>
+                        {$value['descripcion']}<br>
 html;
-            if ($value['free'] == 0) {
-                $card_cursos .= <<<html
-                <h6 class="text-center">¿Tiene costo?: Si<br>
-html;
-            } else {
-                $card_cursos .= <<<html
-                <h6 class="text-center">¿Tiene costo?: No<br>
-html;
-            }
 
-            if ($value['tipo'] == 1) {
-                $card_cursos .= <<<html
-                Modalidad: Presencial<br></h6>
-html;
-            } else {
-                $card_cursos .= <<<html
-                Modalidad: Virtual<br></h6>
-html;
-            }
+
+//             if ($value['tipo'] == 1) {
+//                 $card_cursos .= <<<html
+//                 Modalidad: Presencial<br></p>
+// html;
+//             } else {
+//                 $card_cursos .= <<<html
+//                 Modalidad: Virtual<br></p>
+// html;
+//             }
             $card_cursos .= <<<html
-            </div>
+                    {$value['vistas']} vistas</p>
+                </div>
+            </a>
         </div>
 html;
         }
 
-
-        View::set('tabla_cursos',$tabla_cursos);
         View::set('card_cursos',$card_cursos);
         View::set('header',$this->_contenedor->header($extraHeader));
         View::set('footer',$this->_contenedor->footer($extraFooter));
         View::render("talleres_all");
     }
 
-    public function Video(){
+    public function Video($clave){
         $extraHeader =<<<html
 html;
         $extraFooter =<<<html
@@ -300,9 +263,28 @@ html;
 
 html;
 
-        View::set('header',$this->_contenedor->header($extraHeader));
-        View::set('footer',$this->_contenedor->footer($extraFooter));
-        View::render("talleres_all");
+        $curso = TalleresDao::getCursoByClave($clave);
+
+        if ($curso) {
+            $url = TalleresDao::getCursoByClave($clave)['url'];
+            $nombre_taller = TalleresDao::getCursoByClave($clave)['nombre'];
+            $descripcion = TalleresDao::getCursoByClave($clave)['descripcion'];
+
+            View::set('clave',$clave);
+            View::set('descripcion',$descripcion);
+            View::set('nombre_taller',$nombre_taller);
+            View::set('url',$url);
+            View::set('header',$this->_contenedor->header($extraHeader));
+            View::set('footer',$this->_contenedor->footer($extraFooter));
+            View::render("video_all");
+        } else {
+            View::render("404");
+        }
+    }
+
+    public function Vistas($clave){
+        $vistas = TalleresDao::getCursoByClave($clave)['vistas'];
+        $vistas++;
     }
 
     public function uploadComprobante(){

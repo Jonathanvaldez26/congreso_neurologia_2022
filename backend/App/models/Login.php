@@ -51,7 +51,7 @@ sql;
         $query =<<<sql
         SELECT *
         FROM cursos
-        WHERE gratis = 1
+        WHERE free = 1
 sql;
 
         return $mysqli->queryAll($query);

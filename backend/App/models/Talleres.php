@@ -21,6 +21,25 @@ sql;
       return "getById"+$id;
     }
 
+    public static function getCursoByClave($clave){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+      SELECT * 
+      FROM cursos 
+      WHERE clave = '$clave'
+sql;
+      return $mysqli->queryOne($query);
+    }
+
+    public static function updateVistasByClave($clave,$vistas){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+        UPDATE cursos SET validado = '$vistas'
+        WHERE id_comprobante_vacuna = '$clave'
+sql;
+      return $mysqli->update($query);
+    }
+
     public static function getByIdUser($id){
       $mysqli = Database::getInstance();
       $query=<<<sql
@@ -67,7 +86,7 @@ sql;
     public static function getAsignaCurso($usuario){
       $mysqli = Database::getInstance(true);
       $query =<<<sql
-      SELECT r.*, c.nombre AS nombre_curso, c.fecha_curso, c.free, c.tipo, c.clave
+      SELECT r.*, c.nombre AS nombre_curso, c.*
       FROM asigna_curso ac
       INNER JOIN registrados r
       ON ac.id_registrado = r.id_registrado
