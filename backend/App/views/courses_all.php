@@ -136,8 +136,6 @@
                         <!-- <video id="transmision_prueba" src="/videos/dfic.mp4" muted="true" autoplay="false" loop controls></video>
                         <h3 id="tiempo_segundos"></h3> -->
                         <h5 class="text-center">Usted tiene disponible los siguientes cursos:</h5>
-
-
                         <!-- <p><a href="https://vimeo.com/83275796">Daft Punk - Instant Crush Ft. Julian Casablancas</a> from <a href="https://vimeo.com/strokeee">stroke</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
 
                         <!-- <iframe id="iframe-video-2" class="bg-gradient-warning" onload="textodeiframe()" src="/html/videos.php" frameborder="0">a</iframe> -->
@@ -146,7 +144,7 @@
                         </div> -->
                     </div>
 
-                    <div class="row mt-4">
+                    <div class="row mt-5">
                         <!-- <div class="col-12 col-md-6">
                             <div class="card card-body">
                             </div>
