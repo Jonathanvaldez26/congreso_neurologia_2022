@@ -84,6 +84,8 @@
 
                     </div>
 
+                    <input type="text" value="<?php echo $clave;?>" id="clave_video" readonly hidden>
+
                     <div class="row mt-5">
                         <!-- <div class="col-12 col-md-6">
                             <div class="card card-body">
@@ -117,7 +119,7 @@
                     </div>
                     <div class="row">
                         <div class="button-row d-flex mt-4 col-12">
-                            <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
+                            <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Talleres/" title="Prev">Regresar</a>
                         </div>
                     </div>
                 </div>
@@ -245,9 +247,51 @@
         function mandarMensaje() {
             vista++;
             console.log("Vista nueva al video: "+vista);
+
+            clave_video = $('#clave_video').val();
+
+            $.ajax({
+                url: "/Talleres/Vistas",
+                type: "POST",
+                data: {clave_video},
+                beforeSend: function() {
+                    console.log("Procesando....");
+                },
+                success: function(respuesta) {
+
+                    console.log(respuesta);
+                    // console.log(respuesta);
+                    // if (respuesta == 'success') {
+                        
+                    //     Swal.fire(
+                    //     '¡Pase de Abordar enviado!',
+                    //     'El documento ha sido enviado',
+                    //     'success'
+                    //     ).then((data) =>{
+                    //         // console.log();
+                    //         $('#btn-borrar-'+id_btn).attr('hidden',true);
+                    //         $('#btn-enviar_email-'+id_btn).attr('hidden',true);                                  
+                            
+                    //         //$(this).attr('hidden',true);
+                    //     })
+
+                    // }
+                    // else{
+                    //     Swal.fire(
+                    //     'No se pudo enviar el correo!',
+                    //     'Hubo un error al enviar el archivo',
+                    //     'error'
+                    //     ) 
+                    // }
+                    
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+            });
         }
 
-        repetirCadaSegundo();
+        
     })
     
 </script>

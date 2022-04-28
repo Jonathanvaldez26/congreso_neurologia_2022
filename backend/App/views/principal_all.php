@@ -8,7 +8,7 @@
         <!-- <video class="video-fondo" autoplay="true" muted="false" loop="true" src="/videos/dfic.mp4" type="video/mp4">
         </video> -->
 
-        <div class="barra-amarilla"></div>
+        <!-- <div class="barra-amarilla"></div> -->
 
         <div class="barra-verde"></div>
 

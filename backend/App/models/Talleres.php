@@ -34,8 +34,17 @@ sql;
     public static function updateVistasByClave($clave,$vistas){
       $mysqli = Database::getInstance();
       $query=<<<sql
-        UPDATE cursos SET validado = '$vistas'
-        WHERE id_comprobante_vacuna = '$clave'
+        UPDATE cursos SET vistas = '$vistas'
+        WHERE clave = '$clave'
+sql;
+      return $mysqli->update($query);
+    }
+
+    public static function updateLike($id_curso, $registrado,$status){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+        UPDATE likes SET status = '$status'
+        WHERE id_curso = '$id_curso' AND id_registrado = '$registrado'
 sql;
       return $mysqli->update($query);
     }
@@ -47,6 +56,30 @@ sql;
 sql;
       return $mysqli->queryAll($query);
     }
+
+    public static function getlike($id_curso, $registrado){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+        SELECT * 
+        FROM likes
+        WHERE id_registrado = $registrado AND id_curso = '$id_curso'
+sql;
+      return $mysqli->queryOne($query);
+    }
+    public static function insertLike($curso,$registrado){
+      // $fecha_carga_documento = date("Y-m-d");
+      $mysqli = Database::getInstance(1);
+      $query=<<<sql
+      INSERT INTO likes(id_like, id_registrado, id_curso, status) 
+      VALUES (null,'$registrado','$curso','1')
+sql;
+
+    $id = $mysqli->insert($query);
+
+    //UtileriasLog::addAccion($accion);
+    return $id;
+      // return "insert"+$data;
+  }
 
     public static function insert($data){
         $fecha_carga_documento = date("Y-m-d");

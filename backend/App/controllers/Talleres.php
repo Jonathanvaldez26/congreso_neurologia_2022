@@ -128,33 +128,48 @@ html;
             
             
             <div class="col-12 col-md-3">
-                <a href="/Talleres/Video/{$value['clave']}">
-                    <div class="card card-body card-course p-0">
-                        <input class="curso" hidden type="text" value="{$value['clave']}" readonly>
-                        <div class="caratula-content">
-                            <img class="caratula-img" src="/caratulas/{$value['caratula']}">
-                            <div class="duracion"><p>{$value['duracion']}</p></div>
-                        </div>
+                <div class="card card-body card-course p-0">
+                    <input class="curso" hidden type="text" value="{$value['clave']}" readonly>
+                    <div class="caratula-content">
+                        <a href="/Talleres/Video/{$value['clave']}"><img class="caratula-img" src="/caratulas/{$value['caratula']}"></a>
+                        <div class="duracion"><p>{$value['duracion']}</p></div>
+                        <!--button class="btn btn-outline-danger"></button-->
+                        
+html;
+
+            $like = TalleresDao::getlike($value['id_curso'],$_SESSION['id_registrado']);
+            if ($like['status'] == 1) {
+                $card_cursos .= <<<html
+                <span id="video_{$value['clave']}" data-clave="{$value['clave']}" class="fas fa-heart heart-like p-2"></span>
+html;
+            } else {
+                $card_cursos .= <<<html
+                <span id="video_{$value['clave']}" data-clave="{$value['clave']}" class="fas fa-heart heart-not-like p-2"></span>
+html;
+            }
+
+            $card_cursos .= <<<html
+                    </div>
+                    <a href="/Talleres/Video/{$value['clave']}">
                         <h6 class="text-left mx-3 mt-2" style="color: black;">{$value['nombre_curso']}</h3>
                         <p class="text-left mx-3 text-sm">{$value['fecha_curso']}<br>
                         {$value['descripcion']}<br>
-html;
-
-
-//             if ($value['tipo'] == 1) {
-//                 $card_cursos .= <<<html
-//                 Modalidad: Presencial<br></p>
-// html;
-//             } else {
-//                 $card_cursos .= <<<html
-//                 Modalidad: Virtual<br></p>
-// html;
-//             }
-            $card_cursos .= <<<html
-                    {$value['vistas']} vistas</p>
+                        {$value['vistas']} vistas</p>
+                    </a>
                 </div>
-            </a>
-        </div>
+            </div>
+
+            <script>
+                // $('#video_{$value['clave']}').on('click', function(){
+                //     let like = $('#video_{$value['clave']}').hasClass('heart-like');
+                    
+                //     if (like){
+                //         $('#video_{$value['clave']}').removeClass('heart-like').addClass('heart-not-like')
+                //     } else {
+                //         $('#video_{$value['clave']}').removeClass('heart-not-like').addClass('heart-like')
+                //     }
+                // });
+            </script>
 html;
         }
 
@@ -282,9 +297,36 @@ html;
         }
     }
 
-    public function Vistas($clave){
+    public function Vistas(){
+        $clave = $_POST['clave_video'];
         $vistas = TalleresDao::getCursoByClave($clave)['vistas'];
         $vistas++;
+
+        TalleresDao::updateVistasByClave($clave,$vistas);
+
+        echo $clave;
+    }
+
+    public function Likes(){
+        $clave = $_POST['clave'];
+        $id_curso = TalleresDao::getCursoByClave($clave)['id_curso'];
+
+        $hay_like = TalleresDao::getlike($id_curso,$_SESSION['id_registrado']);
+        // var_dump($hay_like);
+
+        if ($hay_like) {
+            $status = 0;
+            if ($hay_like['status'] == 1) {
+                $status = 0;
+            } else if ($hay_like['status'] == 0){
+                $status = 1;
+            }
+            TalleresDao::updateLike($id_curso,$_SESSION['id_registrado'],$status);
+            // echo 'siuu '.$clave;
+        } else {
+            TalleresDao::insertLike($id_curso,$_SESSION['id_registrado']);
+            // echo 'nooouuu '.$clave;
+        }
     }
 
     public function uploadComprobante(){

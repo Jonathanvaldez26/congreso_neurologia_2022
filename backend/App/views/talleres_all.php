@@ -168,105 +168,6 @@
     <br>
     <br>
 
-
-    <!-- <div class="modal fade" id="Modal_Vacunacion" tabindex="-1" role="dialog" aria-labelledby="Modal_Vacunacion" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Agregue su Comprobante de Vacunación
-
-                    </h5>
-                    <span type="button" class="btn btn-dark" data-dismiss="modal" aria-label="Close">
-                        X
-                    </span>
-                </div>
-                <div class="modal-header">
-                    <h6>
-                        <label id="fecha_actual">Fecha máxima de validación: <?php echo $fechaActual; ?></label>
-                        <br>
-                        Por favor a continuación ingrese la información solicitada.
-                    </h6>
-                </div>
-
-                <div class="modal-body">
-                    <form method="POST" enctype="multipart/form-data" id="form_vacunacion">
-                        <div class="form-group row">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label col-md-12 col-sm-3 col-xs-12" for="numero_dosis">Seleccione el número de Dosis con el que Cuentas <span class="required">*</span></label>
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                            <input type="date" name="fecha_" id="fecha_" class="form-control col-md-7 col-xs-12">
-                                            <select class="form-control" name="numero_dosis" id="numero_dosis" required>
-                                                <option selected>Seleccione una Opción</option>
-                                                <option value="2">2 Dosis</option>
-                                                <option value="3">3 Dosis</option>
-                                            </select>
-                                        </div>
-                                        <span id="availability_"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="control-label col-md-12 col-sm-3 col-xs-12" for="marca">Seleccione las Marcas de sus Dosis <span class="required">*</span></label>
-                                    <div class="col-md-12 col-sm-12 col-xs-12 checkbox-group required">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Pfizer-BioNTech" name="checkbox_marcas[]">
-                                            <label class="form-check-label">Pfizer-BioNTech</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Cansino" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">Cansino</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="COVAX" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">COVAX</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="AstraZeneca" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">AstraZeneca</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Sputnik V" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">Sputnik V</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Sinovac" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">Sinovac</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Janssen" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">Janssen</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Moderna" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">Moderna</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label class="control-label col-md-12 col-sm-12 col-xs-12" for="file_">Comprobante de Vacuna: <span class="required">*</span></label>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <input type="file" accept="application/pdf" class="form-control" id="file_" name="file_" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <input type="hidden" id="user_" name="user_" value="<?=$_SESSION["utilerias_asistentes_id"]?>">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success" id="btn_upload" name="btn_upload">Aceptar</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
-
-    <?php echo $iframe_doc; ?>
-
     <div class="fixed-bottom navbar-dark">
         <!-- <a class="navbar-brand" href="#!">Footer</a> -->
         <?php echo $footer; ?>
@@ -286,6 +187,72 @@
         function mandarMensaje() {
             console.log("Ha pasado 1 segundo.");
         }
+
+        $('.heart-not-like').on('click', function(){
+            let clave = $(this).attr('data-clave');
+            let heart = $(this);
+
+            if (heart.hasClass('heart-like')) {
+                heart.removeClass('heart-like').addClass('heart-not-like');
+            } else {
+                heart.removeClass('heart-not-like').addClass('heart-like');
+            }
+            console.log('se cambió a like: '+clave);
+            $.ajax({
+                url: "/Talleres/Likes",
+                type: "POST",
+                data: {clave},
+                beforeSend: function() {
+                    console.log("Procesando....");
+                },
+                success: function(respuesta) {
+                    console.log(respuesta);
+                    
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+            });
+        })
+
+        $('.heart-like').on('click', function(){
+            let clave = $(this).attr('data-clave');
+            let heart = $(this);
+
+            if (heart.hasClass('heart-like')) {
+                heart.removeClass('heart-like').addClass('heart-not-like');
+            } else {
+                heart.removeClass('heart-not-like').addClass('heart-like');
+            }
+            console.log('se cambió a like: '+clave);
+            $.ajax({
+                url: "/Talleres/Likes",
+                type: "POST",
+                data: {clave},
+                beforeSend: function() {
+                    console.log("Procesando....");
+                },
+                success: function(respuesta) {
+                    console.log(respuesta);
+                    
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+            });
+        })
+
+        // $('.heart-like').on('click', function(){
+        //     let clave = $(this).attr('data-clave');
+        //     let heart = $(this);
+
+        //     if (heart.hasClass('heart-like')) {
+        //         heart.removeClass('heart-like').addClass('heart-not-like');
+        //     } else {
+        //         heart.removeClass('heart-not-like').addClass('heart-like');
+        //     }
+        //     console.log('se cambió a no like: '+clave);
+        // })
 
         // repetirCadaSegundo();
 

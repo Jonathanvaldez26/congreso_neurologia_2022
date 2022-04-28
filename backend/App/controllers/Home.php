@@ -47,9 +47,9 @@ html;
           //  }
         //}
 
-        $data_user = HomeDao::getDataUser($this->__usuario);
+        // $data_user = HomeDao::getDataUser($this->__usuario);
 
-        $permisos_mexico = $data_user['pais'] != 'México' ? "style=\"display:none;\"" : "";
+        // $permisos_mexico = $data_user['pais'] != 'México' ? "style=\"display:none;\"" : "";
 
         $usuarios = HomeDao::getAllUsers();
         $free_courses = HomeDao::getFreeCourses();

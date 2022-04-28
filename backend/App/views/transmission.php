@@ -132,13 +132,13 @@
                     <div class="col-lg-12 col-md-12 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
                         <div class="nav-wrapper position-relative end-0">
                             <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
-                                <li class="nav-item transmisiones">
+                                <li class="nav-item transmisiones" data-transmision="1">
                                     <a class="nav-link mb-0 px-0 py-1 active" href="#transmision_1" data-bs-toggle="tab" role="tab" aria-selected="true">
                                         <span class="fa fa-handshake-o"></span>
                                         <span class="ms-1">Transmisión 1</span>
                                     </a>
                                 </li>
-                                <li class="nav-item transmisiones">
+                                <li class="nav-item transmisiones" data-transmision="2">
                                     <a class="nav-link mb-0 px-0 py-1" href="#transmision_2" data-bs-toggle="tab" role="tab" aria-selected="false">
                                         <span class="fa fa-hourglass"></span>
                                         <span class="ms-1">Transmisión 2</span>
@@ -168,7 +168,9 @@
                                                 <br>
                                                 <span type="text" name="time_2" id="time_2" ><span>
                                                 </h3>
-                                                <iframe id="iframe-video-2" onload="textodeiframeJQ2()" src="/videos/dfic.mp4" width="640" height="521" frameborder="0">a</iframe>
+                                                <section>
+                                                    <iframe id="iframe-video-2" onload="textodeiframeJQ2()" src="/videos/dfic.mp4" width="640" height="521" frameborder="0">a</iframe>
+                                                </section>
                                             </div>
                                         </div>
                                     </div>
@@ -185,7 +187,9 @@
                                             <br>
                                             <span type="text" name="time_1" id="time_1" ><span>
                                             </h3>
-                                            <iframe id="iframe-video" onload="textodeiframeJQ()" src="https://player.vimeo.com/video/83275796?h=e4a776aa7e" width="640" height="540" frameborder="0" allowfullscreen></iframe>
+                                            <section>
+                                                <iframe id="iframe-video" onload="textodeiframeJQ()" src="https://player.vimeo.com/video/83275796?h=e4a776aa7e" width="640" height="540" frameborder="0" allowfullscreen></iframe>
+                                            </section>
                                             <br><br>
                                         </div>
                                     </div>
@@ -313,11 +317,26 @@
 <script>
     $(document).ready(function(){
 
+        let t1 = $('#transmision_1').html();
+        let t2 = $('#transmision_2').html();
         $('.transmisiones').on('click', function(){
-            let t1 = $('#transmision_1').html();
-            let t2 = $('#transmision_2').html();
-            // let x = $(this);
-            // console.log(x);
+
+            let t_current = $(this).attr('data-transmision');
+
+            if (t_current == 1) {
+                $('#transmision_1').empty();
+                $('#transmision_2').empty();
+                $('#transmision_1').html(t1);
+            }
+
+            if (t_current == 2) {
+                $('#transmision_1').empty();
+                $('#transmision_2').empty();
+                $('#transmision_2').html(t2);
+            }
+
+            // console.log(t1);
+            // console.log(t2);
         });
 
         let identificadorIntervaloDeTiempo;
