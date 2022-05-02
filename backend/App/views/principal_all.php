@@ -72,12 +72,12 @@
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
                             <div class="row">
                                 <div class="col-12 col-md-12">
-                                    <a href="#">
+                                    <a href="#" class="orange-hover">
                                         <div class="card card-link btn-menu-home">
                                             <div class="card-body mt-md-5 text-center content-card-home">
                                                 <div class="col-12 text-center">
                                                     <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
-                                                    <span class="fas fa-home text-large"></span>
+                                                    <span class="fas fa-home text-large orange-hover"></span>
                                                 </div>
 
                                                 <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Inicio</h6>
@@ -91,12 +91,12 @@
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
                             <div class="row">
                                 <div class="col-12 col-md-12">
-                                    <a href="/Account/">
+                                    <a href="/Account/" class="orange-hover">
                                         <div class="card card-link btn-menu-home">
                                             <div class="card-body mt-md-5 text-center content-card-home">
                                                 <div class="col-12 text-center">
                                                     <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
-                                                    <span class="fas fa-user-edit text-large"></span>
+                                                    <span class="fas fa-user-edit text-large orange-hover"></span>
                                                 </div>
 
                                                 <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Datos Personales</h6>
@@ -108,12 +108,12 @@
                             </div>
                         </div>
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="/Transmission/">
+                            <a href="/Transmission/" class="orange-hover">
                                 <div class="card card-link btn-menu-home">
                                     <div class="card-body mt-md-5 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-02.png"> -->
-                                            <span class="fas fa-video text-large"></span>
+                                            <span class="fas fa-video text-large orange-hover"></span>
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Transmisión</h6>
@@ -123,12 +123,12 @@
                             </a>
                         </div>
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#">
+                            <a href="#" class="orange-hover">
                                 <div class="card card-link btn-menu-home">
                                     <div class="card-body mt-md-5 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-02.png"> -->
-                                            <span class="fas fa-book text-large"></span>
+                                            <span class="fas fa-book text-large orange-hover"></span>
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Programa</h6>
@@ -138,12 +138,12 @@
                             </a>
                         </div>
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#">
+                            <a href="#" class="orange-hover">
                                 <div class="card card-link btn-menu-home">
                                     <div class="card-body mt-md-5 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS_Mesa de trabajo 1.png"> -->
-                                            <span class="fas fa-spinner text-large"></span>
+                                            <span class="fas fa-spinner text-large orange-hover"></span>
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Avances</h6>
@@ -153,12 +153,12 @@
                             </a>
                         </div>
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#">
+                            <a href="#" class="orange-hover">
                                 <div class="card card-link btn-menu-home">
                                     <div class="card-body mt-md-5 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-05.png"> -->
-                                            <span class="fas fa-chalkboard-teacher text-large"></span>
+                                            <span class="fas fa-chalkboard-teacher text-large orange-hover"></span>
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Profesores</h6>
@@ -168,12 +168,12 @@
                             </a>
                         </div>
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#">
+                            <a href="#" class="orange-hover">
                                 <div class="card card-link btn-menu-home">
                                     <div class="card-body mt-md-5 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-05.png"> -->
-                                            <span class="fas fa-laptop-house text-large"></span>
+                                            <span class="fas fa-laptop-house text-large orange-hover"></span>
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Trabajos Libres</h6>
@@ -183,12 +183,12 @@
                             </a>
                         </div>
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#">
+                            <a href="#" class="orange-hover">
                                 <div class="card card-link btn-menu-home">
                                     <div class="card-body mt-md-5 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-copyright text-large"></span>
+                                            <span class="fas fa-copyright text-large orange-hover"></span>
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Patrocinadores</h6>
@@ -198,12 +198,12 @@
                             </a>
                         </div>
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="/Talleres/">
+                            <a href="/Talleres/" class="orange-hover">
                                 <div class="card card-link btn-menu-home">
                                     <div class="card-body mt-md-5 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-book-reader text-large"></span>
+                                            <span class="fas fa-book-reader text-large orange-hover"></span>
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Talleres</h6>
@@ -213,12 +213,12 @@
                             </a>
                         </div>
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#">
+                            <a href="#" class="orange-hover">
                                 <div class="card card-link btn-menu-home">
                                     <div class="card-body mt-md-5 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-tasks text-large"></span>
+                                            <span class="fas fa-tasks text-large orange-hover"></span>
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Plenarias</h6>
@@ -228,12 +228,12 @@
                             </a>
                         </div>
                         <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#">
+                            <a href="#" class="orange-hover">
                                 <div class="card card-link btn-menu-home">
                                     <div class="card-body mt-md-5 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-briefcase text-large"></span>
+                                            <span class="fas fa-briefcase text-large orange-hover"></span>
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Sesión de Negocios</h6>

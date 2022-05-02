@@ -118,10 +118,51 @@ html;
 </script>
 
 html;
+        $transmision_1 = TransmisionDao::getTransmisionById(1);
+        $transmision_2 = TransmisionDao::getTransmisionById(2);
 
+        $secs_t1 = TransmisionDao::getProgrsoTransmision($_SESSION['id_registrado'],$transmision_1['id_transmision']);
+        $secs_t2 = TransmisionDao::getProgrsoTransmision($_SESSION['id_registrado'],$transmision_2['id_transmision']);
+
+        if ($secs_t1) {
+            $secs_t1 = TransmisionDao::getProgrsoTransmision($_SESSION['id_registrado'],$transmision_1['id_transmision']);
+        } else {
+            TransmisionDao::insertProgreso($_SESSION['id_registrado'],$transmision_1['id_transmision']);
+            $secs_t1 = TransmisionDao::getProgrsoTransmision($_SESSION['id_registrado'],$transmision_1['id_transmision']);
+        }
+
+        if ($secs_t2) {
+            $secs_t2 = TransmisionDao::getProgrsoTransmision($_SESSION['id_registrado'],$transmision_2['id_transmision']);
+        } else {
+            TransmisionDao::insertProgreso($_SESSION['id_registrado'],$transmision_2['id_transmision']);
+            $secs_t2 = TransmisionDao::getProgrsoTransmision($_SESSION['id_registrado'],$transmision_2['id_transmision']);
+        }
+
+        View::set('transmision_1',$transmision_1);
+        View::set('transmision_2',$transmision_2);
+        View::set('secs_t1',$secs_t1);
+        View::set('secs_t2',$secs_t2);
         View::set('header',$this->_contenedor->header($extraHeader));
         View::set('footer',$extraFooter);
         View::render("transmission");
+    }
+
+    public function updateProgress(){
+        $progreso = $_POST['segundos'];
+        $transmision = $_POST['transmision'];
+
+        TransmisionDao::updateProgreso($transmision, $_SESSION['id_registrado'],$progreso);
+
+        echo $progreso.' ID_Tr: '.$transmision;
+    }
+
+    public function updateProgressWithDate(){
+        $progreso = $_POST['segundos'];
+        $transmision = $_POST['transmision'];
+
+        TransmisionDao::updateProgresoFecha($transmision, $_SESSION['id_registrado'],$progreso);
+
+        echo $progreso.' ID_Tr: '.$transmision;
     }
 
     public function uploadComprobante(){

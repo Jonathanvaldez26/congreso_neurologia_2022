@@ -11,7 +11,7 @@ class LineaGeneral{
     public static function getLineaPrincialAll(){
         $mysqli = Database::getInstance(true);
         $query =<<<sql
-        SELECT * FROM linea_principal
+        SELECT * FROM especialidades
 sql;
 
         return $mysqli->queryAll($query);
@@ -20,7 +20,7 @@ sql;
     public static function getPais(){
         $mysqli = Database::getInstance(true);
         $query =<<<sql
-        SELECT * FROM linea_principal
+        SELECT * FROM especialidades
 sql;
 
         return $mysqli->queryAll($query);
