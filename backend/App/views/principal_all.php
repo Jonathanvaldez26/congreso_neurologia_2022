@@ -69,18 +69,18 @@
             <div class="row">
                 <div class="col-xl-12 mt-xl-0 mt-0">
                     <div class="row mt-md-4 mt-0">
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <div class="row">
                                 <div class="col-12 col-md-12">
                                     <a href="#">
-                                        <div class="card card-link btn-menu-home">
-                                            <div class="card-body mt-md-5 text-center content-card-home">
+                                        <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/1.png)">
+                                            <div class="card-body mt-md-3 text-center content-card-home">
                                                 <div class="col-12 text-center">
                                                     <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
-                                                    <span class="fas fa-home text-large"></span>
+                                                    <!-- <span class="fas fa-home text-large"></span> -->
                                                 </div>
 
-                                                <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Inicio</h6>
+                                                <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Inicio</h6> -->
                                                 <!-- <p class="opacity-8 mb-0 text-sm">Disponible <i class="fa fa-check-circle me-sm-0" style="color: #01a31c"></i></p> -->
                                             </div>
                                         </div>
@@ -88,18 +88,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <div class="row">
                                 <div class="col-12 col-md-12">
                                     <a href="/Account/">
-                                        <div class="card card-link btn-menu-home">
-                                            <div class="card-body mt-md-5 text-center content-card-home">
+                                        <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/3.png)">
+                                            <div class="card-body mt-md-3 text-center content-card-home">
                                                 <div class="col-12 text-center">
                                                     <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
-                                                    <span class="fas fa-user-edit text-large"></span>
+                                                    <!-- <span class="fas fa-user-edit text-large"></span> -->
                                                 </div>
 
-                                                <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Datos Personales</h6>
+                                                <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Datos Personales</h6> -->
                                                 <!-- <p class="opacity-8 mb-0 text-sm">Disponible <i class="fa fa-check-circle me-sm-0" style="color: #01a31c"></i></p> -->
                                             </div>
                                         </div>
@@ -107,136 +107,136 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="/Transmission/">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
+                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/0.png)">
+                                    <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-02.png"> -->
-                                            <span class="fas fa-video text-large"></span>
+                                            <span class="color-yellow fas fa-video text-large"></span>
                                         </div>
                                         
-                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Transmisión</h6>
+                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Transmisión</h6>
                                         <!-- <p class="opacity-8 mb-0 text-sm">Disponible <i class="fa fa-check-circle me-sm-0" style="color: #01a31c"></i></p> -->
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
+                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/0.png)">
+                                    <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-02.png"> -->
-                                            <span class="fas fa-book text-large"></span>
+                                            <span class="color-yellow fas fa-book text-large"></span>
                                         </div>
                                         
-                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Programa</h6>
+                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Programa</h6>
                                         <!-- <p class="opacity-8 mb-0 text-sm">Disponible <i class="fa fa-check-circle me-sm-0" style="color: #01a31c"></i></p> -->
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
+                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/5.png)">
+                                    <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS_Mesa de trabajo 1.png"> -->
-                                            <span class="fas fa-spinner text-large"></span>
+                                            <!-- <span class="color-yellow fas fa-spinner text-large"></span> -->
                                         </div>
                                         
-                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Avances</h6>
+                                        <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Avances</h6> -->
                                         <!-- <p class="opacity-8 mb-0 text-sm">Disponible <i class="fa fa-clock me-sm-0" style="color: #8a6d3b"></i></p> -->
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
+                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/2.png)">
+                                    <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-05.png"> -->
-                                            <span class="fas fa-chalkboard-teacher text-large"></span>
+                                            <!-- <span class="color-yellow fas fa-chalkboard-teacher text-large"></span> -->
                                         </div>
                                         
-                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Profesores</h6>
+                                        <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Profesores</h6> -->
                                         <!-- <p class="opacity-8 mb-0 text-sm">Disponible <i class="fa fa-check-circle me-sm-0" style="color: #01a31c"></i></p> -->
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
+                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/7.png)">
+                                    <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-05.png"> -->
-                                            <span class="fas fa-laptop-house text-large"></span>
+                                            <!-- <span class="color-yellow fas fa-laptop-house text-large"></span> -->
                                         </div>
                                         
-                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Trabajos Libres</h6>
+                                        <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Trabajos Libres</h6> -->
                                         <!-- <p class="opacity-8 mb-0 text-sm">Disponible</p> -->
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
+                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/12.png)">
+                                    <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-copyright text-large"></span>
+                                            <!-- <span class="color-yellow fas fa-copyright text-large"></span> -->
                                         </div>
                                         
-                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Patrocinadores</h6>
+                                        <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Patrocinadores</h6> -->
                                         <!-- <p class="opacity-8 mb-0 text-sm">A un click</p> -->
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="/Talleres/">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
+                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/8.png)">
+                                    <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-book-reader text-large"></span>
+                                            <!-- <span class="color-yellow fas fa-book-reader text-large"></span> -->
                                         </div>
                                         
-                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Talleres</h6>
+                                        <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Talleres</h6> -->
                                         <!-- <p class="opacity-8 mb-0 text-sm">A un click</p> -->
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
+                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/9.png)">
+                                    <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-tasks text-large"></span>
+                                            <!-- <span class="color-yellow fas fa-tasks text-large"></span> -->
                                         </div>
                                         
-                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Plenarias</h6>
+                                        <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Plenarias</h6> -->
                                         <!-- <p class="opacity-8 mb-0 text-sm">A un click</p> -->
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
+                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
+                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/11.png)">
+                                    <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-briefcase text-large"></span>
+                                            <!-- <span class="color-yellow fas fa-briefcase text-large"></span> -->
                                         </div>
                                         
-                                        <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn">Sesión de Negocios</h6>
+                                        <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Sesión de Negocios</h6> -->
                                         <!-- <p class="opacity-8 mb-0 text-sm">A un click</p> -->
                                     </div>
                                 </div>
