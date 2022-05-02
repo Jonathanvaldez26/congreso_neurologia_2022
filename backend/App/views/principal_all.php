@@ -72,21 +72,12 @@
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <div class="row">
                                 <div class="col-12 col-md-12">
-<<<<<<< HEAD
-                                    <a href="#" class="orange-hover">
-                                        <div class="card card-link btn-menu-home">
-                                            <div class="card-body mt-md-5 text-center content-card-home">
-                                                <div class="col-12 text-center">
-                                                    <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
-                                                    <span class="fas fa-home text-large orange-hover"></span>
-=======
                                     <a href="#">
                                         <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/1.png)">
                                             <div class="card-body mt-md-3 text-center content-card-home">
                                                 <div class="col-12 text-center">
                                                     <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
                                                     <!-- <span class="fas fa-home text-large"></span> -->
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                                 </div>
 
                                                 <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Inicio</h6> -->
@@ -100,21 +91,12 @@
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <div class="row">
                                 <div class="col-12 col-md-12">
-<<<<<<< HEAD
-                                    <a href="/Account/" class="orange-hover">
-                                        <div class="card card-link btn-menu-home">
-                                            <div class="card-body mt-md-5 text-center content-card-home">
-                                                <div class="col-12 text-center">
-                                                    <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
-                                                    <span class="fas fa-user-edit text-large orange-hover"></span>
-=======
                                     <a href="/Account/">
                                         <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/3.png)">
                                             <div class="card-body mt-md-3 text-center content-card-home">
                                                 <div class="col-12 text-center">
                                                     <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
                                                     <!-- <span class="fas fa-user-edit text-large"></span> -->
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                                 </div>
 
                                                 <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Datos Personales</h6> -->
@@ -125,15 +107,6 @@
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="/Transmission/" class="orange-hover">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
-                                        <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-02.png"> -->
-                                            <span class="fas fa-video text-large orange-hover"></span>
-=======
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="/Transmission/">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/0.png)">
@@ -141,7 +114,6 @@
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-02.png"> -->
                                             <span class="color-yellow fas fa-video text-large"></span>
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Transmisión</h6>
@@ -150,15 +122,6 @@
                                 </div>
                             </a>
                         </div>
-<<<<<<< HEAD
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#" class="orange-hover">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
-                                        <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-02.png"> -->
-                                            <span class="fas fa-book text-large orange-hover"></span>
-=======
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/0.png)">
@@ -166,7 +129,6 @@
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-02.png"> -->
                                             <span class="color-yellow fas fa-book text-large"></span>
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                         </div>
                                         
                                         <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Programa</h6>
@@ -175,15 +137,6 @@
                                 </div>
                             </a>
                         </div>
-<<<<<<< HEAD
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#" class="orange-hover">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
-                                        <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS_Mesa de trabajo 1.png"> -->
-                                            <span class="fas fa-spinner text-large orange-hover"></span>
-=======
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/5.png)">
@@ -191,7 +144,6 @@
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS_Mesa de trabajo 1.png"> -->
                                             <!-- <span class="color-yellow fas fa-spinner text-large"></span> -->
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                         </div>
                                         
                                         <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Avances</h6> -->
@@ -200,15 +152,6 @@
                                 </div>
                             </a>
                         </div>
-<<<<<<< HEAD
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#" class="orange-hover">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
-                                        <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-05.png"> -->
-                                            <span class="fas fa-chalkboard-teacher text-large orange-hover"></span>
-=======
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/2.png)">
@@ -216,7 +159,6 @@
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-05.png"> -->
                                             <!-- <span class="color-yellow fas fa-chalkboard-teacher text-large"></span> -->
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                         </div>
                                         
                                         <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Profesores</h6> -->
@@ -225,15 +167,6 @@
                                 </div>
                             </a>
                         </div>
-<<<<<<< HEAD
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#" class="orange-hover">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
-                                        <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-05.png"> -->
-                                            <span class="fas fa-laptop-house text-large orange-hover"></span>
-=======
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/7.png)">
@@ -241,7 +174,6 @@
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-05.png"> -->
                                             <!-- <span class="color-yellow fas fa-laptop-house text-large"></span> -->
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                         </div>
                                         
                                         <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Trabajos Libres</h6> -->
@@ -250,15 +182,6 @@
                                 </div>
                             </a>
                         </div>
-<<<<<<< HEAD
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#" class="orange-hover">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
-                                        <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-copyright text-large orange-hover"></span>
-=======
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/12.png)">
@@ -266,7 +189,6 @@
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
                                             <!-- <span class="color-yellow fas fa-copyright text-large"></span> -->
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                         </div>
                                         
                                         <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Patrocinadores</h6> -->
@@ -275,15 +197,6 @@
                                 </div>
                             </a>
                         </div>
-<<<<<<< HEAD
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="/Talleres/" class="orange-hover">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
-                                        <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-book-reader text-large orange-hover"></span>
-=======
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="/Talleres/">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/8.png)">
@@ -291,7 +204,6 @@
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
                                             <!-- <span class="color-yellow fas fa-book-reader text-large"></span> -->
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                         </div>
                                         
                                         <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Talleres</h6> -->
@@ -300,15 +212,6 @@
                                 </div>
                             </a>
                         </div>
-<<<<<<< HEAD
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#" class="orange-hover">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
-                                        <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-tasks text-large orange-hover"></span>
-=======
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/9.png)">
@@ -316,7 +219,6 @@
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
                                             <!-- <span class="color-yellow fas fa-tasks text-large"></span> -->
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                         </div>
                                         
                                         <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Plenarias</h6> -->
@@ -325,15 +227,6 @@
                                 </div>
                             </a>
                         </div>
-<<<<<<< HEAD
-                        <div class="col-6 m-auto m-md-0 col-md-3 my-md-3 mt-4">
-                            <a href="#" class="orange-hover">
-                                <div class="card card-link btn-menu-home">
-                                    <div class="card-body mt-md-5 text-center content-card-home">
-                                        <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <span class="fas fa-briefcase text-large orange-hover"></span>
-=======
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="#">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/11.png)">
@@ -341,7 +234,6 @@
                                         <div class="col-12 text-center">
                                             <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
                                             <!-- <span class="color-yellow fas fa-briefcase text-large"></span> -->
->>>>>>> 87e8fa26b6eb461b3aee094e3d0975c50bdf49ff
                                         </div>
                                         
                                         <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Sesión de Negocios</h6> -->
