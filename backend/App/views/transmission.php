@@ -83,34 +83,27 @@
               </div>
               
               <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
-
                 <div class="form-check form-switch ms-2">
-                <div class="row text-center">
-                    <div class="col-lg-12 col-md-12 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-                        <div class="nav-wrapper position-relative end-0">
-                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
-                                <li class="nav-item transmisiones px-3" data-transmision="1">
-                                    <a class="nav-link mb-0 px-0 py-1 active" href="#transmision_1" data-bs-toggle="tab" role="tab" aria-selected="true">
-                                        <span class="fa fa-video"></span>
-                                        <span class="ms-1">Transmisión 1</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item transmisiones px-3" data-transmision="2">
-                                    <a class="nav-link mb-0 px-0 py-1" href="#transmision_2" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                        <span class="fas fa-camera"></span>
-                                        <span class="ms-1">Transmisión 2</span>
-                                    </a>
-                                </li>
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link mb-0 px-0 py-1" href="#transmision_3" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                        <span class="fa fa-times"></span>
-                                        <span class="ms-1">Transmisión 3</span>
-                                    </a>
-                                </li> -->
-                            </ul>
+                    <div class="row text-center">
+                        <div class="col-lg-12 col-md-12 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+                            <div class="nav-wrapper position-relative end-0">
+                                <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                    <li class="nav-item transmisiones px-3" data-transmision="1">
+                                        <a class="nav-link mb-0 px-0 py-1 active" href="#transmision_1" data-bs-toggle="tab" role="tab" aria-selected="true">
+                                            <span class="fa fa-video"></span>
+                                            <span class="ms-1">Transmisión 1</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item transmisiones px-3" data-transmision="2">
+                                        <a class="nav-link mb-0 px-0 py-1" href="#transmision_2" data-bs-toggle="tab" role="tab" aria-selected="false">
+                                            <span class="fas fa-camera"></span>
+                                            <span class="ms-1">Transmisión 2</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
               </div>
             </div>
@@ -118,7 +111,7 @@
         </div>
       </div>
 
-      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show position-relative active height-350 border-radius-lg" id="transmision_1" role="tabpanel" aria-labelledby="transmision_1">
                 <div class="row mt-4">
                     <div class="col-10 col-lg-8">

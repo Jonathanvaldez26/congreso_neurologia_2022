@@ -87,7 +87,7 @@ html;
                      console.log(value);
                   }
                   $.ajax({
-                      url:"/Talleres/uploadComprobante",
+                      url:"/Programa/uploadComprobante",
                       type: "POST",
                       data: formData,
                       cache: false,
@@ -102,7 +102,7 @@ html;
                          
                           swal("¡Se ha guardado tu prueba correctamente!", "", "success").
                           then((value) => {
-                              window.location.replace("/Talleres/");
+                              window.location.replace("/Programa/");
                           });
                       }
                       console.log(respuesta);
@@ -119,31 +119,164 @@ html;
 
 html;
 
-        $info = ProgramaDao::getAll();
+        // ----- Variables para la primer fecha ----- //
+        $info_fecha1 = ProgramaDao::getSectionByDate('2022-05-18');
+        $programa_fecha1 = '';
 
-        $programa = '';
+        $programa_fecha1 = <<<html
+        <h4 class="mb-1 mt-1 text-center">Programa</h4>
+        <h5 class="mb-3 text-center">{$info_fecha1[0]['fecha']}</h5>        
+html;
 
-        foreach ($info as $key => $value) {
-            $programa .= <<<html
-            <div class="row">
-                <div class="col-12 col-md-3">
+        foreach ($info_fecha1 as $key => $value) {
+            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
+            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+
+            // $duracion_min = substr($duracion,strlen($duracion)-5,2);
+
+            $programa_fecha1 .= <<<html
+            <div class="row mb-3">
+                <div class="col-12 col-md-2">
                     <span class="color-yellow text-bold">
-                        {$value['hora_inicio']} - {$value['hora_fin']}
+                        {$hora_inicio} - {$hora_fin}
                     </span>
                 </div>
                 <div class="col-12 col-md-7">
-                    <span class="color-green text-lg">
+                    <span class="color-green font-20 text-lg">
                         {$value['descripcion']}
                     </span>
                 </div>
-                <div class="col-12 col-md-2">
-                    {$value['id_ponente']}
+                <div class="col-12 col-md-3">
+                    <span class="color-vine font-16 text-bold">
+                        {$value['prefijo']} {$value['nombre_profesor']}
+                    </span>
+                    <p class="color-vine font-12 text-sm">
+                        {$value['desc_profesor']}
+                    </p>
                 </div>
             </div>
 html;
         }
 
-        View::set('programa',$programa);
+        // ----- Variables para la segunda fecha ----- //
+        $info_fecha2 = ProgramaDao::getSectionByDate('2022-05-19');
+        $programa_fecha2 = <<<html
+        <h4 class="mb-1 mt-1 text-center">Programa</h4>
+        <h5 class="mb-3 text-center">{$info_fecha2[0]['fecha']}</h5>    
+html;
+
+        foreach ($info_fecha2 as $key => $value) {
+            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
+            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+
+            // $duracion_min = substr($duracion,strlen($duracion)-5,2);
+
+            $programa_fecha2 .= <<<html
+            <div class="row mb-3">
+                <div class="col-12 col-md-2">
+                    <span class="color-yellow text-bold">
+                        {$hora_inicio} - {$hora_fin}
+                    </span>
+                </div>
+                <div class="col-12 col-md-7">
+                    <span class="color-green font-20 text-lg">
+                        {$value['descripcion']}
+                    </span>
+                </div>
+                <div class="col-12 col-md-3">
+                    <span class="color-vine font-16 text-bold">
+                        {$value['prefijo']} {$value['nombre_profesor']}
+                    </span>
+                    <p class="color-vine font-12 text-sm">
+                        {$value['desc_profesor']}
+                    </p>
+                </div>
+            </div>
+html;
+        }
+
+        // ----- Variables para la tercer fecha ----- //
+        $info_fecha3 = ProgramaDao::getSectionByDate('2022-05-20');
+        $programa_fecha3 = <<<html
+        <h4 class="mb-1 mt-1 text-center">Programa</h4>
+        <h5 class="mb-3 text-center">{$info_fecha3[0]['fecha']}</h5>        
+html;
+
+        foreach ($info_fecha3 as $key => $value) {
+            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
+            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+
+            // $duracion_min = substr($duracion,strlen($duracion)-5,2);
+
+            $programa_fecha3 .= <<<html
+            <div class="row mb-3">
+                <div class="col-12 col-md-2">
+                    <span class="color-yellow text-bold">
+                        {$hora_inicio} - {$hora_fin}
+                    </span>
+                </div>
+                <div class="col-12 col-md-7">
+                    <span class="color-green font-20 text-lg">
+                        {$value['descripcion']}
+                    </span>
+                </div>
+                <div class="col-12 col-md-3">
+                    <span class="color-vine font-16 text-bold">
+                        {$value['prefijo']} {$value['nombre_profesor']}
+                    </span>
+                    <p class="color-vine font-12 text-sm">
+                        {$value['desc_profesor']}
+                    </p>
+                </div>
+            </div>
+html;
+        }
+
+        // ----- Variables para la tercer fecha ----- //
+        $info_fecha4 = ProgramaDao::getSectionByDate('2022-05-21');
+        $programa_fecha4 = <<<html
+        <h4 class="mb-1 mt-1 text-center">Programa</h4>
+        <h5 class="mb-3 text-center">{$info_fecha4[0]['fecha']}</h5>        
+html;
+
+        if ($info_fecha4) {
+            foreach ($info_fecha4 as $key => $value) {
+                $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
+                $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+    
+                // $duracion_min = substr($duracion,strlen($duracion)-5,2);
+    
+                $programa_fecha4 .= <<<html
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2">
+                        <span class="color-yellow text-bold">
+                            {$hora_inicio} - {$hora_fin}
+                        </span>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <span class="color-green font-20 text-lg">
+                            {$value['descripcion']}
+                        </span>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <span class="color-vine font-16 text-bold">
+                            {$value['prefijo']} {$value['nombre_profesor']}
+                        </span>
+                        <p class="color-vine font-12 text-sm">
+                            {$value['desc_profesor']}
+                        </p>
+                    </div>
+                </div>
+html;
+            }
+        }
+
+        
+
+        View::set('programa_fecha1',$programa_fecha1);
+        View::set('programa_fecha2',$programa_fecha2);
+        View::set('programa_fecha3',$programa_fecha3);
+        View::set('programa_fecha4',$programa_fecha4);
         View::set('header',$this->_contenedor->header($extraHeader));
         View::set('footer',$this->_contenedor->footer($extraFooter));
         View::render("programa");
@@ -155,26 +288,26 @@ html;
         $progreso = $_POST['segundos'];
         $curso = $_POST['curso'];
 
-        TalleresDao::updateProgresoFecha($curso, $_SESSION['id_registrado'],$progreso);
+        ProgramaDao::updateProgresoFecha($curso, $_SESSION['id_registrado'],$progreso);
 
         echo 'minuto '.$progreso.' '.$curso;
     }
 
     public function Vistas(){
         $clave = $_POST['clave_video'];
-        $vistas = TalleresDao::getCursoByClave($clave)['vistas'];
+        $vistas = ProgramaDao::getCursoByClave($clave)['vistas'];
         $vistas++;
 
-        TalleresDao::updateVistasByClave($clave,$vistas);
+        ProgramaDao::updateVistasByClave($clave,$vistas);
 
         echo $clave;
     }
 
     public function Likes(){
         $clave = $_POST['clave'];
-        $id_curso = TalleresDao::getCursoByClave($clave)['id_curso'];
+        $id_curso = ProgramaDao::getCursoByClave($clave)['id_curso'];
 
-        $hay_like = TalleresDao::getlike($id_curso,$_SESSION['id_registrado']);
+        $hay_like = ProgramaDao::getlike($id_curso,$_SESSION['id_registrado']);
         // var_dump($hay_like);
 
         if ($hay_like) {
@@ -184,10 +317,10 @@ html;
             } else if ($hay_like['status'] == 0){
                 $status = 1;
             }
-            TalleresDao::updateLike($id_curso,$_SESSION['id_registrado'],$status);
+            ProgramaDao::updateLike($id_curso,$_SESSION['id_registrado'],$status);
             // echo 'siuu '.$clave;
         } else {
-            TalleresDao::insertLike($id_curso,$_SESSION['id_registrado']);
+            ProgramaDao::insertLike($id_curso,$_SESSION['id_registrado']);
             // echo 'nooouuu '.$clave;
         }
     }
@@ -216,7 +349,7 @@ html;
             $documento->_numero_dosis = $numero_dosis;
             $documento->_marca_dosis = $marca;
 
-            $id = TalleresDao::insert($documento);
+            $id = ProgramaDao::insert($documento);
 
             if ($id) {
                 echo 'success';

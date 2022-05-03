@@ -12,8 +12,23 @@ class Programa{
     public static function getAll(){
       $mysqli = Database::getInstance();
       $query=<<<sql
-        SELECT *
-        FROM programa
+        SELECT pg.*, pf.nombre AS nombre_profesor, pf.prefijo, pf.descripcion AS desc_profesor
+        FROM programa pg
+        INNER JOIN profesores pf
+        ON pg.id_profesor = pf.id_profesor
+sql;
+      return $mysqli->queryAll($query);
+    }
+
+    public static function getSectionByDate($fecha){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+        SELECT pg.*, pf.nombre AS nombre_profesor, pf.prefijo, pf.descripcion AS desc_profesor
+        FROM programa pg
+        INNER JOIN profesores pf
+        ON pg.id_profesor = pf.id_profesor
+
+        WHERE fecha = '$fecha'
 sql;
       return $mysqli->queryAll($query);
     }
