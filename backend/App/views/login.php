@@ -204,7 +204,7 @@ echo $header;
                         </button>
                     </div>
                     <div class="modal-body">
-                        <iframe src="/assets/pdf/pdf-prueba.pdf" frameborder="0" style="width: -webkit-fill-available;
+                        <iframe src="/assets/pdf/programa.pdf" frameborder="0" style="width: -webkit-fill-available;
     max-width: -webkit-fill-available; height:700px;"></iframe>
                     </div>
                     <!-- <div class="modal-footer">

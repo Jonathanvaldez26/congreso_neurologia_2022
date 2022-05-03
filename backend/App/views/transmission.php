@@ -4,70 +4,7 @@
 <?php echo $header; ?>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
-    <script language="javascript" type="text/javascript">
-        // function textodeiframe(){
-        //     var frame = document.getElementById('iframe-video');
-        //     var v = frame.contentDocument.getElementsByTagName('video');
-        //     // document.getElementById('txt2').value = txt;
-
-        //     // var v = document.getElementById("transmision_prueba");
-        //     // v[0].attr('muted',true);
-        //     v[0].addEventListener("timeupdate",function(ev){
-        //         document.getElementById("time_2").innerHTML = v[0].currentTime;
-        //         // console.log(v[0].currentTime);
-        //     },true);
-        // }
-
-        function textodeiframeJQ(){
-            let frame = $('#iframe-video');
-            let video = frame.contents().find('video');
-
-            video.prop('muted',true);
-            video.prop('autoplay',true);
-
-            video.on('timeupdate', function(){
-                $('#time_2').html(video[0].currentTime);
-            });
-            // console.log(doc);
-            // var frame = document.getElementById('iframe-video');
-            // var v = frame.contentDocument.getElementsByTagName('video');
-            // document.getElementById('txt2').value = txt;
-
-            // var v = document.getElementById("transmision_prueba");
-            // v[0].attr('muted',true);
-            // v[0].addEventListener("timeupdate",function(ev){
-            //     document.getElementById("time_2").innerHTML = v[0].currentTime;
-            //     // console.log(v[0].currentTime);
-            // },true);
-        }
-        function textodeiframeJQ2(){
-            let frame = $('#iframe-video-2');
-            let video = frame.contents().find('video');
-
-            video.prop('muted',true);
-            video.prop('autoplay',true);
-
-            video.on('timeupdate', function(){
-                $('#time_2').html(video[0].currentTime);
-            });
-            // console.log(doc);
-            // var frame = document.getElementById('iframe-video');
-            // var v = frame.contentDocument.getElementsByTagName('video');
-            // document.getElementById('txt2').value = txt;
-
-            // var v = document.getElementById("transmision_prueba");
-            // v[0].attr('muted',true);
-            // v[0].addEventListener("timeupdate",function(ev){
-            //     document.getElementById("time_2").innerHTML = v[0].currentTime;
-            //     // console.log(v[0].currentTime);
-            // },true);
-        }
-
-        $(document).ready(function(){
-            // textodeiframe();
-            textodeiframeJQ();
-        })
-    </script>
+    
     <nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky" id="navbarBlur" data-scroll="true">
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
@@ -128,13 +65,13 @@
             <div class="row justify-content-center align-items-center">
               <div class="col-sm-auto col-4">
                 <div class="avatar avatar-xl position-relative">
-                  <img src="data:image/jpeg;base64,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" alt="bruce" class="w-100 border-radius-lg shadow-sm">
+                  <img src="/assets/img/Logo_SMNP.png">
                 </div>
               </div>
               <div class="col-sm-auto col-8 my-auto">
                 <div class="h-100">
                     <h5 class="mb-1 font-weight-bolder" id="nombre_transmision">
-                        Nombre de la transmisión
+                        <?php echo $transmision_1['nombre'];?>
                     </h5>
                   
                     <input type="text" id="nombre_t1" value="<?php echo $transmision_1['nombre'];?>" readonly hidden>
@@ -152,15 +89,15 @@
                     <div class="col-lg-12 col-md-12 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
                         <div class="nav-wrapper position-relative end-0">
                             <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
-                                <li class="nav-item transmisiones" data-transmision="1">
+                                <li class="nav-item transmisiones px-3" data-transmision="1">
                                     <a class="nav-link mb-0 px-0 py-1 active" href="#transmision_1" data-bs-toggle="tab" role="tab" aria-selected="true">
-                                        <span class="fa fa-handshake-o"></span>
+                                        <span class="fa fa-video"></span>
                                         <span class="ms-1">Transmisión 1</span>
                                     </a>
                                 </li>
-                                <li class="nav-item transmisiones" data-transmision="2">
+                                <li class="nav-item transmisiones px-3" data-transmision="2">
                                     <a class="nav-link mb-0 px-0 py-1" href="#transmision_2" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                        <span class="fas fa-signal-stream"></span>
+                                        <span class="fas fa-camera"></span>
                                         <span class="ms-1">Transmisión 2</span>
                                     </a>
                                 </li>
@@ -185,32 +122,38 @@
             <div class="tab-pane fade show position-relative active height-350 border-radius-lg" id="transmision_1" role="tabpanel" aria-labelledby="transmision_1">
                 <div class="row mt-4">
                     <div class="col-10 col-lg-8">
-                    <div class="card">
-                        <div class="card-body">
-                        <div class="row">
-                            <div class="col-12 col-md-12 m-auto text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 m-auto text-center">
                             <!-- <img alt="Image placeholder" style="width: 100%" src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2100&q=80" class="img-fluid border-radius-lg shadow-lg"> -->
-                                <section>
-                                    <iframe id="iframe-video-2" onload="textodeiframeJQ2()" src="<?php echo $transmision_1['url'];?>" width="640" height="521" frameborder="0">a</iframe>
-                                </section>
-                            </div>
-                        </div>
-                        <div class="row align-items-center px-2 mt-4 mb-2">
-                            <div class="col-sm-6">
-                            <div class="d-flex">
-                                <div class="d-flex align-items-center">
-                                <i class="ni ni-like-2 me-1 cursor-pointer"></i>
-                                <span class="text-sm me-3 ">150</span>
+                                        <input type="text" readonly hidden id="secs_t1" value="<?php echo $secs_t1['segundos'];?>">
+                                        <input type="text" readonly hidden id="status_t1" value="<?php echo $transmision_1['status'];?>">
+                                        <input type="text" readonly hidden id="duracion_t1" value="<?php echo $transmision_1['duracion'];?>">
+                                        <span type="text" name="time_watch_1" id="time_watch_1" ></span>
+                                        <section id="iframe_1_section">
+                                            <iframe class="frame-transmision" src="<?php echo $transmision_1['url'];?>" frameborder="0"></iframe>
+                                        </section>
+                                
+                                        <img id="img-stanby-1" class="frame-transmision" hidden src="/assets/img/stand_by.jpg" alt="">
+                                    </div>
                                 </div>
-                                <div class="d-flex align-items-center">
-                                <i class="ni ni-chat-round me-1 cursor-pointer"></i>
-                                <span class="text-sm me-3">36</span>
-                                </div>
-                            </div>
-                            </div>
+                                <div class="row align-items-center px-2 mt-4 mb-2">
+                                    <div class="col-sm-6">
+                                        <div class="d-flex">
+                                            <div class="d-flex align-items-center">
+                                                <i class="ni ni-like-2 me-1 cursor-pointer"></i>
+                                                <span class="text-sm me-3 ">150</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <i class="ni ni-chat-round me-1 cursor-pointer"></i>
+                                                <span class="text-sm me-3">36</span>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <hr class="horizontal dark my-3">
-                        </div>
+                                    <hr class="horizontal dark my-3">
+                                </div>
                         <!-- Comments -->
                         <div class="mb-1">
                             <div class="d-flex">
@@ -267,16 +210,16 @@
                         </div>
                     </div>
                     </div>
-                    <div class="col-10 col-lg-4">
+                    <div class="col-11 col-lg-4">
                     <div class="card">
                         <div class="card blur shadow-blur max-height-vh-70">
                         <div class="card-header shadow-lg">
                             <div class="row">
                             <div class="col-md-10">
                                 <div class="d-flex align-items-center">
-                                <img alt="Image" src="../../../assets/img/bruce-mars.jpg" class="avatar">
+                                <img alt="Image" src="../../../img/users_musa/<?php echo $info_user['avatar_img'];?>" class="avatar">
                                 <div class="ms-3">
-                                    <h6 class="mb-0 d-block">Dr. Charlie Watson</h6>
+                                    <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'].' '.$info_user['nombre'];?></h6>
                                     <span class="text-sm text-dark opacity-8">Tus Preguntas al Ponente</span>
                                 </div>
                                 </div>
@@ -488,9 +431,15 @@
                             <div class="row">
                                 <div class="col-12 col-md-12 m-auto text-center">
                                 <!-- <img alt="Image placeholder" style="width: 100%" src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2100&q=80" class="img-fluid border-radius-lg shadow-lg"> -->
-                                    <section>
-                                        <iframe id="iframe-video-2" onload="textodeiframeJQ2()" src="<?php echo $transmision_2['url'];?>" width="640" height="521" frameborder="0">a</iframe>
+                                    <input type="text" readonly hidden id="secs_t2" value="<?php echo $secs_t2['segundos'];?>">
+                                    <input type="text" readonly hidden id="status_t2" value="<?php echo $transmision_2['status'];?>">
+                                    <input type="text" readonly hidden id="duracion_t2" value="<?php echo $transmision_2['duracion'];?>">
+                                    <span type="text" name="time_watch_2" id="time_watch_2" ></span>
+                                    <section id="iframe_2_section">
+                                        <iframe class="frame-transmision" src="<?php echo $transmision_2['url'];?>" frameborder="0"></iframe>
                                     </section>
+                                    
+                                    <img id="img-stanby-2" class="frame-transmision" hidden src="/assets/img/stand_by.jpg" alt="">
                                 </div>
                             </div>
                             <div class="row align-items-center px-2 mt-4 mb-2">
@@ -565,16 +514,16 @@
                             </div>
                         </div>
                         </div>
-                        <div class="col-10 col-lg-4">
+                        <div class="col-11 col-lg-4">
                         <div class="card">
                             <div class="card blur shadow-blur max-height-vh-70">
                             <div class="card-header shadow-lg">
                                 <div class="row">
                                 <div class="col-md-10">
                                     <div class="d-flex align-items-center">
-                                    <img alt="Image" src="../../../assets/img/bruce-mars.jpg" class="avatar">
+                                    <img alt="Image" src="../../../img/users_musa/<?php echo $info_user['avatar_img'];?>" class="avatar">
                                     <div class="ms-3">
-                                        <h6 class="mb-0 d-block">Dr. Charlie Watson</h6>
+                                        <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'].' '.$info_user['nombre'];?></h6>
                                         <span class="text-sm text-dark opacity-8">Tus Preguntas al Ponente</span>
                                     </div>
                                     </div>
@@ -842,26 +791,72 @@
             });
         }
 
+        let status_1 = $('#status_t1').val();
+        let status_2 = $('#status_t2').val();
+
+        let tiempo_1 = $('#duracion_t1').val();
+        let duracion_1 = (parseInt(tiempo_1.substr(0, tiempo_1.indexOf(':')))*3600)+(parseInt(tiempo_1.substr(tiempo_1.length-5, 2))*60)+(parseInt(tiempo_1.substr(tiempo_1.length-2, 2)));
+
+        let tiempo_2 = $('#duracion_t2').val();
+        let duracion_2 = (parseInt(tiempo_2.substr(0, tiempo_2.indexOf(':')))*3600)+(parseInt(tiempo_2.substr(tiempo_2.length-5, 2))*60)+(parseInt(tiempo_2.substr(tiempo_2.length-2, 2)));
+        
+        // Esconder el iframe y mostrar la imagen si la transmision no está activa
+        if (status_1 == 2) {
+            $('#iframe_1_section').attr('hidden',false);
+            $('#img-stanby-1').attr('hidden',true);
+        } else {
+            $('#iframe_1_section').attr('hidden',true);
+            $('#img-stanby-1').attr('hidden',false);
+        }
+
+        if (status_2 == 2) {
+            $('#iframe_2_section').attr('hidden',false);
+            $('#img-stanby-2').attr('hidden',true);
+        } else {
+            $('#iframe_2_section').attr('hidden',true);
+            $('#img-stanby-2').attr('hidden',false);
+        }
+
         var intervalo;
         let tiempo;
 
         let transmision_actual = 1;
 
         //Variables para conteo de tiempo de transmisión 1
-        var inicio = $('#secs_t1').val()-2;
+        var inicio = $('#secs_t1').val()-0;
         let min = 0;
         let sec = 0;
         let cut_mod_min;
         let increment = 1;
 
         //Variables para conteo de tiempo de transmisión 2
-        var inicio_2 = $('#secs_t2').val()-2;
+        var inicio_2 = $('#secs_t2').val()-0;
         let min_2 = 0;
         let sec_2 = 0;
         let cut_mod_min_2;
         let increment_2 = 0;
 
         let total_time = 0;
+        let ventana = 1;
+
+        // Condicion que revisa el status de la transmision,
+        // además de revisar el tiempo que ha transcurrido de progreso
+        // no supere el tiempo total de la transmision
+        // para saber si seguir contanto el tiempo de progreso o no
+
+        // Transmision 1
+        if (status_1 == 2) {
+            increment = 1;
+        } else {
+            increment = 0;
+        }
+
+        // Transmision 2
+        if (status_2 == 2) {
+            increment_2 = 1;
+        } else {
+            increment_2 = 0;
+        }
 
         function countTime(){
 
@@ -870,69 +865,27 @@
                 inicio_2 += increment_2;
 
                 total_time++;
-                
-                // if (inicio >= 60) {
-                //     mins = (inicio/60);
-                //     sec = inicio%60;
-                //     let x = mins.toString().indexOf('.');
-
-                //     if (x == -1) {
-                //         min = mins;
-                //     } else {
-                //         cut_mod_min = mins.toString().substring(0,x);
-                //         let min = cut_mod_min;
-                //         // console.log(cut_mod_min);
-                //     }
-
-                //     if (sec < 10) {
-                //         $('#time_watch_1').html(min+' 0'+sec); 
-                //     } else {
-                //         $('#time_watch_1').html(min+' '+sec);
-                //     }
-                // } else if(inicio < 0) {
-                //     // $('#time_watch_1').html(inicio);
-                // } else {
-                //     $('#time_watch_1').html(inicio);
-                // }
-
-
-                // if (inicio_2 >= 60) {
-                //     mins_2 = (inicio_2/60);
-                //     sec_2 = inicio_2%60;
-                //     let z = mins_2.toString().indexOf('.');
-
-                //     if (z == -1) {
-                //         min_2 = mins_2;
-                //     } else {
-                //         cut_mod_min_2 = mins_2.toString().substring(0,z);
-                //         let min_2 = cut_mod_min_2;
-                //         // console.log(cut_mod_min_2);
-                //     }
-
-                //     if (sec_2 < 10) {
-                //         $('#time_watch_2').html(min_2+' 0'+sec_2); 
-                //     } else {
-                //         $('#time_watch_2').html(min_2+' '+sec_2);
-                //     }
-                // } else if(inicio_2 < 0) {
-                //     // $('#time_watch_2').html(inicio_2);
-                // } else {
-                //     $('#time_watch_2').html(inicio_2);
-                // }
-
-                let status_1 = $('#status_t1').val();
-                let status_2 = $('#status_t2').val();
 
                 if (status_1 == 2) {
-                    console.log('listo para correr el tiempo (1)');
+                    if (duracion_1 >= inicio+1 && transmision_actual == 1 && ventana == 1) {
+                        increment = 1;
+                        console.log(duracion_1);
+                    } else {
+                        increment = 0;
+                    }
                 } else {
-                    console.log('NOOO listo para correr el tiempo (1)');
+                    increment = 0;
                 }
 
                 if (status_2 == 2) {
-                    console.log('listo para correr el tiempo (2)');
+                    if (duracion_2 >= inicio_2+1 && transmision_actual == 2 && ventana == 1) {
+                        increment_2 = 1;
+                        console.log(duracion_2);
+                    } else {
+                        increment_2 = 0;
+                    }
                 } else {
-                    console.log('NOOO listo para correr el tiempo (2)');
+                    increment_2 = 0;
                 }
 
                 if ((total_time % 60) == 0) {
@@ -946,20 +899,51 @@
                         actualizarProgreso(1,inicio);
                     }
                 }
+
+                
                 
             },1000);
+            
             $(window).blur(function() {
-                console.log('fuera de la ventana');
+                ventana = 0;
                 increment = 0;
                 increment_2 = 0;
+                console.log('fuera de la ventana');
             });
             $(window).focus(function() {
+                ventana = 1;
                 console.log('dentro de la ventana');
+                let status_1 = $('#status_t1').val();
+                let status_2 = $('#status_t2').val();
+
+                let duracion_1 = $('#duracion_t1').val();
+                let duracion_2 = $('#duracion_t2').val();
+
                 if (transmision_actual == 1) {
-                    increment = 1;
-                } else if(transmision_actual == 2) {
-                    increment_2 = 1;
+                    // Transmision 1
+                    if (status_1 == 2) {
+                        if (duracion_1 >= inicio+1 && transmision_actual == 2 && ventana == 1) {
+                            increment = 1;
+                        } else {
+                            increment = 0;
+                        }
+                    } else {
+                        increment = 0;
+                    }
+                    
+                } else if(transmision_actual == 2 ) {
+                    // Transmision 2
+                    if (status_2 == 2) {
+                        if (duracion_2 >= inicio_2+1&& transmision_actual == 2 && ventana == 1) {
+                            increment_2 = 1;
+                        } else {
+                            increment_2 = 0;
+                        }
+                    } else {
+                        increment_2 = 0;
+                    }
                 }
+
             });
         }
 
@@ -973,23 +957,39 @@
             let t_current = $(this).attr('data-transmision');
 
             if (t_current == 1) {
-                // $('#nombre_transmision').html($('#nombre_t1').val());
+                $('#nombre_transmision').html($('#nombre_t1').val());
                 $('#transmision_1').empty();
                 $('#transmision_2').empty();
                 $('#transmision_1').html(t1);
-                increment = 1;
                 increment_2 = 0;
                 transmision_actual = 1;
+                if (status_1 == 2) {
+                    if (duracion_1 >= inicio+1 && transmision_actual == 2) {
+                        increment_1 = 1;
+                    } else {
+                        increment_1 = 0;
+                    }
+                } else {
+                    increment = 0;
+                }
             }
 
             if (t_current == 2) {
-                // $('#nombre_transmision').html($('#nombre_t2').val());
+                $('#nombre_transmision').html($('#nombre_t2').val());
                 $('#transmision_1').empty();
                 $('#transmision_2').empty();
                 $('#transmision_2').html(t2);
                 increment = 0;
-                increment_2 = 1;
                 transmision_actual = 2;
+                if (status_2 == 2) {
+                    if (duracion_2 >= inicio_2+1 && transmision_actual == 2) {
+                        increment_2 = 1;
+                    } else {
+                        increment_2 = 0;
+                    }
+                } else {
+                    increment_2 = 0;
+                }
             }
         });
 
@@ -1002,7 +1002,56 @@
         function mandarMensaje() {
             console.log("Ha pasado 1 segundo.");
         }
-
-        // repetirCadaSegundo();
     });
+</script>
+
+<script>
+    // if (inicio >= 60) {
+    //     mins = (inicio/60);
+    //     sec = inicio%60;
+    //     let x = mins.toString().indexOf('.');
+
+    //     if (x == -1) {
+    //         min = mins;
+    //     } else {
+    //         cut_mod_min = mins.toString().substring(0,x);
+    //         let min = cut_mod_min;
+    //         // console.log(cut_mod_min);
+    //     }
+
+    //     if (sec < 10) {
+    //         $('#time_watch_1').html(min+' 0'+sec); 
+    //     } else {
+    //         $('#time_watch_1').html(min+' '+sec);
+    //     }
+    // } else if(inicio < 0) {
+    //     // $('#time_watch_1').html(inicio);
+    // } else {
+    //     $('#time_watch_1').html(inicio);
+    // }
+
+
+    // if (inicio_2 >= 60) {
+    //     mins_2 = (inicio_2/60);
+    //     sec_2 = inicio_2%60;
+    //     let z = mins_2.toString().indexOf('.');
+
+    //     if (z == -1) {
+    //         min_2 = mins_2;
+    //     } else {
+    //         cut_mod_min_2 = mins_2.toString().substring(0,z);
+    //         let min_2 = cut_mod_min_2;
+    //         // console.log(cut_mod_min_2);
+    //     }
+
+    //     if (sec_2 < 10) {
+    //         $('#time_watch_2').html(min_2+' 0'+sec_2); 
+    //     } else {
+    //         $('#time_watch_2').html(min_2+' '+sec_2);
+    //     }
+    // } else if(inicio_2 < 0) {
+    //     // $('#time_watch_2').html(inicio_2);
+    // } else {
+    //     $('#time_watch_2').html(inicio_2);
+    // }
 </script>

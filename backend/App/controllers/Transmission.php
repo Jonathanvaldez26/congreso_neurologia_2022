@@ -1,9 +1,11 @@
 <?php
 namespace App\controllers;
 
+use App\models\General;
 use \Core\View;
 use \Core\Controller;
 use \App\models\Transmision AS TransmisionDao;
+use \App\models\Data AS DataDao;
 
 class Transmission extends Controller{
 
@@ -138,10 +140,13 @@ html;
             $secs_t2 = TransmisionDao::getProgrsoTransmision($_SESSION['id_registrado'],$transmision_2['id_transmision']);
         }
 
+        $info_user = DataDao::getInfoUserById($_SESSION['id_registrado']);
+
         View::set('transmision_1',$transmision_1);
         View::set('transmision_2',$transmision_2);
         View::set('secs_t1',$secs_t1);
         View::set('secs_t2',$secs_t2);
+        View::set('info_user',$info_user);
         View::set('header',$this->_contenedor->header($extraHeader));
         View::set('footer',$extraFooter);
         View::render("transmission");

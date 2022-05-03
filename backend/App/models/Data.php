@@ -88,5 +88,15 @@ sql;
 
         return $id;
     }
+
+  public static function getInfoUserById($id){
+    $mysqli = Database::getInstance(true);
+        $query =<<<sql
+        SELECT * FROM registrados
+        WHERE id_registrado = $id
+sql;
+
+        return $mysqli->queryOne($query);
+  }
    
 }

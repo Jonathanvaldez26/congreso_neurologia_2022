@@ -59,174 +59,226 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-">
-        <div class="row mt-2">
-            <div class="col-lg-2">
-            </div>
-            <div class="card col-lg-8 mt-lg-5 mt-1" >
-                <div class="card-header pb-0 p-3">
-                    <div class="row">
-                    <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px;" alt="">
-                    </div>
-                    <h3 class="mb-1 mt-4 text-center"><?php echo $nombre_taller;?></h3>
-                    <!-- <p class="text-sm text-center">Lista de sus cursos</p> -->
-                </div>
-                <div class="card-body p-3">
-                    <div class="row">
-                        <!-- <video id="transmision_prueba" src="/videos/dfic.mp4" muted="true" autoplay="false" loop controls></video>
-                        <h3 id="tiempo_segundos"></h3> -->
-                        <!-- <h5 class="text-center">Video aquí</h5> -->
-
-                        <!-- <h6 class="text-center"><?php echo $clave;?></h6> -->
-                        <!-- <p><a href="https://vimeo.com/83275796">Daft Punk - Instant Crush Ft. Julian Casablancas</a> from <a href="https://vimeo.com/strokeee">stroke</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
-                        
-                        <iframe id="iframe" class="bg-gradient-warning" src="<?php echo $url;?>" width="640" height="521" frameborder="0">a</iframe>
-
-
-                    </div>
-
-                    <input type="text" value="<?php echo $clave;?>" id="clave_video" readonly hidden>
-
-                    <div class="row mt-5">
-                        <!-- <div class="col-12 col-md-6">
-                            <div class="card card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-body" id="profile">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-sm-auto col-4">
+                            <div class="avatar avatar-xl position-relative">
+                            <img src="/assets/img/Logo_SMNP.png">
                             </div>
-                        </div> -->
-                        <?php echo $card_cursos ?>
-                    </div>
+                        </div>
+                        <div class="col-sm-auto col-8 my-auto">
+                            <div class="h-100">
+                                <h5 class="mb-1 font-weight-bolder" id="nombre_transmision">
+                                    <?php echo $nombre_taller;?>
+                                </h5>
+                            
+                                <input type="text" id="nombre_t1" value="<?php echo $transmision_1['nombre'];?>" readonly hidden>
+                                <input type="text" id="nombre_t2" value="<?php echo $transmision_2['nombre'];?>" readonly hidden>
+                            <p class="mb-0 font-weight-bold text-sm">
 
-                    <div>
-                        <p>
-                            <h6 class="mb-1 mt-2 text-center"><?php echo $descripcion;?></h6>
-                        </p>
-                    </div>
+                            </p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
 
-                    <div hidden class="row mt-4">
-                        <div class="col-xl-4 col-md-3 mb-xl-0 mb-4 "></div>
-                        <table class="table align-items-center mb-0 table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-10">Nombre</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-10">Fecha de curso</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-10">¿Tiene costo?</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-10">Modalidad</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php echo $tabla_cursos ?>
-                            </tbody>
-                        </table>
-                        <div class="col-xl-4 col-md-0 mb-xl-0 mb-4"></div>
-                    </div>
-                    <div class="row">
-                        <div class="button-row d-flex mt-4 col-12">
-                            <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Talleres/" title="Prev">Regresar</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="row mt-4">
+        <div class="col-12 col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-md-12 m-auto text-center">
+                            <?php echo $contenido_taller;?>
+                        </div>
+                    </div>
+                    <hr class="horizontal dark my-3">
+                    <!-- Comments -->
+                    <div class="mb-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+        <div class="card">
+            <div class="card blur shadow-blur max-height-vh-70">
+            <div class="card-header shadow-lg">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class=" text-center">
+                    <!-- <img alt="Image" src="../../../assets/img/bruce-mars.jpg" class="avatar"> -->
+                        <div class="ms-0 text-center">
+                            <!-- <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'].' '.$info_user['nombre'];?></h6> -->
+                            <span class="text-lg text-center text-dark opacity-8">Progreso <span id="porcentaje"></span> </span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- <div class="card-body overflow-auto overflow-x-hidden">
+                <div class="row justify-content-start mb-4">
+                <div class="col-auto">
+                    <div class="card ">
+                    <div class="card-body py-2 px-3">
+                        <p class="mb-1">
+                        ¿Dr. Puede responder que beneficios tiene el punto A? Por favor
+
+                        </p>
+                        <div class="d-flex align-items-center text-sm opacity-6">
+                        <i class="ni ni-check-bold text-sm me-1"></i>
+                        <small>3:14 pm</small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row justify-content-end text-right mb-4">
+                <div class="col-auto">
+                    <div class="card bg-gray-200">
+                    <div class="card-body py-2 px-3">
+                        <p class="mb-1">
+                        ¿Son consecutivos los conceptos?<br>
+                        </p>
+                        <div class="d-flex align-items-center justify-content-end text-sm opacity-6">
+                        <i class="ni ni-check-bold text-sm me-1"></i>
+                        <small>4:42pm</small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <span class="badge text-dark">Wed, 3:27pm</span>
+                </div>
+                </div>
+                <div class="row justify-content-start mb-4">
+                <div class="col-auto">
+                    <div class="card ">
+                    <div class="card-body py-2 px-3">
+                        <p class="mb-1">
+                        Yeah! Responsive Design is geared towards those trying to build web apps
+                        </p>
+                        <div class="d-flex align-items-center text-sm opacity-6">
+                        <i class="ni ni-check-bold text-sm me-1"></i>
+                        <small>4:31pm</small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row justify-content-end text-right mb-4">
+                <div class="col-auto">
+                    <div class="card bg-gray-200">
+                    <div class="card-body py-2 px-3">
+                        <p class="mb-1">
+                        Excellent, I want it now !
+                        </p>
+                        <div class="d-flex align-items-center justify-content-end text-sm opacity-6">
+                        <i class="ni ni-check-bold text-sm me-1"></i>
+                        <small>4:42pm</small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row justify-content-start mb-4">
+                <div class="col-auto">
+                    <div class="card ">
+                    <div class="card-body py-2 px-3">
+                        <p class="mb-1">
+                        You can easily get it; The content here is all free
+                        </p>
+                        <div class="d-flex align-items-center text-sm opacity-6">
+                        <i class="ni ni-check-bold text-sm me-1"></i>
+                        <small>4:42pm</small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row justify-content-end text-right mb-4">
+                <div class="col-auto">
+                    <div class="card bg-gray-200">
+                    <div class="card-body py-2 px-3">
+                        <p class="mb-1">
+                        Awesome, blog is important source material for anyone who creates apps? <br>
+                        Beacuse these blogs offer a lot of information about website development.
+                        </p>
+                        <div class="d-flex align-items-center justify-content-end text-sm opacity-6">
+                        <i class="ni ni-check-bold text-sm me-1"></i>
+                        <small>4:42pm</small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row justify-content-start mb-4">
+                <div class="col-5">
+                    <div class="card ">
+                    <div class="card-body p-2">
+                        <div class="col-12 p-0">
+                        <img src="https://images.unsplash.com/photo-1602142946018-34606aa83259?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1762&amp;q=80" alt="Rounded image" class="img-fluid mb-2 border-radius-lg">
+                            
+                        </div>
+                        <div class="d-flex align-items-center text-sm opacity-6">
+                        <i class="ni ni-check-bold text-sm me-1"></i>
+                        <small>4:47pm</small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row justify-content-end text-right mb-4">
+                <div class="col-auto">
+                    <div class="card bg-gray-200">
+                    <div class="card-body py-2 px-3">
+                        <p class="mb-0">
+                        At the end of the day … the native dev apps is where users are
+                        </p>
+                        <div class="d-flex align-items-center justify-content-end text-sm opacity-6">
+                        <i class="ni ni-check-bold text-sm me-1"></i>
+                        <small>4:42pm</small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row justify-content-start">
+                <div class="col-auto">
+                    <div class="card ">
+                    <div class="card-body py-2 px-3">
+                        <p class="mb-0">
+                        Charlie is Typing...
+                        </p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div> -->
+            <div class="card-footer d-block">
+                
+                <progress id="barra_progreso" max="<?php echo $secs_totales;?>" value="<?php echo $progreso_curso['segundos'];?>"></progress>
+                <input type="text" name="" id="id_curso" hidden readonly value="<?php echo $id_curso;?>">
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+                    
+        
         <br>
         <br>
     </div>
     <br>
     <br>
-
-
-    <!-- <div class="modal fade" id="Modal_Vacunacion" tabindex="-1" role="dialog" aria-labelledby="Modal_Vacunacion" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Agregue su Comprobante de Vacunación
-
-                    </h5>
-                    <span type="button" class="btn btn-dark" data-dismiss="modal" aria-label="Close">
-                        X
-                    </span>
-                </div>
-                <div class="modal-header">
-                    <h6>
-                        <label id="fecha_actual">Fecha máxima de validación: <?php echo $fechaActual; ?></label>
-                        <br>
-                        Por favor a continuación ingrese la información solicitada.
-                    </h6>
-                </div>
-
-                <div class="modal-body">
-                    <form method="POST" enctype="multipart/form-data" id="form_vacunacion">
-                        <div class="form-group row">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label col-md-12 col-sm-3 col-xs-12" for="numero_dosis">Seleccione el número de Dosis con el que Cuentas <span class="required">*</span></label>
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                            <input type="date" name="fecha_" id="fecha_" class="form-control col-md-7 col-xs-12">
-                                            <select class="form-control" name="numero_dosis" id="numero_dosis" required>
-                                                <option selected>Seleccione una Opción</option>
-                                                <option value="2">2 Dosis</option>
-                                                <option value="3">3 Dosis</option>
-                                            </select>
-                                        </div>
-                                        <span id="availability_"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="control-label col-md-12 col-sm-3 col-xs-12" for="marca">Seleccione las Marcas de sus Dosis <span class="required">*</span></label>
-                                    <div class="col-md-12 col-sm-12 col-xs-12 checkbox-group required">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Pfizer-BioNTech" name="checkbox_marcas[]">
-                                            <label class="form-check-label">Pfizer-BioNTech</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Cansino" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">Cansino</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="COVAX" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">COVAX</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="AstraZeneca" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">AstraZeneca</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Sputnik V" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">Sputnik V</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Sinovac" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">Sinovac</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Janssen" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">Janssen</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Moderna" name="checkbox_marcas[]">
-                                            <label class="form-check-label" for="flexCheckDefault">Moderna</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label class="control-label col-md-12 col-sm-12 col-xs-12" for="file_">Comprobante de Vacuna: <span class="required">*</span></label>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <input type="file" accept="application/pdf" class="form-control" id="file_" name="file_" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <input type="hidden" id="user_" name="user_" value="<?=$_SESSION["utilerias_asistentes_id"]?>">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success" id="btn_upload" name="btn_upload">Aceptar</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
 
     <?php echo $iframe_doc; ?>
 
@@ -260,29 +312,6 @@
                 success: function(respuesta) {
 
                     console.log(respuesta);
-                    // console.log(respuesta);
-                    // if (respuesta == 'success') {
-                        
-                    //     Swal.fire(
-                    //     '¡Pase de Abordar enviado!',
-                    //     'El documento ha sido enviado',
-                    //     'success'
-                    //     ).then((data) =>{
-                    //         // console.log();
-                    //         $('#btn-borrar-'+id_btn).attr('hidden',true);
-                    //         $('#btn-enviar_email-'+id_btn).attr('hidden',true);                                  
-                            
-                    //         //$(this).attr('hidden',true);
-                    //     })
-
-                    // }
-                    // else{
-                    //     Swal.fire(
-                    //     'No se pudo enviar el correo!',
-                    //     'Hubo un error al enviar el archivo',
-                    //     'error'
-                    //     ) 
-                    // }
                     
                 },
                 error: function(respuesta) {
@@ -291,7 +320,64 @@
             });
         }
 
-        
-    })
+        let inicio = $('#barra_progreso').val();
+        let duracion = $('#barra_progreso').attr('max');
+
+        let porcentaje_num = (inicio*100)/parseInt(duracion);
+        let increment = 1;
+
+        let tiempo_total = 0;
+
+        function countTime(){
+            intervalo = setInterval(function() {
+                tiempo_total++;
+
+                if (inicio <= duracion) {
+                    inicio += increment;
+                }
+
+                if (tiempo_total % 60 == 0) {
+                    console.log('Ejecutamos Ajax');
+                    actualizarProgreso($('#id_curso').val(),inicio);
+                }
+
+                $('#barra_progreso').val(inicio);
+                porcentaje_num = (inicio*100)/parseInt(duracion);
+                $('#porcentaje').html(porcentaje_num.toFixed(0)+' %');
+            },1000);
+
+            $(window).blur(function() {
+                ventana = 0;
+                increment = 0;
+                console.log('fuera de la ventana');
+            });
+            $(window).focus(function() {
+                ventana = 1;
+                increment = 1;
+                console.log('dentro de la ventana');
+            });
+        }
+
+        function actualizarProgreso(curso, segundos){
+            $.ajax({
+                url: "/Talleres/updateProgress",
+                type: "POST",
+                data: {curso, segundos},
+                beforeSend: function() {
+                    console.log("Procesando....");
+                },
+                success: function(respuesta) {
+
+                    console.log(respuesta);
+                    
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+            });
+        }
+
+        countTime();
+    }); 
     
 </script>

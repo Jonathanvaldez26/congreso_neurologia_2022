@@ -40,8 +40,8 @@ sql;
     public static function insertProgreso($registrado,$transmision){
         $mysqli = Database::getInstance(1);
         $query=<<<sql
-        INSERT INTO progresos_transmision (id_transmision, id_registrado, segundos) 
-        VALUES ('$transmision','$registrado','0')
+        INSERT INTO progresos_transmision (id_transmision, id_registrado, segundos, fecha_ultima_vista) 
+        VALUES ('$transmision','$registrado','0', NOW())
 sql;
   
       $id = $mysqli->insert($query);

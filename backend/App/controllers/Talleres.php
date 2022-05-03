@@ -279,22 +279,91 @@ html;
 html;
 
         $curso = TalleresDao::getCursoByClave($clave);
+        $contenido_taller = '';
+
+        $permiso_taller = TalleresDao::getContenidoByAsignacion($_SESSION['id_registrado'],$clave); 
+
+        $progreso_curso = TalleresDao::getProgreso($_SESSION['id_registrado'],$curso['id_curso']);
+        // var_dump($progreso_curso);
+
+        if ($progreso_curso) {
+            $progreso_curso = TalleresDao::getProgreso($_SESSION['id_registrado'],$curso['id_curso']);
+        } else {
+            TalleresDao::insertProgreso($_SESSION['id_registrado'],$curso['id_curso']);
+            $progreso_curso = TalleresDao::getProgreso($_SESSION['id_registrado'],$curso['id_curso']);
+        }
+
+        $duracion = $curso['duracion'];
+
+        $duracion_sec = substr($duracion,strlen($duracion)-2,2);
+        $duracion_min = substr($duracion,strlen($duracion)-5,2);
+        $duracion_hrs = substr($duracion,0,strpos($duracion,':'));
+        // var_dump($duracion_hrs);
+        $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+
+        // var_dump($secs_totales);
 
         if ($curso) {
+            $id_curso = TalleresDao::getCursoByClave($clave)['id_curso'];
             $url = TalleresDao::getCursoByClave($clave)['url'];
             $nombre_taller = TalleresDao::getCursoByClave($clave)['nombre'];
             $descripcion = TalleresDao::getCursoByClave($clave)['descripcion'];
 
+            if ($permiso_taller) {
+                $contenido_taller .=<<<html
+                <div class="row">
+                    <iframe id="iframe" class="bg-gradient-warning iframe-course" src="{$url}" width="640" height="521" frameborder="0">a</iframe>
+                </div>
+    
+                <input type="text" value="{$clave}" id="clave_video" readonly hidden>
+    
+                <div>
+                    <p>
+                        <hr class="horizontal dark my-1">
+                        <h6 class="mb-1 mt-2 text-center">{$descripcion}</h6>
+                    </p>
+                </div>
+    
+                
+                
+    html;
+            } else {
+                $contenido_taller .=<<<html
+                <hr>
+                <div class="row mt-3">
+                    <div class="col-10 m-auto text-center">
+                        <h2 class="text-bolder text-gradient text-danger">
+                            <i class="fas fa-exclamation"></i><br>
+                            Lo sentimos no tiene acceso a este curso, contacte a soporte.
+                        </h2>
+                    </div>
+                </div>                
+html;
+            }
+
             View::set('clave',$clave);
+            View::set('id_curso',$id_curso);
             View::set('descripcion',$descripcion);
             View::set('nombre_taller',$nombre_taller);
             View::set('url',$url);
+            View::set('contenido_taller',$contenido_taller);
+            View::set('progreso_curso',$progreso_curso);
+            View::set('secs_totales',$secs_totales);
             View::set('header',$this->_contenedor->header($extraHeader));
             View::set('footer',$this->_contenedor->footer($extraFooter));
             View::render("video_all");
         } else {
             View::render("404");
         }
+    }
+
+    public function updateProgress(){
+        $progreso = $_POST['segundos'];
+        $curso = $_POST['curso'];
+
+        TalleresDao::updateProgresoFecha($curso, $_SESSION['id_registrado'],$progreso);
+
+        echo 'minuto '.$progreso.' '.$curso;
     }
 
     public function Vistas(){

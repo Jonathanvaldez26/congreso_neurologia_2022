@@ -49,6 +49,20 @@ sql;
       return $mysqli->update($query);
     }
 
+    public static function getContenidoByAsignacion($id_registrado,$clave_taller){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+      SELECT c.nombre, r.nombreconstancia, ac.* FROM asigna_curso ac
+      INNER JOIN registrados r
+      ON ac.id_registrado = r.id_registrado
+      INNER JOIN cursos c
+      ON c.id_curso = ac.id_curso
+      
+      WHERE r.id_registrado = $id_registrado and c.clave = '$clave_taller'
+sql;
+      return $mysqli->queryAll($query);
+    }
+
     public static function getByIdUser($id){
       $mysqli = Database::getInstance();
       $query=<<<sql
@@ -131,4 +145,48 @@ sql;
 
       return $mysqli->queryAll($query);
   }
+
+  public static function getProgreso($id,$num_curso){
+    $mysqli = Database::getInstance(true);
+    $query =<<<sql
+    SELECT * FROM progresos_cursos
+    WHERE id_curso = $num_curso AND id_registrado = $id
+sql;
+
+    return $mysqli->queryOne($query);
+  }
+
+  public static function insertProgreso($registrado,$curso){
+      $mysqli = Database::getInstance(1);
+      $query=<<<sql
+      INSERT INTO progresos_cursos (id_curso, id_registrado, segundos,fecha_ultima_vista) 
+      VALUES ('$curso','$registrado','0', NOW())
+sql;
+
+    $id = $mysqli->insert($query);
+
+    return $id;
+  }
+
+  public static function updateProgreso($id_curso, $registrado, $segundos){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+          UPDATE progresos_cursos 
+          SET segundos = '$segundos'
+          WHERE id_curso = '$id_curso' 
+          AND id_registrado = '$registrado'
+sql;
+      return $mysqli->update($query);
+  }
+
+  public static function updateProgresoFecha($id_curso, $registrado, $segundos){
+    $mysqli = Database::getInstance();
+    $query=<<<sql
+        UPDATE progresos_cursos 
+        SET segundos = '$segundos', fecha_ultima_vista = NOW()
+        WHERE id_curso = '$id_curso' 
+        AND id_registrado = '$registrado'
+sql;
+    return $mysqli->update($query);
+  } 
 }
