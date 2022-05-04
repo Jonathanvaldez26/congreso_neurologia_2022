@@ -36956,8 +36956,6 @@ input#chk-6:checked ~ #lbl-6{display: block;}
 
 .color-green{
   color: #079489;
-  font-size: large;
-  font-weight: 900 !important;
 }
 
 .color-vine{
@@ -37193,6 +37191,23 @@ canvas {
   height: 500;
 }
 
+.barra_progreso_small{
+  width: -webkit-fill-available;
+  height: 0.5rem;
+  -webkit-appearance: none;
+}
+
+.barra_progreso_small::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 0px;
+}
+
+.barra_progreso_small::-webkit-progress-value {
+ background-color: crimson;
+ border-radius: 0px;
+}
+
+
 #barra_progreso{
   width: -webkit-fill-available;
   height: 2rem;
@@ -37249,6 +37264,11 @@ input.btn-face-yellow:checked + label.color-face-yellow{
 input.btn-face-orange:checked + label.color-face-orange{ 
   color: white !important;
   background-color: orangered !important; 
+}
+
+iframe.video_programa{
+  width:-webkit-fill-available;
+  height: 30rem;
 }
 
 

@@ -12,10 +12,12 @@ class Programa{
     public static function getAll(){
       $mysqli = Database::getInstance();
       $query=<<<sql
-        SELECT pg.*, pf.nombre AS nombre_profesor, pf.prefijo, pf.descripcion AS desc_profesor
+        SELECT pg.*, pf.nombre AS nombre_profesor, pf.prefijo, pf.descripcion AS desc_profesor, co.nombre AS nombre_coordinador, co.prefijo AS prefijo_coordinador
         FROM programa pg
         INNER JOIN profesores pf
         ON pg.id_profesor = pf.id_profesor
+        INNER JOIN coordinadores co
+        ON co.id_coordinador = pg.id_coordinador
 sql;
       return $mysqli->queryAll($query);
     }
@@ -23,10 +25,12 @@ sql;
     public static function getSectionByDate($fecha){
       $mysqli = Database::getInstance();
       $query=<<<sql
-        SELECT pg.*, pf.nombre AS nombre_profesor, pf.prefijo, pf.descripcion AS desc_profesor
+        SELECT pg.*, pf.nombre AS nombre_profesor, pf.prefijo, pf.descripcion AS desc_profesor, co.nombre AS nombre_coordinador, co.prefijo AS prefijo_coordinador
         FROM programa pg
         INNER JOIN profesores pf
         ON pg.id_profesor = pf.id_profesor
+        INNER JOIN coordinadores co
+        ON co.id_coordinador = pg.id_coordinador
 
         WHERE fecha = '$fecha'
 sql;
@@ -35,6 +39,16 @@ sql;
 
     public static function getById($id){
       return "getById"+$id;
+    }
+
+    public static function getProgramByClave($clave){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+      SELECT * 
+      FROM programa 
+      WHERE clave = '$clave'
+sql;
+      return $mysqli->queryOne($query);
     }
 
     public static function getCursoByClave($clave){

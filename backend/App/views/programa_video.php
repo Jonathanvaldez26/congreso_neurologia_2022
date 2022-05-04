@@ -26,7 +26,8 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Home/">Inicio</a></li>
-                    <li class="breadcrumb-item text-sm">Programa</li>
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Programa/">Programa</a></li>
+                    <li class="breadcrumb-item text-sm">Video</li>
                 </ol>
             </nav>
 
@@ -56,70 +57,6 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-">
-        <div class="row">
-            <div class="col-12 col-md-10 m-auto p-1">
-                <div class="card card-body" id="profile">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-sm-auto col-4">
-                            <div class="avatar avatar-xl position-relative">
-                            <img src="/assets/img/Logo_SMNP.png">
-                            </div>
-                        </div>
-                        <div class="col-sm-auto col-8 my-auto">
-                            <div class="h-100">
-                                <h5 class="mb-1 font-weight-bolder" id="nombre_transmision">
-                                    Programa
-                                </h5>
-                                <div class="row">
-                                   <a href="/Home/">
-                                       <span class="text-dark"><i class="fas fa-undo"></i> Regresar</span>
-                                   </a>
-                                </div>
-                            </div>
-                        </div>
-                            
-                        
-                        
-                        <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
-                            <div class="form-check form-switch ms-2 p-0">
-                                <div class="row text-center">
-                                    <div class="col-lg-12 col-md-12 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-                                        <div class="nav-wrapper position-relative end-0">
-                                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
-                                                <li class="nav-item transmisiones px-3" data-transmision="1">
-                                                    <a class="nav-link mb-0 px-0 py-1 active" href="#m_18" data-bs-toggle="tab" role="tab" aria-selected="true">
-                                                        <span class="fa fa-calendar"></span>
-                                                        <span class="ms-1">18 de mayo</span>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item transmisiones px-3" data-transmision="2">
-                                                    <a class="nav-link mb-0 px-0 py-1" href="#m_19" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                                        <span class="fa fa-calendar"></span>
-                                                        <span class="ms-1">19 de mayo</span>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item transmisiones px-3" data-transmision="2">
-                                                    <a class="nav-link mb-0 px-0 py-1" href="#m_20" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                                        <span class="fa fa-calendar"></span>
-                                                        <span class="ms-1">20 de mayo</span>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item transmisiones px-3" data-transmision="2">
-                                                    <a class="nav-link mb-0 px-0 py-1" href="#m_21" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                                        <span class="fa fa-calendar"></span>
-                                                        <span class="ms-1">21 de mayo</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row mt-0 m-auto">
             <div class="col-lg-1">
             </div>
@@ -134,7 +71,7 @@
                         </div>
                         
                         <div class="card-body p-3">
-                            <?php echo $programa_fecha1; ?>
+                            <?php echo $video_programa; ?>
                             <div class="row">
                                 <div class="button-row d-flex mt-4 col-12">
                                     <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
@@ -142,54 +79,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade position-relative border-radius-lg" id="m_19" role="tabpanel" aria-labelledby="m_19">
-                        <div class="card-header pb-0 p-3">
-                            <div class="row">
-                                <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
-                            </div>
-                        </div>
-                        
-                        <div class="card-body p-3">
-                            <?php echo $programa_fecha2; ?>
-                            <div class="row">
-                                <div class="button-row d-flex mt-4 col-12">
-                                    <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade position-relative border-radius-lg" id="m_20" role="tabpanel" aria-labelledby="m_20">
-                        <div class="card-header pb-0 p-3">
-                            <div class="row">
-                                <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
-                            </div>
-                        </div>
-                        
-                        <div class="card-body p-3">
-                            <?php echo $programa_fecha3; ?>
-                            <div class="row">
-                                <div class="button-row d-flex mt-4 col-12">
-                                    <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade position-relative border-radius-lg" id="m_21" role="tabpanel" aria-labelledby="m_21">
-                        <div class="card-header pb-0 p-3">
-                            <div class="row">
-                                <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
-                            </div>
-                        </div>
-                        
-                        <div class="card-body p-3">
-                            <?php echo $programa_fecha4; ?>
-                            <div class="row">
-                                <div class="button-row d-flex mt-4 col-12">
-                                    <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 
 

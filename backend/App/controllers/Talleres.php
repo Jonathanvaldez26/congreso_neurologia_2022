@@ -121,9 +121,18 @@ html;
 
         $cursos = TalleresDao::getAsignaCurso($_SESSION['id_registrado']);
 
+        
+
         $card_cursos = '';
 
         foreach ($cursos as $key => $value) {
+            $progreso = TalleresDao::getProgreso($_SESSION['id_registrado'],$value['id_curso']);
+
+            $max_time = $value['duracion'];
+            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
+            $duracion_min = substr($max_time,strlen($max_time)-5,2);
+            $secs_totales = (intval($duracion_min)*60)+intval($duracion_sec);
+
             $card_cursos .= <<<html
             
             
@@ -131,7 +140,9 @@ html;
                 <div class="card card-body card-course p-0">
                     <input class="curso" hidden type="text" value="{$value['clave']}" readonly>
                     <div class="caratula-content">
-                        <a href="/Talleres/Video/{$value['clave']}"><img class="caratula-img" src="/caratulas/{$value['caratula']}"></a>
+                        <a href="/Talleres/Video/{$value['clave']}">
+                            <img class="caratula-img" src="/caratulas/{$value['caratula']}">
+                        </a>
                         <div class="duracion"><p>{$value['duracion']}</p></div>
                         <!--button class="btn btn-outline-danger"></button-->
                         
@@ -149,6 +160,7 @@ html;
             }
 
             $card_cursos .= <<<html
+                        <progress class="barra_progreso_small" max="$secs_totales" value="{$progreso['segundos']}"></progress>
                     </div>
                     <a href="/Talleres/Video/{$value['clave']}">
                         <h6 class="text-left mx-3 mt-2" style="color: black;">{$value['nombre_curso']}</h3>
@@ -156,6 +168,10 @@ html;
                         {$value['descripcion']}<br>
                         {$value['vistas']} vistas</p>
                     </a>
+
+                    <div>
+                        
+                    </div>
                 </div>
             </div>
 

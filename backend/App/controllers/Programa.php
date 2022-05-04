@@ -135,26 +135,40 @@ html;
             // $duracion_min = substr($duracion,strlen($duracion)-5,2);
 
             $programa_fecha1 .= <<<html
-            <div class="row mb-3">
-                <div class="col-12 col-md-2">
-                    <span class="color-yellow text-bold">
-                        {$hora_inicio} - {$hora_fin}
-                    </span>
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2">
+                        <span class="color-yellow text-bold">
+                            {$hora_inicio} - {$hora_fin}
+                        </span>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <a href="/Programa/Video/{$value['clave']}">
+                            <span class="color-green text-bold font-20 text-lg">
+                                {$value['descripcion']}
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <span class="color-vine font-14 text-bold">
+                            Coordinador:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            Profesor:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo']} {$value['nombre_profesor']}
+                        </span>
+                        <p class="color-vine font-12 text-sm">
+                            {$value['desc_profesor']}
+                        </p>
+                    </div>
                 </div>
-                <div class="col-12 col-md-7">
-                    <span class="color-green font-20 text-lg">
-                        {$value['descripcion']}
-                    </span>
-                </div>
-                <div class="col-12 col-md-3">
-                    <span class="color-vine font-16 text-bold">
-                        {$value['prefijo']} {$value['nombre_profesor']}
-                    </span>
-                    <p class="color-vine font-12 text-sm">
-                        {$value['desc_profesor']}
-                    </p>
-                </div>
-            </div>
 html;
         }
 
@@ -172,26 +186,40 @@ html;
             // $duracion_min = substr($duracion,strlen($duracion)-5,2);
 
             $programa_fecha2 .= <<<html
-            <div class="row mb-3">
-                <div class="col-12 col-md-2">
-                    <span class="color-yellow text-bold">
-                        {$hora_inicio} - {$hora_fin}
-                    </span>
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2">
+                        <span class="color-yellow text-bold">
+                            {$hora_inicio} - {$hora_fin}
+                        </span>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <a href="/Programa/Video/{$value['clave']}">
+                            <span class="color-green text-bold font-20 text-lg">
+                                {$value['descripcion']}
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <span class="color-vine font-14 text-bold">
+                            Coordinador:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            Profesor:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo']} {$value['nombre_profesor']}
+                        </span>
+                        <p class="color-vine font-12 text-sm">
+                            {$value['desc_profesor']}
+                        </p>
+                    </div>
                 </div>
-                <div class="col-12 col-md-7">
-                    <span class="color-green font-20 text-lg">
-                        {$value['descripcion']}
-                    </span>
-                </div>
-                <div class="col-12 col-md-3">
-                    <span class="color-vine font-16 text-bold">
-                        {$value['prefijo']} {$value['nombre_profesor']}
-                    </span>
-                    <p class="color-vine font-12 text-sm">
-                        {$value['desc_profesor']}
-                    </p>
-                </div>
-            </div>
 html;
         }
 
@@ -209,26 +237,40 @@ html;
             // $duracion_min = substr($duracion,strlen($duracion)-5,2);
 
             $programa_fecha3 .= <<<html
-            <div class="row mb-3">
-                <div class="col-12 col-md-2">
-                    <span class="color-yellow text-bold">
-                        {$hora_inicio} - {$hora_fin}
-                    </span>
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2">
+                        <span class="color-yellow text-bold">
+                            {$hora_inicio} - {$hora_fin}
+                        </span>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <a href="/Programa/Video/{$value['clave']}">
+                            <span class="color-green text-bold font-20 text-lg">
+                                {$value['descripcion']}
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <span class="color-vine font-14 text-bold">
+                            Coordinador:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            Profesor:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo']} {$value['nombre_profesor']}
+                        </span>
+                        <p class="color-vine font-12 text-sm">
+                            {$value['desc_profesor']}
+                        </p>
+                    </div>
                 </div>
-                <div class="col-12 col-md-7">
-                    <span class="color-green font-20 text-lg">
-                        {$value['descripcion']}
-                    </span>
-                </div>
-                <div class="col-12 col-md-3">
-                    <span class="color-vine font-16 text-bold">
-                        {$value['prefijo']} {$value['nombre_profesor']}
-                    </span>
-                    <p class="color-vine font-12 text-sm">
-                        {$value['desc_profesor']}
-                    </p>
-                </div>
-            </div>
 html;
         }
 
@@ -253,13 +295,27 @@ html;
                             {$hora_inicio} - {$hora_fin}
                         </span>
                     </div>
-                    <div class="col-12 col-md-7">
-                        <span class="color-green font-20 text-lg">
-                            {$value['descripcion']}
-                        </span>
+                    <div class="col-12 col-md-6">
+                        <a href="/Programa/Video/{$value['clave']}">
+                            <span class="color-green text-bold font-20 text-lg">
+                                {$value['descripcion']}
+                            </span>
+                        </a>
                     </div>
-                    <div class="col-12 col-md-3">
-                        <span class="color-vine font-16 text-bold">
+                    <div class="col-12 col-md-4">
+                        <span class="color-vine font-14 text-bold">
+                            Coordinador:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            Profesor:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
                             {$value['prefijo']} {$value['nombre_profesor']}
                         </span>
                         <p class="color-vine font-12 text-sm">
@@ -282,7 +338,142 @@ html;
         View::render("programa");
     }
 
-    
+    public function Video($clave) {
+        $extraHeader =<<<html
+html;
+        $extraFooter =<<<html
+    <!--footer class="footer pt-0">
+              <div class="container-fluid">
+                  <div class="row align-items-center justify-content-lg-between">
+                      <div class="col-lg-6 mb-lg-0 mb-4">
+                          <div class="copyright text-center text-sm text-muted text-lg-start">
+                              © <script>
+                                  document.write(new Date().getFullYear())
+                              </script>,
+                              made with <i class="fa fa-heart"></i> by
+                              <a href="https://www.creative-tim.com" class="font-weight-bold" target="www.grupolahe.com">Creative GRUPO LAHE</a>.
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                              <li class="nav-item">
+                                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">privacy policies</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </footer--    >
+          <!-- jQuery -->
+            <script src="/js/jquery.min.js"></script>
+            <!--   Core JS Files   -->
+            <script src="/assets/js/core/popper.min.js"></script>
+            <script src="/assets/js/core/bootstrap.min.js"></script>
+            <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+            <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+            <!-- Kanban scripts -->
+            <script src="/assets/js/plugins/dragula/dragula.min.js"></script>
+            <script src="/assets/js/plugins/jkanban/jkanban.js"></script>
+            <script src="/assets/js/plugins/chartjs.min.js"></script>
+            <script src="/assets/js/plugins/threejs.js"></script>
+            <script src="/assets/js/plugins/orbit-controls.js"></script>
+            
+          <!-- Github buttons -->
+            <script async defer src="https://buttons.github.io/buttons.js"></script>
+          <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+            <script src="/assets/js/soft-ui-dashboard.min.js?v=1.0.5"></script>
+
+          <!-- VIEJO INICIO -->
+            <script src="/js/jquery.min.js"></script>
+          
+            <script src="/js/custom.min.js"></script>
+
+            <script src="/js/validate/jquery.validate.js"></script>
+            <script src="/js/alertify/alertify.min.js"></script>
+            <script src="/js/login.js"></script>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+          <!-- VIEJO FIN -->
+   <script>
+    $( document ).ready(function() {
+
+          $("#form_vacunacion").on("submit",function(event){
+              event.preventDefault();
+              
+                  var formData = new FormData(document.getElementById("form_vacunacion"));
+                  for (var value of formData.values()) 
+                  {
+                     console.log(value);
+                  }
+                  $.ajax({
+                      url:"/Programa/uploadComprobante",
+                      type: "POST",
+                      data: formData,
+                      cache: false,
+                      contentType: false,
+                      processData: false,
+                      beforeSend: function(){
+                      console.log("Procesando....");
+                  },
+                  success: function(respuesta){
+                      if(respuesta == 'success'){
+                         // $('#modal_payment_ticket').modal('toggle');
+                         
+                          swal("¡Se ha guardado tu prueba correctamente!", "", "success").
+                          then((value) => {
+                              window.location.replace("/Programa/");
+                          });
+                      }
+                      console.log(respuesta);
+                  },
+                  error:function (respuesta)
+                  {
+                      console.log(respuesta);
+                  }
+              });
+          });
+
+      });
+</script>
+
+html;
+
+        // ----- Variables para la primer fecha ----- //
+        $info_video = ProgramaDao::getProgramByClave($clave);
+        $video_programa = '';
+
+        $video_programa = <<<html
+        <h4 class="mb-1 mt-1 text-center">Video</h4>      
+html;
+
+        $video_programa .= <<<html
+            <br>
+            <h4 class="mb-3 text-center color-green">{$info_video['descripcion']}</h4>
+            <div class="text-center">
+                <span class="color-yellow text-bold">
+                    Horario:<br>
+                    {$info_video['hora_inicio']} - {$info_video['hora_fin']}
+                </span>
+            </div>
+            <div class="row mb-3 mt-4 m-auto">
+                <div class="col-12 col-md-10 m-auto">
+                    <div class="text-center">
+                        <iframe src="{$info_video['url']}" frameborder="0" class="video_programa"></iframe>
+                    </div>
+                </div>
+                <!--div class="col-12 col-md-6">
+                    
+                </div>
+                <div class="col-12 col-md-4">
+                    
+                </div-->
+            </div>
+html;
+
+        View::set('video_programa',$video_programa);
+        View::set('header',$this->_contenedor->header($extraHeader));
+        View::set('footer',$this->_contenedor->footer($extraFooter));
+        View::render("programa_video");
+    }
 
     public function updateProgress(){
         $progreso = $_POST['segundos'];
