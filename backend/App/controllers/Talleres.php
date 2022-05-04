@@ -133,6 +133,8 @@ html;
             $duracion_min = substr($max_time,strlen($max_time)-5,2);
             $secs_totales = (intval($duracion_min)*60)+intval($duracion_sec);
 
+            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+
             $card_cursos .= <<<html
             
             
@@ -164,9 +166,24 @@ html;
                     </div>
                     <a href="/Talleres/Video/{$value['clave']}">
                         <h6 class="text-left mx-3 mt-2" style="color: black;">{$value['nombre_curso']}</h3>
-                        <p class="text-left mx-3 text-sm">{$value['fecha_curso']}<br>
-                        {$value['descripcion']}<br>
-                        {$value['vistas']} vistas</p>
+                        
+                        
+
+                        <p class="text-left mx-3 text-sm">{$value['fecha_curso']}
+                            {$value['descripcion']}<br>
+                            {$value['vistas']} vistas
+                            <br> <br>
+                            <b>Avance: $porcentaje %</b>
+                        </p>
+
+html;
+                        if ($value['status'] == 2) {
+                            $card_cursos .= <<<html
+                            <div class="ms-3 me-3 msg-encuesta px-2 py-1">Se ha habilitado una encuesta para este curso</div><br><br>
+html;
+                        }
+        
+                        $card_cursos .= <<<html
                     </a>
 
                     <div>
@@ -300,8 +317,6 @@ html;
         $permiso_taller = TalleresDao::getContenidoByAsignacion($_SESSION['id_registrado'],$clave); 
 
         $progreso_curso = TalleresDao::getProgreso($_SESSION['id_registrado'],$curso['id_curso']);
-        // var_dump($progreso_curso);
-
         if ($progreso_curso) {
             $progreso_curso = TalleresDao::getProgreso($_SESSION['id_registrado'],$curso['id_curso']);
         } else {
@@ -314,9 +329,18 @@ html;
         $duracion_sec = substr($duracion,strlen($duracion)-2,2);
         $duracion_min = substr($duracion,strlen($duracion)-5,2);
         $duracion_hrs = substr($duracion,0,strpos($duracion,':'));
-        // var_dump($duracion_hrs);
+        
         $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
 
+        $progreso_curso = TalleresDao::getProgreso($_SESSION['id_registrado'],$curso['id_curso']);
+        if ($progreso_curso) {
+            $progreso_curso = TalleresDao::getProgreso($_SESSION['id_registrado'],$curso['id_curso']);
+        } else {
+            TalleresDao::insertProgreso($_SESSION['id_registrado'],$curso['id_curso']);
+            $progreso_curso = TalleresDao::getProgreso($_SESSION['id_registrado'],$curso['id_curso']);
+        }
+
+        $porcentaje = round(($progreso_curso['segundos']*100)/$secs_totales);
         // var_dump($secs_totales);
 
         if ($curso) {
@@ -362,6 +386,7 @@ html;
             View::set('descripcion',$descripcion);
             View::set('nombre_taller',$nombre_taller);
             View::set('url',$url);
+            View::set('porcentaje',$porcentaje);
             View::set('contenido_taller',$contenido_taller);
             View::set('progreso_curso',$progreso_curso);
             View::set('secs_totales',$secs_totales);

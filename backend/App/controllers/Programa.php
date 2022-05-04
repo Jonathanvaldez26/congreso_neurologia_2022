@@ -129,10 +129,17 @@ html;
 html;
 
         foreach ($info_fecha1 as $key => $value) {
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+
             $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
             $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
 
-            // $duracion_min = substr($duracion,strlen($duracion)-5,2);
+            $max_time = $value['duracion'];
+            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
+            $duracion_min = substr($max_time,strlen($max_time)-5,2);
+            $secs_totales = (intval($duracion_min)*60)+intval($duracion_sec);
+
+            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
 
             $programa_fecha1 .= <<<html
                 <div class="row mb-3">
@@ -145,6 +152,11 @@ html;
                         <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
+                            </span>
+                            <br><br>
+                            <span class="mt-4">
+                                <b>Progreso: $porcentaje %</b>
+                                <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
                             </span>
                         </a>
                     </div>
@@ -180,10 +192,17 @@ html;
 html;
 
         foreach ($info_fecha2 as $key => $value) {
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+
             $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
             $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
 
-            // $duracion_min = substr($duracion,strlen($duracion)-5,2);
+            $max_time = $value['duracion'];
+            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
+            $duracion_min = substr($max_time,strlen($max_time)-5,2);
+            $secs_totales = (intval($duracion_min)*60)+intval($duracion_sec);
+
+            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
 
             $programa_fecha2 .= <<<html
                 <div class="row mb-3">
@@ -196,6 +215,11 @@ html;
                         <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
+                            </span>
+                            <br><br>
+                            <span class="mt-4">
+                                <b>Progreso: $porcentaje %</b>
+                                <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
                             </span>
                         </a>
                     </div>
@@ -231,10 +255,17 @@ html;
 html;
 
         foreach ($info_fecha3 as $key => $value) {
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+
             $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
             $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
 
-            // $duracion_min = substr($duracion,strlen($duracion)-5,2);
+            $max_time = $value['duracion'];
+            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
+            $duracion_min = substr($max_time,strlen($max_time)-5,2);
+            $secs_totales = (intval($duracion_min)*60)+intval($duracion_sec);
+
+            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
 
             $programa_fecha3 .= <<<html
                 <div class="row mb-3">
@@ -247,6 +278,11 @@ html;
                         <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
+                            </span>
+                            <br><br>
+                            <span class="mt-4">
+                                <b>Progreso: $porcentaje %</b>
+                                <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
                             </span>
                         </a>
                     </div>
@@ -283,12 +319,19 @@ html;
 
         if ($info_fecha4) {
             foreach ($info_fecha4 as $key => $value) {
-                $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
-                $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
-    
-                // $duracion_min = substr($duracion,strlen($duracion)-5,2);
-    
-                $programa_fecha4 .= <<<html
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+
+            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
+            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+
+            $max_time = $value['duracion'];
+            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
+            $duracion_min = substr($max_time,strlen($max_time)-5,2);
+            $secs_totales = (intval($duracion_min)*60)+intval($duracion_sec);
+
+            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+
+            $programa_fecha4 .= <<<html
                 <div class="row mb-3">
                     <div class="col-12 col-md-2">
                         <span class="color-yellow text-bold">
@@ -299,6 +342,11 @@ html;
                         <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
+                            </span>
+                            <br><br>
+                            <span class="mt-4">
+                                <b>Progreso: $porcentaje %</b>
+                                <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
                             </span>
                         </a>
                     </div>
@@ -441,35 +489,63 @@ html;
         $info_video = ProgramaDao::getProgramByClave($clave);
         $video_programa = '';
 
+        $id_programa = $info_video['id_programa'];
+        $nombre_programa = $info_video['descripcion'];
+        $hora_inicio = $info_video['hora_inicio'];
+        $hora_fin = $info_video['hora_fin'];
+        $url = $info_video['url'];
+        $duracion = $info_video['duracion'];
+
+        $coordinador = $info_video['prefijo_coordinador'].' '.$info_video['nombre_coordinador'];
+        $profesor = $info_video['prefijo'].' '.$info_video['nombre_profesor'];
+        $desc_profesor = $info_video['desc_profesor'];
+
+        $duracion_sec = substr($duracion,strlen($duracion)-2,2);
+        $duracion_min = substr($duracion,strlen($duracion)-5,2);
+        $duracion_hrs = substr($duracion,0,strpos($duracion,':'));
+        
+        $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+        $programa = ProgramaDao::getProgramByClave($clave);
+
+        $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$programa['id_programa']);
+        if ($progreso_curso) {
+            $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$programa['id_programa']);
+        } else {
+            ProgramaDao::insertProgreso($_SESSION['id_registrado'],$programa['id_programa']);
+            $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$programa['id_programa']);
+        }
+
+        $porcentaje = round(($progreso_curso['segundos']*100)/$secs_totales);
+
+
         $video_programa = <<<html
-        <h4 class="mb-1 mt-1 text-center">Video</h4>      
+        <!--h4 class="mb-1 mt-1 text-center">Video</h4-->      
 html;
 
         $video_programa .= <<<html
-            <br>
-            <h4 class="mb-3 text-center color-green">{$info_video['descripcion']}</h4>
-            <div class="text-center">
-                <span class="color-yellow text-bold">
-                    Horario:<br>
-                    {$info_video['hora_inicio']} - {$info_video['hora_fin']}
-                </span>
-            </div>
-            <div class="row mb-3 mt-4 m-auto">
-                <div class="col-12 col-md-10 m-auto">
-                    <div class="text-center">
-                        <iframe src="{$info_video['url']}" frameborder="0" class="video_programa"></iframe>
+            <div class="row mb-3 mt-0 m-auto">
+                <div class="col-12 col-md-12 m-auto">
+                    <div class="row">
+                        <iframe id="iframe" class="bg-gradient-warning iframe-course" src="{$url}" width="640" height="521" frameborder="0">a</iframe>
                     </div>
                 </div>
-                <!--div class="col-12 col-md-6">
-                    
-                </div>
-                <div class="col-12 col-md-4">
-                    
-                </div-->
             </div>
 html;
 
+
+
         View::set('video_programa',$video_programa);
+        View::set('nombre_programa',$nombre_programa);
+        View::set('hora_inicio',$hora_inicio);
+        View::set('hora_fin',$hora_fin);
+        View::set('id_programa',$id_programa);
+        View::set('url',$url);
+        View::set('porcentaje',$porcentaje);
+        View::set('coordinador',$coordinador);
+        View::set('profesor',$profesor);
+        View::set('desc_profesor',$desc_profesor);
+        View::set('progreso_curso',$progreso_curso);
+        View::set('secs_totales',$secs_totales);
         View::set('header',$this->_contenedor->header($extraHeader));
         View::set('footer',$this->_contenedor->footer($extraFooter));
         View::render("programa_video");
@@ -477,26 +553,26 @@ html;
 
     public function updateProgress(){
         $progreso = $_POST['segundos'];
-        $curso = $_POST['curso'];
+        $programa = $_POST['programa'];
 
-        ProgramaDao::updateProgresoFecha($curso, $_SESSION['id_registrado'],$progreso);
+        ProgramaDao::updateProgresoFecha($programa, $_SESSION['id_registrado'],$progreso);
 
-        echo 'minuto '.$progreso.' '.$curso;
+        echo 'minuto '.$progreso.' '.$programa;
     }
 
-    public function Vistas(){
-        $clave = $_POST['clave_video'];
-        $vistas = ProgramaDao::getCursoByClave($clave)['vistas'];
-        $vistas++;
+    // public function Vistas(){
+    //     $clave = $_POST['clave_video'];
+    //     $vistas = ProgramaDao::getProgramByClave($clave)['vistas'];
+    //     $vistas++;
 
-        ProgramaDao::updateVistasByClave($clave,$vistas);
+    //     ProgramaDao::updateVistasByClave($clave,$vistas);
 
-        echo $clave;
-    }
+    //     echo $clave;
+    // }
 
     public function Likes(){
         $clave = $_POST['clave'];
-        $id_curso = ProgramaDao::getCursoByClave($clave)['id_curso'];
+        $id_curso = ProgramaDao::getProgramByClave($clave)['id_curso'];
 
         $hay_like = ProgramaDao::getlike($id_curso,$_SESSION['id_registrado']);
         // var_dump($hay_like);

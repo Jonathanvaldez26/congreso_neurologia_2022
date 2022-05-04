@@ -37150,6 +37150,18 @@ canvas {
   padding-right: 3px;
 }
 
+.btn-move:hover{
+  transform: translateY(-5px);
+  text-shadow: 0px 0px 20px cadetblue;
+}
+
+.msg-encuesta{
+  color: #ed143d;
+  background-color: #ed143d40;
+  border-radius: 10px;
+  font-weight: 900;
+}
+
 .heart-not-like{
   position: absolute;
   right: 0rem;
@@ -37207,6 +37219,21 @@ canvas {
  border-radius: 0px;
 }
 
+.barra_progreso_small_green{
+  width: -webkit-fill-available;
+  height: 0.5rem;
+  -webkit-appearance: none;
+}
+
+.barra_progreso_small_green::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 0px;
+}
+
+.barra_progreso_small_green::-webkit-progress-value {
+ background-color: green;
+ border-radius: 0px;
+}
 
 #barra_progreso{
   width: -webkit-fill-available;

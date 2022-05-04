@@ -44,22 +44,26 @@ sql;
     public static function getProgramByClave($clave){
       $mysqli = Database::getInstance();
       $query=<<<sql
-      SELECT * 
-      FROM programa 
+      SELECT pg.*, pf.nombre AS nombre_profesor, pf.prefijo, pf.descripcion AS desc_profesor, co.nombre AS nombre_coordinador, co.prefijo AS prefijo_coordinador
+      FROM programa pg
+      INNER JOIN profesores pf
+      ON pg.id_profesor = pf.id_profesor
+      INNER JOIN coordinadores co
+      ON co.id_coordinador = pg.id_coordinador
       WHERE clave = '$clave'
 sql;
       return $mysqli->queryOne($query);
     }
 
-    public static function getCursoByClave($clave){
-      $mysqli = Database::getInstance();
-      $query=<<<sql
-      SELECT * 
-      FROM cursos 
-      WHERE clave = '$clave'
-sql;
-      return $mysqli->queryOne($query);
-    }
+//     public static function getProgramaByClave($clave){
+//       $mysqli = Database::getInstance();
+//       $query=<<<sql
+//       SELECT * 
+//       FROM programa
+//       WHERE clave = '$clave'
+// sql;
+//       return $mysqli->queryOne($query);
+//     }
 
     public static function updateVistasByClave($clave,$vistas){
       $mysqli = Database::getInstance();
@@ -70,11 +74,11 @@ sql;
       return $mysqli->update($query);
     }
 
-    public static function updateLike($id_curso, $registrado,$status){
+    public static function updateLike($id_programa, $registrado,$status){
       $mysqli = Database::getInstance();
       $query=<<<sql
         UPDATE likes SET status = '$status'
-        WHERE id_curso = '$id_curso' AND id_registrado = '$registrado'
+        WHERE id_programa = '$id_programa' AND id_registrado = '$registrado'
 sql;
       return $mysqli->update($query);
     }
@@ -86,7 +90,7 @@ sql;
       INNER JOIN registrados r
       ON ac.id_registrado = r.id_registrado
       INNER JOIN cursos c
-      ON c.id_curso = ac.id_curso
+      ON c.id_programa = ac.id_programa
       
       WHERE r.id_registrado = $id_registrado and c.clave = '$clave_taller'
 sql;
@@ -101,12 +105,12 @@ sql;
       return $mysqli->queryAll($query);
     }
 
-    public static function getlike($id_curso, $registrado){
+    public static function getlike($id_programa, $registrado){
       $mysqli = Database::getInstance();
       $query=<<<sql
         SELECT * 
         FROM likes
-        WHERE id_registrado = $registrado AND id_curso = '$id_curso'
+        WHERE id_registrado = $registrado AND id_programa = '$id_programa'
 sql;
       return $mysqli->queryOne($query);
     }
@@ -114,7 +118,7 @@ sql;
       // $fecha_carga_documento = date("Y-m-d");
       $mysqli = Database::getInstance(1);
       $query=<<<sql
-      INSERT INTO likes(id_like, id_registrado, id_curso, status) 
+      INSERT INTO likes(id_like, id_registrado, id_programa, status) 
       VALUES (null,'$registrado','$curso','1')
 sql;
 
@@ -168,7 +172,7 @@ sql;
       INNER JOIN registrados r
       ON ac.id_registrado = r.id_registrado
       INNER JOIN cursos c
-      ON c.id_curso = ac.id_curso
+      ON c.id_programa = ac.id_programa
 
       WHERE ac.id_registrado = $usuario
 sql;
@@ -179,8 +183,8 @@ sql;
   public static function getProgreso($id,$num_curso){
     $mysqli = Database::getInstance(true);
     $query =<<<sql
-    SELECT * FROM progresos_cursos
-    WHERE id_curso = $num_curso AND id_registrado = $id
+    SELECT * FROM progresos_programa
+    WHERE id_programa = $num_curso AND id_registrado = $id
 sql;
 
     return $mysqli->queryOne($query);
@@ -189,7 +193,7 @@ sql;
   public static function insertProgreso($registrado,$curso){
       $mysqli = Database::getInstance(1);
       $query=<<<sql
-      INSERT INTO progresos_cursos (id_curso, id_registrado, segundos,fecha_ultima_vista) 
+      INSERT INTO progresos_programa (id_programa, id_registrado, segundos,fecha_ultima_vista) 
       VALUES ('$curso','$registrado','0', NOW())
 sql;
 
@@ -198,23 +202,23 @@ sql;
     return $id;
   }
 
-  public static function updateProgreso($id_curso, $registrado, $segundos){
+  public static function updateProgreso($id_programa, $registrado, $segundos){
       $mysqli = Database::getInstance();
       $query=<<<sql
-          UPDATE progresos_cursos 
+          UPDATE progresos_programa 
           SET segundos = '$segundos'
-          WHERE id_curso = '$id_curso' 
+          WHERE id_programa = '$id_programa' 
           AND id_registrado = '$registrado'
 sql;
       return $mysqli->update($query);
   }
 
-  public static function updateProgresoFecha($id_curso, $registrado, $segundos){
+  public static function updateProgresoFecha($id_programa, $registrado, $segundos){
     $mysqli = Database::getInstance();
     $query=<<<sql
-        UPDATE progresos_cursos 
+        UPDATE progresos_programa 
         SET segundos = '$segundos', fecha_ultima_vista = NOW()
-        WHERE id_curso = '$id_curso' 
+        WHERE id_programa = '$id_programa' 
         AND id_registrado = '$registrado'
 sql;
     return $mysqli->update($query);

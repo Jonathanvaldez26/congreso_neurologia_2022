@@ -57,37 +57,103 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-">
-        <div class="row mt-0 m-auto">
-            <div class="col-lg-1">
-            </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-body" id="profile">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-sm-auto col-4">
+                            <div class="avatar avatar-xl position-relative">
+                            <img src="/assets/img/Logo_SMNP.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-auto col-8 my-auto">
+                            <div class="h-100">
+                                <h4 class="mb-3 text-center color-green"><?php echo $nombre_programa;?></h4>
+                                <div class="">
+                                    <span class="color-yellow ">
+                                        Horario: 
+                                        <?php echo $hora_inicio.' - '.$hora_fin;?>
+                                    </span>
+                                </div>
 
-            <div class="card col-lg-10 mt-lg-3 mt-1" >
-                <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show position-relative active border-radius-lg" id="m_18" role="tabpanel" aria-labelledby="m_18">
-                        <div class="card-header pb-0 p-3">
-                            <div class="row">
-                                <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
+                                <input type="text" id="nombre_t1" value="<?php echo $transmision_1['nombre'];?>" readonly hidden>
+                                <input type="text" id="nombre_t2" value="<?php echo $transmision_2['nombre'];?>" readonly hidden>
+                            
                             </div>
                         </div>
                         
-                        <div class="card-body p-3">
-                            <?php echo $video_programa; ?>
-                            <div class="row">
-                                <div class="button-row d-flex mt-4 col-12">
-                                    <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
-                                </div>
-                            </div>
+                        <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 me-4">
+                            <a href="/Programa/">
+                                <span class="text-dark"><i class="fas fa-undo"></i> Regresar</span>
+                            </a>
                         </div>
                     </div>
-                    
                 </div>
-                
-
             </div>
         </div>
-        <br>
-        <br>
+
+        <div class="row mt-4">
+        <div class="col-12 col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-md-12 m-auto text-center">
+                            <?php echo $video_programa;?>
+                        </div>
+                    </div>
+                    <hr class="horizontal dark">
+                    <!-- Comments -->
+                    <div class="mb-1">
+                        <div class="col-12 col-md-12">
+                            <span class="color-vine font-18 text-bold mb-2">
+                                Coordinador:
+                            </span>
+                            <br>
+                            <span class="color-vine font-14 text-bold">
+                                <?php echo $coordinador;?>
+                            </span>
+                            <br><br>
+                            <span class="color-vine font-18 text-bold">
+                                Profesor:
+                            </span>
+                            <br>
+                            <span class="color-vine font-16 text-bold">
+                                <?php echo $profesor;?>
+                            </span><br><br>
+                            <p class="color-vine font-14 text-sm">
+                                <?php echo $desc_profesor;?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+        <div class="card">
+            <div class="card blur shadow-blur max-height-vh-70">
+            <div class="card-header shadow-lg">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class=" text-center">
+                    <!-- <img alt="Image" src="../../../assets/img/bruce-mars.jpg" class="avatar"> -->
+                        <div class="ms-0 text-center">
+                            <!-- <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'].' '.$info_user['nombre'];?></h6> -->
+                            <span class="text-lg text-center text-dark opacity-8">Progreso <span id="porcentaje"><?php echo $porcentaje;?> %</span> </span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card-footer d-block">
+                
+                <progress id="barra_progreso" max="<?php echo $secs_totales;?>" value="<?php echo $progreso_curso['segundos'];?>"></progress>
+                <input type="text" name="" id="id_programa" hidden readonly value="<?php echo $id_programa;?>">
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
+
     <br>
     <br>
 
@@ -102,8 +168,99 @@
 <script>
     $(document).ready(function(){
         
-    });
+        // setTimeout(mandarMensaje, 10000);
+
+        // var vista = 0;
+        // function mandarMensaje() {
+        //     vista++;
+        //     console.log("Vista nueva al video: "+vista);
+
+        //     clave_video = $('#clave_video').val();
+
+        //     $.ajax({
+        //         url: "/Programa/Vistas",
+        //         type: "POST",
+        //         data: {clave_video},
+        //         beforeSend: function() {
+        //             console.log("Procesando....");
+        //         },
+        //         success: function(respuesta) {
+
+        //             console.log(respuesta);
+                    
+        //         },
+        //         error: function(respuesta) {
+        //             console.log(respuesta);
+        //         }
+        //     });
+        // }
+
+        let inicio = $('#barra_progreso').val();
+        let duracion = $('#barra_progreso').attr('max');
+
+        console.log(inicio);
+        console.log(duracion);
+        console.log($('#id_programa').val());
+
+        let porcentaje_num = (inicio*100)/parseInt(duracion);
+        let increment = 1;
+
+        let tiempo_total = 0;
+
+        function countTime(){
+            intervalo = setInterval(function() {
+                tiempo_total++;
+
+                if (inicio <= duracion) {
+                    inicio += increment;
+                }
+
+                if (tiempo_total % 60 == 0) {
+                    console.log('Ejecutamos Ajax');
+                    actualizarProgreso($('#id_programa').val(),inicio);
+                }
+
+                $('#barra_progreso').val(inicio);
+                porcentaje_num = (inicio*100)/parseInt(duracion);
+                $('#porcentaje').html(porcentaje_num.toFixed(0)+' %');
+            },1000);
+
+            $(window).blur(function() {
+                ventana = 0;
+                increment = 0;
+                console.log('fuera de la ventana');
+            });
+            $(window).focus(function() {
+                ventana = 1;
+                increment = 1;
+                console.log('dentro de la ventana');
+            });
+        }
+
+        function actualizarProgreso(programa, segundos){
+            $.ajax({
+                url: "/Programa/updateProgress",
+                type: "POST",
+                data: {programa, segundos},
+                beforeSend: function() {
+                    console.log("Procesando....");
+                },
+                success: function(respuesta) {
+
+                    console.log(respuesta);
+                    
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+            });
+        }
+
+        countTime();
+    }); 
+    
 </script>
+
 
 
 
