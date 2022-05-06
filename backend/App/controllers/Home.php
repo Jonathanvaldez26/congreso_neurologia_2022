@@ -66,7 +66,7 @@ html;
 
 
         View::set('header',$this->_contenedor->header($extraHeader));
-        View::set('permisos_mexico',$permisos_mexico);
+        //View::set('permisos_mexico',$permisos_mexico);
         //View::set('tabla',$tabla);
         View::render("principal_all");
     }
