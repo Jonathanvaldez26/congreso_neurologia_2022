@@ -127,7 +127,7 @@
                         <input type="text" name="" id="id_curso" hidden readonly value="<?php echo $id_curso;?>">
                     </div>
                     <div class="row m-auto">
-                        <div class="col-12">
+                        <div class="col-12" id="btn-examen">
                             <?php echo $btn_encuesta;?>
                         </div>
                     </div>
@@ -215,13 +215,13 @@
                     console.log(respuesta);
                     
                     if (respuesta == 'success') {
-                        Swal.fire('Se ha guardado correctamente su encuesta','','success').
+                        Swal.fire('Se ha guardado correctamente su examen','','success').
                         then((result) => {
                             console.log('a');
                             window.location.reload();
                         });
                     } else {
-                        Swal.fire('Lo sentimos, usted ya ha contestado esta encuesta','','info').
+                        Swal.fire('Lo sentimos, usted ya ha contestado este examen','','info').
                         then((result) => {
                             console.log('b');
                             window.location.reload();
@@ -278,7 +278,7 @@
             intervalo = setInterval(function() {
                 tiempo_total++;
 
-                if (inicio <= duracion) {
+                if (inicio < duracion) {
                     inicio += increment;
                 }
 
@@ -288,7 +288,7 @@
                     
                 }
 
-                if (porcentaje_num >= 80) {
+                if (porcentaje_num >= 79) {
                     $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
                 }
 

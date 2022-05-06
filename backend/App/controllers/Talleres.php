@@ -167,9 +167,6 @@ html;
                         <div class="row">
                             <div class="col-11 m-auto" id="">
                                 <progress class="barra_progreso_small mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
-                                <div class="" id="btn-examen">
-
-                                </div>
                             </div>
                         </div>
                     </div>
