@@ -148,7 +148,7 @@
             <div class="modal-dialog modal-size" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="encuestaLabel">Encuesta para <?php echo $nombre_taller;?></h5>
+                        <h5 class="modal-title" id="encuestaLabel">Examen para <?php echo $nombre_taller;?></h5>
                         <button type="button" class="btn bg-gradient-danger text-lg btn-icon-only" data-dismiss="modal" aria-label="Close">
                             <span class="" aria-hidden="true">&times;</span>
                         </button>

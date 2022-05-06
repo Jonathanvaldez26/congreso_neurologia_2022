@@ -131,7 +131,9 @@ html;
             $max_time = $value['duracion'];
             $duracion_sec = substr($max_time,strlen($max_time)-2,2);
             $duracion_min = substr($max_time,strlen($max_time)-5,2);
-            $secs_totales = (intval($duracion_min)*60)+intval($duracion_sec);
+            $duracion_hrs = substr($max_time,0,strpos($max_time,':'));
+
+            $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
 
             $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
 
