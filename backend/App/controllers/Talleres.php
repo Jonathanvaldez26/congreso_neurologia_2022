@@ -406,6 +406,11 @@ html;
                 if ($ha_respondido) {
 
                     foreach ($preguntas as $key => $value) {
+                        $opcion1=$value['opcion1']; 
+                        $opcion2=$value['opcion2']; 
+                        $opcion3=$value['opcion3']; 
+                        $opcion4=$value['opcion4']; 
+
                         $encuesta .=<<<html
                         <div class="col-12 encuesta_completa">
                             <div class="mb-3 text-dark">
