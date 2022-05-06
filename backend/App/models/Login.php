@@ -85,7 +85,7 @@ sql;
             $curso, 
             NOW(), 
             1)
-    sql;
+sql;
         // $parametros = array(
         //     ':utilerias_asistentes_id'=>$data->_utilerias_asistentes_id,
         //     ':utilerias_administradores_id'=>$data->_utilerias_administradores_id,

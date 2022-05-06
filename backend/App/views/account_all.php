@@ -103,10 +103,7 @@
                 <div class="card mt-4" id="basic-info">
                     <div class="card-header">
                         <h5>Información Básica</h5>
-                        <?php //$prueba; ?>
                         
-                        <?php //$userData; 
-                        ?>
                     </div>
                     <form class="form-horizontal" id="update_form" action="" method="POST">
                         <div class="card-body pt-0">
@@ -142,22 +139,6 @@
                             </div>
 
                             <div class="row">
-                                <!-- <div class="col-12 col-lg-4">
-                                    <label class="form-label mt-4">Apellido materno *</label>
-                                    <div class="input-group">
-                                        <input id="apellido_materno" name="apellido_materno" maxlength="29" pattern="[a-zA-Z ÑñáÁéÉíÍóÚ]*" class="form-control" type="text" placeholder="Thompson" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $userData['apellido_materno'] ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                                    </div>
-                                </div> -->
-                                <!-- <div class="col-sm-6 col-12 col-lg-4">
-                                    <label class="form-label mt-4">Me identifico como: *</label>
-                                    <select class="form-control" style="cursor: pointer;" name="genero" id="genero" placeholder="Genero">
-                                        <option value="">Selecciona una opción</option>
-                                        <option value="Mujer">Mujer</option>
-                                            <option value="Otro">Otro</option>
-                                        <?php echo $optionsGenero; ?>
-                                    </select>
-                                    <input type="text" class="form-control" value="<?= $userData['genero'] ?>" disabled>
-                                </div> -->
                                 <div class="col-sm-6 col-12 col-lg-6">
                                     <label class="form-label mt-4">País *</label>
                                     <input class="form-control" id="pais" maxlength="149" required name="pais" data-color="dark" type="text" value="<?= $userData['pais'] ?>" placeholder="Ej: México" readonly/>
