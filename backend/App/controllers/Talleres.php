@@ -369,13 +369,13 @@ html;
     
                 
                 
-    html;
+html;
                 if ($curso['status'] == 2 || $porcentaje >= 80) {
                     $btn_encuesta =<<<html
                     <button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">
                         Encuesta
                     </button>
-            html;
+html;
                 } else {
                     $btn_encuesta = '';
                 }
@@ -564,7 +564,7 @@ html;
                                 
                             });
                         </script>
-    html;
+html;
                         $num_pregunta = $num_pregunta + 1;
                     }
                     
@@ -620,7 +620,7 @@ html;
                                 
                             
                         </script>
-    html;
+html;
                         $num_pregunta = $num_pregunta + 1;
                     }
                 }
