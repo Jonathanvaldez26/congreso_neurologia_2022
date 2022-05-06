@@ -103,7 +103,7 @@ sql;
       SELECT *
       FROM cursos
       WHERE free = 1
-  sql;
+sql;
 
       return $mysqli->queryAll($query);
   }
