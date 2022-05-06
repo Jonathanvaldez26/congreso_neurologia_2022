@@ -169,6 +169,8 @@ html;
 
         $userData = LoginDao::getUser($_SESSION['usuario'])[0];
 
+        var_dump($userData);
+
         $lineaGeneral = LineaGeneralDao::getLineaPrincialAll();
         $optionsGenero = '';
         $optionsLineaPrincipal = '';
