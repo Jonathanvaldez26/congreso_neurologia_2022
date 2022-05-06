@@ -285,15 +285,18 @@
                 if (tiempo_total % 60 == 0) {
                     console.log('Ejecutamos Ajax');
                     actualizarProgreso($('#id_curso').val(),inicio);
+                    
+                }
+
+                if (porcentaje_num >= 80) {
+                    $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
                 }
 
                 $('#barra_progreso').val(inicio);
                 porcentaje_num = (inicio*100)/parseInt(duracion);
                 $('#porcentaje').html(porcentaje_num.toFixed(0)+' %');
 
-                // if (porcentaje_num >= 86) {
-                //     window.location.reload();
-                // }
+                
             },1000);
 
             $(window).blur(function() {
