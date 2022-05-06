@@ -86,9 +86,9 @@ class Login{
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
         <!-- stats.js lib --> 
-        <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+        <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
         <script src="/assets/js/jquery.countdown.min/jquery.countdown.min.js"></script>
         <script src="/assets/js/main/main.js"></script>
 html;

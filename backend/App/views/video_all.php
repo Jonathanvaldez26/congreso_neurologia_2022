@@ -107,28 +107,32 @@
             </div>
         </div>
         <div class="col-12 col-lg-4">
-        <div class="card">
-            <div class="card blur shadow-blur max-height-vh-70">
-            <div class="card-header shadow-lg">
-                <div class="row">
-                <div class="col-md-12">
-                    <div class=" text-center">
-                    <!-- <img alt="Image" src="../../../assets/img/bruce-mars.jpg" class="avatar"> -->
-                        <div class="ms-0 text-center">
-                            <!-- <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'].' '.$info_user['nombre'];?></h6> -->
-                            <span class="text-lg text-center text-dark opacity-8">Progreso <span id="porcentaje"><?php echo $porcentaje;?> %</span> </span>
+            <div class="card">
+                <div class="card blur shadow-blur max-height-vh-70">
+                    <div class="card-header shadow-lg">
+                        <div class="row">
+                        <div class="col-md-12">
+                            <div class=" text-center">
+                            <!-- <img alt="Image" src="../../../assets/img/bruce-mars.jpg" class="avatar"> -->
+                                <div class="ms-0 text-center">
+                                    <!-- <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'].' '.$info_user['nombre'];?></h6> -->
+                                    <span class="text-lg text-center text-dark opacity-8">Progreso <span id="porcentaje"><?php echo $porcentaje;?> %</span> </span>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-block">
+                        <progress id="barra_progreso" max="<?php echo $secs_totales;?>" value="<?php echo $progreso_curso['segundos'];?>"></progress>
+                        <input type="text" name="" id="id_curso" hidden readonly value="<?php echo $id_curso;?>">
+                    </div>
+                    <div class="row m-auto">
+                        <div class="col-12">
+                            <?php echo $btn_encuesta;?>
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
-            <div class="card-footer d-block">
-                
-                <progress id="barra_progreso" max="<?php echo $secs_totales;?>" value="<?php echo $progreso_curso['segundos'];?>"></progress>
-                <input type="text" name="" id="id_curso" hidden readonly value="<?php echo $id_curso;?>">
-            </div>
-            </div>
-        </div>
         </div>
     </div>
                     
@@ -138,6 +142,37 @@
     </div>
     <br>
     <br>
+
+    <!-- Modal -->
+        <div class="modal fade" id="encuesta" role="dialog" aria-labelledby="encuestaLabel" aria-hidden="true">
+            <div class="modal-dialog modal-size" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="encuestaLabel">Encuesta para <?php echo $nombre_taller;?></h5>
+                        <button type="button" class="btn bg-gradient-danger text-lg btn-icon-only" data-dismiss="modal" aria-label="Close">
+                            <span class="" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="encuesta_curso" action="" method="post">
+                        <div class="modal-body">
+                            <div>
+                                <p class="text-success text-center">
+                                    <strong>Instrucciones:</strong> Responde a cada una de las preguntas, que a continuación se presentan
+                                </p>
+                            </div>
+                            <hr class="horizontal dark my-3">
+                            <div class="encuesta">
+                                <?php echo $encuesta;?>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="enviar_encuesta" class="btn bg-gradient-success">Enviar</button>
+                            <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
     <?php echo $iframe_doc; ?>
 
@@ -151,11 +186,63 @@
 
 <script>
     $(document).ready(function(){
+
+        let list_r = [];
+
+        $('#enviar_encuesta').on('click', function(){
+            // alert('envio de formulario');
+            let enc = $('.encuesta_completa');
+            let id_curso = $('#id_curso').val();
+
+            for (let index = 0; index < enc.length; index++) {
+                const respuesta = enc[index];
+                let id = $('#id_pregunta_'+(index+1)).val();
+                let res = $('input[name=pregunta_'+(index+1)+']:checked',enc[index]).val();
+                let res_id = [id,res];
+                list_r.push(res_id);
+                // console.log(res_id);
+            }
+
+            // alert(list_r);
+            $.ajax({
+                url: "/Talleres/guardarRespuestas",
+                type: "POST",
+                data: {list_r,id_curso},
+                beforeSend: function() {
+                    console.log("Procesando....");
+                },
+                success: function(respuesta) {
+                    console.log(respuesta);
+                    
+                    if (respuesta == 'success') {
+                        Swal.fire('Se ha guardado correctamente su encuesta','','success').
+                        then((result) => {
+                            console.log('a');
+                            window.location.reload();
+                        });
+                    } else {
+                        Swal.fire('Lo sentimos, usted ya ha contestado esta encuesta','','info').
+                        then((result) => {
+                            console.log('b');
+                            window.location.reload();
+                        });
+                    }
+                    
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                    Swal.fire('Ha ocurrido un error, contacte con soporte','','error').
+                    then((result) => {
+                        console.log('c');
+                    });
+                }
+            });
+        });
         
-        setTimeout(mandarMensaje, 10000);
+        setTimeout(agregarVista, 10000);
 
         var vista = 0;
-        function mandarMensaje() {
+        function agregarVista() {
             vista++;
             console.log("Vista nueva al video: "+vista);
 
@@ -203,6 +290,10 @@
                 $('#barra_progreso').val(inicio);
                 porcentaje_num = (inicio*100)/parseInt(duracion);
                 $('#porcentaje').html(porcentaje_num.toFixed(0)+' %');
+
+                // if (porcentaje_num >= 86) {
+                //     window.location.reload();
+                // }
             },1000);
 
             $(window).blur(function() {
@@ -226,9 +317,7 @@
                     console.log("Procesando....");
                 },
                 success: function(respuesta) {
-
                     console.log(respuesta);
-                    
                 },
                 error: function(respuesta) {
                     console.log(respuesta);

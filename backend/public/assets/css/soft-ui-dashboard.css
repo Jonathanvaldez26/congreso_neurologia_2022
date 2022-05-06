@@ -37136,6 +37136,10 @@ canvas {
   width: 100%;
 }
 
+.profesor-img{ 
+  width: 100%;
+}
+
 .duracion{
   position: absolute;
   right: 1rem;
@@ -37211,12 +37215,12 @@ canvas {
 
 .barra_progreso_small::-webkit-progress-bar {
   background-color: #eee;
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 .barra_progreso_small::-webkit-progress-value {
  background-color: crimson;
- border-radius: 0px;
+ border-radius: 5px;
 }
 
 .barra_progreso_small_green{
@@ -37296,6 +37300,38 @@ input.btn-face-orange:checked + label.color-face-orange{
 iframe.video_programa{
   width:-webkit-fill-available;
   height: 30rem;
+}
+
+.close span{
+  position: absolute;
+  top: 1.5rem;
+  right: 1.8rem;
+}
+
+.opcion-encuesta{
+  font-size: larger;
+  font-family: cursive;
+  color: #000000;
+}
+
+@media (min-width: 576px){
+  .modal-size {
+    max-width: 800px!important;
+    margin: 1.75rem auto;
+  }
+
+  .modal-size-2 {
+    max-width: 1000px!important;
+    margin: 1.75rem auto;
+  }
+}
+
+.border-radius-15{
+  border-radius: 15px!important;
+}
+
+.border-radius-20{
+  border-radius: 20px!important;
 }
 
 

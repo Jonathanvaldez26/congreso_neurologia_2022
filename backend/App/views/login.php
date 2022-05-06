@@ -195,16 +195,16 @@ echo $header;
     </main>
     <!-- Modal -->
         <div class="modal" id="doc_programa" role="dialog" aria-labelledby="doc_programaLabel" aria-hidden="true" >
-            <div class="modal-dialog" role="document" style="max-width: 590px;">
+            <div class="modal-dialog modal-size-2" role="document" style="max-width: 590px;">
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <h5 class="modal-title text-center" id="doc_programaLabel">Programa</h5>
-                        <button type="button" class="btn bg-gradient-danger close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn bg-gradient-danger" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <iframe src="/assets/pdf/programa.pdf" frameborder="0" style="width: -webkit-fill-available;
+                        <iframe src="https://www.flipbookpdf.net/web/site/481d28c4f8e8bc288524792304e2adcdc0ccdfb2FBP19835591.pdf.html" frameborder="0" style="width: -webkit-fill-available;
     max-width: -webkit-fill-available; height:700px;"></iframe>
                     </div>
                     <!-- <div class="modal-footer">

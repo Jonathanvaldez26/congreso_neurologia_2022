@@ -139,11 +139,11 @@ html;
             
             
             <div class="col-12 col-md-3">
-                <div class="card card-body card-course p-0">
+                <div class="card card-body card-course p-0 border-radius-15">
                     <input class="curso" hidden type="text" value="{$value['clave']}" readonly>
                     <div class="caratula-content">
                         <a href="/Talleres/Video/{$value['clave']}">
-                            <img class="caratula-img" src="/caratulas/{$value['caratula']}">
+                            <img class="caratula-img border-radius-15" src="/caratulas/{$value['caratula']}">
                         </a>
                         <div class="duracion"><p>{$value['duracion']}</p></div>
                         <!--button class="btn btn-outline-danger"></button-->
@@ -153,16 +153,20 @@ html;
             $like = TalleresDao::getlike($value['id_curso'],$_SESSION['id_registrado']);
             if ($like['status'] == 1) {
                 $card_cursos .= <<<html
-                <span id="video_{$value['clave']}" data-clave="{$value['clave']}" class="fas fa-heart heart-like p-2"></span>
+                    <span id="video_{$value['clave']}" data-clave="{$value['clave']}" class="fas fa-heart heart-like p-2"></span>
 html;
             } else {
                 $card_cursos .= <<<html
-                <span id="video_{$value['clave']}" data-clave="{$value['clave']}" class="fas fa-heart heart-not-like p-2"></span>
+                    <span id="video_{$value['clave']}" data-clave="{$value['clave']}" class="fas fa-heart heart-not-like p-2"></span>
 html;
             }
 
             $card_cursos .= <<<html
-                        <progress class="barra_progreso_small" max="$secs_totales" value="{$progreso['segundos']}"></progress>
+                        <div class="row">
+                            <div class="col-11 m-auto">
+                                <progress class="barra_progreso_small mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
+                            </div>
+                        </div>
                     </div>
                     <a href="/Talleres/Video/{$value['clave']}">
                         <h6 class="text-left mx-3 mt-2" style="color: black;">{$value['nombre_curso']}</h3>
@@ -177,7 +181,7 @@ html;
                         </p>
 
 html;
-                        if ($value['status'] == 2) {
+                        if ($value['status'] == 2 || $porcentaje >= 80) {
                             $card_cursos .= <<<html
                             <div class="ms-3 me-3 msg-encuesta px-2 py-1">Se ha habilitado una encuesta para este curso</div><br><br>
 html;
@@ -341,7 +345,6 @@ html;
         }
 
         $porcentaje = round(($progreso_curso['segundos']*100)/$secs_totales);
-        // var_dump($secs_totales);
 
         if ($curso) {
             $id_curso = TalleresDao::getCursoByClave($clave)['id_curso'];
@@ -367,6 +370,15 @@ html;
                 
                 
     html;
+                if ($curso['status'] == 2 || $porcentaje >= 80) {
+                    $btn_encuesta =<<<html
+                    <button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">
+                        Encuesta
+                    </button>
+            html;
+                } else {
+                    $btn_encuesta = '';
+                }
             } else {
                 $contenido_taller .=<<<html
                 <hr>
@@ -379,13 +391,250 @@ html;
                     </div>
                 </div>                
 html;
+                $btn_encuesta = '';
             }
 
+            $encuesta = '';
+
+            $preguntas  = TalleresDao::getPreguntasByCursoUsuario($id_curso);
+            $ha_respondido = TalleresDao::getRespuestas($_SESSION['id_registrado'],$id_curso);
+
+            if ($preguntas) {
+
+                $num_pregunta = 1;
+
+                if ($ha_respondido) {
+
+                    foreach ($preguntas as $key => $value) {
+                        $encuesta .=<<<html
+                        <div class="col-12 encuesta_completa">
+                            <div class="mb-3 text-dark">
+                                <h6 class="">$num_pregunta. {$value['pregunta']}</h6>
+                            </div>
+                            <input id="id_pregunta_$num_pregunta" value="{$value['id_pregunta_encuesta']}" hidden readonly>
+                            <div class="form-group encuesta_curso_$num_pregunta">
+html;
+                        if ($value['respuesta_correcta'] == 1) {
+                            $encuesta .=<<<html
+                            <div id="op1">
+                                <input type="radio" data-label="{$value['opcion1']}" id="opcion1_$num_pregunta" name="pregunta_$num_pregunta" value="1" disabled>
+                                <label class="text-success form-label opcion-encuesta" for="opcion1_$num_pregunta">{$value['opcion1']}</label>
+                            </div>
+
+                            <div id="op2">
+                                <input type="radio" data-label="{$value['opcion2']}" id="opcion2_$num_pregunta" name="pregunta_$num_pregunta" value="2" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion2_$num_pregunta">{$value['opcion2']}</label>
+                            </div>
+
+                            <div id="op3">
+                                <input type="radio" data-label="{$value['opcion3']}" id="opcion3_$num_pregunta" name="pregunta_$num_pregunta" value="3" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion3_$num_pregunta">{$value['opcion3']}</label>
+                            </div>
+
+                            <div id="op4">
+                                <input type="radio" data-label="{$value['opcion4']}" id="opcion4_$num_pregunta" name="pregunta_$num_pregunta" value="4" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion4_$num_pregunta">{$value['opcion4']}</label>
+                            </div>
+html;
+                        } 
+
+                        if ($value['respuesta_correcta'] == 2) {
+                            $encuesta .=<<<html
+                            <div id="op1">
+                                <input type="radio" data-label="{$value['opcion1']}" id="opcion1_$num_pregunta" name="pregunta_$num_pregunta" value="1" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion1_$num_pregunta">{$value['opcion1']}</label>
+                            </div>
+
+                            <div id="op2">
+                                <input type="radio" data-label="{$value['opcion2']}" id="opcion2_$num_pregunta" name="pregunta_$num_pregunta" value="2" disabled>
+                                <label class="text-success form-label opcion-encuesta" for="opcion2_$num_pregunta">{$value['opcion2']}</label>
+                            </div>
+
+                            <div id="op3">
+                                <input type="radio" data-label="{$value['opcion3']}" id="opcion3_$num_pregunta" name="pregunta_$num_pregunta" value="3" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion3_$num_pregunta">{$value['opcion3']}</label>
+                            </div>
+
+                            <div id="op4">
+                                <input type="radio" data-label="{$value['opcion4']}" id="opcion4_$num_pregunta" name="pregunta_$num_pregunta" value="4" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion4_$num_pregunta">{$value['opcion4']}</label>
+                            </div>
+html;
+                        }
+
+                        if ($value['respuesta_correcta'] == 3) {
+                            $encuesta .=<<<html
+                            <div id="op1">
+                                <input type="radio" data-label="{$value['opcion1']}" id="opcion1_$num_pregunta" name="pregunta_$num_pregunta" value="1" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion1_$num_pregunta">{$value['opcion1']}</label>
+                            </div>
+
+                            <div id="op2">
+                                <input type="radio" data-label="{$value['opcion2']}" id="opcion2_$num_pregunta" name="pregunta_$num_pregunta" value="2" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion2_$num_pregunta">{$value['opcion2']}</label>
+                            </div>
+
+                            <div id="op3">
+                                <input type="radio" data-label="{$value['opcion3']}" id="opcion3_$num_pregunta" name="pregunta_$num_pregunta" value="3" disabled>
+                                <label class="text-success form-label opcion-encuesta" for="opcion3_$num_pregunta">{$value['opcion3']}</label>
+                            </div>
+
+                            <div id="op4">
+                                <input type="radio" data-label="{$value['opcion4']}" id="opcion4_$num_pregunta" name="pregunta_$num_pregunta" value="4" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion4_$num_pregunta">{$value['opcion4']}</label>
+                            </div>
+html;
+                        }
+
+                        if ($value['respuesta_correcta'] == 4) {
+                            $encuesta .=<<<html
+                            <div id="op1">
+                                <input type="radio" data-label="{$value['opcion1']}" id="opcion1_$num_pregunta" name="pregunta_$num_pregunta" value="1" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion1_$num_pregunta">{$value['opcion1']}</label>
+                            </div>
+
+                            <div id="op2">
+                                <input type="radio" data-label="{$value['opcion2']}" id="opcion2_$num_pregunta" name="pregunta_$num_pregunta" value="2" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion2_$num_pregunta">{$value['opcion2']}</label>
+                            </div>
+
+                            <div id="op3">
+                                <input type="radio" data-label="{$value['opcion3']}" id="opcion3_$num_pregunta" name="pregunta_$num_pregunta" value="3" disabled>
+                                <label class="text-dark form-label opcion-encuesta" for="opcion3_$num_pregunta">{$value['opcion3']}</label>
+                            </div>
+
+                            <div id="op4">
+                                <input type="radio" data-label="{$value['opcion4']}" id="opcion4_$num_pregunta" name="pregunta_$num_pregunta" value="4" disabled>
+                                <label class="text-success form-label opcion-encuesta" for="opcion4_$num_pregunta">{$value['opcion4']}</label>
+                            </div>
+html;
+                        }
+                        $encuesta .=<<<html
+                            </div>
+                        </div>
+    
+                        <script>
+                            $(document).ready(function(){
+                                
+                                // Pinta la respuesta si es correcta o no
+                                console.log({$ha_respondido[$num_pregunta-1]['respuesta_registrado']});
+                                if({$ha_respondido[$num_pregunta-1]['respuesta_registrado']} == 1){
+                                    $('.encuesta_curso_$num_pregunta #op1 input').attr('checked','');
+                                    if(!$('.encuesta_curso_$num_pregunta #op1 label').hasClass('text-success')){
+                                        $('.encuesta_curso_$num_pregunta #op1 label').removeClass('text-dark').addClass('text-danger');
+                                    }
+                                } else if({$ha_respondido[$num_pregunta-1]['respuesta_registrado']} == 2){
+                                    $('.encuesta_curso_$num_pregunta #op2 input').attr('checked','');
+                                    if(!$('.encuesta_curso_$num_pregunta #op2 label').hasClass('text-success')){
+                                        $('.encuesta_curso_$num_pregunta #op2 label').removeClass('text-dark').addClass('text-danger');
+                                    }
+                                } else if({$ha_respondido[$num_pregunta-1]['respuesta_registrado']} == 3){
+                                    $('.encuesta_curso_$num_pregunta #op3 input').attr('checked','');
+                                    if(!$('.encuesta_curso_$num_pregunta #op3 label').hasClass('text-success')){
+                                        $('.encuesta_curso_$num_pregunta #op3 label').removeClass('text-dark').addClass('text-danger');
+                                    }
+                                } else if({$ha_respondido[$num_pregunta-1]['respuesta_registrado']} == 4){
+                                    $('.encuesta_curso_$num_pregunta #op4 input').attr('checked','');
+                                    if(!$('.encuesta_curso_$num_pregunta #op4 label').hasClass('text-success')){
+                                        $('.encuesta_curso_$num_pregunta #op4 label').removeClass('text-dark').addClass('text-danger');
+                                    }
+                                }
+
+                                $('.encuesta_curso_$num_pregunta').on('click',function(){
+                                    let respuesta = $('.encuesta_curso_$num_pregunta input[name=pregunta_$num_pregunta]:checked');
+                                    if($('.encuesta_curso_$num_pregunta #op'+respuesta.val()+' input').prop('checked')){
+                                        $('.encuesta_curso_$num_pregunta label').removeClass('opacity-5');
+                                        $('.encuesta_curso_$num_pregunta #op'+respuesta.val()+' label').addClass('opacity-5');
+                                    }
+        
+                                    // Pinta la respuesta si es correcta o no
+                                    // if(respuesta.val() == {$value['respuesta_correcta']}){
+                                    //     $('.encuesta_curso_$num_pregunta label').addClass('text-dark');
+                                    //     $('.encuesta_curso_$num_pregunta #op'+respuesta.val()+' label').removeClass('text-dark').addClass('text-success');
+                                    // } else {
+                                    //     $('.encuesta_curso_$num_pregunta label').addClass('text-dark');
+                                    //     $('.encuesta_curso_$num_pregunta #op'+respuesta.val()+' label').removeClass('text-dark').addClass('text-danger');
+                                    // }
+                                });
+                                
+                            });
+                        </script>
+    html;
+                        $num_pregunta = $num_pregunta + 1;
+                    }
+                    
+                } else {
+                    foreach ($preguntas as $key => $value) {
+                        $encuesta .=<<<html
+                        <div class="col-12 encuesta_completa">
+                            <div class="mb-3 text-dark">
+                                <h6 class="">$num_pregunta. {$value['pregunta']}</h6>
+                            </div>
+                            <input id="id_pregunta_$num_pregunta" value="{$value['id_pregunta_encuesta']}" hidden readonly>
+                            <div class="form-group encuesta_curso_$num_pregunta">
+                                <div id="op1">
+                                    <input type="radio" data-label="{$value['opcion1']}" id="opcion1_$num_pregunta" name="pregunta_$num_pregunta" value="1" required>
+                                    <label class="form-label opcion-encuesta" for="opcion1_$num_pregunta">{$value['opcion1']}</label>
+                                </div>
+    
+                                <div id="op2">
+                                    <input type="radio" data-label="{$value['opcion2']}" id="opcion2_$num_pregunta" name="pregunta_$num_pregunta" value="2">
+                                    <label class="form-label opcion-encuesta" for="opcion2_$num_pregunta">{$value['opcion2']}</label>
+                                </div>
+    
+                                <div id="op3">
+                                    <input type="radio" data-label="{$value['opcion3']}" id="opcion3_$num_pregunta" name="pregunta_$num_pregunta" value="3">
+                                    <label class="form-label opcion-encuesta" for="opcion3_$num_pregunta">{$value['opcion3']}</label>
+                                </div>
+    
+                                <div id="op4">
+                                    <input type="radio" data-label="{$value['opcion4']}" id="opcion4_$num_pregunta" name="pregunta_$num_pregunta" value="4">
+                                    <label class="form-label opcion-encuesta" for="opcion4_$num_pregunta">{$value['opcion4']}</label>
+                                </div>
+                                
+                            </div>
+                        </div>
+    
+                        <script>
+                            $('.encuesta_curso_$num_pregunta').on('click',function(){
+                                let respuesta = $('.encuesta_curso_$num_pregunta input[name=pregunta_$num_pregunta]:checked');
+                                if($('.encuesta_curso_$num_pregunta #op'+respuesta.val()+' input').prop('checked')){
+                                    $('.encuesta_curso_$num_pregunta label').removeClass('opacity-5');
+                                    $('.encuesta_curso_$num_pregunta #op'+respuesta.val()+' label').addClass('opacity-5');
+                                }
+    
+                                // Pinta la respuesta si es correcta o no
+                                // if(respuesta.val() == {$value['respuesta_correcta']}){
+                                //     $('.encuesta_curso_$num_pregunta label').addClass('text-dark');
+                                //     $('.encuesta_curso_$num_pregunta #op'+respuesta.val()+' label').removeClass('text-dark').addClass('text-success');
+                                // } else {
+                                //     $('.encuesta_curso_$num_pregunta label').addClass('text-dark');
+                                //     $('.encuesta_curso_$num_pregunta #op'+respuesta.val()+' label').removeClass('text-dark').addClass('text-danger');
+                                // }
+                            });
+                                
+                            
+                        </script>
+    html;
+                        $num_pregunta = $num_pregunta + 1;
+                    }
+                }
+            } else {
+                $encuesta =<<<html
+                <h3 class="text-danger">Aún no hay preguntas para este Curso.</h3>
+html;
+            }
+
+            
+            // var_dump($preguntas)
+
             View::set('clave',$clave);
+            View::set('encuesta',$encuesta);
             View::set('id_curso',$id_curso);
             View::set('descripcion',$descripcion);
             View::set('nombre_taller',$nombre_taller);
             View::set('url',$url);
+            View::set('btn_encuesta',$btn_encuesta);
             View::set('porcentaje',$porcentaje);
             View::set('contenido_taller',$contenido_taller);
             View::set('progreso_curso',$progreso_curso);
@@ -396,6 +645,27 @@ html;
         } else {
             View::render("404");
         }
+    }
+
+    public function guardarRespuestas(){
+        $respuestas = $_POST['list_r'];
+        $id_curso = $_POST['id_curso'];
+
+        $ha_respondido = TalleresDao::getRespuestas($_SESSION['id_registrado'],$id_curso);
+
+        // var_dump($respuestas);
+
+        if ($ha_respondido) {
+            echo 'fail';
+        } else {
+            foreach ($respuestas as $key => $value) {
+                $id_pregunta = $value[0];
+                $respuesta = $value[1];
+                TalleresDao::insertRespuesta($_SESSION['id_registrado'],$id_pregunta,$respuesta);
+            }
+            echo 'success';
+        }
+
     }
 
     public function updateProgress(){

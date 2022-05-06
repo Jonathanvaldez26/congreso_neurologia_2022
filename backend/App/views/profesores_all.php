@@ -1,5 +1,5 @@
 <title>
-    Cursos - Neuropediatría 
+    Profesores - Neuropediatría 
 </title>
 <?php echo $header; ?>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Home/">Inicio</a></li>
-                    <li class="breadcrumb-item text-sm">Talleres</li>
+                    <li class="breadcrumb-item text-sm">Profesores</li>
                 </ol>
             </nav>
 
@@ -128,14 +128,14 @@
                     <div class="row">
                     <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
                     </div>
-                    <h4 class="mb-1 mt-4 text-left"><i class="fa fa-desktop"></i> Talleres</h4>
+                    <h4 class="mb-1 mt-4 text-left"><i class="fa fa-desktop"></i> Profesores</h4>
                     <p>(Usted tiene disponible los siguientes cursos)</p>
                     
                 </div>
                 <div class="card-body p-3">
 
                     <div class="row mt-3">
-                        <?php echo $card_cursos ?>
+                        <?php echo $card_profesores ?>
                     </div>
 
                     <div hidden class="row mt-4">
@@ -150,7 +150,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php echo $tabla_cursos ?>
+                                <?php echo $tabla_profesores; ?>
                             </tbody>
                         </table>
                         <div class="col-xl-4 col-md-0 mb-xl-0 mb-4"></div>
@@ -200,7 +200,7 @@
             }
             console.log('se cambió a like: '+clave);
             $.ajax({
-                url: "/Talleres/Likes",
+                url: "/Profesores/Likes",
                 type: "POST",
                 data: {clave},
                 beforeSend: function() {
@@ -227,7 +227,7 @@
             }
             console.log('se cambió a like: '+clave);
             $.ajax({
-                url: "/Talleres/Likes",
+                url: "/Profesores/Likes",
                 type: "POST",
                 data: {clave},
                 beforeSend: function() {

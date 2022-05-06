@@ -77,7 +77,7 @@
                             
                         </div>
                         <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
-                                <a href="/Programa/" class="mt-2 me-2 btn-move">
+                                <a href="/Home/" class="mt-2 me-2 btn-move">
                                     <span class="text-dark mt-2"><i class="fas fa-undo"></i> Regresar</span>
                                 </a>
                             <div class="form-check form-switch ms-2 p-0">
