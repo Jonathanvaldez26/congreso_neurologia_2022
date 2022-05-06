@@ -68,7 +68,7 @@
                                 <label for="file-input" id="lbl-image">
                                     <div class="avatar avatar-xl position-relative">
                                         <?php echo $imgUser; ?>
-                                        <?php $userData['especialidad'];?>
+                                        <?php echo $userData['especialidad'];?>
                                     </div>
                                     <span id="btn-edit" class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-2 btn-sm d-flex align-items-center justify-content-center">
                                         <i class="fas fa-edit" aria-hidden="true"></i>
