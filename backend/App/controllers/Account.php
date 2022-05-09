@@ -232,22 +232,22 @@ html;
 
         }
 
-        if ($userData['alergia'] != 'Otro') {
-            $restricciones =<<<html
-            <input class="form-control" id="alergia" maxlength="149" required name="alergia" data-color="dark" type="text" value="{$userData['alergia']}" placeholder="Escribe las restricciones alimenticias" readonly/>
-html;
-        } else{
-            $restricciones =<<<html
-            <input class="form-control" id="alergia_cual" maxlength="149" required name="alergia_cual" data-color="dark" type="text" value="{$userData['alergia_cual']}" placeholder="Escribe las restricciones alimenticias" readonly/>
-html;
-        }
+//         if ($userData['alergia'] != 'Otro') {
+//             $restricciones =<<<html
+//             <input class="form-control" id="alergia" maxlength="149" required name="alergia" data-color="dark" type="text" value="{$userData['alergia']}" placeholder="Escribe las restricciones alimenticias" readonly/>
+// html;
+//         } else{
+//             $restricciones =<<<html
+//             <input class="form-control" id="alergia_cual" maxlength="149" required name="alergia_cual" data-color="dark" type="text" value="{$userData['alergia_cual']}" placeholder="Escribe las restricciones alimenticias" readonly/>
+// html;
+//         }
        
 
       View::set('imgUser',$imgUser);
       View::set('header',$this->_contenedor->header($extraHeader));
       View::set('footer',$this->_contenedor->header($extraFooter));
       View::set('userData', $userData);
-      View::set('restricciones', $restricciones);
+    //   View::set('restricciones', $restricciones);
       View::set('optionsLineaPrincipal',$optionsLineaPrincipal);
       View::set('optionsGenero',$optionsGenero);
       View::set('optionsActividad',$optionsActividad);
