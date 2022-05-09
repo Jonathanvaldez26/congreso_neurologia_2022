@@ -136,14 +136,12 @@ html;
             $card_profesores .= <<<html
             
             
-            <div class="col-12 col-md-3">
-                <div class="card card-body p-0">
+            <div class="col-12 col-md-3 text-center">
+                <div class="card card-body card-course p-0 border-radius-15">
                     <input class="curso" hidden type="text" value="{$value['id_profesor']}" readonly>
-                    <div class="text-center">
                         <img class="profesor-img" src="/profesores_img/{$value['img']}">
                         <div class="mt-2 color-vine font-14 text-bold"><p><b>{$value['prefijo']} {$value['nombre']}</b></p></div>
                         <div class="color-vine font-12"><p>{$value['descripcion']}</p></div>
-                    <div>
                 </div>
             </div>
 html;

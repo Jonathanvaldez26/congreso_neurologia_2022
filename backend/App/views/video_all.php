@@ -127,7 +127,7 @@
                         <input type="text" name="" id="id_curso" hidden readonly value="<?php echo $id_curso;?>">
                     </div>
                     <div class="row m-auto">
-                        <div class="col-12">
+                        <div class="col-12" id="btn-examen">
                             <?php echo $btn_encuesta;?>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
             <div class="modal-dialog modal-size" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="encuestaLabel">Encuesta para <?php echo $nombre_taller;?></h5>
+                        <h5 class="modal-title" id="encuestaLabel">Examen para <?php echo $nombre_taller;?></h5>
                         <button type="button" class="btn bg-gradient-danger text-lg btn-icon-only" data-dismiss="modal" aria-label="Close">
                             <span class="" aria-hidden="true">&times;</span>
                         </button>
@@ -215,13 +215,13 @@
                     console.log(respuesta);
                     
                     if (respuesta == 'success') {
-                        Swal.fire('Se ha guardado correctamente su encuesta','','success').
+                        Swal.fire('Se ha guardado correctamente su examen','','success').
                         then((result) => {
                             console.log('a');
                             window.location.reload();
                         });
                     } else {
-                        Swal.fire('Lo sentimos, usted ya ha contestado esta encuesta','','info').
+                        Swal.fire('Lo sentimos, usted ya ha contestado este examen','','info').
                         then((result) => {
                             console.log('b');
                             window.location.reload();
@@ -278,22 +278,25 @@
             intervalo = setInterval(function() {
                 tiempo_total++;
 
-                if (inicio <= duracion) {
+                if (inicio < duracion) {
                     inicio += increment;
                 }
 
                 if (tiempo_total % 60 == 0) {
                     console.log('Ejecutamos Ajax');
                     actualizarProgreso($('#id_curso').val(),inicio);
+                    
+                }
+
+                if (porcentaje_num >= 79) {
+                    $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
                 }
 
                 $('#barra_progreso').val(inicio);
                 porcentaje_num = (inicio*100)/parseInt(duracion);
                 $('#porcentaje').html(porcentaje_num.toFixed(0)+' %');
 
-                // if (porcentaje_num >= 86) {
-                //     window.location.reload();
-                // }
+                
             },1000);
 
             $(window).blur(function() {

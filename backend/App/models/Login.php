@@ -116,9 +116,9 @@ sql;
     public static function getUser($usuario){
         $mysqli = Database::getInstance(true);
         $query =<<<sql
-        SELECT r.*
-        FROM registrados r  
-        WHERE r.email = '$usuario'
+        SELECT *
+        FROM registrados  
+        WHERE email = '$usuario'
 sql;
 
         return $mysqli->queryAll($query);
