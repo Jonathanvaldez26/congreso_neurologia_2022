@@ -135,6 +135,14 @@
                             </div>
                         </div>
                         
+
+                        <div class="card-body p-3">
+                            <div class="row mt-3">
+                                    <?php echo $card_programa; ?>
+                            </div>
+                        </div>
+                        
+
                         <div class="card-body p-3">
                             <?php echo $programa_fecha1; ?>
                             <div class="row">

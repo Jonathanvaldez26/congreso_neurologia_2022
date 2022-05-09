@@ -139,6 +139,8 @@ html;
 
             $card_cursos .= <<<html
             
+
+            
             
             <div class="col-12 col-md-3">
                 <div class="card card-body card-course p-0 border-radius-15">
