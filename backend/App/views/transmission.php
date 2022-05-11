@@ -204,207 +204,43 @@
                     </div>
                     </div>
                     <div class="col-11 col-lg-4">
+
                     <div class="card">
                         <div class="card blur shadow-blur max-height-vh-70">
                         <div class="card-header shadow-lg">
                             <div class="row">
                             <div class="col-md-10">
                                 <div class="d-flex align-items-center">
-                                <img alt="Image" src="../../../img/users_musa/<?php echo $info_user['avatar_img'];?>" class="avatar">
+                                <!--img alt="Image" src="assets/img/bruce-mars.jpg" class="avatar"-->
                                 <div class="ms-3">
-                                    <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'].' '.$info_user['nombre'];?></h6>
-                                    <span class="text-sm text-dark opacity-8">Tus Preguntas al Ponente</span>
+                                <div class="d-flex align-items-center">
+                                            <img alt="Image" src="../../../img/users_musa/<?php echo $info_user['avatar_img'];?>" class="avatar">
+                                            <div class="ms-3">
+                                                <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'].' '.$info_user['nombre'];?></h6>
+                                                <span class="text-sm text-dark opacity-8">Tus Preguntas al Ponente</span>
+                                            </div>
+                                            </div>
                                 </div>
                                 </div>
                             </div>
 
-                            <div class="col-1 my-auto ps-0">
-                                <div class="dropdown">
-                                <button class="btn btn-icon-only shadow-none text-dark mb-0" type="button" data-bs-toggle="dropdown">
-                                    <i class="ni ni-settings"></i>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end me-sm-n2 p-2" aria-labelledby="chatmsg">
-                                    <li>
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                                        Profile
-                                    </a>
-                                    </li>
-                                    <li>
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                                        Mute conversation
-                                    </a>
-                                    </li>
-                                    <li>
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                                        Block
-                                    </a>
-                                    </li>
-                                    <li>
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                                        Clear chat
-                                    </a>
-                                    </li>
-                                    <li>
-                                    <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                    <a class="dropdown-item border-radius-md text-danger" href="javascript:;">
-                                        Delete chat
-                                    </a>
-                                    </li>
-                                </ul>
-                                </div>
-                            </div>
                             </div>
                         </div>
-                        <div class="card-body overflow-auto overflow-x-hidden">
-                            <div class="row justify-content-start mb-4">
-                            <div class="col-auto">
-                                <div class="card ">
-                                <div class="card-body py-2 px-3">
-                                    <p class="mb-1">
-                                    ¿Dr. Puede responder que beneficios tiene el punto A? Por favor
 
-                                    </p>
-                                    <div class="d-flex align-items-center text-sm opacity-6">
-                                    <i class="ni ni-check-bold text-sm me-1"></i>
-                                    <small>3:14 pm</small>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="row justify-content-end text-right mb-4">
-                            <div class="col-auto">
-                                <div class="card bg-gray-200">
-                                <div class="card-body py-2 px-3">
-                                    <p class="mb-1">
-                                    ¿Son consecutivos los conceptos?<br>
-                                    </p>
-                                    <div class="d-flex align-items-center justify-content-end text-sm opacity-6">
-                                    <i class="ni ni-check-bold text-sm me-1"></i>
-                                    <small>4:42pm</small>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="row mt-4">
-                            <div class="col-md-12 text-center">
-                                <span class="badge text-dark">Wed, 3:27pm</span>
-                            </div>
-                            </div>
-                            <div class="row justify-content-start mb-4">
-                            <div class="col-auto">
-                                <div class="card ">
-                                <div class="card-body py-2 px-3">
-                                    <p class="mb-1">
-                                    Yeah! Responsive Design is geared towards those trying to build web apps
-                                    </p>
-                                    <div class="d-flex align-items-center text-sm opacity-6">
-                                    <i class="ni ni-check-bold text-sm me-1"></i>
-                                    <small>4:31pm</small>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="row justify-content-end text-right mb-4">
-                            <div class="col-auto">
-                                <div class="card bg-gray-200">
-                                <div class="card-body py-2 px-3">
-                                    <p class="mb-1">
-                                    Excellent, I want it now !
-                                    </p>
-                                    <div class="d-flex align-items-center justify-content-end text-sm opacity-6">
-                                    <i class="ni ni-check-bold text-sm me-1"></i>
-                                    <small>4:42pm</small>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="row justify-content-start mb-4">
-                            <div class="col-auto">
-                                <div class="card ">
-                                <div class="card-body py-2 px-3">
-                                    <p class="mb-1">
-                                    You can easily get it; The content here is all free
-                                    </p>
-                                    <div class="d-flex align-items-center text-sm opacity-6">
-                                    <i class="ni ni-check-bold text-sm me-1"></i>
-                                    <small>4:42pm</small>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="row justify-content-end text-right mb-4">
-                            <div class="col-auto">
-                                <div class="card bg-gray-200">
-                                <div class="card-body py-2 px-3">
-                                    <p class="mb-1">
-                                    Awesome, blog is important source material for anyone who creates apps? <br>
-                                    Beacuse these blogs offer a lot of information about website development.
-                                    </p>
-                                    <div class="d-flex align-items-center justify-content-end text-sm opacity-6">
-                                    <i class="ni ni-check-bold text-sm me-1"></i>
-                                    <small>4:42pm</small>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="row justify-content-start mb-4">
-                            <div class="col-5">
-                                <div class="card ">
-                                <div class="card-body p-2">
-                                    <div class="col-12 p-0">
-                                    <img src="https://images.unsplash.com/photo-1602142946018-34606aa83259?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1762&amp;q=80" alt="Rounded image" class="img-fluid mb-2 border-radius-lg">
-                                        
-                                    </div>
-                                    <div class="d-flex align-items-center text-sm opacity-6">
-                                    <i class="ni ni-check-bold text-sm me-1"></i>
-                                    <small>4:47pm</small>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="row justify-content-end text-right mb-4">
-                            <div class="col-auto">
-                                <div class="card bg-gray-200">
-                                <div class="card-body py-2 px-3">
-                                    <p class="mb-0">
-                                    At the end of the day … the native dev apps is where users are
-                                    </p>
-                                    <div class="d-flex align-items-center justify-content-end text-sm opacity-6">
-                                    <i class="ni ni-check-bold text-sm me-1"></i>
-                                    <small>4:42pm</small>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="row justify-content-start">
-                            <div class="col-auto">
-                                <div class="card ">
-                                <div class="card-body py-2 px-3">
-                                    <p class="mb-0">
-                                    Charlie is Typing...
-                                    </p>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
                         <div class="card-footer d-block">
-                            <form class="align-items-center">
+                            <form class="align-items-center" id="form-pregunta" autocomplete="nope" action="" method="POST" onsubmit="return false;" accept-charset="utf-8">
                             <div class="d-flex">
                                 <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Escribe tu pregunta al ponente aquí." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
+                                <input type="text" name="pregunta" id="pregunta" class="form-control" placeholder="Escribe tu pregunta al ponente aquí." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
                                 </div>
-                                <button class="btn bg-gradient-primary mb-0 ms-2">
+
+                                <div class="input-group" style="display: none;">
+                                <input class="form-control" style="visibility: hidden" type="hidden" name="registrado" id="registrado" value="90323" onfocus="focused(this)" onfocusout="defocused(this)">
+            
+                                </div>
+
+
+                                <button class="btn bg-gradient-success mb-0 ms-2" id="btn-enviar">
                                 <i class="ni ni-send"></i>
                                 </button>
                             </div>
