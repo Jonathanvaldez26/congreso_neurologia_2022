@@ -86,6 +86,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row mt-0 m-auto">
             <div class="col-lg-1">
             </div>
@@ -101,8 +102,11 @@
 
 
                         <!--Aqui va la variable-->
+                        
 
                         <div class="card-body p-3">
+                        <br>
+                        <p class="">Nota: Si usted desea viausliazar el documento de click sobre el nombre del trabajo libre.</p>
                             <div class="row mt-3">
                                     <?php echo $card_trabajos_libres; ?>
                             </div>
