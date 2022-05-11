@@ -106,7 +106,7 @@
 
                         <div class="card-body p-3">
                         <br>
-                        <p class="">Nota: Si usted desea viausliazar el documento de click sobre el nombre del trabajo libre.</p>
+                        <p class="">Nota: Si usted desea visualizar el documento de clic sobre el nombre del trabajo libre.</p>
                             <div class="row mt-3">
                                     <?php echo $card_trabajos_libres; ?>
                             </div>
