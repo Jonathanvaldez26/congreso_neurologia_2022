@@ -56,7 +56,7 @@ html;
             
             <div class="col-10 col-md-2 text-center">
                 <div class="card card-body card-course p-0 border-radius-15">
-                <img class="caratula-img border-radius-15" src="/trabajos_files/img/documento.png">
+                <img class="caratula-img border-radius-15" src="/trabajos_files/img/{$value['caratula']}">
                         <div class="mt-2 color-vine font-16 text-bold"><p><b>{$value['titulo']}</b></p></div>
                         <div class="color-vine font-14"><p>{$value['descripcion']}</p></div>
                         <div class="color-vine font-12"><p>{$value['nombre_participante']}</p></div>
