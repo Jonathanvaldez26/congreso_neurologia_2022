@@ -36994,6 +36994,10 @@ input#chk-6:checked ~ #lbl-6{display: block;}
   font-size: 8px !important;
 }
 
+.font-5{
+  font-size: 5px !important;
+}
+
 .text-bold{
   font-size: large;
   font-weight: 900 !important;

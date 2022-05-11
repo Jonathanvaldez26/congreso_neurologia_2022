@@ -62,7 +62,8 @@ html;
             <div class="col-12 col-md-4 text-center " >
                 <div class="card card-body card-course p-0 border-radius-15">
                 <img class="caratula-trabajo-img border-radius-15" src="{$ruta}">
-                        <div class="mt-2 color-black font-8 text-bold iframe" data-toggle="modal" data-target="#pdf" data-pdf="{$value['pdf']}"><p><b>{$value['titulo']}</b></p></div>
+                        <div class="mt-2 color-black font-5 text-bold iframe" data-toggle="modal" data-target="#pdf" data-pdf="{$value['pdf']}"><p class="font-14"><b> {$value['titulo']} <span class="fa fa-mouse-pointer" aria-hidden="true"></span></b></p>
+                        </div>
                         <div class="color-black font-14"><p>{$value['descripcion']}</p></div>
                         <div class="color-vine font-12"><p>{$value['nombre_participante']}</p></div>
                         {$heart}
