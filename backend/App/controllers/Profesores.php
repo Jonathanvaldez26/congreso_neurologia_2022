@@ -135,7 +135,7 @@ html;
                     <input class="curso" hidden type="text" value="{$value['id_profesor']}" readonly>
                         <img class="profesor-img" src="/profesores_img/{$value['img']}.png">
                         <!--<div class="mt-2 color-vine font-14 text-bold"><p><b>{$value['prefijo']} {$value['nombre']}</b></p></div>-->
-                        <div class="color-vine font-12" style="color:#0F978D;"><p style="color:#0F978D; font-size:11px;">{$value['descripcion']}</p></div>
+                        <!--<div class="color-vine font-12" style="color:#0F978D;"><p style="color:#0F978D; font-size:11px;">{$value['descripcion']}</p></div>-->
                 </div>
             </div>
 html;
@@ -150,7 +150,7 @@ html;
                     <input class="curso" hidden type="text" value="{$value['id_profesor']}" readonly>
                         <img class="profesor-img" src="/profesores_img/{$value['img']}.png">
                         <!--<div class="mt-2 color-vine font-14 text-bold"><p><b>{$value['prefijo']} {$value['nombre']}</b></p></div>-->
-                        <div class="color-vine font-12" style="color:#0F978D;"><p style="color:#0F978D; font-size:11px;">{$value['descripcion']}</p></div>
+                        <!--<div class="color-vine font-12" style="color:#0F978D;"><p style="color:#0F978D; font-size:11px;">{$value['descripcion']}</p></div>-->
                 </div>
             </div>
 html;
