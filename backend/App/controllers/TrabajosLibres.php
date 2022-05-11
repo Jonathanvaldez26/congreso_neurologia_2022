@@ -50,14 +50,19 @@ html;
 html;
             }
             
+            if($value['grupo'] == 1){
+                $ruta = '/trabajos_files/img/grupo_1/'.$value['caratula'];
+            }elseif($value['grupo'] == 2){
+                $ruta = '/trabajos_files/img/grupo_2/'.$value['caratula'];
+            }
 
             $card_trabajos_libres .= <<<html
             
             
-            <div class="col-10 col-md-2 text-center">
+            <div class="col-12 col-md-3 text-center " >
                 <div class="card card-body card-course p-0 border-radius-15">
-                <img class="caratula-img border-radius-15" src="/trabajos_files/img/{$value['caratula']}">
-                        <div class="mt-2 color-vine font-16 text-bold"><p><b>{$value['titulo']}</b></p></div>
+                <img class="caratula-img border-radius-15" src="{$ruta}">
+                        <div class="mt-2 color-vine font-16 text-bold iframe" data-toggle="modal" data-target="#pdf" data-pdf="{$value['pdf']}"><p><b>{$value['titulo']}</b></p></div>
                         <div class="color-vine font-14"><p>{$value['descripcion']}</p></div>
                         <div class="color-vine font-12"><p>{$value['nombre_participante']}</p></div>
                         {$heart}
