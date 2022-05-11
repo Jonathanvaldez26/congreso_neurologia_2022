@@ -60,6 +60,11 @@ class Contenedor extends Controller{
             #lbl-image{
                 cursor: pointer;
             }
+           
+            .heart-like .heart-not-like{
+                cursor: pointer;
+            }
+          
            </style>
             <!-- TEMPLATE VIEJO-->
         </head>

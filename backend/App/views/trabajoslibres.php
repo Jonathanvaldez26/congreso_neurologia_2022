@@ -190,6 +190,98 @@
 <script>
     $(document).ready(function(){
         
+        $('.heart-not-like').on('click', function(){
+            let clave = $(this).attr('data-clave');
+            let heart = $(this);
+
+            // if (heart.hasClass('heart-like')) {
+            //     heart.removeClass('heart-like').addClass('heart-not-like');
+            // } else {
+            //     heart.removeClass('heart-not-like').addClass('heart-like');
+            // }
+            // console.log('se cambió a like: '+clave);
+            $.ajax({
+                url: "/TrabajosLibres/Likes",
+                type: "POST",
+                data: {clave},
+                beforeSend: function() {
+                    console.log("Procesando....");
+                },
+                success: function(respuesta) {
+                    console.log(respuesta);
+                    if(respuesta == "votar"){
+                        Swal.fire(
+                            'Se registro tu voto correctamente',
+                            '',
+                            'success'
+                        )
+                        heart.removeClass('heart-not-like').addClass('heart-like');
+                    }else if(respuesta == "ya_votaste"){
+                        Swal.fire(
+                            'Ya se habia registrado tu voto',
+                            '',
+                            'info'
+                        )
+                    }else{
+                        Swal.fire(
+                            'Ya se habia registrado tu voto',
+                            '',
+                            'info'
+                        )
+                    }
+                    
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+            });
+        })
+
+        $('.heart-like').on('click', function(){
+            let clave = $(this).attr('data-clave');
+            let heart = $(this);
+
+            // if (heart.hasClass('heart-like')) {
+            //     heart.removeClass('heart-like').addClass('heart-not-like');
+            // } else {
+            //     heart.removeClass('heart-not-like').addClass('heart-like');
+            // }
+            // console.log('se cambió a like: '+clave);
+            $.ajax({
+                url: "/TrabajosLibres/Likes",
+                type: "POST",
+                data: {clave},
+                beforeSend: function() {
+                    console.log("Procesando....");
+                },
+                success: function(respuesta) {
+                    console.log(respuesta);
+                    if(respuesta == "votar"){
+                        Swal.fire(
+                            'Se registro tu voto correctamente',
+                            '',
+                            'success'
+                        )
+                    }else if(respuesta == "ya_votaste"){
+                        Swal.fire(
+                            'Ya se habia registrado tu voto',
+                            '',
+                            'info'
+                        )
+                    }else{
+                        Swal.fire(
+                            'Ya se habia registrado tu voto',
+                            '',
+                            'info'
+                        )
+                    }
+                    
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+            });
+        })
     });
 </script>
 
