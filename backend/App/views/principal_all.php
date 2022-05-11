@@ -1,3 +1,6 @@
+<!--<title>
+    Home 
+</title>-->
 <?php echo $header; ?>
 <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
 <body class="bg-body" id="body-home">

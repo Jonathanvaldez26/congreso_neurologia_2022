@@ -58,7 +58,7 @@ html;
         View::set('header',$this->_contenedor->header($extraHeader));
         //View::set('permisos_mexico',$permisos_mexico);
         //View::set('tabla',$tabla);
-         View::set('card_trabajos_libres',$card_trabajos_libres);
+        View::set('card_trabajos_libres',$card_trabajos_libres);
         View::render("trabajoslibres");
     }
 
