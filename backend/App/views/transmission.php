@@ -149,49 +149,22 @@
                                 </div>
                                 <!-- Comments -->
                                 <div class="mb-1">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0">
-                                            <img alt="Image placeholder" class="avatar rounded-circle" src="../../../assets/img/team-4.jpg">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="h5 mt-0">Dr. Michael Lewis</h6>
-                                            <p class="text-sm">Muy Interesante, felicitaciones.</p>
-                                            <div class="d-flex">
-                                                <div>
-                                                    <i class="ni ni-like-2 me-1 cursor-pointer"></i>
-                                                </div>
-                                                <span class="text-sm me-2">3 likes</span>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex mt-3">
-                                        <div class="flex-shrink-0">
-                                            <img alt="Image placeholder" class="avatar rounded-circle" src="../../../assets/img/team-5.jpg">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="h5 mt-0">Dra. Jessica Stones</h6>
-                                            <p class="text-sm">Muy buena presentación.</p>
-                                            <div class="d-flex">
-                                                <div>
-                                                    <i class="ni ni-like-2 me-1 cursor-pointer"></i>
-                                                </div>
-                                                <span class="text-sm me-2">10 likes</span>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
+                                    <?php echo $chat_transmision_1; ?>
                                     <div class="d-flex mt-4">
                                         <div class="flex-shrink-0">
                                             <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../assets/img/bruce-mars.jpg">
                                         </div>
                                         <div class="flex-grow-1 my-auto">
-                                            <form class="align-items-center">
+
+                                            <form class="align-items-center" id="form_chat" method="post">
+                                                <input type="hidden" name="id_tipo" id="id_tipo" value="<?= $transmision_1['id_transmision']; ?>">
+                                                <input type="hidden" name="sala" id="sala" value="1">
                                                 <div class="d-flex">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" placeholder="Escribe un comentario para todos los asistentes." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
+                                                        <input type="text" name="txt_chat" id="txt_chat" class="form-control" placeholder="Escribe un comentario para todos los asistentes." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
                                                     </div>
-                                                    <button class="btn bg-gradient-primary mb-0 ms-2">
+                                                    <button class="btn bg-gradient-primary mb-0 ms-2" onclick="saveChat()">
                                                         <i class="ni ni-send"></i>
                                                     </button>
                                                 </div>
@@ -296,13 +269,13 @@
                                         <div class="flex-grow-1 ms-3">
                                             <h6 class="h5 mt-0">Dr. Michael Lewis</h6>
                                             <p class="text-sm">Muy Interesante, felicitaciones.</p>
-                                            <div class="d-flex">
+                                            <!-- <div class="d-flex">
                                                 <div>
                                                     <i class="ni ni-like-2 me-1 cursor-pointer"></i>
                                                 </div>
                                                 <span class="text-sm me-2">3 likes</span>
 
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="d-flex mt-3">
@@ -312,13 +285,13 @@
                                         <div class="flex-grow-1 ms-3">
                                             <h6 class="h5 mt-0">Dra. Jessica Stones</h6>
                                             <p class="text-sm">Muy buena presentación.</p>
-                                            <div class="d-flex">
+                                            <!-- <div class="d-flex">
                                                 <div>
                                                     <i class="ni ni-like-2 me-1 cursor-pointer"></i>
                                                 </div>
                                                 <span class="text-sm me-2">10 likes</span>
 
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="d-flex mt-4">
@@ -326,12 +299,14 @@
                                             <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../assets/img/bruce-mars.jpg">
                                         </div>
                                         <div class="flex-grow-1 my-auto">
-                                            <form class="align-items-center">
+                                            <form class="align-items-center" id="form_chat" method="post">
+                                                <input type="hidden" name="id_tipo" id="id_tipo" value="<?= $transmision_1['id_transmision']; ?>">
+                                                <input type="hidden" name="sala" id="sala" value="2">
                                                 <div class="d-flex">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" placeholder="Escribe un comentario para todos los asistentes." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
+                                                        <input type="text" name="txt_chat" id="txt_chat" class="form-control" placeholder="Escribe un comentario para todos los asistentes." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
                                                     </div>
-                                                    <button class="btn bg-gradient-primary mb-0 ms-2">
+                                                    <button class="btn bg-gradient-primary mb-0 ms-2" onclick="saveChat()">
                                                         <i class="ni ni-send"></i>
                                                     </button>
                                                 </div>
@@ -388,7 +363,7 @@
                                 </div>
                             </div>
                         </div>
-                      
+
                     </div>
                 </div>
             </div>
@@ -419,7 +394,55 @@
 
 
 <script>
+    function saveChat() {
+        //event.preventDefault(event);
+        var formData = new FormData(document.getElementById("form_chat"));
+
+        for (var value of formData.values()) {
+            console.log(value);
+        }
+
+        $.ajax({
+            url: "/Transmission/saveChat",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function() {
+                event.preventDefault();
+                document.getElementById("txt_chat").value = "";
+                console.log("Procesando....");
+                // alert('Se está borrando');
+            },
+            success: function(respuesta) {
+                console.log(respuesta);
+
+                // if (respuesta == 'success') {
+                //     Swal.fire("Programa guardado correctamente!", "", "success").
+                //     then((value) => {
+                //         window.location.reload();
+                //     });
+                // } else {
+                //     Swal.fire("¡Hubo un error guardar el Programa!", "", "warning").
+                //     then((value) => {
+                //         window.location.reload();
+                //     });
+                // }
+            },
+            error: function(respuesta) {
+                console.log(respuesta);
+                // alert('Error');
+                // Swal.fire("¡Hubo un error guardar el Programa!", "", "warning").
+                // then((value) => {
+                //     window.location.reload();
+                // });
+            }
+        });
+    }
     $(document).ready(function() {
+
+
+
 
         function actualizarProgreso(transmision, segundos) {
             $.ajax({
@@ -676,6 +699,8 @@
         function mandarMensaje() {
             console.log("Ha pasado 1 segundo.");
         }
+
+
     });
 </script>
 
