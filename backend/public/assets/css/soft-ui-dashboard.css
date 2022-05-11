@@ -37136,6 +37136,12 @@ canvas {
   width: 100%;
 }
 
+.caratula-trabajo-img{
+  /* border-radius: 15px;  */
+  height: 480px; 
+  width: 100%;
+}
+
 .profesor-img{ 
   width: 100%;
 }
@@ -37170,8 +37176,9 @@ canvas {
   position: absolute;
   right: 0rem;
   top: 0rem;
-  color: #ffffff80;
+  color: #A69C9A;
   font-size: 1rem !important;
+  cursor: pointer;
   /* z-index: 5; */
   /* text-shadow: 0px 0px 0px crimson; */
   /* border-width: 10px;
@@ -37195,7 +37202,12 @@ canvas {
   right: 0rem;
   top: 0rem;
   font-size: 1rem !important;
+  cursor: pointer;
   /* z-index: 5; */
+}
+
+.iframe{
+cursor: pointer;
 }
 
 .orange-hover:hover{
