@@ -177,16 +177,21 @@ echo $header;
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div id="particles-js" class="oblique position-absolute top-0 h-100 d-md-block d-none me-n9">
+
+                            <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n9">
+                                
                                 <!-- <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('/assets/img/curved-images/curved9.jpg')"></div>-->
-                                <!-- <video autoplay muted loop>
-                                    <source class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" src="/assets/img/curved-images/Musa_Web.mp4" type="video/mp4">
-                                </video> -->
+                                <video autoplay muted loop>
+                                    <source class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" src="/assets/img/curved-images/FONDOWEB-SMNP-10FEB.mp4" type="video/mp4">
+                                </video>
+
                             </div>
-                            <div class="count-particles" hidden>
+
+                            <!--<div class="count-particles" hidden>
                                 <span class="js-count-particles">--</span> particles
                             </div>
-                            <div ></div>
+                            <div ></div>-->
+
                         </div>
                     </div>
                 </div>

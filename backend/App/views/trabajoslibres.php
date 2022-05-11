@@ -100,9 +100,7 @@
                         </div>
 
 
-
-
-                        Aqui va la variable
+                        <!--Aqui va la variable-->
 
                         <div class="card-body p-3">
                             <div class="row mt-3">
