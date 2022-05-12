@@ -120,8 +120,38 @@ html;
 </script>
 
 html;
+
+        
+
+
         $transmision_1 = TransmisionDao::getTransmisionById(1);
         $transmision_2 = TransmisionDao::getTransmisionById(2);
+
+        $data_1 = new \stdClass();
+        $data_1->_tipo = 1;
+        $data_1->_sala = 1;
+        $data_1->_id_tipo = $transmision_1['id_transmision'];
+
+        $chat_transmision_1 = TransmisionDao::getChatByID($data_1);
+        $cont_chat = '';
+
+        var_dump($chat_transmision_1);
+
+        foreach($chat_transmision_1 as $chat => $value){
+            $nombre_completo = $value['nombre'] .' '.$value['apellidop'].' '.$value['apellidom'];
+            $cont_chat .= <<<html
+            <div class="d-flex mt-3">
+                <div class="flex-shrink-0">
+                    <img alt="Image placeholder" class="avatar rounded-circle" src="../../../assets/img/team-5.jpg">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="h5 mt-0">{$nombre_completo}</h6>
+                    <p class="text-sm">{$value['chat']}</p>
+                    
+                </div>
+            </div>
+html;
+        }
 
         $secs_t1 = TransmisionDao::getProgrsoTransmision($_SESSION['id_registrado'],$transmision_1['id_transmision']);
         $secs_t2 = TransmisionDao::getProgrsoTransmision($_SESSION['id_registrado'],$transmision_2['id_transmision']);
@@ -144,6 +174,9 @@ html;
 
         View::set('transmision_1',$transmision_1);
         View::set('transmision_2',$transmision_2);
+        View::set('chat_transmision_1',$cont_chat);
+        // View::set('chat_transmision_2',$chat_transmision_2);
+
         View::set('secs_t1',$secs_t1);
         View::set('secs_t2',$secs_t2);
         View::set('info_user',$info_user);
@@ -159,6 +192,28 @@ html;
         TransmisionDao::updateProgreso($transmision, $_SESSION['id_registrado'],$progreso);
 
         echo $progreso.' ID_Tr: '.$transmision;
+    }
+
+    public function saveChat(){
+        $chat = $_POST['txt_chat'];
+        $sala = $_POST['sala'];
+        $id_tipo = $_POST['id_tipo'];
+
+        $data = new \stdClass();
+        $data->_id_registrado = $_SESSION['id_registrado'];
+        $data->_chat = $chat;
+        $data->_tipo = 1;
+        $data->_id_tipo = $id_tipo;
+        $data->_sala = $sala;
+   
+
+        $id = TransmisionDao::insertChat($data);
+
+        if($id){
+            echo "success";
+        }else{
+            echo "fail";
+        }
     }
 
     public function updateProgressWithDate(){

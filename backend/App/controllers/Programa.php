@@ -157,6 +157,10 @@ html;
                                 {$value['descripcion']}
                             </span>
                             <br><br>
+                            <span class="text-bold font-20 text-lg">
+                                {$value['subtitulo']}
+                            </span>
+                            <br><br>
                             <span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
