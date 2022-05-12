@@ -400,7 +400,7 @@
                     $("#cont_chat_"+el.sala).append(
                         `<div class="d-flex mt-3">
                             <div class="flex-shrink-0">
-                                <img alt="Image placeholder" class="avatar rounded-circle" src="../../../assets/img/team-5.jpg">
+                                <img alt="Image placeholder" class="avatar rounded-circle" src="../../../img/users_musa/${el.avatar_img}">
                             </div>
                             <div class="flex-grow-1 ms-3">
                                 <h6 class="h5 mt-0">${nombre_completo}</h6>
