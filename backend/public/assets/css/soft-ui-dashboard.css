@@ -10308,6 +10308,11 @@ fieldset:disabled .btn {
   background-color: transparent !important;
 }
 
+.bg-transparent-yellow {
+  background-color: #fbcf33 !important;
+}
+
+
 .bg-gray-100 {
   background-color: #f8f9fa !important;
 }
@@ -37018,6 +37023,12 @@ input#chk-6:checked ~ #lbl-6{display: block;}
 
 .bg-gradient-yellow{
   background-image: radial-gradient(800px at 80% 50%, rgb(208 243 238 / 80%) 0px, rgb(255 224 0 / 75%) 100%);
+}
+
+.text-scroll{
+  overflow-y: scroll !important;
+  max-height: 400px;
+  height: 10%;
 }
 
 

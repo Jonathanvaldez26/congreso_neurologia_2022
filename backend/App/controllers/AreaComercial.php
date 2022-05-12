@@ -24,7 +24,7 @@ class AreaComercial extends Controller{
      $extraHeader =<<<html
       <link id="pagestyle" href="/assets/css/style.css" rel="stylesheet" />
       <title>
-            Home - AMETD
+            Home 
       </title>
 html;
 

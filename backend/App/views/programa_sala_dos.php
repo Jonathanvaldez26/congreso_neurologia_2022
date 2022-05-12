@@ -1,5 +1,5 @@
 <title>
-    Cursos - Neuropediatría
+    Cursos - Neuropediatría 
 </title>
 <?php echo $header; ?>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -26,7 +26,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Home/">Inicio</a></li>
-                    <li class="breadcrumb-item text-sm">Trabajos Libres</li>
+                    <li class="breadcrumb-item text-sm">Programa</li>
                 </ol>
             </nav>
 
@@ -62,36 +62,71 @@
                     <div class="row justify-content-center align-items-center">
                         <div class="col-sm-auto col-4">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="/assets/img/Logo_SMNP.png">
+                            <img src="/assets/img/Logo_SMNP.png">
                             </div>
                         </div>
                         <div class="col-sm-auto col-8 my-auto">
                             <div class="h-100">
                                 <h5 class="mb-1 font-weight-bolder" id="nombre_transmision">
-                                    Trabajos Libres
+                                    Programa Sala dos
                                 </h5>
                             </div>
                         </div>
-
+                            
                         <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 me-4">
-
+                            
                         </div>
                         <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
-                            <a href="/Home/" class="mt-2 me-2 btn-move">
-                                <span class="text-dark mt-2"><i class="fas fa-undo"></i> Regresar</span>
-                            </a>
-
+                                <a href="/Programa/" class="mt-2 me-2 btn-move">
+                                    <span class="text-dark mt-2"><i class="fas fa-undo"></i> Regresar al Programa</span>
+                                </a>
+                            <!-- <div class="form-check form-switch ms-2 p-0">
+                                <div class="row text-center">
+                                        
+                                    <div class="col-lg-12 col-md-12 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+                                        
+                                        <div class="nav-wrapper position-relative end-0">
+                                                
+                                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                                <li class="nav-item transmisiones px-3" data-transmision="1">
+                                                    <a class="nav-link mb-0 px-0 py-1 active" href="#m_18" data-bs-toggle="tab" role="tab" aria-selected="true">
+                                                        <span class="fa fa-calendar"></span>
+                                                        <span class="ms-1">18 de mayo</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item transmisiones px-3" data-transmision="2">
+                                                    <a class="nav-link mb-0 px-0 py-1" href="#m_19" data-bs-toggle="tab" role="tab" aria-selected="false">
+                                                        <span class="fa fa-calendar"></span>
+                                                        <span class="ms-1">19 de mayo</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item transmisiones px-3" data-transmision="2">
+                                                    <a class="nav-link mb-0 px-0 py-1" href="#m_20" data-bs-toggle="tab" role="tab" aria-selected="false">
+                                                        <span class="fa fa-calendar"></span>
+                                                        <span class="ms-1">20 de mayo</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item transmisiones px-3" data-transmision="2">
+                                                    <a class="nav-link mb-0 px-0 py-1" href="#m_21" data-bs-toggle="tab" role="tab" aria-selected="false">
+                                                        <span class="fa fa-calendar"></span>
+                                                        <span class="ms-1">21 de mayo</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="row mt-0 m-auto">
             <div class="col-lg-1">
             </div>
 
-            <div class="card col-lg-10 mt-lg-3 mt-1">
+            <div class="card col-lg-10 mt-lg-3 mt-1" >
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show position-relative active border-radius-lg" id="m_18" role="tabpanel" aria-labelledby="m_18">
                         <div class="card-header pb-0 p-3">
@@ -99,61 +134,50 @@
                                 <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
                             </div>
                         </div>
-
-
-                        <!--Aqui va la variable
                         
+
                         <div class="card-body p-3">
-                        <br>
-                        <p class="">Nota: Si usted desea visualizar el documento de clic sobre el nombre del trabajo libre.</p>
                             <div class="row mt-3">
-                                    <?php //echo $card_trabajos_libres; 
-                                    ?>
+                                    <?php //echo $card_programa; ?>
                             </div>
                         </div>
-                        -->
+                        
 
-                        <div class="container-fluid py-0">
-                            <div class="row">
+                        <div class="card-body p-3">
+                            <?php echo $programa_fecha1; ?>
+
+                            <!-- <div class="row">
 
                                 <div class="col-md-6  col-sm-12 my-md-3 my-sm-3">
-                                    <a href="/trabajos_libres_grupo1/">
-                                        <div class="card card-link btn-menu-home m-auto" style="background-image: url(/img/SMNP_Iconos/17.png)">
+                                    <a href="/Programa/sala_uno">
+                                        <div class="card card-link btn-menu-home m-auto" style="bakground-image: url(/img/SMNP_Iconos/17.png)">
                                             <div class="card-body mt-md-3 text-center content-card-home">
                                                 <div class="col-12 text-center">
-                                                    <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                                    <!-- <span class="color-yellow fas fa-book-reader text-large"></span> -->
+                                                    SALA 1
                                                 </div>
 
-                                                <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Talleres</h6> -->
-                                                <!-- <p class="opacity-8 mb-0 text-sm">A un click</p> -->
+                                               
                                             </div>
                                         </div>
                                     </a>
                                 </div>
 
                                 <div class="col-sm-12 col-md-6 my-md-3 my-sm-3">
-                                    <a href="/trabajos_libres_grupo2/">
-                                        <div class="card card-link btn-menu-home m-auto" style="background-image: url(/img/SMNP_Iconos/16.png)">
+                                    <a href="/Programa/sala_dos">
+                                        <div class="card card-link btn-menu-home m-auto" style="bakground-image: url(/img/SMNP_Iconos/16.png)">
                                             <div class="card-body mt-md-3 text-center content-card-home">
                                                 <div class="col-12 text-center">
-                                                    <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
-                                                    <!-- <span class="fas fa-user-edit text-large"></span> -->
+                                                   SALA 2
                                                 </div>
 
-                                                <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Datos Personales</h6> -->
-                                                <!-- <p class="opacity-8 mb-0 text-sm">Disponible <i class="fa fa-check-circle me-sm-0" style="color: #01a31c"></i></p> -->
                                             </div>
                                         </div>
                                     </a>
                                 </div>
 
-                            </div>
-                        </div>
+                            </div> -->
+                            
 
-
-                        <div class="card-body p-3">
-                            <?php echo $programa_fecha1; ?>
                             <div class="row">
                                 <div class="button-row d-flex mt-4 col-12">
                                     <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
@@ -167,7 +191,7 @@
                                 <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
                             </div>
                         </div>
-
+                        
                         <div class="card-body p-3">
                             <?php echo $programa_fecha2; ?>
                             <div class="row">
@@ -183,7 +207,7 @@
                                 <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
                             </div>
                         </div>
-
+                        
                         <div class="card-body p-3">
                             <?php echo $programa_fecha3; ?>
                             <div class="row">
@@ -199,7 +223,7 @@
                                 <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
                             </div>
                         </div>
-
+                        
                         <div class="card-body p-3">
                             <?php echo $programa_fecha4; ?>
                             <div class="row">
@@ -210,7 +234,7 @@
                         </div>
                     </div>
                 </div>
-
+                
 
             </div>
         </div>
@@ -227,139 +251,16 @@
 
 </main>
 
-<!-- Modal -->
-<div class="modal fade" id="pdf" tabindex="-1" role="dialog" aria-labelledby="pdfTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-        <div class="modal-content ">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Trabajo</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none; background: transparent;">
-                    <span aria-hidden="true" style="font-size: 25px;">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body cont-modal">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 <script>
-    $(document).ready(function() {
-
-        $('.iframe').on('click', function() {
-            var pdf = $(this).attr('data-pdf');
-            // alert(pdf);
-
-            $('.cont-modal').html('<iframe src="/trabajos_files/' + pdf + '" style="width:100%; height:700px;" frameborder="0" ></iframe>');
-        })
-
-        $('.heart-not-like').on('click', function() {
-            let clave = $(this).attr('data-clave');
-            let heart = $(this);
-
-            // if (heart.hasClass('heart-like')) {
-            //     heart.removeClass('heart-like').addClass('heart-not-like');
-            // } else {
-            //     heart.removeClass('heart-not-like').addClass('heart-like');
-            // }
-            // console.log('se cambió a like: '+clave);
-            $.ajax({
-                url: "/TrabajosLibres/Likes",
-                type: "POST",
-                data: {
-                    clave
-                },
-                beforeSend: function() {
-                    console.log("Procesando....");
-                },
-                success: function(respuesta) {
-                    console.log(respuesta);
-                    if (respuesta == "votar") {
-                        Swal.fire(
-                            'Se registro tu voto correctamente',
-                            '',
-                            'success'
-                        )
-                        heart.removeClass('heart-not-like').addClass('heart-like');
-                    } else if (respuesta == "ya_votaste") {
-                        Swal.fire(
-                            'Ya se habia registrado tu voto',
-                            '',
-                            'info'
-                        )
-                    } else {
-                        Swal.fire(
-                            'Ya se habia registrado tu voto',
-                            '',
-                            'info'
-                        )
-                    }
-
-                },
-                error: function(respuesta) {
-                    console.log(respuesta);
-                }
-            });
-        })
-
-        $('.heart-like').on('click', function() {
-            let clave = $(this).attr('data-clave');
-            let heart = $(this);
-
-            // if (heart.hasClass('heart-like')) {
-            //     heart.removeClass('heart-like').addClass('heart-not-like');
-            // } else {
-            //     heart.removeClass('heart-not-like').addClass('heart-like');
-            // }
-            // console.log('se cambió a like: '+clave);
-            $.ajax({
-                url: "/TrabajosLibres/Likes",
-                type: "POST",
-                data: {
-                    clave
-                },
-                beforeSend: function() {
-                    console.log("Procesando....");
-                },
-                success: function(respuesta) {
-                    console.log(respuesta);
-                    if (respuesta == "votar") {
-                        Swal.fire(
-                            'Se registro tu voto correctamente',
-                            '',
-                            'success'
-                        )
-                    } else if (respuesta == "ya_votaste") {
-                        Swal.fire(
-                            'Ya se habia registrado tu voto',
-                            '',
-                            'info'
-                        )
-                    } else {
-                        Swal.fire(
-                            'Ya se habia registrado tu voto',
-                            '',
-                            'info'
-                        )
-                    }
-
-                },
-                error: function(respuesta) {
-                    console.log(respuesta);
-                }
-            });
-        })
+    $(document).ready(function(){
+        
     });
 </script>
 
 
 
-<!-- <p>1</p>
+                <!-- <p>1</p>
 
                 <input type="checkbox" class="btn-face-green" id="btn-check-prueba">
                 <label for="btn-check-prueba" class="color-face-green">aaaaa

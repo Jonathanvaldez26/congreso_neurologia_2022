@@ -133,16 +133,39 @@ html;
         $data_1->_id_tipo = $transmision_1['id_transmision'];
 
         $chat_transmision_1 = TransmisionDao::getChatByID($data_1);
-        $cont_chat = '';
-
-        var_dump($chat_transmision_1);
+        $cont_chat_1 = '';       
 
         foreach($chat_transmision_1 as $chat => $value){
             $nombre_completo = $value['nombre'] .' '.$value['apellidop'].' '.$value['apellidom'];
-            $cont_chat .= <<<html
+            $cont_chat_1 .= <<<html
             <div class="d-flex mt-3">
                 <div class="flex-shrink-0">
-                    <img alt="Image placeholder" class="avatar rounded-circle" src="../../../assets/img/team-5.jpg">
+                    <img alt="Image placeholder" class="avatar rounded-circle" src="../../../img/users_musa/{$value['avatar_img']}">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="h5 mt-0">{$nombre_completo}</h6>
+                    <p class="text-sm">{$value['chat']}</p>
+                    
+                </div>
+            </div>
+html;
+        }
+
+        $data_2 = new \stdClass();
+        $data_2->_tipo = 1;
+        $data_2->_sala = 2;
+        $data_2->_id_tipo = $transmision_2['id_transmision'];
+
+        $chat_transmision_2 = TransmisionDao::getChatByID($data_2);
+        $cont_chat_2 = '';  
+  
+
+        foreach($chat_transmision_2 as $chat => $value){
+            $nombre_completo = $value['nombre'] .' '.$value['apellidop'].' '.$value['apellidom'];
+            $cont_chat_2 .= <<<html
+            <div class="d-flex mt-3">
+                <div class="flex-shrink-0">
+                    <img alt="Image placeholder" class="avatar rounded-circle" src="../../../img/users_musa/{$value['avatar_img']}">
                 </div>
                 <div class="flex-grow-1 ms-3">
                     <h6 class="h5 mt-0">{$nombre_completo}</h6>
@@ -174,7 +197,8 @@ html;
 
         View::set('transmision_1',$transmision_1);
         View::set('transmision_2',$transmision_2);
-        View::set('chat_transmision_1',$cont_chat);
+        View::set('chat_transmision_1',$cont_chat_1);
+        View::set('chat_transmision_2',$cont_chat_2);
         // View::set('chat_transmision_2',$chat_transmision_2);
 
         View::set('secs_t1',$secs_t1);
@@ -183,6 +207,21 @@ html;
         View::set('header',$this->_contenedor->header($extraHeader));
         View::set('footer',$extraFooter);
         View::render("transmission");
+    }
+
+    public function getChatById(){
+        $id_tipo = $_POST['id_tipo'];
+        $sala = $_POST['sala'];
+
+        $transmision = TransmisionDao::getTransmisionById($id_tipo);
+        $data = new \stdClass();
+        $data->_tipo = 1;
+        $data->_sala = $sala;
+        $data->_id_tipo = $transmision['id_transmision'];
+
+        $chat_transmision = TransmisionDao::getChatByID($data);
+        
+        echo json_encode($chat_transmision);
     }
 
     public function updateProgress(){

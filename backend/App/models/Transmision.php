@@ -72,7 +72,7 @@ sql;
     public static function getChatByID($data){
         $mysqli = Database::getInstance(true);
         $query =<<<sql
-        SELECT c.*, reg.nombre, reg.apellidop, reg.apellidom
+        SELECT c.*, reg.nombre, reg.apellidop, reg.apellidom, reg.avatar_img
         FROM chat c
         INNER JOIN registrados reg ON (reg.id_registrado = c.id_registrado)
         WHERE c.tipo = :tipo and c.sala = :sala and c.id_tipo = :id_tipo;
