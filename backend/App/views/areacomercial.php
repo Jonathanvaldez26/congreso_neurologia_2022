@@ -100,12 +100,14 @@
                         </div>
                         
                         <div class="card-body p-3">
-                            <?php echo $programa_fecha1; ?>
-                            <div class="row">
-                                <div class="button-row d-flex mt-4 col-12">
-                                    <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
+                                <div class="row mt-3">
+                                <a href="https://meeting.audentestx.com/LATAM/" target="_blank">
+                                <div class="col-12 text-center">
+                                    <img class="w-95 btn-img-home" src="../../assets/img//Stand.png">
                                 </div>
-                            </div>
+                                </a>
+
+                                </div>
                         </div>
                     </div>
                     <div class="tab-pane fade position-relative border-radius-lg" id="m_19" role="tabpanel" aria-labelledby="m_19">
