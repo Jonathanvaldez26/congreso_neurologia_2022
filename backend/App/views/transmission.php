@@ -155,7 +155,7 @@
                                     
                                     <div class="d-flex mt-4">
                                         <div class="flex-shrink-0">
-                                            <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../assets/img/bruce-mars.jpg">
+                                            <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../img/users_musa/<?php echo $info_user['avatar_img']; ?>">
                                         </div>
                                         <div class="flex-grow-1 my-auto">
 
@@ -270,7 +270,7 @@
                                     
                                     <div class="d-flex mt-4">
                                         <div class="flex-shrink-0">
-                                            <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../assets/img/bruce-mars.jpg">
+                                            <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../img/users_musa/<?php echo $info_user['avatar_img'];?>">
                                         </div>
                                         <div class="flex-grow-1 my-auto">
                                             <form class="align-items-center" id="form_chat" method="post">
@@ -369,6 +369,16 @@
 
 <script>
 
+    intervalo1();
+    intervalo2();
+
+    function intervalo1() {
+        intervalo = setInterval(chats, 60000, 1,1);
+    }
+
+    function intervalo2() {
+        intervalo = setInterval(chats, 60000, 2,2);
+    }
     
     function chats(id_tipo,sala) {
 
