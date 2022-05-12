@@ -195,7 +195,7 @@ html;
         $info_fecha2 = ProgramaDao::getSectionByDate('2022-05-19');
         $programa_fecha2 = <<<html
         <h4 class="mb-1 mt-1 text-center">Programa</h4>
-        <h5 class="mb-3 text-center">{$info_fecha2[0]['fecha']}</h5>    
+        <h5 class="mb-3 text-center">Jueves 19 de Mayo</h5>    
 html;
 
         foreach ($info_fecha2 as $key => $value) {
@@ -224,6 +224,10 @@ html;
                         <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
+                            </span>
+                            <br><br>
+                            <span class="text-bold font-14 text-lg">
+                            {$value['subtitulo']}
                             </span>
                             <br><br>
                             <span class="mt-4">
