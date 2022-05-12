@@ -32,7 +32,7 @@ sql;
         INNER JOIN coordinadores co
         ON co.id_coordinador = pg.id_coordinador
 
-        WHERE fecha = '$fecha'
+        WHERE fecha = '$fecha' ORDER BY pg.hora_inicio ASC
 sql;
       return $mysqli->queryAll($query);
     }
@@ -47,7 +47,7 @@ sql;
         INNER JOIN coordinadores co
         ON co.id_coordinador = pg.id_coordinador
 
-        WHERE pg.fecha = '$fecha' and pg.sala = $sala
+        WHERE pg.fecha = '$fecha' and pg.sala = $sala ORDER BY pg.hora_inicio ASC
 sql;
       return $mysqli->queryAll($query);
     }
