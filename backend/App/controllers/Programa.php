@@ -406,7 +406,8 @@ html;
         $programa_fecha1 = '';
 
         $programa_fecha1 = <<<html
-        <h4 class="mb-1 mt-1 text-center">Programa</h4>
+        <h4 class="mb-1 mt-1 text-center">PROGRAMA</h4>
+        <h5 class="mb-1 mt-1 text-center">Miércoles 18 de Mayo</h5>
         <br>     
         <br>       
 html;
@@ -483,7 +484,11 @@ html;
         $programa_fecha1 = '';
 
         $programa_fecha1 = <<<html
-        <h4 class="mb-1 mt-1 text-center">Programa</h4>
+        <h5 class="mb-1 mt-1 text-center">Miércoles 18 de Mayo</h5>
+        <h4 class="mb-1 mt-1 text-center">Módulo de Investigación</h4>
+        <p class="mb-1 mt-1 text-center">Sesión de "Fronteras de la investigación: De lo básico a lo clínico."</p>
+        <p class="mb-1 mt-1 text-center"><strong>Coordinador: Dr. Guillermo Vargas López</strong></p>
+        
         <br>     
         <br>       
 html;
