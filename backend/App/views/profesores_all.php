@@ -151,7 +151,7 @@
 
                                         <div class="nav-wrapper position-relative end-0">
 
-                                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                            <ul class="nav nav-pills nav-fill p-1 bg-transparent-yellow" role="tablist">
                                                 <li class="nav-item transmisiones px-3" data-transmision="1">
                                                     <a class="nav-link mb-0 px-0 py-1 active" href="#m_18" data-bs-toggle="tab" role="tab" aria-selected="true">
                                                         <span class="fa fa-globe-africa"></span>

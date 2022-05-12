@@ -1,5 +1,5 @@
 <title>
-    Cursos - Neuropediatría
+    Cursos - Neuropediatría 
 </title>
 <?php echo $header; ?>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -62,7 +62,7 @@
                     <div class="row justify-content-center align-items-center">
                         <div class="col-sm-auto col-4">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="/assets/img/Logo_SMNP.png">
+                            <img src="/assets/img/Logo_SMNP.png">
                             </div>
                         </div>
                         <div class="col-sm-auto col-8 my-auto">
@@ -72,15 +72,15 @@
                                 </h5>
                             </div>
                         </div>
-
+                            
                         <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 me-4">
-
+                            
                         </div>
                         <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
-                            <a href="/Home/" class="mt-2 me-2 btn-move">
-                                <span class="text-dark mt-2"><i class="fas fa-undo"></i> Regresar</span>
-                            </a>
-
+                                <a href="/Home/" class="mt-2 me-2 btn-move">
+                                    <span class="text-dark mt-2"><i class="fas fa-undo"></i> Regresar</span>
+                                </a>
+                            
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
             <div class="col-lg-1">
             </div>
 
-            <div class="card col-lg-10 mt-lg-3 mt-1">
+            <div class="card col-lg-10 mt-lg-3 mt-1" >
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show position-relative active border-radius-lg" id="m_18" role="tabpanel" aria-labelledby="m_18">
                         <div class="card-header pb-0 p-3">
@@ -107,8 +107,7 @@
                         <br>
                         <p class="">Nota: Si usted desea visualizar el documento de clic sobre el nombre del trabajo libre.</p>
                             <div class="row mt-3">
-                                    <?php //echo $card_trabajos_libres; 
-                                    ?>
+                                    <?php //echo $card_trabajos_libres; ?>
                             </div>
                         </div>
                         -->
@@ -116,25 +115,25 @@
                         <div class="container-fluid py-0">
                             <div class="row">
 
-                                <div class="col-md-6  col-sm-12 my-md-3 my-sm-3">
-                                    <a href="/trabajos_libres_grupo1/">
-                                        <div class="card card-link btn-menu-home m-auto" style="background-image: url(/img/SMNP_Iconos/17.png)">
-                                            <div class="card-body mt-md-3 text-center content-card-home">
-                                                <div class="col-12 text-center">
-                                                    <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                                    <!-- <span class="color-yellow fas fa-book-reader text-large"></span> -->
-                                                </div>
-
-                                                <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Talleres</h6> -->
-                                                <!-- <p class="opacity-8 mb-0 text-sm">A un click</p> -->
-                                            </div>
+                        <div class="col-md-6  col-sm-12 my-md-3 my-sm-3">
+                            <a href="/trabajos_libres_grupo1/">
+                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/17.png)">
+                                    <div class="card-body mt-md-3 text-center content-card-home">
+                                        <div class="col-12 text-center">
+                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
+                                            <!-- <span class="color-yellow fas fa-book-reader text-large"></span> -->
                                         </div>
-                                    </a>
+                                        
+                                        <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Talleres</h6> -->
+                                        <!-- <p class="opacity-8 mb-0 text-sm">A un click</p> -->
+                                    </div>
                                 </div>
-
+                            </a>
+                        </div>
+                            
                                 <div class="col-sm-12 col-md-6 my-md-3 my-sm-3">
                                     <a href="/trabajos_libres_grupo2/">
-                                        <div class="card card-link btn-menu-home m-auto" style="background-image: url(/img/SMNP_Iconos/16.png)">
+                                        <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/16.png)">
                                             <div class="card-body mt-md-3 text-center content-card-home">
                                                 <div class="col-12 text-center">
                                                     <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
@@ -151,7 +150,7 @@
                             </div>
                         </div>
 
-
+                        
                         <div class="card-body p-3">
                             <?php echo $programa_fecha1; ?>
                             <div class="row">
@@ -167,7 +166,7 @@
                                 <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
                             </div>
                         </div>
-
+                        
                         <div class="card-body p-3">
                             <?php echo $programa_fecha2; ?>
                             <div class="row">
@@ -183,7 +182,7 @@
                                 <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
                             </div>
                         </div>
-
+                        
                         <div class="card-body p-3">
                             <?php echo $programa_fecha3; ?>
                             <div class="row">
@@ -199,7 +198,7 @@
                                 <img src="/assets/img/cinta_menu.jpeg" style="border-radius: 20px; height: 38px;" alt="">
                             </div>
                         </div>
-
+                        
                         <div class="card-body p-3">
                             <?php echo $programa_fecha4; ?>
                             <div class="row">
@@ -210,7 +209,7 @@
                         </div>
                     </div>
                 </div>
-
+                
 
             </div>
         </div>
@@ -229,36 +228,36 @@
 
 <!-- Modal -->
 <div class="modal fade" id="pdf" tabindex="-1" role="dialog" aria-labelledby="pdfTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-        <div class="modal-content ">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Trabajo</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none; background: transparent;">
-                    <span aria-hidden="true" style="font-size: 25px;">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body cont-modal">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Trabajo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none; background: transparent;">
+          <span aria-hidden="true" style="font-size: 25px;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body cont-modal">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
     </div>
+  </div>
 </div>
 
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function(){
 
-        $('.iframe').on('click', function() {
+        $('.iframe').on('click',function(){
             var pdf = $(this).attr('data-pdf');
             // alert(pdf);
 
-            $('.cont-modal').html('<iframe src="/trabajos_files/' + pdf + '" style="width:100%; height:700px;" frameborder="0" ></iframe>');
+            $('.cont-modal').html('<iframe src="/trabajos_files/'+pdf+'" style="width:100%; height:700px;" frameborder="0" ></iframe>');
         })
-
-        $('.heart-not-like').on('click', function() {
+        
+        $('.heart-not-like').on('click', function(){
             let clave = $(this).attr('data-clave');
             let heart = $(this);
 
@@ -271,35 +270,33 @@
             $.ajax({
                 url: "/TrabajosLibres/Likes",
                 type: "POST",
-                data: {
-                    clave
-                },
+                data: {clave},
                 beforeSend: function() {
                     console.log("Procesando....");
                 },
                 success: function(respuesta) {
                     console.log(respuesta);
-                    if (respuesta == "votar") {
+                    if(respuesta == "votar"){
                         Swal.fire(
                             'Se registro tu voto correctamente',
                             '',
                             'success'
                         )
                         heart.removeClass('heart-not-like').addClass('heart-like');
-                    } else if (respuesta == "ya_votaste") {
+                    }else if(respuesta == "ya_votaste"){
                         Swal.fire(
                             'Ya se habia registrado tu voto',
                             '',
                             'info'
                         )
-                    } else {
+                    }else{
                         Swal.fire(
                             'Ya se habia registrado tu voto',
                             '',
                             'info'
                         )
                     }
-
+                    
                 },
                 error: function(respuesta) {
                     console.log(respuesta);
@@ -307,7 +304,7 @@
             });
         })
 
-        $('.heart-like').on('click', function() {
+        $('.heart-like').on('click', function(){
             let clave = $(this).attr('data-clave');
             let heart = $(this);
 
@@ -320,34 +317,32 @@
             $.ajax({
                 url: "/TrabajosLibres/Likes",
                 type: "POST",
-                data: {
-                    clave
-                },
+                data: {clave},
                 beforeSend: function() {
                     console.log("Procesando....");
                 },
                 success: function(respuesta) {
                     console.log(respuesta);
-                    if (respuesta == "votar") {
+                    if(respuesta == "votar"){
                         Swal.fire(
                             'Se registro tu voto correctamente',
                             '',
                             'success'
                         )
-                    } else if (respuesta == "ya_votaste") {
+                    }else if(respuesta == "ya_votaste"){
                         Swal.fire(
                             'Ya se habia registrado tu voto',
                             '',
                             'info'
                         )
-                    } else {
+                    }else{
                         Swal.fire(
                             'Ya se habia registrado tu voto',
                             '',
                             'info'
                         )
                     }
-
+                    
                 },
                 error: function(respuesta) {
                     console.log(respuesta);
@@ -359,7 +354,7 @@
 
 
 
-<!-- <p>1</p>
+                <!-- <p>1</p>
 
                 <input type="checkbox" class="btn-face-green" id="btn-check-prueba">
                 <label for="btn-check-prueba" class="color-face-green">aaaaa
