@@ -68,7 +68,7 @@
                         <div class="col-sm-auto col-8 my-auto">
                             <div class="h-100">
                                 <h5 class="mb-1 font-weight-bolder" id="nombre_transmision">
-                                    Trabajos Libres
+                                    Trabajos Libres Grupo 1
                                 </h5>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                             
                         </div>
                         <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
-                                <a href="/Home/" class="mt-2 me-2 btn-move">
+                                <a href="/TrabajosLibres/" class="mt-2 me-2 btn-move">
                                     <span class="text-dark mt-2"><i class="fas fa-undo"></i> Regresar</span>
                                 </a>
                             
@@ -101,52 +101,14 @@
                         </div>
 
 
-                        <!--Aqui va la variable
+                        <!--Aqui va la variable-->
                         
+
                         <div class="card-body p-3">
                         <br>
                         <p class="">Nota: Si usted desea visualizar el documento de clic sobre el nombre del trabajo libre.</p>
                             <div class="row mt-3">
-                                    <?php //echo $card_trabajos_libres; ?>
-                            </div>
-                        </div>
-                        -->
-
-                        <div class="container-fluid py-0">
-                            <div class="row">
-
-                        <div class="col-md-6  col-sm-12 my-md-3 my-sm-3">
-                            <a href="/trabajos_libres_grupo1/">
-                                <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/17.png)">
-                                    <div class="card-body mt-md-3 text-center content-card-home">
-                                        <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-07.png"> -->
-                                            <!-- <span class="color-yellow fas fa-book-reader text-large"></span> -->
-                                        </div>
-                                        
-                                        <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Talleres</h6> -->
-                                        <!-- <p class="opacity-8 mb-0 text-sm">A un click</p> -->
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                            
-                                <div class="col-sm-12 col-md-6 my-md-3 my-sm-3">
-                                    <a href="/trabajos_libres_grupo2/">
-                                        <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/16.png)">
-                                            <div class="card-body mt-md-3 text-center content-card-home">
-                                                <div class="col-12 text-center">
-                                                    <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-03.png"> -->
-                                                    <!-- <span class="fas fa-user-edit text-large"></span> -->
-                                                </div>
-
-                                                <!-- <h6 class="mb-0 mt-2 mt-md-4 font-weight-bolder text-btn color-green">Datos Personales</h6> -->
-                                                <!-- <p class="opacity-8 mb-0 text-sm">Disponible <i class="fa fa-check-circle me-sm-0" style="color: #01a31c"></i></p> -->
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
+                                    <?php echo $card_trabajos_libres_grupo1; ?>
                             </div>
                         </div>
 
@@ -155,7 +117,7 @@
                             <?php echo $programa_fecha1; ?>
                             <div class="row">
                                 <div class="button-row d-flex mt-4 col-12">
-                                    <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
+                                    <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/TrabajosLibres/" title="Prev">Regresar</a>
                                 </div>
                             </div>
                         </div>

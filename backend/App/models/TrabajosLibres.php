@@ -19,6 +19,28 @@ sql;
       return $mysqli->queryAll($query);
   }
 
+  public static function getTableTrabajosLibresGrupo1()
+  {
+      $mysqli = Database::getInstance(true);
+      $query =<<<sql
+      SELECT *
+      FROM trabajos_libres
+      WHERE grupo = 1
+sql;
+      return $mysqli->queryAll($query);
+  }
+
+  public static function getTableTrabajosLibresGrupo2()
+  {
+      $mysqli = Database::getInstance(true);
+      $query =<<<sql
+      SELECT *
+      FROM trabajos_libres
+      WHERE grupo = 2
+sql;
+      return $mysqli->queryAll($query);
+  }
+
   public static function getlike($id_trabajo, $registrado){
     $mysqli = Database::getInstance();
     $query=<<<sql
