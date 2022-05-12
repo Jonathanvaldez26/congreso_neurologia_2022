@@ -399,6 +399,161 @@ html;
         View::render("programa");
     }
 
+    public function sala_uno(){
+
+        // ----- Variables para la primer fecha ----- //
+        $info_fecha1 = ProgramaDao::getSectionByDateSala('2022-05-18',1);
+        $programa_fecha1 = '';
+
+        $programa_fecha1 = <<<html
+        <h4 class="mb-1 mt-1 text-center">Programa</h4>
+        <br>     
+        <br>       
+html;
+
+        foreach ($info_fecha1 as $key => $value) {
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+
+            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
+            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+
+            $max_time = $value['duracion'];
+            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
+            $duracion_min = substr($max_time,strlen($max_time)-5,2);
+            $duracion_hrs = substr($max_time,0,strpos($max_time,':'));
+
+            $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+
+            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+
+            $programa_fecha1 .= <<<html
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2">
+                        <span class="color-yellow text-bold">
+                            {$hora_inicio} - {$hora_fin}
+                        </span>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <a href="/Programa/Video/{$value['clave']}">
+                            <span class="color-green text-bold font-20 text-lg">
+                                {$value['descripcion']}
+                            </span>
+                            <br><br>
+                            <span class="text-bold font-20 text-lg">
+                                {$value['subtitulo']}
+                            </span>
+                            <br><br>
+                            <span class="mt-4">
+                                <b>Progreso: $porcentaje %</b>
+                                <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <span class="color-vine font-14 text-bold">
+                            Coordinador:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            Profesor:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo']} {$value['nombre_profesor']}
+                        </span>
+                        <p class="color-vine font-12 text-sm">
+                            {$value['desc_profesor']}
+                        </p>
+                    </div>
+                </div>
+html;
+        }
+
+        View::set('programa_fecha1',$programa_fecha1);
+        View::render("programa_sala_uno");
+    }
+
+    public function sala_dos(){
+        // ----- Variables para la primer fecha ----- //
+        $info_fecha1 = ProgramaDao::getSectionByDateSala('2022-05-18',2);
+        $programa_fecha1 = '';
+
+        $programa_fecha1 = <<<html
+        <h4 class="mb-1 mt-1 text-center">Programa</h4>
+        <br>     
+        <br>       
+html;
+
+        foreach ($info_fecha1 as $key => $value) {
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+
+            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
+            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+
+            $max_time = $value['duracion'];
+            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
+            $duracion_min = substr($max_time,strlen($max_time)-5,2);
+            $duracion_hrs = substr($max_time,0,strpos($max_time,':'));
+
+            $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+
+            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+
+            $programa_fecha1 .= <<<html
+                <div class="row mb-3">
+                    <div class="col-12 col-md-2">
+                        <span class="color-yellow text-bold">
+                            {$hora_inicio} - {$hora_fin}
+                        </span>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <a href="/Programa/Video/{$value['clave']}">
+                            <span class="color-green text-bold font-20 text-lg">
+                                {$value['descripcion']}
+                            </span>
+                            <br><br>
+                            <span class="text-bold font-20 text-lg">
+                                {$value['subtitulo']}
+                            </span>
+                            <br><br>
+                            <span class="mt-4">
+                                <b>Progreso: $porcentaje %</b>
+                                <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <span class="color-vine font-14 text-bold">
+                            Coordinador:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            Profesor:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo']} {$value['nombre_profesor']}
+                        </span>
+                        <p class="color-vine font-12 text-sm">
+                            {$value['desc_profesor']}
+                        </p>
+                    </div>
+                </div>
+html;
+        }
+        
+        View::set('programa_fecha1',$programa_fecha1);
+        View::render("programa_sala_dos");
+    }
+
     public function Video($clave) {
         $extraHeader =<<<html
 html;

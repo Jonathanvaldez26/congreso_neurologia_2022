@@ -37,6 +37,21 @@ sql;
       return $mysqli->queryAll($query);
     }
 
+    public static function getSectionByDateSala($fecha,$sala){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+        SELECT pg.*, pf.nombre AS nombre_profesor, pf.prefijo, pf.descripcion AS desc_profesor, co.nombre AS nombre_coordinador, co.prefijo AS prefijo_coordinador
+        FROM programa pg
+        INNER JOIN profesores pf
+        ON pg.id_profesor = pf.id_profesor
+        INNER JOIN coordinadores co
+        ON co.id_coordinador = pg.id_coordinador
+
+        WHERE pg.fecha = '$fecha' and pg.sala = $sala
+sql;
+      return $mysqli->queryAll($query);
+    }
+
     public static function getById($id){
       return "getById"+$id;
     }
