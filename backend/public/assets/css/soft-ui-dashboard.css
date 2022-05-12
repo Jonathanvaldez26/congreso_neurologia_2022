@@ -37020,6 +37020,12 @@ input#chk-6:checked ~ #lbl-6{display: block;}
   background-image: radial-gradient(800px at 80% 50%, rgb(208 243 238 / 80%) 0px, rgb(255 224 0 / 75%) 100%);
 }
 
+.text-scroll{
+  overflow-y: scroll !important;
+  max-height: 400px;
+  height: 10%;
+}
+
 
 
 .barra-amarilla{

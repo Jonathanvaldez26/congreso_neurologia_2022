@@ -149,8 +149,10 @@
                                 </div>
                                 <!-- Comments -->
                                 <div class="mb-1">
+                                    <div id="cont_chat_1" class="text-scroll">
+                                        <?php echo $chat_transmision_1; ?>
+                                    </div>
                                     
-                                    <?php echo $chat_transmision_1; ?>
                                     <div class="d-flex mt-4">
                                         <div class="flex-shrink-0">
                                             <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../assets/img/bruce-mars.jpg">
@@ -262,45 +264,17 @@
                                 </div>
                                 <!-- Comments -->
                                 <div class="mb-1">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0">
-                                            <img alt="Image placeholder" class="avatar rounded-circle" src="../../../assets/img/team-4.jpg">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="h5 mt-0">Dr. Michael Lewis</h6>
-                                            <p class="text-sm">Muy Interesante, felicitaciones.</p>
-                                            <!-- <div class="d-flex">
-                                                <div>
-                                                    <i class="ni ni-like-2 me-1 cursor-pointer"></i>
-                                                </div>
-                                                <span class="text-sm me-2">3 likes</span>
-
-                                            </div> -->
-                                        </div>
+                                    <div id="cont_chat_2" class="text-scroll">
+                                        <?php echo $chat_transmision_2; ?>
                                     </div>
-                                    <div class="d-flex mt-3">
-                                        <div class="flex-shrink-0">
-                                            <img alt="Image placeholder" class="avatar rounded-circle" src="../../../assets/img/team-5.jpg">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="h5 mt-0">Dra. Jessica Stones</h6>
-                                            <p class="text-sm">Muy buena presentación.</p>
-                                            <!-- <div class="d-flex">
-                                                <div>
-                                                    <i class="ni ni-like-2 me-1 cursor-pointer"></i>
-                                                </div>
-                                                <span class="text-sm me-2">10 likes</span>
-
-                                            </div> -->
-                                        </div>
-                                    </div>
+                                    
                                     <div class="d-flex mt-4">
                                         <div class="flex-shrink-0">
                                             <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../assets/img/bruce-mars.jpg">
                                         </div>
                                         <div class="flex-grow-1 my-auto">
                                             <form class="align-items-center" id="form_chat" method="post">
-                                                <input type="hidden" name="id_tipo" id="id_tipo" value="<?= $transmision_1['id_transmision']; ?>">
+                                                <input type="hidden" name="id_tipo" id="id_tipo" value="<?= $transmision_2['id_transmision']; ?>">
                                                 <input type="hidden" name="sala" id="sala" value="2">
                                                 <div class="d-flex">
                                                     <div class="input-group">
@@ -394,15 +368,77 @@
 
 
 <script>
+
+    
+    function chats(id_tipo,sala) {
+
+        console.log(id_tipo);
+        console.log("sala " + sala);
+    
+        $.ajax({
+            url: "/Transmission/getChatById",
+            type: "POST",
+            data: {
+                id_tipo,sala
+            },
+            dataType: 'json',
+            beforeSend: function() {
+                console.log("Procesando....");
+                $("#cont_chat_"+sala).empty();
+
+            },
+            success: function(respuesta) {
+
+                console.log(respuesta);
+                // var numero_noti = 0;
+
+                $.each(respuesta, function(index, el) {
+
+                    //console.log(el.title);
+                    var nombre_completo = el.nombre +' '+ el.apellidop + ' '+el.apellidom;
+
+                    $("#cont_chat_"+el.sala).append(
+                        `<div class="d-flex mt-3">
+                            <div class="flex-shrink-0">
+                                <img alt="Image placeholder" class="avatar rounded-circle" src="../../../assets/img/team-5.jpg">
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="h5 mt-0">${nombre_completo}</h6>
+                                <p class="text-sm">${el.chat}</p>
+                                
+                            </div>
+                        </div>`
+                    );
+                });
+
+                // if (numero_noti != 0) {
+                //     $("#num_noti_sin_leer").html(numero_noti);
+                // } else {
+                //     $("#num_noti_sin_leer").html("");
+                // }
+
+             
+            },
+            error: function(respuesta) {
+                console.log(respuesta);
+            }
+
+        });
+    }
+
     function saveChat() {
         //event.preventDefault(event);
         var formData = new FormData(document.getElementById("form_chat"));
+
+        var id_tipo = formData.get('id_tipo');
+        var sala = formData.get('sala');
+
 
         for (var value of formData.values()) {
             console.log(value);
         }
 
-        $.ajax({
+           $.ajax({
             url: "/Transmission/saveChat",
             type: "POST",
             data: formData,
@@ -416,6 +452,7 @@
             },
             success: function(respuesta) {
                 console.log(respuesta);
+                chats(id_tipo,sala);
 
                 // if (respuesta == 'success') {
                 //     Swal.fire("Programa guardado correctamente!", "", "success").
