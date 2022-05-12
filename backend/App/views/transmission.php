@@ -421,12 +421,7 @@
                     );
                 });
 
-                // if (numero_noti != 0) {
-                //     $("#num_noti_sin_leer").html(numero_noti);
-                // } else {
-                //     $("#num_noti_sin_leer").html("");
-                // }
-
+               
              
             },
             error: function(respuesta) {
@@ -464,25 +459,10 @@
                 console.log(respuesta);
                 chats(id_tipo,sala);
 
-                // if (respuesta == 'success') {
-                //     Swal.fire("Programa guardado correctamente!", "", "success").
-                //     then((value) => {
-                //         window.location.reload();
-                //     });
-                // } else {
-                //     Swal.fire("¡Hubo un error guardar el Programa!", "", "warning").
-                //     then((value) => {
-                //         window.location.reload();
-                //     });
-                // }
             },
             error: function(respuesta) {
                 console.log(respuesta);
-                // alert('Error');
-                // Swal.fire("¡Hubo un error guardar el Programa!", "", "warning").
-                // then((value) => {
-                //     window.location.reload();
-                // });
+               
             }
         });
     }
