@@ -143,7 +143,7 @@
                                                 <span class="text-sm me-3">36</span>
                                             </div>
                                         </div>
-                                    </div> -->
+                                     </div> -->
 
                                     <hr class="horizontal dark my-3">
                                 </div>
@@ -152,7 +152,7 @@
                                     <div id="cont_chat_1" class="text-scroll">
                                         <?php echo $chat_transmision_1; ?>
                                     </div>
-                                    
+
                                     <div class="d-flex mt-4">
                                         <div class="flex-shrink-0">
                                             <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../img/users_musa/<?php echo $info_user['avatar_img']; ?>">
@@ -203,19 +203,25 @@
                                 </div>
 
                                 <div class="card-footer d-block">
-                                    <form class="align-items-center" id="form-pregunta" autocomplete="nope" action="" method="POST" onsubmit="return false;" accept-charset="utf-8">
+                                    <form class="align-items-center" autocomplete="nope" id="form_pregunta" method="post" onsubmit="return false;" accept-charset="utf-8">
                                         <div class="d-flex">
-                                            <div class="input-group">
-                                                <input type="text" name="pregunta" id="pregunta" class="form-control" placeholder="Escribe tu pregunta al ponente aquí." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
+                                            <div class="input-group" style="display: none;">
+                                                <input  type="hidden" name="id_tipopre" id="id_tipopre" value="<?= $transmision_1['id_transmision']; ?>">
+                                                <input  type="hidden" name="salapre" id="salapre" value="1">
+                                               
                                             </div>
+
+                                             <div class="input-group">
+                                                
+                                                <input type="text" name="txt_pregunta" id="txt_pregunta" class="form-control" placeholder="Escribe tu pregunta al ponente aquí." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
+                                            </div>
+
 
                                             <div class="input-group" style="display: none;">
                                                 <input class="form-control" style="visibility: hidden" type="hidden" name="registrado" id="registrado" value="90323" onfocus="focused(this)" onfocusout="defocused(this)">
 
                                             </div>
-
-
-                                            <button class="btn bg-gradient-success mb-0 ms-2" id="btn-enviar">
+                                            <button class="btn bg-gradient-success mb-0 ms-2" onclick="savePregunta()">
                                                 <i class="ni ni-send"></i>
                                             </button>
                                         </div>
@@ -267,10 +273,10 @@
                                     <div id="cont_chat_2" class="text-scroll">
                                         <?php echo $chat_transmision_2; ?>
                                     </div>
-                                    
+
                                     <div class="d-flex mt-4">
                                         <div class="flex-shrink-0">
-                                            <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../img/users_musa/<?php echo $info_user['avatar_img'];?>">
+                                            <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../img/users_musa/<?php echo $info_user['avatar_img']; ?>">
                                         </div>
                                         <div class="flex-grow-1 my-auto">
                                             <form class="align-items-center" id="form_chat" method="post">
@@ -317,19 +323,18 @@
                                 </div>
 
                                 <div class="card-footer d-block">
-                                    <form class="align-items-center" id="form-pregunta" autocomplete="nope" action="" method="POST" onsubmit="return false;" accept-charset="utf-8">
+                                    <form class="align-items-center" id="form_pregunta" autocomplete="nope" action="" method="POST" onsubmit="return false;" accept-charset="utf-8">
                                         <div class="d-flex">
+                                        <div class="input-group" style="display: none;">
+                                                <input  type="hidden" name="id_tipopre" id="id_tipopre" value="<?= $transmision_1['id_transmision']; ?>">
+                                                <input  type="hidden" name="salapre" id="salapre" value="2">
+                                               
+                                            </div>
                                             <div class="input-group">
-                                                <input type="text" name="pregunta" id="pregunta" class="form-control" placeholder="Escribe tu pregunta al ponente aquí." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
+                                                <input type="text" name="txt_pregunta" id="txt_pregunta" class="form-control" placeholder="EEEscribe tu pregunta al ponente aquí." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
                                             </div>
 
-                                            <div class="input-group" style="display: none;">
-                                                <input class="form-control" style="visibility: hidden" type="hidden" name="registrado" id="registrado" value="90323" onfocus="focused(this)" onfocusout="defocused(this)">
-
-                                            </div>
-
-
-                                            <button class="btn bg-gradient-success mb-0 ms-2" id="btn-enviar">
+                                            <button class="btn bg-gradient-success mb-0 ms-2"  onclick="savePregunta()">
                                                 <i class="ni ni-send"></i>
                                             </button>
                                         </div>
@@ -368,33 +373,33 @@
 
 
 <script>
-
     intervalo1();
     intervalo2();
 
     function intervalo1() {
-        intervalo = setInterval(chats, 60000, 1,1);
+        intervalo = setInterval(chats, 60000, 1, 1);
     }
 
     function intervalo2() {
-        intervalo = setInterval(chats, 60000, 2,2);
+        intervalo = setInterval(chats, 60000, 2, 2);
     }
-    
-    function chats(id_tipo,sala) {
+
+    function chats(id_tipo, sala) {
 
         console.log(id_tipo);
         console.log("sala " + sala);
-    
+
         $.ajax({
             url: "/Transmission/getChatById",
             type: "POST",
             data: {
-                id_tipo,sala
+                id_tipo,
+                sala
             },
             dataType: 'json',
             beforeSend: function() {
                 console.log("Procesando....");
-                $("#cont_chat_"+sala).empty();
+                $("#cont_chat_" + sala).empty();
 
             },
             success: function(respuesta) {
@@ -405,9 +410,9 @@
                 $.each(respuesta, function(index, el) {
 
                     //console.log(el.title);
-                    var nombre_completo = el.nombre +' '+ el.apellidop + ' '+el.apellidom;
+                    var nombre_completo = el.nombre + ' ' + el.apellidop + ' ' + el.apellidom;
 
-                    $("#cont_chat_"+el.sala).append(
+                    $("#cont_chat_" + el.sala).append(
                         `<div class="d-flex mt-3">
                             <div class="flex-shrink-0">
                                 <img alt="Image placeholder" class="avatar rounded-circle" src="../../../img/users_musa/${el.avatar_img}">
@@ -421,8 +426,8 @@
                     );
                 });
 
-               
-             
+
+
             },
             error: function(respuesta) {
                 console.log(respuesta);
@@ -443,7 +448,7 @@
             console.log(value);
         }
 
-           $.ajax({
+        $.ajax({
             url: "/Transmission/saveChat",
             type: "POST",
             data: formData,
@@ -457,15 +462,72 @@
             },
             success: function(respuesta) {
                 console.log(respuesta);
-                chats(id_tipo,sala);
+                chats(id_tipo, sala);
 
             },
             error: function(respuesta) {
                 console.log(respuesta);
-               
+
             }
         });
     }
+
+
+
+    function savePregunta() {
+        //event.preventDefault(event);
+        var formData = new FormData(document.getElementById("form_pregunta"));
+
+        var id_tipopre = formData.get('id_tipopre');
+        var salapre = formData.get('salapre');
+
+        $.ajax({
+            url: "/Transmission/savePregunta",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function() {
+                event.preventDefault();
+                document.getElementById("txt_pregunta").value = "";
+                console.log("Procesando....");
+                // alert('Se está borrando');
+            },
+            success: function(respuesta) {
+                console.log(respuesta);
+                if (respuesta == "success") {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Su preguntaha sido enviada correctamente',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+
+
+
+            },
+            error: function(respuesta) {
+                console.log(respuesta);
+
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     $(document).ready(function() {
 
 
