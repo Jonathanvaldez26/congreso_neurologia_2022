@@ -26,7 +26,7 @@ class TrabajosLibres extends Controller{
       <link id="pagestyle" href="/assets/css/style.css" rel="stylesheet" />
      
       <title>
-            Home - AMETD
+            Home
       </title>
 html;
 
