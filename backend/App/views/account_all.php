@@ -142,12 +142,18 @@
                             <div class="row">
                                 <div class="col-sm-6 col-12 col-lg-6">
                                     <label class="form-label mt-4">País *</label>
-                                    <input class="form-control" id="pais" maxlength="149" required name="pais" data-color="dark" type="text" value="<?= $userData['pais'] ?>" placeholder="Ej: México" readonly/>
+                                    <select class="multisteps-form__select form-control all_input_select" name="pais" id="pais_edit" required>
+                                        <?php echo $select_pais;?>
+                                    </select>
+                                    <!-- <input class="form-control" id="pais" maxlength="149" required name="pais" data-color="dark" type="text" value="<?= $userData['pais'] ?>" placeholder="Ej: México" readonly/> -->
                                 </div>
 
                                 <div class="col-sm-6 col-12 col-lg-6">
                                     <label class="form-label mt-4">Estado *</label>
-                                    <input class="form-control" id="estado" maxlength="149" required name="estado" data-color="dark" type="text" value="<?= $userData['estado'] ?>" placeholder="Ej: México" readonly/>
+                                    <select class="multisteps-form__select form-control all_input_select" name="estado" id="estado_edit" required>
+                                        <?php echo $select_estado;?>
+                                    </select>
+                                    <!-- <input class="form-control" id="estado" maxlength="149" required name="estado" data-color="dark" type="text" value="<?= $userData['estado'] ?>" placeholder="Ej: México" readonly/> -->
                                 </div>
 
                                 <div class="col-lg-7 col-12">
@@ -171,14 +177,11 @@
                                     
                                     <div class="col-lg-4 col-12">
                                         <label class="form-label mt-4">Especialidad</label>
-                                        <!-- <select class="form-control" style="cursor: pointer;" name="linea_principal" id="linea_principal" tabindex="-1" data-choice="active">
-                                                <option value="" disabled>Selecciona una opción</option>
-                                                <?php echo $optionsLineaPrincipal; ?>
-                                            </select>  -->
-                                            <!-- <select class="form-control" style="cursor: pointer;" name="especialidad" id="especialidad" tabindex="-1" data-choice="active">
-                                                <?php echo $optionsLineaPrincipal; ?>
-                                            </select> -->
-                                            <input class="form-control" id="especialidad" maxlength="149" required name="especialidad" data-color="dark" type="text" value="<?= $userData['especialidad'] ?>" placeholder="Ej: México" readonly/>
+                                        
+                                            <select class="form-control" style="cursor: pointer;" name="especialidad" id="especialidad" tabindex="-1" data-choice="active">
+                                                <?php echo $select_especialidad; ?>
+                                            </select>
+                                            <!-- <input class="form-control" id="especialidad" maxlength="149" required name="especialidad" data-color="dark" type="text" value="<?= $userData['especialidad'] ?>" placeholder="Ej: México" readonly/> -->
                                     </div>
                                 </div>
                                 <!-- <div class="row">
@@ -220,3 +223,52 @@
         </div>
         <?php echo $footer; ?>
 </main>
+
+<script>
+    $("#pais_edit").on("change", function() {
+            var pais = $(this).val();
+            // alert(pais);
+            $.ajax({
+                url: "/Account/getEstadoPais",
+                type: "POST",
+                data: {
+                    pais
+                },
+                dataType: "json",
+                beforeSend: function() {
+                    console.log("Procesando....");
+                    $('#estado_edit')
+                        .find('option')
+                        .remove()
+                        .end();
+
+                },
+                success: function(respuesta) {
+                    console.log(respuesta);
+
+                    $('#estado_edit').removeAttr('disabled');
+
+                    $('#estado_edit')
+                        .append($('<option>', {
+                                value: ''
+                            })
+                            .text('Selecciona una opción'));
+
+                    $.each(respuesta, function(key, value) {
+                        //console.log(key);
+                        console.log(value);
+                        $('#estado_edit')
+                            .append($('<option>', {
+                                    value: value.id_estado
+                                })
+                                .text(value.estado));
+                    });
+
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+
+            });
+        });
+</script>
