@@ -203,7 +203,7 @@ html;
                         <span class="color-vine font-14 text-bold">
                             {$value['prefijo']} {$value['nombre_profesor']}
                         </span>
-                        <p class="color-vine font-12 text-sm">
+                        <p class="color-vine font-12 mb-0 text-sm">
                             {$value['desc_profesor']}
                         </p>
                     </div>
@@ -293,7 +293,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo']} {$value['nombre_profesor']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor']}
                 </p>
 html;
@@ -311,7 +311,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo_2']} {$value['nombre_profesor_2']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor_2']}
                 </p>
 html;
@@ -329,7 +329,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo_3']} {$value['nombre_profesor_3']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor_3']}
                 </p>
 html;
@@ -351,6 +351,10 @@ html;
                             <br><br>
                             <span class="text-bold font-14 text-lg">
                             {$value['subtitulo']}
+                            </span>
+                            <br><br>
+                            <span class="text-bold font-14 text-lg">
+                                {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
                             <span class="mt-4">
@@ -453,7 +457,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo']} {$value['nombre_profesor']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor']}
                 </p>
 html;
@@ -471,7 +475,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo_2']} {$value['nombre_profesor_2']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor_2']}
                 </p>
 html;
@@ -489,7 +493,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo_3']} {$value['nombre_profesor_3']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor_3']}
                 </p>
 html;
@@ -513,6 +517,10 @@ html;
                             {$value['subtitulo']}
                         </span>
                         <br><br>
+                        <span class="text-bold font-14 text-lg">
+                                {$value['descripcion_subtitulo']}
+                            </span>
+                            <br><br>
                             <span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
@@ -615,7 +623,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo']} {$value['nombre_profesor']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor']}
                 </p>
 html;
@@ -633,7 +641,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo_2']} {$value['nombre_profesor_2']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor_2']}
                 </p>
 html;
@@ -651,7 +659,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo_3']} {$value['nombre_profesor_3']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor_3']}
                 </p>
 html;
@@ -789,7 +797,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo']} {$value['nombre_profesor']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor']}
                 </p>
 html;
@@ -807,7 +815,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo_2']} {$value['nombre_profesor_2']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor_2']}
                 </p>
 html;
@@ -825,7 +833,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo_3']} {$value['nombre_profesor_3']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor_3']}
                 </p>
 html;
@@ -966,7 +974,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo']} {$value['nombre_profesor']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor']}
                 </p>
 html;
@@ -984,7 +992,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo_2']} {$value['nombre_profesor_2']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor_2']}
                 </p>
 html;
@@ -1002,7 +1010,7 @@ html;
                 <span class="color-vine font-14 text-bold">
                     {$value['prefijo_3']} {$value['nombre_profesor_3']}
                 </span>
-                <p class="color-vine font-12 text-sm">
+                <p class="color-vine font-12 mb-0 text-sm">
                     {$value['desc_profesor_3']}
                 </p>
 html;
@@ -1025,6 +1033,10 @@ html;
                             <br><br>
                             <span class="text-bold font-20 text-lg">
                                 {$value['subtitulo']}
+                            </span>
+                            <br><br>
+                            <span class="text-bold font-14 text-lg">
+                                {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
                             <span class="mt-4">
