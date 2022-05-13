@@ -474,7 +474,7 @@ html;
 
             $coordinador_2 = '';
 
-            if($value['id_coordinador_2"'] != 0){
+            if($value['id_coordinador_2'] != 0){
                 $coordinador_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_2']}:
@@ -490,7 +490,7 @@ html;
 
             $coordinador_3 = '';
 
-            if($value['id_coordinador_3"'] != 0){
+            if($value['id_coordinador_3'] != 0){
                 $coordinador_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_3']}:
@@ -525,7 +525,7 @@ html;
 
             $profesor_2 = '';
 
-            if($value['id_profesor_2"'] != 0){
+            if($value['id_profesor_2'] != 0){
                 $profesor_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_2']}:
@@ -543,7 +543,7 @@ html;
 
             $profesor_3 = '';
 
-            if($value['id_profesor_3"'] != 0){
+            if($value['id_profesor_3'] != 0){
                 $profesor_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_3']}:
