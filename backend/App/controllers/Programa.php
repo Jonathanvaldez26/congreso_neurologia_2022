@@ -173,6 +173,7 @@ html;
                     </div>
                     <div class="col-12 col-md-4">
                         <span class="color-vine font-14 text-bold">
+
                             Coordinador:
                         </span>
                         <br>
@@ -230,8 +231,12 @@ html;
                                 {$value['descripcion']}
                             </span>
                             <br><br>
-                            <span class="text-bold font-14 text-lg">
-                            {$value['subtitulo']}
+                            <span class="text-bold font-20 text-lg">
+                                {$value['subtitulo']}
+                            </span>
+                            <br><br>
+                            <span class="text-bold font-12 text-lg">
+                                {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
                             <span class="mt-4">
@@ -295,8 +300,12 @@ html;
                     </div>
                     <div class="col-12 col-md-6">
                         <a href="/Programa/Video/{$value['clave']}">
-                            <span class="color-green text-bold font-20 text-lg">
-                                {$value['descripcion']}
+                        <span class="text-bold font-20 text-lg">
+                            {$value['subtitulo']}
+                            </span>
+                            <br><br>
+                        <span class="text-bold font-12 text-lg">
+                            {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
                             <span class="mt-4">
@@ -363,6 +372,14 @@ html;
                         <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
+                            </span>
+                            <br><br>
+                            <span class="text-bold font-20 text-lg">
+                                {$value['subtitulo']}
+                            </span>
+                            <br><br>
+                            <span class="text-bold font-12 text-lg">
+                                {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
                             <span class="mt-4">
@@ -535,6 +552,10 @@ html;
                             <br><br>
                             <span class="text-bold font-20 text-lg">
                                 {$value['subtitulo']}
+                            </span>
+                            <br><br>
+                            <span class="text-bold font-12 text-lg">
+                                {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
                             <span class="mt-4">
