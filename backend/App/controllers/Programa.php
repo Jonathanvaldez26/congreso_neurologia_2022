@@ -161,24 +161,6 @@ html;
                 $coordinador_1 = '';
             }
 
-            
-            /*if($value['status_sesion'] == '1'){
-                $sesion_1= <<<html
-                <span class="color-vine font-14 text-bold">
-                    Coordinador:
-                </span>
-                <br>
-                <span class="color-vine font-14 text-bold">
-                    {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
-                </span>
-                <br>
-html;
-
-            }else{
-                $coordinador_1 = '';
-            }*/
-
-
 
             $programa_fecha1 .= <<<html
                 <div class="row mb-3">
@@ -188,24 +170,24 @@ html;
                         </span>
                     </div>
                     <div class="col-12 col-md-6">
-                        <a href="/Programa/Video/{$value['clave']}">
+                        <!--<a href="/Programa/Video/{$value['clave']}">-->
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
                             <br><br>
-                            <span class="text-bold font-20 text-lg">
-                                {$value['subtitulo']}
+                            <span class="text-bold font-14 text-lg">
+                            {$value['subtitulo']}
                             </span>
                             <br><br>
-                            <span class="text-bold font-12 text-lg">
+                            <span class="text-bold font-14 text-lg">
                                 {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
-                            <span class="mt-4">
+                            <!--<span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
-                            </span>
-                        </a>
+                            </span>-->
+                        <!--</a>-->
                     </div>
                     <div class="col-12 col-md-4">
                         {$coordinador_1}
@@ -349,15 +331,32 @@ html;
 
             }
 
+
+            if($value['id_programa'] == '108'){
+                $simposio = <<<html
+                <span class="color-yellow text-bold">
+                            {$hora_inicio}
+                </span>
+                <br>
+html;
+            }
+            else{
+                $simposio = <<<html
+                <span class="color-yellow text-bold">
+                            {$hora_inicio} - {$hora_fin}
+                </span>
+                <br>
+html;
+            }
+
+
             $programa_fecha2 .= <<<html
                 <div class="row mb-3">
                     <div class="col-12 col-md-2">
-                        <span class="color-yellow text-bold">
-                            {$hora_inicio} - {$hora_fin}
-                        </span>
+                        {$simposio}
                     </div>
                     <div class="col-12 col-md-6">
-                        <a href="/Programa/Video/{$value['clave']}">
+                    <!--<a href="/Programa/Video/{$value['clave']}">-->
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
@@ -370,11 +369,11 @@ html;
                                 {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
-                            <span class="mt-4">
+                            <!--<span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
-                            </span>
-                        </a>
+                            </span>-->
+                    <!--</a>-->
                     </div>
                     <div class="col-12 col-md-4">
                         {$coordinador_1}
@@ -521,24 +520,24 @@ html;
                         </span>
                     </div>
                     <div class="col-12 col-md-6">
-                        <a href="/Programa/Video/{$value['clave']}">
+                        <!--<a href="/Programa/Video/{$value['clave']}">-->
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
                             <br><br>
                             <span class="text-bold font-14 text-lg">
                             {$value['subtitulo']}
-                        </span>
-                        <br><br>
-                        <span class="text-bold font-14 text-lg">
+                            </span>
+                            <br><br>
+                            <span class="text-bold font-14 text-lg">
                                 {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
-                            <span class="mt-4">
+                            <!--<span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
-                            </span>
-                        </a>
+                            </span>-->
+                        <!--</a>-->
                     </div>
                     <div class="col-12 col-md-4">
                         {$coordinador_1}
@@ -702,23 +701,24 @@ html;
                             {$simposio}
                     </div>
                     <div class="col-12 col-md-6">
-                        <a href="/Programa/Video/{$value['clave']}">
+                        <!--<a href="/Programa/Video/{$value['clave']}">-->
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
                             <br><br>
-                            <span class="color-green text-bold font-20 text-lg">
-                                {$value['subtitulo']}
+                            <span class="text-bold font-14 text-lg">
+                            {$value['subtitulo']}
                             </span>
                             <br><br>
                             <span class="text-bold font-14 text-lg">
                                 {$value['descripcion_subtitulo']}
                             </span>
-                            <span class="mt-4">
+                            <br><br>
+                            <!--<span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
-                            </span>
-                        </a>
+                            </span>-->
+                        <!--</a>-->
                     </div>
                     <div class="col-12 col-md-4">
                         {$coordinador_1}
@@ -883,24 +883,24 @@ html;
                         </span>
                     </div>
                     <div class="col-12 col-md-6">
-                        <a href="/Programa/Video/{$value['clave']}">
+                        <!--<a href="/Programa/Video/{$value['clave']}">-->
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
                             <br><br>
-                            <span class="text-bold font-20 text-lg">
-                                {$value['subtitulo']}
+                            <span class="text-bold font-14 text-lg">
+                            {$value['subtitulo']}
                             </span>
                             <br><br>
                             <span class="text-bold font-14 text-lg">
                                 {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
-                            <span class="mt-4">
+                            <!--<span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
-                            </span>
-                        </a>
+                            </span>-->
+                        <!--</a>-->
                     </div>
                     <div class="col-12 col-md-4">
                         {$coordinador_1}
@@ -1060,24 +1060,24 @@ html;
                         </span>
                     </div>
                     <div class="col-12 col-md-6">
-                        <a href="/Programa/Video/{$value['clave']}">
+                        <!--<a href="/Programa/Video/{$value['clave']}">-->
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
                             <br><br>
-                            <span class="text-bold font-20 text-lg">
-                                {$value['subtitulo']}
+                            <span class="text-bold font-14 text-lg">
+                            {$value['subtitulo']}
                             </span>
                             <br><br>
                             <span class="text-bold font-14 text-lg">
                                 {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
-                            <span class="mt-4">
+                            <!--<span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
-                            </span>
-                        </a>
+                            </span>-->
+                        <!--</a>-->
                     </div>
                     <div class="col-12 col-md-4">
                         {$coordinador_1}
