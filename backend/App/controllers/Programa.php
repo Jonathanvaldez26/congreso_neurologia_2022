@@ -144,6 +144,29 @@ html;
 
             $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
 
+
+            if($value['id_coordinador'] != '' || $value['id_coordinador'] != 0){
+                $coordinador_1 = <<<html
+                <span class="color-vine font-14 text-bold">
+                    Coordinador:
+                </span>
+                <br>
+                <span class="color-vine font-14 text-bold">
+                    {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
+                </span>
+                <br>
+html;
+
+            }else{
+                $coordinador_1 = '';
+            }
+
+            
+
+
+
+
+
             $programa_fecha1 .= <<<html
                 <div class="row mb-3">
                     <div class="col-12 col-md-2">
@@ -172,14 +195,7 @@ html;
                         </a>
                     </div>
                     <div class="col-12 col-md-4">
-                        <span class="color-vine font-14 text-bold">
-                            Coordinador:
-                        </span>
-                        <br>
-                        <span class="color-vine font-14 text-bold">
-                            {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
-                        </span>
-                        <br>
+                        {$coordinador_1}
                         <span class="color-vine font-14 text-bold">
                             Profesor:
                         </span>
@@ -268,7 +284,7 @@ html;
         $info_fecha3 = ProgramaDao::getSectionByDate('2022-05-20');
         $programa_fecha3 = <<<html
         <h4 class="mb-1 mt-1 text-center">Programa</h4>
-        <h5 class="mb-3 text-center">{$info_fecha3[0]['fecha']}</h5>        
+        <h5 class="mb-3 text-center">Viernes 20 de Mayo</h5>      
 html;
 
         foreach ($info_fecha3 as $key => $value) {
@@ -299,6 +315,10 @@ html;
                                 {$value['descripcion']}
                             </span>
                             <br><br>
+                            <span class="color-green text-bold font-20 text-lg">
+                            {$value['subtitulo']}
+                        </span>
+                        <br><br>
                             <span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
@@ -332,8 +352,9 @@ html;
         // ----- Variables para la tercer fecha ----- //
         $info_fecha4 = ProgramaDao::getSectionByDate('2022-05-21');
         $programa_fecha4 = <<<html
-        <h4 class="mb-1 mt-1 text-center">Programa</h4>
-        <h5 class="mb-3 text-center">{$info_fecha4[0]['fecha']}</h5>        
+        <h5 class="mb-3 text-center">Sábado 21 de Mayo</h5> 
+        <p class="mb-1 mt-1 text-center">Simposio</p>
+        <h4 class="mb-1 mt-1 text-center font-20">Neurología Neonatal: Sociedad Mexicana de Neurología Pediátrica, Federación Nacional de Neonatología y Newborn Brain Society (NBS)</h4>    
 html;
 
         if ($info_fecha4) {
@@ -435,6 +456,110 @@ html;
 
             $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
 
+            $coordinador_1 = '';
+
+            if($value['id_coordinador'] != 0){
+                $coordinador_1 = <<<html
+                <span class="color-vine font-14 text-bold">
+                    {$value['tipo_coordinador']}:
+                </span>
+                <br>
+                <span class="color-vine font-14 text-bold">
+                    {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
+                </span>
+                <br>
+html;
+
+            }
+
+            $coordinador_2 = '';
+
+            if($value['id_coordinador_2"'] != 0){
+                $coordinador_2 = <<<html
+                <span class="color-vine font-14 text-bold">
+                {$value['tipo_coordinador_2']}:
+                </span>
+                <br>
+                <span class="color-vine font-14 text-bold">
+                    {$value['prefijo_coordinador_2']} {$value['nombre_coordinador_2']}
+                </span>
+                <br>
+html;
+
+            }
+
+            $coordinador_3 = '';
+
+            if($value['id_coordinador_3"'] != 0){
+                $coordinador_3 = <<<html
+                <span class="color-vine font-14 text-bold">
+                {$value['tipo_coordinador_3']}:
+                </span>
+                <br>
+                <span class="color-vine font-14 text-bold">
+                    {$value['prefijo_coordinador_3']} {$value['nombre_coordinador_3']}
+                </span>
+                <br>
+html;
+
+            }
+
+
+            $profesor_1 = '';
+
+            if($value['id_profesor'] != 0){
+                $profesor_1 = <<<html
+                <span class="color-vine font-14 text-bold">
+                {$value['tipo_profesor']}:
+                </span>
+                <br>
+                <span class="color-vine font-14 text-bold">
+                    {$value['prefijo']} {$value['nombre_profesor']}
+                </span>
+                <p class="color-vine font-12 text-sm">
+                    {$value['desc_profesor']}
+                </p>
+html;
+
+            }
+
+            $profesor_2 = '';
+
+            if($value['id_profesor_2"'] != 0){
+                $profesor_2 = <<<html
+                <span class="color-vine font-14 text-bold">
+                {$value['tipo_profesor_2']}:
+                </span>
+                <br>
+                <span class="color-vine font-14 text-bold">
+                    {$value['prefijo_2']} {$value['nombre_profesor_2']}
+                </span>
+                <p class="color-vine font-12 text-sm">
+                    {$value['desc_profesor_2']}
+                </p>
+html;
+
+            }
+
+            $profesor_3 = '';
+
+            if($value['id_profesor_3"'] != 0){
+                $profesor_3 = <<<html
+                <span class="color-vine font-14 text-bold">
+                {$value['tipo_profesor_3']}:
+                </span>
+                <br>
+                <span class="color-vine font-14 text-bold">
+                    {$value['prefijo_3']} {$value['nombre_profesor_3']}
+                </span>
+                <p class="color-vine font-12 text-sm">
+                    {$value['desc_profesor_3']}
+                </p>
+html;
+
+            }
+
+
             $programa_fecha1 .= <<<html
                 <div class="row mb-3">
                     <div class="col-12 col-md-2">
@@ -463,24 +588,12 @@ html;
                         </a>
                     </div>
                     <div class="col-12 col-md-4">
-                        <span class="color-vine font-14 text-bold">
-                            Coordinador:
-                        </span>
-                        <br>
-                        <span class="color-vine font-14 text-bold">
-                            {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
-                        </span>
-                        <br>
-                        <span class="color-vine font-14 text-bold">
-                            Profesor:
-                        </span>
-                        <br>
-                        <span class="color-vine font-14 text-bold">
-                            {$value['prefijo']} {$value['nombre_profesor']}
-                        </span>
-                        <p class="color-vine font-12 text-sm">
-                            {$value['desc_profesor']}
-                        </p>
+                        {$coordinador_1}
+                        {$coordinador_2}
+                        {$coordinador_3}
+                        {$profesor_1}
+                        {$profesor_2}
+                        {$profesor_3}
                     </div>
                 </div>
 html;
