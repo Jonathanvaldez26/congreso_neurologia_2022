@@ -87,17 +87,17 @@
                                 <div class="row text-center">
                                     <div class="col-lg-12 col-md-12 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
                                         <div class="nav-wrapper position-relative end-0">
-                                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                            <ul class="nav nav-pills nav-fill p-1 bg-transparent-yellow" role="tablist">
                                                 <li class="nav-item transmisiones px-3" data-transmision="1">
                                                     <a class="nav-link mb-0 px-0 py-1 active" href="#transmision_1" data-bs-toggle="tab" role="tab" aria-selected="true">
                                                         <span class="fa fa-video"></span>
-                                                        <span class="ms-1">Transmisión 1</span>
+                                                        <span class="ms-1">Sala 1</span>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item transmisiones px-3" data-transmision="2">
                                                     <a class="nav-link mb-0 px-0 py-1" href="#transmision_2" data-bs-toggle="tab" role="tab" aria-selected="false">
                                                         <span class="fas fa-camera"></span>
-                                                        <span class="ms-1">Transmisión 2</span>
+                                                        <span class="ms-1">Sala 2</span>
                                                     </a>
                                                 </li>
                                             </ul>
