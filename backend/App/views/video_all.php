@@ -167,6 +167,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" id="enviar_encuesta" class="btn bg-gradient-success">Enviar</button>
+                            <a href="" id="constancia_download" target="_blank" download style="display: none;">descargar</a>
                             <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Cancelar</button>
                         </div>
                     </form>
@@ -207,6 +208,7 @@
             $.ajax({
                 url: "/Talleres/guardarRespuestas",
                 type: "POST",
+                dataType: 'json',
                 data: {list_r,id_curso},
                 beforeSend: function() {
                     console.log("Procesando....");
@@ -214,11 +216,13 @@
                 success: function(respuesta) {
                     console.log(respuesta);
                     
-                    if (respuesta == 'success') {
+                    if (respuesta.status == 'success') {
                         Swal.fire('Se ha guardado correctamente su examen','','success').
                         then((result) => {
                             console.log('a');
-                            window.location.reload();
+                            $('#constancia_download').attr('href',respuesta.href)
+                            $('#constancia_download')[0].click();
+                            // window.location.reload();
                         });
                     } else {
                         Swal.fire('Lo sentimos, usted ya ha contestado este examen','','info').

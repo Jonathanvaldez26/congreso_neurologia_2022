@@ -1,9 +1,12 @@
 <?php
 namespace App\controllers;
+defined("APPPATH") or die("Access denied");
+require_once dirname(__DIR__) . '/../public/librerias/fpdf/fpdf.php';
 
 use \Core\View;
 use \Core\Controller;
 use \App\models\Talleres AS TalleresDao;
+use \App\models\Register AS RegisterDao;
 
 class Talleres extends Controller{
 
@@ -706,6 +709,41 @@ html;
         }
     }
 
+    public function abrirConstancia($clave, $clave_ticket = null){
+
+        // $this->generaterQr($clave_ticket);
+        $datos_user = RegisterDao::getUserByClave($clave)[0];
+
+        $nombre = explode(" ", $datos_user['nombre']);
+        
+        $nombre_completo =$datos_user['prefijo'] ." ".$nombre[0] . " " .$datos_user['apellidop'] ;        
+        
+
+        $pdf = new \FPDF($orientation = 'L', $unit = 'mm', $format='A4');
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
+        $pdf->setY(1);
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Image('constancias/plantillas/Constancia_no_neurologos.png', 0, 0, 296, 210);
+        // $pdf->SetFont('Arial', 'B', 25);
+        // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
+
+        //$pdf->Image('1.png', 1, 0, 190, 190);
+        $pdf->SetFont('Arial', 'B', 5);    //Letra Arial, negrita (Bold), tam. 20
+        //$nombre = utf8_decode("Jonathan Valdez Martinez");
+        //$num_linea =utf8_decode("Línea: 39");
+        //$num_linea2 =utf8_decode("Línea: 39");
+
+        $pdf->SetXY(100, 95);
+        $pdf->SetFont('Arial', 'B', 30);
+        #4D9A9B
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Multicell(90, 10, $nombre_completo, 0, 'C');
+        $pdf->Output();
+        // $pdf->Output('F','constancias/'.$clave.'.pdf');
+        // $pdf->Output('F', 'C:/pases_abordar/'. $clave.'.pdf');
+    }
+
     public function guardarRespuestas(){
         $respuestas = $_POST['list_r'];
         $id_curso = $_POST['id_curso'];
@@ -713,16 +751,32 @@ html;
         $ha_respondido = TalleresDao::getRespuestas($_SESSION['id_registrado'],$id_curso);
 
         // var_dump($respuestas);
+        $userData = RegisterDao::getUser($this->getUsuario())[0];
+
+        // var_dump($userData['clave']);
+
+        // exit;
 
         if ($ha_respondido) {
-            echo 'fail';
+            // echo 'fail';
+            $data = [
+                'status'=> 'success',
+                'clave_user' => $userData['clave']
+            ];
+            echo json_encode($data);
         } else {
             foreach ($respuestas as $key => $value) {
                 $id_pregunta = $value[0];
                 $respuesta = $value[1];
                 TalleresDao::insertRespuesta($_SESSION['id_registrado'],$id_pregunta,$respuesta);
             }
-            echo 'success';
+            // echo 'success';
+            $data = [
+                'status'=> 'success',
+                'clave_user' => $userData['clave'],
+                'href' => '/Talleres/abrirConstancia/'.$userData['clave']
+            ];
+            echo json_encode($data);
         }
 
     }
