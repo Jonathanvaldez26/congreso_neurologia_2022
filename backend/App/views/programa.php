@@ -138,13 +138,46 @@
 
                         <div class="card-body p-3">
                             <div class="row mt-3">
-                                    <?php echo $card_programa; ?>
+                                    <?php //echo $card_programa; ?>
                             </div>
                         </div>
                         
 
                         <div class="card-body p-3">
-                            <?php echo $programa_fecha1; ?>
+                            <?php //echo $programa_fecha1; ?>
+
+                            <div class="row">
+
+                                <div class="col-md-6  col-sm-12 my-md-3 my-sm-3">
+                                    <a href="/Programa/sala_uno">
+                                        <div class="card card-link btn-menu-home m-auto" style="background-image: url(/img/SMNP_Iconos/18.png)">
+                                            <div class="card-body mt-md-3 text-center content-card-home">
+                                                <div class="col-12 text-center">
+                                                   
+                                                </div>
+
+                                               
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-12 col-md-6 my-md-3 my-sm-3">
+                                    <a href="/Programa/sala_dos">
+                                        <div class="card card-link btn-menu-home m-auto" style="background-image: url(/img/SMNP_Iconos/19.png)">
+                                            <div class="card-body mt-md-3 text-center content-card-home">
+                                                <div class="col-12 text-center">
+                                                
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                            
+
                             <div class="row">
                                 <div class="button-row d-flex mt-4 col-12">
                                     <a class="btn bg-gradient-light mb-0 js-btn-prev" href="/Home/" title="Prev">Regresar</a>
