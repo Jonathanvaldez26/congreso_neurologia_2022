@@ -6,7 +6,7 @@ use \Core\View;
 use \Core\Controller;
 use \App\models\TrabajosLibres AS trabajos_libres_grupo1Dao;
 
-class trabajos_libres_grupo1 extends Controller{
+class trabajos_libres_grupo_uno extends Controller{
 
     private $_contenedor;
 
