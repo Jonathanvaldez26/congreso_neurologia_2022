@@ -18,28 +18,28 @@ class TrabajosLibresUno extends Controller{
     }
 
     public function getUsuario(){
-      return $this->__usuario;
+        return $this->__usuario;
     }
 
     public function index() {
-     $extraHeader =<<<html
+        $extraHeader =<<<html
       <link id="pagestyle" href="/assets/css/style.css" rel="stylesheet" />
      
       <title>
-            Home
+            Cursos - Neuropediatría
       </title>
 html;
 
-        $trabajos_libres = '';
-        $card_trabajos_libres = '';
+        $trabajos_libres_grupo1 = '';
+        $card_trabajos_libres_grupo1 = '';
         $heart = '';
-        
-        $trabajos_libres =  TrabajosLibresDao::getTableTrabajosLibres($_SESSION['id_trabajo_libre']);
 
-        foreach ($trabajos_libres as $key => $value) {
+        $trabajos_libres_grupo1 =  trabajos_libres_grupo1Dao::getTableTrabajosLibresGrupo1($_SESSION['id_trabajo_libre']);
+
+        foreach ($trabajos_libres_grupo1 as $key => $value) {
 
 
-            $like = TrabajosLibresDao::getlike($value['id_trabajo'],$_SESSION['id_registrado']);
+            $like = trabajos_libres_grupo1Dao::getlike($value['id_trabajo'],$_SESSION['id_registrado']);
             if ($like['status'] == 1) {
                 $heart .= <<<html
                     <span id="video_{$value['clave']}" data-clave="{$value['clave']}" class="fas fa-heart heart-like p-2"></span>
@@ -49,14 +49,14 @@ html;
                     <span id="video_{$value['clave']}" data-clave="{$value['clave']}" class="fas fa-heart heart-not-like p-2"></span>
 html;
             }
-            
+
             if($value['grupo'] == 1){
                 $ruta = '/trabajos_files/img/grupo_1/'.$value['caratula'];
             }elseif($value['grupo'] == 2){
                 $ruta = '/trabajos_files/img/grupo_2/'.$value['caratula'];
             }
 
-            $card_trabajos_libres .= <<<html
+            $card_trabajos_libres_grupo1 .= <<<html
             
             
             <div class="col-12 col-md-4 text-center " >
@@ -76,15 +76,15 @@ html;
         View::set('header',$this->_contenedor->header($extraHeader));
         //View::set('permisos_mexico',$permisos_mexico);
         //View::set('tabla',$tabla);
-        View::set('card_trabajos_libres',$card_trabajos_libres);
-        View::render("trabajoslibres");
+        View::set('card_trabajos_libres_grupo1',$card_trabajos_libres_grupo1);
+        View::render("trabajos_libres_grupo1");
     }
 
     public function Likes(){
         $clave = $_POST['clave'];
-        $id_trabajo = TrabajosLibresDao::getTrabajoByClave($clave)['id_trabajo'];
+        $id_trabajo = trabajos_libres_grupo1Dao::getTrabajoByClave($clave)['id_trabajo'];
 
-        $hay_like = TrabajosLibresDao::getlike($id_trabajo,$_SESSION['id_registrado']);
+        $hay_like = trabajos_libres_grupo1Dao::getlike($id_trabajo,$_SESSION['id_registrado']);
         // var_dump($hay_like);
 
         if ($hay_like) {
@@ -98,7 +98,7 @@ html;
             // echo 'siuu '.$clave;
             echo "ya_votaste";
         } else {
-            $insertLike = TrabajosLibresDao::insertLike($id_trabajo,$_SESSION['id_registrado']);
+            $insertLike = trabajos_libres_grupo1Dao::insertLike($id_trabajo,$_SESSION['id_registrado']);
 
             if($insertLike){
                 echo "votar";
