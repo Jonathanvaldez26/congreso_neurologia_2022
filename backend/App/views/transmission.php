@@ -96,7 +96,7 @@
                                                 </li>
                                                 <li class="nav-item transmisiones px-3" data-transmision="2">
                                                     <a class="nav-link mb-0 px-0 py-1" href="#transmision_2" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                                        <span class="fas fa-video></span>
+                                                        <span class="fa fa-video></span>
                                                         <span class="ms-1">Sala 2</span>
                                                     </a>
                                                 </li>
