@@ -30,10 +30,7 @@ class Transmission extends Controller
     {
         $extraHeader = <<<html
 html;
-<<<<<<< HEAD
-        $extraFooter =<<<html
 
-=======
         $extraFooter = <<<html
     <!--footer class="footer pt-0">
               <div class="container-fluid">
@@ -57,7 +54,6 @@ html;
                   </div>
               </div>
           </footer--    >
->>>>>>> 0d0d2ad34c373bf33fe83c337fe2a81a8d4d3058
           <!-- jQuery -->
             <script src="/js/jquery.min.js"></script>
             <!--   Core JS Files   -->
