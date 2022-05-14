@@ -709,9 +709,17 @@ html;
         }
     }
 
-    public function abrirConstancia($clave, $clave_ticket = null){
+    public function abrirConstancia($clave, $id_curso = null){
 
         // $this->generaterQr($clave_ticket);
+
+        if($id_curso == 1){
+            $nombre_imagen = 'Constancia_no_neurologos.png';
+        }else if($id_curso == 2){
+            $nombre_imagen = 'Constancia_neurologos.png';
+        }else if($id_curso == 3){
+            $nombre_imagen = 'simposio.png';
+        }
         $datos_user = RegisterDao::getUserByClave($clave)[0];
 
         $nombre = explode(" ", $datos_user['nombre']);
@@ -724,7 +732,7 @@ html;
         $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
         $pdf->setY(1);
         $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Image('constancias/plantillas/Constancia_no_neurologos.png', 0, 0, 296, 210);
+        $pdf->Image('constancias/plantillas/'.$nombre_imagen, 0, 0, 296, 210);
         // $pdf->SetFont('Arial', 'B', 25);
         // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
 
@@ -774,7 +782,7 @@ html;
             $data = [
                 'status'=> 'success',
                 'clave_user' => $userData['clave'],
-                'href' => '/Talleres/abrirConstancia/'.$userData['clave']
+                'href' => '/Talleres/abrirConstancia/'.$userData['clave'].'/'.$id_curso
             ];
             echo json_encode($data);
         }
