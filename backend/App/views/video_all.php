@@ -167,7 +167,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" id="enviar_encuesta" class="btn bg-gradient-success">Enviar</button>
-                            <a href="" id="constancia_download" target="_blank" download style="display: none;">descargar</a>
+                            <a href="" id="constancia_download"  style="display: none;">descargar</a>
+                            <a href="" id="constancia_download_1" download style="display: none;">descargar</a>
                             <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Cancelar</button>
                         </div>
                     </form>
@@ -222,6 +223,8 @@
                             console.log('a');
                             $('#constancia_download').attr('href',respuesta.href)
                             $('#constancia_download')[0].click();
+                            $('#constancia_download_1').attr('href',respuesta.href_download)
+                            $('#constancia_download_1')[0].click();
                             // window.location.reload();
                         });
                     } else {

@@ -747,8 +747,9 @@ html;
         #4D9A9B
         $pdf->SetTextColor(0, 0, 0);
         $pdf->Multicell(130, 10, $nombre_completo, 0, 'C');
-        $pdf->Output();
-        // $pdf->Output('F','constancias/'.$clave.'.pdf');
+        // $pdf->Output();
+        $pdf->Output('F','constancias/'.$clave.$id_curso.'.pdf');
+
         // $pdf->Output('F', 'C:/pases_abordar/'. $clave.'.pdf');
     }
 
@@ -782,7 +783,8 @@ html;
             $data = [
                 'status'=> 'success',
                 'clave_user' => $userData['clave'],
-                'href' => '/Talleres/abrirConstancia/'.$userData['clave'].'/'.$id_curso
+                'href' => '/Talleres/abrirConstancia/'.$userData['clave'].'/'.$id_curso,
+                'href_download' => 'constancias/'.$userData['clave'].$id_curso.'.pdf'
             ];
             echo json_encode($data);
         }
