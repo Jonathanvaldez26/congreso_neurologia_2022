@@ -734,11 +734,11 @@ html;
         //$num_linea =utf8_decode("Línea: 39");
         //$num_linea2 =utf8_decode("Línea: 39");
 
-        $pdf->SetXY(100, 95);
+        $pdf->SetXY(80, 95);
         $pdf->SetFont('Arial', 'B', 30);
         #4D9A9B
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->Multicell(90, 10, $nombre_completo, 0, 'C');
+        $pdf->Multicell(130, 10, $nombre_completo, 0, 'C');
         $pdf->Output();
         // $pdf->Output('F','constancias/'.$clave.'.pdf');
         // $pdf->Output('F', 'C:/pases_abordar/'. $clave.'.pdf');
