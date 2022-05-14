@@ -225,7 +225,7 @@
                             $('#constancia_download')[0].click();
                             $('#constancia_download_1').attr('href',respuesta.href_download)
                             $('#constancia_download_1')[0].click();
-                            // window.location.reload();
+                            window.location.reload();
                         });
                     } else {
                         Swal.fire('Lo sentimos, usted ya ha contestado este examen','','info').
