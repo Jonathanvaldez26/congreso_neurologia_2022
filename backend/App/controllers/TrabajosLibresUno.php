@@ -4,7 +4,7 @@ defined("APPPATH") OR die("Access denied");
 
 use \Core\View;
 use \Core\Controller;
-use \App\models\TrabajosLibres AS TrabajosLibresDao;
+use \App\models\TrabajosLibres AS trabajos_libres_grupo1Dao;
 
 class TrabajosLibresUno extends Controller{
 
