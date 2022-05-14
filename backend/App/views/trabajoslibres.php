@@ -116,7 +116,7 @@
                             <div class="row">
 
                         <div class="col-md-6  col-sm-12 my-md-3 my-sm-3">
-                            <a href="/trabajos_libres_grupo1/">
+                            <a href="/TrabajosLibresUno/">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/17.png)">
                                     <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
@@ -132,7 +132,7 @@
                         </div>
                             
                                 <div class="col-sm-12 col-md-6 my-md-3 my-sm-3">
-                                    <a href="/trabajos_libres_grupo2/">
+                                    <a href="/TrabajosLibresDos/">
                                         <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/16.png)">
                                             <div class="card-body mt-md-3 text-center content-card-home">
                                                 <div class="col-12 text-center">
