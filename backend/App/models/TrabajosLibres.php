@@ -51,6 +51,16 @@ sql;
     return $mysqli->queryOne($query);
   }
 
+  public static function getlikeOne($registrado){
+    $mysqli = Database::getInstance();
+    $query=<<<sql
+      SELECT * 
+      FROM likes_trabajos
+      WHERE id_registrado = $registrado
+sql;
+    return $mysqli->queryOne($query);
+  }
+
   public static function getTrabajoByClave($clave){
     $mysqli = Database::getInstance();
     $query=<<<sql
