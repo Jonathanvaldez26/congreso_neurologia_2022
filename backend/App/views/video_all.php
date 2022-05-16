@@ -1,5 +1,5 @@
 <title>
-    Cursos Video - Neuropediatría 
+    Cursos Video - Neuropediatría
 </title>
 <?php echo $header; ?>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -65,23 +65,23 @@
                     <div class="row justify-content-center align-items-center">
                         <div class="col-sm-auto col-4">
                             <div class="avatar avatar-xl position-relative">
-                            <img src="/assets/img/Logo_SMNP.png">
+                                <img src="/assets/img/Logo_SMNP.png">
                             </div>
                         </div>
                         <div class="col-sm-auto col-8 my-auto">
                             <div class="h-100">
                                 <h5 class="mb-1 font-weight-bolder" id="nombre_transmision">
-                                    <?php echo $nombre_taller;?>
+                                    <?php echo $nombre_taller; ?>
                                 </h5>
-                            
-                                <input type="text" id="nombre_t1" value="<?php echo $transmision_1['nombre'];?>" readonly hidden>
-                                <input type="text" id="nombre_t2" value="<?php echo $transmision_2['nombre'];?>" readonly hidden>
-                            <p class="mb-0 font-weight-bold text-sm">
 
-                            </p>
+                                <input type="text" id="nombre_t1" value="<?php echo $transmision_1['nombre']; ?>" readonly hidden>
+                                <input type="text" id="nombre_t2" value="<?php echo $transmision_2['nombre']; ?>" readonly hidden>
+                                <p class="mb-0 font-weight-bold text-sm">
+
+                                </p>
                             </div>
                         </div>
-                        
+
                         <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
 
                         </div>
@@ -91,52 +91,127 @@
         </div>
 
         <div class="row mt-4">
-        <div class="col-12 col-lg-8">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12 col-md-12 m-auto text-center">
-                            <?php echo $contenido_taller;?>
-                        </div>
-                    </div>
-                    <hr class="horizontal dark my-3">
-                    <!-- Comments -->
-                    <div class="mb-1">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4">
-            <div class="card">
-                <div class="card blur shadow-blur max-height-vh-70">
-                    <div class="card-header shadow-lg">
+            <div class="col-12 col-lg-8">
+                <div class="card">
+                    <div class="card-body">
                         <div class="row">
-                        <div class="col-md-12">
-                            <div class=" text-center">
-                            <!-- <img alt="Image" src="../../../assets/img/bruce-mars.jpg" class="avatar"> -->
-                                <div class="ms-0 text-center">
-                                    <!-- <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'].' '.$info_user['nombre'];?></h6> -->
-                                    <span class="text-lg text-center text-dark opacity-8">Progreso <span id="porcentaje"><?php echo $porcentaje;?> %</span> </span>
+                            <div class="col-12 col-md-12 m-auto text-center">
+                                <?php echo $contenido_taller; ?>
+                            </div>
+                        </div>
+                        <hr class="horizontal dark my-3">
+                        <!-- Comments -->
+                        <div class="mb-1">
+                            <div id="cont_chat" class="text-scroll">
+                                <?php echo $cont_chat; ?>
+                            </div>
+
+                            <div class="d-flex mt-4">
+                                <div class="flex-shrink-0">
+                                    <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../img/users_musa/<?php echo $avatar; ?>">
+                                </div>
+                                <div class="flex-grow-1 my-auto">
+                                    <form class="align-items-center" id="form_chat" method="post">
+                                        <input type="hidden" name="id_tipo" id="id_tipo" value="<?= $id_curso ?>">
+                                        <input type="hidden" name="sala" id="sala" value="1">
+                                        <div class="d-flex">
+                                            <div class="input-group">
+                                                <input type="text" name="txt_chat" id="txt_chat" class="form-control" placeholder="Escribe un comentario para todos los asistentes." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
+                                            </div>
+                                            <button class="btn bg-gradient-primary mb-0 ms-2" onclick="saveChat()">
+                                                <i class="ni ni-send"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="card">
+                    <div class="card blur shadow-blur max-height-vh-70">
+
+                        <div class="card-header shadow-lg">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class=" text-center">
+                                        <!-- <img alt="Image" src="../../../assets/img/bruce-mars.jpg" class="avatar"> -->
+                                        <div class="ms-0 text-center">
+                                            <!-- <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'] . ' ' . $info_user['nombre']; ?></h6> -->
+                                            <span class="text-lg text-center text-dark opacity-8">Progreso <span id="porcentaje"><?php echo $porcentaje; ?> %</span> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer d-block">
+                            <progress id="barra_progreso" max="<?php echo $secs_totales; ?>" value="<?php echo $progreso_curso['segundos']; ?>"></progress>
+                            <input type="text" name="" id="id_curso" hidden readonly value="<?php echo $id_curso; ?>">
+                        </div>
+                        <div class="row m-auto">
+                            <div class="col-12" id="btn-examen">
+                                <?php echo $btn_encuesta; ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-footer d-block">
-                        <progress id="barra_progreso" max="<?php echo $secs_totales;?>" value="<?php echo $progreso_curso['segundos'];?>"></progress>
-                        <input type="text" name="" id="id_curso" hidden readonly value="<?php echo $id_curso;?>">
-                    </div>
-                    <div class="row m-auto">
-                        <div class="col-12" id="btn-examen">
-                            <?php echo $btn_encuesta;?>
+                </div>
+
+                <div class="card">
+                    <div class="card blur shadow-blur max-height-vh-70">
+                        <div class="card-header shadow-lg">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="d-flex align-items-center">
+                                        <!--img alt="Image" src="assets/img/bruce-mars.jpg" class="avatar"-->
+                                        <div class="ms-3">
+                                            <div class="d-flex align-items-center">
+                                                <img alt="Image" src="../../../img/users_musa/<?php echo $avatar; ?>" class="avatar">
+                                                <div class="ms-3">
+                                                    <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'] . ' ' . $info_user['nombre']; ?></h6>
+                                                    <span class="text-sm text-dark opacity-8">Tus Preguntas al Ponente</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card-footer d-block">
+                            <form class="align-items-center" autocomplete="nope" id="form_pregunta" method="post" onsubmit="return false;" accept-charset="utf-8">
+                                <div class="d-flex">
+                                    <div class="input-group" style="display: none;">
+                                        <input type="hidden" name="id_tipopre" id="id_tipopre" value="<?= $transmision_1['id_transmision']; ?>">
+                                        <input type="hidden" name="salapre" id="salapre" value="1">
+
+                                    </div>
+
+                                    <div class="input-group">
+
+                                        <input type="text" name="txt_pregunta" id="txt_pregunta" class="form-control" placeholder="Escribe tu pregunta al ponente aquí." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
+                                    </div>
+
+
+                                    <div class="input-group" style="display: none;">
+                                        <input class="form-control" style="visibility: hidden" type="hidden" name="registrado" id="registrado" value="90323" onfocus="focused(this)" onfocusout="defocused(this)">
+
+                                    </div>
+                                    <button class="btn bg-gradient-success mb-0 ms-2" onclick="savePregunta()">
+                                        <i class="ni ni-send"></i>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-                    
-        
+
+
         <br>
         <br>
     </div>
@@ -144,37 +219,37 @@
     <br>
 
     <!-- Modal -->
-        <div class="modal fade" id="encuesta" role="dialog" aria-labelledby="encuestaLabel" aria-hidden="true">
-            <div class="modal-dialog modal-size" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="encuestaLabel">Examen para <?php echo $nombre_taller;?></h5>
-                        <button type="button" class="btn bg-gradient-danger text-lg btn-icon-only" data-dismiss="modal" aria-label="Close">
-                            <span class="" aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form id="encuesta_curso" action="" method="post">
-                        <div class="modal-body">
-                            <div>
-                                <p class="text-success text-center">
-                                    <strong>Instrucciones:</strong> Responde a cada una de las preguntas, que a continuación se presentan
-                                </p>
-                            </div>
-                            <hr class="horizontal dark my-3">
-                            <div class="encuesta">
-                                <?php echo $encuesta;?>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" id="enviar_encuesta" class="btn bg-gradient-success">Enviar</button>
-                            <a href="" id="constancia_download" target="_blank" download style="display: none;">descargar</a>
-                            <a href="" id="constancia_download_1" download style="display: none;">descargar</a>
-                            <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </form>
+    <div class="modal fade" id="encuesta" role="dialog" aria-labelledby="encuestaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-size" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="encuestaLabel">Examen para <?php echo $nombre_taller; ?></h5>
+                    <button type="button" class="btn bg-gradient-danger text-lg btn-icon-only" data-dismiss="modal" aria-label="Close">
+                        <span class="" aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <form id="encuesta_curso" action="" method="post">
+                    <div class="modal-body">
+                        <div>
+                            <p class="text-success text-center">
+                                <strong>Instrucciones:</strong> Responde a cada una de las preguntas, que a continuación se presentan
+                            </p>
+                        </div>
+                        <hr class="horizontal dark my-3">
+                        <div class="encuesta">
+                            <?php echo $encuesta; ?>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="enviar_encuesta" class="btn bg-gradient-success">Enviar</button>
+                        <a href="" id="constancia_download" target="_blank" download style="display: none;">descargar</a>
+                        <a href="" id="constancia_download_1" download style="display: none;">descargar</a>
+                        <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 
     <?php echo $iframe_doc; ?>
 
@@ -187,20 +262,113 @@
 
 
 <script>
-    $(document).ready(function(){
+    intervalo1();
+    function intervalo1() {
+        intervalo = setInterval(chats, 60000, $("#id_tipo").val(), 1);
+    }
+
+    function saveChat() {
+        //event.preventDefault(event);
+        var formData = new FormData(document.getElementById("form_chat"));
+
+        var id_tipo = formData.get('id_tipo');
+        var sala = formData.get('sala');
+
+
+        for (var value of formData.values()) {
+            console.log(value);
+        }
+
+        $.ajax({
+            url: "/Talleres/saveChat",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function() {
+                event.preventDefault();
+                document.getElementById("txt_chat").value = "";
+                console.log("Procesando....");
+                // alert('Se está borrando');
+            },
+            success: function(respuesta) {
+                console.log(respuesta);
+                chats(id_tipo, sala);
+
+            },
+            error: function(respuesta) {
+                console.log(respuesta);
+
+            }
+        });
+    }
+
+    function chats(id_tipo, sala) {
+
+        console.log(id_tipo);
+        console.log("sala " + sala);
+
+        $.ajax({
+            url: "/Talleres/getChatById",
+            type: "POST",
+            data: {
+                id_tipo,
+                sala
+            },
+            dataType: 'json',
+            beforeSend: function() {
+                console.log("Procesando....");
+                $("#cont_chat").empty();
+
+            },
+            success: function(respuesta) {
+
+                console.log(respuesta);
+                // var numero_noti = 0;
+
+                $.each(respuesta, function(index, el) {
+
+                    //console.log(el.title);
+                    var nombre_completo = el.nombre + ' ' + el.apellidop + ' ' + el.apellidom;
+
+                    $("#cont_chat").append(
+                        `<div class="d-flex mt-3">
+                            <div class="flex-shrink-0">
+                                <img alt="Image placeholder" class="avatar rounded-circle" src="../../../img/users_musa/${el.avatar_img}">
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="h5 mt-0">${nombre_completo}</h6>
+                                <p class="text-sm">${el.chat}</p>
+                                
+                            </div>
+                        </div>`
+                    );
+                });
+
+
+
+            },
+            error: function(respuesta) {
+                console.log(respuesta);
+            }
+
+        });
+    }
+
+    $(document).ready(function() {
 
         let list_r = [];
 
-        $('#enviar_encuesta').on('click', function(){
+        $('#enviar_encuesta').on('click', function() {
             // alert('envio de formulario');
             let enc = $('.encuesta_completa');
             let id_curso = $('#id_curso').val();
 
             for (let index = 0; index < enc.length; index++) {
                 const respuesta = enc[index];
-                let id = $('#id_pregunta_'+(index+1)).val();
-                let res = $('input[name=pregunta_'+(index+1)+']:checked',enc[index]).val();
-                let res_id = [id,res];
+                let id = $('#id_pregunta_' + (index + 1)).val();
+                let res = $('input[name=pregunta_' + (index + 1) + ']:checked', enc[index]).val();
+                let res_id = [id, res];
                 list_r.push(res_id);
                 // console.log(res_id);
             }
@@ -210,62 +378,68 @@
                 url: "/Talleres/guardarRespuestas",
                 type: "POST",
                 dataType: 'json',
-                data: {list_r,id_curso},
+                data: {
+                    list_r,
+                    id_curso
+                },
                 beforeSend: function() {
                     console.log("Procesando....");
                 },
                 success: function(respuesta) {
                     console.log(respuesta);
-                    
+
                     if (respuesta.status == 'success') {
-                        Swal.fire('Se ha guardado correctamente su examen','','success').
+                        Swal.fire('Se ha guardado correctamente su examen', '', 'success').
                         then((result) => {
                             console.log('a');
-                            $('#constancia_download').attr('href',respuesta.href)
+                            $('#constancia_download').attr('href', respuesta.href)
                             $('#constancia_download')[0].click();
                             // $('#constancia_download_1').attr('href',respuesta.href_download)
                             // $('#constancia_download_1')[0].click();
                             window.location.reload();
                         });
                     } else {
-                        Swal.fire('Lo sentimos, usted ya ha contestado este examen','','info').
+                        Swal.fire('Lo sentimos, usted ya ha contestado este examen', '', 'info').
                         then((result) => {
                             console.log('b');
                             window.location.reload();
                         });
                     }
-                    
+
                 },
                 error: function(respuesta) {
                     console.log(respuesta);
-                    Swal.fire('Ha ocurrido un error, contacte con soporte','','error').
+                    Swal.fire('Ha ocurrido un error, contacte con soporte', '', 'error').
                     then((result) => {
                         console.log('c');
                     });
                 }
             });
         });
-        
+
         setTimeout(agregarVista, 10000);
 
         var vista = 0;
+
         function agregarVista() {
             vista++;
-            console.log("Vista nueva al video: "+vista);
+            console.log("Vista nueva al video: " + vista);
 
             clave_video = $('#clave_video').val();
 
             $.ajax({
                 url: "/Talleres/Vistas",
                 type: "POST",
-                data: {clave_video},
+                data: {
+                    clave_video
+                },
                 beforeSend: function() {
                     console.log("Procesando....");
                 },
                 success: function(respuesta) {
 
                     console.log(respuesta);
-                    
+
                 },
                 error: function(respuesta) {
                     console.log(respuesta);
@@ -276,12 +450,12 @@
         let inicio = $('#barra_progreso').val();
         let duracion = $('#barra_progreso').attr('max');
 
-        let porcentaje_num = (inicio*100)/parseInt(duracion);
+        let porcentaje_num = (inicio * 100) / parseInt(duracion);
         let increment = 1;
 
         let tiempo_total = 0;
 
-        function countTime(){
+        function countTime() {
             intervalo = setInterval(function() {
                 tiempo_total++;
 
@@ -291,8 +465,8 @@
 
                 if (tiempo_total % 60 == 0) {
                     console.log('Ejecutamos Ajax');
-                    actualizarProgreso($('#id_curso').val(),inicio);
-                    
+                    actualizarProgreso($('#id_curso').val(), inicio);
+
                 }
 
                 if (porcentaje_num >= 79) {
@@ -300,11 +474,11 @@
                 }
 
                 $('#barra_progreso').val(inicio);
-                porcentaje_num = (inicio*100)/parseInt(duracion);
-                $('#porcentaje').html(porcentaje_num.toFixed(0)+' %');
+                porcentaje_num = (inicio * 100) / parseInt(duracion);
+                $('#porcentaje').html(porcentaje_num.toFixed(0) + ' %');
 
-                
-            },1000);
+
+            }, 1000);
 
             $(window).blur(function() {
                 ventana = 0;
@@ -318,11 +492,14 @@
             });
         }
 
-        function actualizarProgreso(curso, segundos){
+        function actualizarProgreso(curso, segundos) {
             $.ajax({
                 url: "/Talleres/updateProgress",
                 type: "POST",
-                data: {curso, segundos},
+                data: {
+                    curso,
+                    segundos
+                },
                 beforeSend: function() {
                     console.log("Procesando....");
                 },
@@ -336,6 +513,5 @@
         }
 
         countTime();
-    }); 
-    
+    });
 </script>
