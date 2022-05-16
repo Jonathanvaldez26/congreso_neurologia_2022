@@ -15,6 +15,7 @@ class Patrocinadores{
       $query =<<<sql
       SELECT *
       FROM patrocinadores
+      ORDER BY nombre ASC
 sql;
       return $mysqli->queryAll($query);
   }
