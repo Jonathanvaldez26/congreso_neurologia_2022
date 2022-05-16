@@ -814,11 +814,11 @@ html;
         // $this->generaterQr($clave_ticket);
 
         if ($id_curso == 1) {
-            $nombre_imagen = 'Constancia_no_neurologos.png';
+            $nombre_imagen = 'Constancia_no_neurologos_2.png';
         } else if ($id_curso == 2) {
-            $nombre_imagen = 'Constancia_neurologos.png';
+            $nombre_imagen = 'Constancia_neurologos_2.png';
         } else if ($id_curso == 3) {
-            $nombre_imagen = 'simposio.png';
+            $nombre_imagen = 'simposio_2.png';
         }
         $datos_user = RegisterDao::getUserByClave($clave)[0];
 
