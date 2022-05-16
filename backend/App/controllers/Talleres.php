@@ -783,6 +783,31 @@ html;
         echo json_encode($chat_taller);
     }
 
+    public function savePregunta()
+    {
+        $pregunta = $_POST['txt_pregunta'];
+        $salapre = $_POST['salapre'];
+        $id_tipopre = $_POST['id_tipopre'];
+
+      
+
+        $data = new \stdClass();
+        $data->_id_registrado = $_SESSION['id_registrado'];
+        $data->_pregunta = $pregunta;
+        $data->_tipopre = 2;
+        $data->_id_tipopre = $id_tipopre;
+        $data->_salapre = $salapre;
+
+
+        $id = TransmisionDao::insertPregunta($data);
+
+        if ($id) {
+            echo "success";
+        } else {
+            echo "fail";
+        }
+    }
+
     public function abrirConstancia($clave, $id_curso = null)
     {
 
