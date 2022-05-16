@@ -243,6 +243,30 @@ html;
 //             <input class="form-control" id="alergia_cual" maxlength="149" required name="alergia_cual" data-color="dark" type="text" value="{$userData['alergia_cual']}" placeholder="Escribe las restricciones alimenticias" readonly/>
 // html;
 //         }
+        $select_pais = '';
+        foreach(RegisterDao::getPais() as $key => $value){
+            $selectedPais = ($value['id_pais'] == $userData['id_pais']) ? 'selected' : '';  
+            $select_pais .= <<<html
+                    <option value="{$value['id_pais']}" $selectedPais>{$value['pais']}</option>
+html;
+}
+        $select_estado = '';
+        foreach(RegisterDao::getStateByCountry($userData['id_pais']) as $key => $value){
+            $selectedEstado = ($value['id_estado'] == $userData['id_estado']) ? 'selected' : '';  
+            $select_estado .= <<<html
+                    <option value="{$value['id_estado']}" $selectedEstado>{$value['estado']}</option>
+html;
+}
+
+        
+        $select_especialidad = '';
+
+        foreach(RegisterDao::getAllEspecialidades() as $key => $value){
+            $selectedEspecialidad = ($value['especialidad'] == $userData['especialidad']) ? 'selected' : '';
+            $select_especialidad .= <<<html
+                <option value="{$value['nombre']}" $selectedEspecialidad>{$value['nombre']}</option>
+html;
+        }
        
 
       View::set('imgUser',$imgUser);
@@ -256,7 +280,20 @@ html;
       View::set('optionsTalla',$optionsTalla);
       View::set('idLineaPrincipal',$idLineaPrincipal);
       View::set('nombreLineaPrincipal',$nombreLineaPrincipal);
+      View::set('select_pais',$select_pais);
+      View::set('select_estado',$select_estado);
+      View::set('select_especialidad',$select_especialidad);
       View::render("account_all");
+    }
+
+    public function getEstadoPais(){
+        $pais = $_POST['pais'];
+
+        if (isset($pais)) {
+            $Paises = RegisterDao::getStateByCountry($pais);
+
+            echo json_encode($Paises);
+        }
     }
 
 
@@ -274,7 +311,8 @@ html;
             $apellido_paterno = $_POST['apellido_paterno'];
             $apellido_materno = $_POST['apellido_materno'];
             // $genero = $_POST['genero'];
-            // $pais = $_POST['pais'];
+            $pais = $_POST['pais'];
+            $estado = $_POST['estado'];
             $email = $_POST['email'];
             $telefono = $_POST['telefono'];
             $especialidad = $_POST['especialidad'];
@@ -285,7 +323,8 @@ html;
             $documento->_apellido_paterno = $apellido_paterno;
             $documento->_apellido_materno = $apellido_materno;
             // $documento->_genero = $genero;
-            // $documento->_pais = $pais;
+            $documento->_pais = $pais;
+            $documento->_estado = $estado;
             $documento->_email = $email;
             $documento->_telefono = $telefono;
             $documento->_especialidad = $especialidad;

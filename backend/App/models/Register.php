@@ -22,6 +22,24 @@ sql;
         return $mysqli->queryAll($query);
     }
 
+    public static function getUser($email){
+      $mysqli = Database::getInstance(true);
+      $query =<<<sql
+      SELECT * FROM registrados  WHERE email = '$email'
+sql;
+
+      return $mysqli->queryAll($query);
+  }
+
+  public static function getUserByClave($clave){
+    $mysqli = Database::getInstance(true);
+    $query =<<<sql
+    SELECT * FROM registrados  WHERE clave = '$clave'
+sql;
+
+    return $mysqli->queryAll($query);
+}
+
     public static function getUserRegistrate($email){
       $mysqli = Database::getInstance(true);
       $query =<<<sql
@@ -109,5 +127,31 @@ sql;
           // UtileriasLog::addAccion($accion);
           return $mysqli->update($query1, $parametros1);
       }
+
+      public static function getPais(){       
+        $mysqli = Database::getInstance();
+        $query=<<<sql
+        SELECT * FROM paises
+sql;
+        return $mysqli->queryAll($query);
+      }
+
+      public static function getStateByCountry($id_pais){
+        $mysqli = Database::getInstance(true);
+        $query =<<<sql
+        SELECT * FROM estados where id_pais = '$id_pais'
+sql;
+      
+        return $mysqli->queryAll($query);
+      }
+
+      public static function getAllEspecialidades(){
+        $mysqli = Database::getInstance();
+        $query=<<<sql
+        SELECT * FROM especialidades
+sql;
+        return $mysqli->queryAll($query);
+        
+    }
 
 }

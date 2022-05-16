@@ -30,6 +30,7 @@ class Transmission extends Controller
     {
         $extraHeader = <<<html
 html;
+
         $extraFooter = <<<html
     <!--footer class="footer pt-0">
               <div class="container-fluid">

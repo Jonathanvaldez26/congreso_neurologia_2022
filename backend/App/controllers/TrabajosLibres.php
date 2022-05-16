@@ -84,7 +84,7 @@ html;
         $clave = $_POST['clave'];
         $id_trabajo = TrabajosLibresDao::getTrabajoByClave($clave)['id_trabajo'];
 
-        $hay_like = TrabajosLibresDao::getlike($id_trabajo,$_SESSION['id_registrado']);
+        $hay_like = TrabajosLibresDao::getlikeOne($_SESSION['id_registrado']);
         // var_dump($hay_like);
 
         if ($hay_like) {
