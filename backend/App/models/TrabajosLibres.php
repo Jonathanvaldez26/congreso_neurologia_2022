@@ -26,6 +26,7 @@ sql;
       SELECT *
       FROM trabajos_libres
       WHERE grupo = 1
+      ORDER BY no_poster ASC
 sql;
       return $mysqli->queryAll($query);
   }
@@ -37,6 +38,7 @@ sql;
       SELECT *
       FROM trabajos_libres
       WHERE grupo = 2
+      ORDER BY no_poster ASC
 sql;
       return $mysqli->queryAll($query);
   }

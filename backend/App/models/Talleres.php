@@ -44,6 +44,16 @@ sql;
       return $mysqli->queryAll($query);
     }
 
+    public static function getTallerById($id){
+      $mysqli = Database::getInstance(true);
+      $query =<<<sql
+      SELECT * FROM cursos
+      WHERE id_curso = $id
+sql;
+
+      return $mysqli->queryOne($query);
+  }
+
     public static function getRespuestasPorUsuraioTaller($id_registrado,$id_curso){
 
       $mysqli = Database::getInstance();
