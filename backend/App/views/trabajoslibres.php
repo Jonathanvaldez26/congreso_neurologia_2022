@@ -250,6 +250,12 @@
 <script>
     $(document).ready(function(){
 
+        Swal.fire(
+            '<p>Podrá votar por su e-poster favorito dando click sobre el corazón que se encuentra en la parte superior derecha de los mismos.<strong></br> Nota: Solo podrá realizar un voto por cualquiera de  las dos categorías.</strong></p>',
+            '',
+            'info'
+        )
+
         $('.iframe').on('click',function(){
             var pdf = $(this).attr('data-pdf');
             // alert(pdf);
