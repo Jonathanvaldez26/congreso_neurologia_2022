@@ -226,7 +226,7 @@ echo $header;
         //===
         // VARIABLES
         //===
-        const DATE_TARGET = new Date('05/16/2022 7:00 AM');
+        const DATE_TARGET = new Date('05/17/2022 8:00 AM');
         // DOM for render
         const SPAN_DAYS = document.querySelector('span#days');
         const SPAN_HOURS = document.querySelector('span#hours');
