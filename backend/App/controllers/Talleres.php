@@ -706,6 +706,7 @@ html;
 
             foreach ($chat_taller as $chat => $value) {
                 $nombre_completo = $value['nombre'] . ' ' . $value['apellidop'] . ' ' . $value['apellidom'];
+                $nombre_completo = utf8_encode($nombre_completo);
                 $cont_chat .= <<<html
             <div class="d-flex mt-3">
                 <div class="flex-shrink-0">

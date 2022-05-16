@@ -266,7 +266,7 @@
 <script>
     intervalo1();
     function intervalo1() {
-        intervalo = setInterval(chats, 60000, $("#id_tipo").val(), 1);
+        intervalo = setInterval(chats, 3000, $("#id_tipo").val(), 1);
     }
 
     function saveChat() {
@@ -371,7 +371,7 @@
 
                 $.each(respuesta, function(index, el) {
 
-                    //console.log(el.title);
+                    // console.log(el.title);
                     var nombre_completo = el.nombre + ' ' + el.apellidop + ' ' + el.apellidom;
 
                     $("#cont_chat").append(
