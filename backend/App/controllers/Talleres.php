@@ -846,7 +846,7 @@ html;
         $pdf->SetFont('Arial', 'B', 30);
         #4D9A9B
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->Multicell(130, 10, $nombre_completo, 0, 'C');
+        $pdf->Multicell(120, 10, $nombre_completo, 0, 'C');
         $pdf->Output();
         // $pdf->Output('F','constancias/'.$clave.$id_curso.'.pdf');
 
