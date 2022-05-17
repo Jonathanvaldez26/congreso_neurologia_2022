@@ -201,7 +201,7 @@ html;
                     $.ajax({
                         type:"POST",
                         async: false,
-                        url: "/Login/isUserValidate",
+                        url: "/Inicio/isUserValidate",
                         data: {usuario: $("#usuario").val()},
                         success: function(data) {
                             console.log(data);
@@ -240,7 +240,7 @@ html;
                 $("#btnEntrar").click(function(){
                     $.ajax({
                         type: "POST",
-                        url: "/Login/verificarUsuario",
+                        url: "/Inicio/verificarUsuario",
                         data: $("#login").serialize(),
                         success: function(response){
                             if(response!=""){
