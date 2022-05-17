@@ -6,7 +6,7 @@
     <meta name="viewport" id="metaViewport" content="user-scalable=no, initial-scale=1, width=device-width, viewport-fit=cover" data-tdv-general-scale="0.5"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <script src=".../portada360/lib/tdvplayer.js?v=1652585232021"></script>
+    <script src="../portada360/lib/tdvplayer.js?v=1652585232021"></script>
     <link rel="preload" href="../portada360/locale/es.txt?v=1652585232021" as="fetch" crossorigin="anonymous"/>
     <link rel="preload" href="../portada360/script.js?v=1652585232021" as="script"/>
     <link rel="preload" href="../portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/r/3/0_0.jpg?v=1652585232021" as="image"/>
