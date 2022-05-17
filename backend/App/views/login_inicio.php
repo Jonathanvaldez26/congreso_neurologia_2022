@@ -7,14 +7,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <script src="/lib/tdvplayer.js?v=1652585232021"></script>
-    <link rel="preload" href="/locale/es.txt?v=1652585232021" as="fetch" crossorigin="anonymous"/>
-    <link rel="preload" href="/script.js?v=1652585232021" as="script"/>
-    <link rel="preload" href="/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/r/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/l/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/u/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/d/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/f/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/b/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="../locale/es.txt?v=1652585232021" as="fetch" crossorigin="anonymous"/>
+    <link rel="preload" href="../script.js?v=1652585232021" as="script"/>
+    <link rel="preload" href="../media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/r/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="../media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/l/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="../media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/u/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="../media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/d/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="../media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/f/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="../media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/b/3/0_0.jpg?v=1652585232021" as="image"/>
     <meta name="description" content="Powered by Grupo LAHE"/>
     <meta name="theme-color" content="#FFFFFF"/>
     <script src="script.js?v=1652585232021"></script>
