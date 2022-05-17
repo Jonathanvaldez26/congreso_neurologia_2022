@@ -49,6 +49,8 @@ html;
 
         $data_user = HomeDao::getDataUser($this->__usuario);
 
+        // var_dump($data_user);
+
         $permisos_congreso = $data_user['congreso'] != '1' ? "style=\"display:none;\"" : "";
 
         $usuarios = HomeDao::getAllUsers();
@@ -67,8 +69,13 @@ html;
 
         View::set('header',$this->_contenedor->header($extraHeader));
         View::set('permisos_congreso',$permisos_congreso);
+        View::set('datos',$data_user['datos']);
         //View::set('tabla',$tabla);
         View::render("principal_all");
+    }
+
+    public function getData(){
+      echo $_POST['datos'];
     }
 
     public function NoCargaPickup(){

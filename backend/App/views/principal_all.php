@@ -41,6 +41,7 @@
                     </ol>
                 </nav>
 
+                <input type="hidden" name="datos" id="datos" value="<?php echo $datos;?>">
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group"></div>
@@ -256,7 +257,50 @@
 
 
     <script type='text/javascript'>
+
+        getData($("#datos").val());
+
+        // Swal.fire({
+        // title: '¡Es necesario que actualice sus datos.!',
+        // text: "",
+        // icon: 'info',
+        // showCancelButton: true,
+        // showCancelButton: false,
+        // allowOutsideClick: false,
+        // confirmButtonColor: '#3085d6'
+        // }).then((result) => {
+        //     if (result.isConfirmed) {
+        //         window.location.replace("/Account/");
+        //     }
+        // })
+
+        function getData(datos){
+            $.ajax({
+                    url:"/Home/getData",
+                    type: "POST",
+                    data: {datos},                   
+                    beforeSend: function(){
+                        console.log("Procesando....");
+
+                    
+                    },
+                    success: function(respuesta){
+
+                        console.log(respuesta);
+                        
+                        
+
+                    },
+                    error:function (respuesta)
+                    {
+                        
+                        console.log(respuesta);
+                    }
+
+                });
+        }
     $(function(){
+        
         $(document).bind("contextmenu",function(e){
             return true;
         });
