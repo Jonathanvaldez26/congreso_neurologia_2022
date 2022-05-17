@@ -47,9 +47,9 @@ html;
           //  }
         //}
 
-        // $data_user = HomeDao::getDataUser($this->__usuario);
+        $data_user = HomeDao::getDataUser($this->__usuario);
 
-        // $permisos_mexico = $data_user['pais'] != 'México' ? "style=\"display:none;\"" : "";
+        $permisos_congreso = $data_user['congreso'] != '1' ? "style=\"display:none;\"" : "";
 
         $usuarios = HomeDao::getAllUsers();
         $free_courses = HomeDao::getFreeCourses();
@@ -66,7 +66,7 @@ html;
 
 
         View::set('header',$this->_contenedor->header($extraHeader));
-        //View::set('permisos_mexico',$permisos_mexico);
+        View::set('permisos_congreso',$permisos_congreso);
         //View::set('tabla',$tabla);
         View::render("principal_all");
     }
