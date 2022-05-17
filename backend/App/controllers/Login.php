@@ -4,7 +4,7 @@ defined("APPPATH") OR die("Access denied");
 
 use \Core\View;
 
-class Inicio{
+class Login{
     private $_contenedor;
 
 
