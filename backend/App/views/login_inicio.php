@@ -17,7 +17,7 @@
     <link rel="preload" href="../portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/b/3/0_0.jpg?v=1652585232021" as="image"/>
     <meta name="description" content="Powered by Grupo LAHE"/>
     <meta name="theme-color" content="#FFFFFF"/>
-    <script src="script.js?v=1652585232021"></script>
+    <script src="../portada360/script.js?v=1652585232021"></script>
     <script type="text/javascript">
         var tour;
         var devicesUrl = {"general":"/portada360/lib/script_general.js?v=1652585232021"};
