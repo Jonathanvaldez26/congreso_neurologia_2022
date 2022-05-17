@@ -11,19 +11,6 @@ class Login{
 
 
     public function index() {
-        
-        $extraHeader =<<<html
-        
-html;
-        $extraFooter =<<<html
-
-        
-
-        
-html;
-
-        View::set('header',$extraHeader);
-        View::set('footer',$extraFooter);
         View::render("login_inicio");
     }
 
