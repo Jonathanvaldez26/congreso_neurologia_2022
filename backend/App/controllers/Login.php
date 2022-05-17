@@ -14,25 +14,26 @@ class Login{
 
         $extraHeader =<<<html
         <title>Congreso SMNP 2022</title>
+    <title>Congreso SMNP 2022</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" id="metaViewport" content="user-scalable=no, initial-scale=1, width=device-width, viewport-fit=cover" data-tdv-general-scale="0.5"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <script src="lib/tdvplayer.js?v=1652585232021"></script>
-    <link rel="preload" href="locale/es.txt?v=1652585232021" as="fetch" crossorigin="anonymous"/>
-    <link rel="preload" href="script.js?v=1652585232021" as="script"/>
-    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/r/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/l/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/u/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/d/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/f/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/b/3/0_0.jpg?v=1652585232021" as="image"/>
-    <meta name="description" content="Powered by Grupo LAHE"/>
-    <meta name="theme-color" content="#FFFFFF"/>
-    <script src="script.js?v=1652585232021"></script>
+    <script src="portada360/lib/tdvplayer.js?v=1652585232021"></script>
+    <link rel="preload" href="portada360/locale/es.txt?v=1652585232021" as="fetch" crossorigin="anonymous"/>
+	<link rel="preload" href="portada360/script.js?v=1652585232021" as="script"/>
+	<link rel="preload" href="portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/r/3/0_0.jpg?v=1652585232021" as="image"/>
+	<link rel="preload" href="portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/l/3/0_0.jpg?v=1652585232021" as="image"/>
+	<link rel="preload" href="portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/u/3/0_0.jpg?v=1652585232021" as="image"/>
+	<link rel="preload" href="portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/d/3/0_0.jpg?v=1652585232021" as="image"/>
+	<link rel="preload" href="portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/f/3/0_0.jpg?v=1652585232021" as="image"/>
+	<link rel="preload" href="portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/b/3/0_0.jpg?v=1652585232021" as="image"/>
+	<meta name="description" content="Powered by Grupo LAHE"/>
+	<meta name="theme-color" content="#FFFFFF"/>
+    <script src="portada360/script.js?v=1652585232021"></script>
     <script type="text/javascript">
         var tour;
-        var devicesUrl = {"general":"script_general.js?v=1652585232021"};
+        var devicesUrl = {"general":"portada360/script_general.js?v=1652585232021"};
 
         (function()
         {
@@ -75,8 +76,8 @@ class Login{
 
             var settings = new TDV.PlayerSettings();
             settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById('viewer'));
-            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'lib/WebVRPolyfill.js?v=1652585232021');
-            settings.set(TDV.PlayerSettings.HLS_URL, 'lib/Hls.js?v=1652585232021');
+            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'portada360/lib/WebVRPolyfill.js?v=1652585232021');
+            settings.set(TDV.PlayerSettings.HLS_URL, 'portada360/lib/Hls.js?v=1652585232021');
             settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1652585232021');
 
             tour = new TDV.Tour(settings, devicesUrl);
@@ -109,7 +110,7 @@ class Login{
             };
 
             tour.locManager.bind(TDV.Tour.LocaleManager.EVENT_LOCALE_CHANGED, updateTexts.bind(tour.locManager));
-
+            
             if (tour.player.cookiesEnabled)
                 enableCookies();
             else
@@ -118,7 +119,7 @@ class Login{
 
         function onVirtualTourLoaded()
         {
-
+            
         }
 
         function onVirtualTourEnded()
@@ -128,7 +129,7 @@ class Login{
 
         function enableCookies()
         {
-
+            
         }
 
         function setMediaByIndex(index) {
@@ -190,11 +191,11 @@ class Login{
             function transitionEndEventName () {
                 var el = document.createElement('div');
                 var transitions = {
-                    'transition':'transitionend',
-                    'OTransition':'otransitionend',
-                    'MozTransition':'transitionend',
-                    'WebkitTransition':'webkitTransitionEnd'
-                };
+                        'transition':'transitionend',
+                        'OTransition':'otransitionend',
+                        'MozTransition':'transitionend',
+                        'WebkitTransition':'webkitTransitionEnd'
+                    };
 
                 var t;
                 for (t in transitions) {
@@ -210,7 +211,7 @@ class Login{
         function onBodyClick(){
             document.body.removeEventListener("click", onBodyClick);
             document.body.removeEventListener("touchend", onBodyClick);
-
+            
         }
 
         function onLoad() {
@@ -248,9 +249,9 @@ class Login{
             }
 
             playVideo(document.getElementById("video_D4221595_C59E_39E2_41E1_6A4F7484883C"), true);
-            showPreloader();
-            loadTour();
-            pauseTour();
+			showPreloader();
+			loadTour();
+			pauseTour();
         }
 
         function onVideoEnd() { disposePreloader(); resumeTour(); };
@@ -262,8 +263,8 @@ class Login{
 
             function hasAudio (video) {
                 return video.mozHasAudio ||
-                    Boolean(video.webkitAudioDecodedByteCount) ||
-                    Boolean(video.audioTracks && video.audioTracks.length);
+                       Boolean(video.webkitAudioDecodedByteCount) ||
+                       Boolean(video.audioTracks && video.audioTracks.length);
             }
 
             function detectUserAction() {
