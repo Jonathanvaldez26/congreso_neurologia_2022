@@ -279,7 +279,7 @@
                             icon: 'info',
                             showCancelButton: true,
                             showCancelButton: false,
-                            allowOutsideClick: false,
+                            // allowOutsideClick: false,
                             confirmButtonColor: '#3085d6'
                             }).then((result) => {
                                 if (result.isConfirmed) {
