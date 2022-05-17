@@ -49,7 +49,6 @@ sql;
     UPDATE registrados SET especialidad = :especialidad, nombre = :nombre, apellidom = :apellido_materno, apellidop = :apellido_paterno, telefono = :telefono, id_pais = :id_pais, id_estado = :id_estado, especialidad = :especialidad  WHERE email = :email;
 sql;
     $parametros = array(
-      ':especialidad' => $user->_especialidad,
       ':nombre' => $user->_nombre,
       // ':segundo_nombre'=>$user->_segundo_nombre,
       ':apellido_paterno' => $user->_apellido_paterno,
