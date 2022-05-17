@@ -20,7 +20,7 @@
     <script src="script.js?v=1652585232021"></script>
     <script type="text/javascript">
         var tour;
-        var devicesUrl = {"general":"script_general.js?v=1652585232021"};
+        var devicesUrl = {"general":"/portada360/lib/script_general.js?v=1652585232021"};
 
         (function()
         {
@@ -63,8 +63,8 @@
 
             var settings = new TDV.PlayerSettings();
             settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById('viewer'));
-            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'lib/WebVRPolyfill.js?v=1652585232021');
-            settings.set(TDV.PlayerSettings.HLS_URL, 'lib/Hls.js?v=1652585232021');
+            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, '/portada360/lib/WebVRPolyfill.js?v=1652585232021');
+            settings.set(TDV.PlayerSettings.HLS_URL, '/portada360/lib/Hls.js?v=1652585232021');
             settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1652585232021');
 
             tour = new TDV.Tour(settings, devicesUrl);
