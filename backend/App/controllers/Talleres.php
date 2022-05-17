@@ -370,8 +370,8 @@ html;
             if ($permiso_taller) {
                 $contenido_taller .= <<<html
                 <div class="row">
-                    <!--<iframe id="iframe" class="bg-gradient-warning iframe-course" src="{$url}" width="640" height="521" frameborder="0">a</iframe>-->
-                    <iframe src="{$url}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:640;height:521;"></iframe>
+                    <iframe id="iframe" class="bg-gradient-warning iframe-course" src="{$url}" allow="autoplay; fullscreen; width="640" height="521" frameborder="0">a</iframe>
+                    <!-- <iframe src="{$url}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:640;height:521;"></iframe>-->
                 </div>
     
                 <input type="text" value="{$clave}" id="clave_video" readonly hidden>
