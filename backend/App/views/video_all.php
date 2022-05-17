@@ -555,6 +555,10 @@
             });
         }
 
+        function boton(){
+            $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
+        }
+        boton();
         // countTime();
     });
 </script>
