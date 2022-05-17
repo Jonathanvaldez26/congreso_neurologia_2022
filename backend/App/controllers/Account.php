@@ -264,7 +264,7 @@ html;
         foreach(RegisterDao::getAllEspecialidades() as $key => $value){
             $selectedEspecialidad = ($value['especialidad'] == $userData['especialidad']) ? 'selected' : '';
             $select_especialidad .= <<<html
-                <option value="{$value['nombre']}" $selectedEspecialidad>{$value['nombre']}</option>
+                <option value="{$value['id_especialidad']}" $selectedEspecialidad>{$value['nombre']}</option>
 html;
         }
        
