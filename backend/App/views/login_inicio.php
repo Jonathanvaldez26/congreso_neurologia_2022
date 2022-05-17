@@ -6,21 +6,21 @@
     <meta name="viewport" id="metaViewport" content="user-scalable=no, initial-scale=1, width=device-width, viewport-fit=cover" data-tdv-general-scale="0.5"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <script src="../portada360/lib/tdvplayer.js?v=1652585232021"></script>
-    <link rel="preload" href="../portada360/locale/es.txt?v=1652585232021" as="fetch" crossorigin="anonymous"/>
-    <link rel="preload" href="../portada360/script.js?v=1652585232021" as="script"/>
-    <link rel="preload" href="../portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/r/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="../portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/l/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="../portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/u/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="../portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/d/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="../portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/f/3/0_0.jpg?v=1652585232021" as="image"/>
-    <link rel="preload" href="../portada360/media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/b/3/0_0.jpg?v=1652585232021" as="image"/>
+    <script src="lib/tdvplayer.js?v=1652585232021"></script>
+    <link rel="preload" href="locale/es.txt?v=1652585232021" as="fetch" crossorigin="anonymous"/>
+    <link rel="preload" href="script.js?v=1652585232021" as="script"/>
+    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/r/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/l/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/u/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/d/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/f/3/0_0.jpg?v=1652585232021" as="image"/>
+    <link rel="preload" href="media/panorama_CE10E166_C572_592E_41D2_C4DF92012A66_0/b/3/0_0.jpg?v=1652585232021" as="image"/>
     <meta name="description" content="Powered by Grupo LAHE"/>
     <meta name="theme-color" content="#FFFFFF"/>
-    <script src="../portada360/script.js?v=1652585232021"></script>
+    <script src="script.js?v=1652585232021"></script>
     <script type="text/javascript">
         var tour;
-        var devicesUrl = {"general":"/portada360/lib/script_general.js?v=1652585232021"};
+        var devicesUrl = {"general":"script_general.js?v=1652585232021"};
 
         (function()
         {
@@ -63,8 +63,8 @@
 
             var settings = new TDV.PlayerSettings();
             settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById('viewer'));
-            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, '../portada360/lib/WebVRPolyfill.js?v=1652585232021');
-            settings.set(TDV.PlayerSettings.HLS_URL, '../portada360/lib/Hls.js?v=1652585232021');
+            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'lib/WebVRPolyfill.js?v=1652585232021');
+            settings.set(TDV.PlayerSettings.HLS_URL, 'lib/Hls.js?v=1652585232021');
             settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1652585232021');
 
             tour = new TDV.Tour(settings, devicesUrl);
