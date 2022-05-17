@@ -259,21 +259,6 @@
     <script type='text/javascript'>
 
         getData($("#datos").val());
-
-        // Swal.fire({
-        // title: '¡Es necesario que actualice sus datos.!',
-        // text: "",
-        // icon: 'info',
-        // showCancelButton: true,
-        // showCancelButton: false,
-        // allowOutsideClick: false,
-        // confirmButtonColor: '#3085d6'
-        // }).then((result) => {
-        //     if (result.isConfirmed) {
-        //         window.location.replace("/Account/");
-        //     }
-        // })
-
         function getData(datos){
             $.ajax({
                     url:"/Home/getData",
@@ -287,8 +272,21 @@
                     success: function(respuesta){
 
                         console.log(respuesta);
-                        
-                        
+                        if(respuesta == 0){
+                            Swal.fire({
+                            title: '¡Es necesario que actualice sus datos.!',
+                            text: "",
+                            icon: 'info',
+                            showCancelButton: true,
+                            showCancelButton: false,
+                            allowOutsideClick: false,
+                            confirmButtonColor: '#3085d6'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.replace("/Account/");
+                                }
+                            })
+                        }
 
                     },
                     error:function (respuesta)

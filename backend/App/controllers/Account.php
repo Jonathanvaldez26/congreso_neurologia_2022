@@ -86,7 +86,7 @@ html;
                             if (respuesta == 'success') {
                                 swal("¡Se actualizaron tus datos correctamente!", "", "success").
                                 then((value) => {
-                                    window.location.replace("/Account/");
+                                    window.location.replace("/Home/");
                                 });
                             } else {
                                 swal("¡Usted No Actualizo Nada!", "", "warning").
@@ -333,6 +333,9 @@ html;
               $id = DataDao::updateAccount($documento);
 
               if($id){
+                $user = new \stdClass();
+                $user->_email = $email;
+                  $update = DataDao::updateSatatusDatos($user);
                   echo "success";
                 //header("Location: /Home");
               }else{
