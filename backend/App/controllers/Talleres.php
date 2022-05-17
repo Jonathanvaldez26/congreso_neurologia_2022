@@ -833,7 +833,7 @@ html;
         $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
         $pdf->setY(1);
         $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Image('constancias/plantillas/'.$nombre_imagen, 0, 0, 296, 210);
+        $pdf->Image('constancias/plantillas/'.utf8_encode($nombre_imagen), 0, 0, 296, 210);
         // $pdf->SetFont('Arial', 'B', 25);
         // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
 
