@@ -104,7 +104,7 @@ class Contenedor extends Controller{
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-            <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
               
             <script src="http://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
             <link rel="stylesheet" href="http://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
