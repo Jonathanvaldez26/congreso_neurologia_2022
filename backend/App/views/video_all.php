@@ -266,7 +266,7 @@
 <script>
     intervalo1();
     function intervalo1() {
-        intervalo = setInterval(chats, 3000, $("#id_tipo").val(), 1);
+        intervalo = setInterval(chats, 60000, $("#id_tipo").val(), 1);
     }
 
     function saveChat() {
