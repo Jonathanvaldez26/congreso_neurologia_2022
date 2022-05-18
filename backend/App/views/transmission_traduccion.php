@@ -86,7 +86,7 @@
                             <div class="form-check form-switch ms-2">
                                 <div class="row text-center">
                                     <div class="col-lg-12 col-md-12 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-                                        <div class="nav-wrapper position-relative end-0">
+                                        <!-- <div class="nav-wrapper position-relative end-0">
                                             <ul class="nav nav-pills nav-fill p-1 bg-transparent-yellow" role="tablist">
                                                 <li class="nav-item transmisiones px-3" data-transmision="1">
                                                     <a class="nav-link mb-0 px-0 py-1 active" href="#transmision_1" data-bs-toggle="tab" role="tab" aria-selected="true">
@@ -101,7 +101,9 @@
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
+                                        <button id="btn_traduccion_transmision_1_ingles" class="btn bg-gradient-success mb-0 ms-2 mt-4">Traducir al Ingles</button>
+                                <button id="btn_traduccion_transmision_1_esp" class="btn bg-gradient-success mb-0 ms-2 mt-4" style="display: none;">Traducir al Español</button>
                                     </div>
                                 </div>
                             </div>
@@ -257,7 +259,7 @@
                                         <input type="text" readonly hidden id="duracion_t2" value="<?php echo $transmision_2['duracion']; ?>">
                                         <span type="text" name="time_watch_2" id="time_watch_2"></span>
                                         <section id="iframe_2_section">
-                                            <iframe class="frame-transmision" id="iframe_transmision_2" src="<?php echo $transmision_2['url']; ?>" allow="fullscreen;" frameborder="0"></iframe>
+                                            <!--<iframe class="frame-transmision" id="iframe_transmision_2" src="<?php echo $transmision_2['url']; ?>" allow="autoplay; fullscreen;" frameborder="0"></iframe>-->
                                         </section>
 
                                         <!-- <img id="img-stanby-2" class="frame-transmision" hidden src="/assets/img/stand_by.jpg" alt=""> -->
@@ -536,7 +538,7 @@
         //TRANSMISION 1
 
 
-        $("#transmision_1").on("click","button#btn_traduccion_transmision_1_ingles",function(){
+        $(".form-switch").on("click","button#btn_traduccion_transmision_1_ingles",function(){
             var url_ingles = $("#t_url_2").val();
 
             $("#iframe_transmision_1").attr('src',url_ingles);
@@ -545,7 +547,7 @@
             
         });
 
-        $("#transmision_1").on("click","button#btn_traduccion_transmision_1_esp",function(){
+        $(".form-switch").on("click","button#btn_traduccion_transmision_1_esp",function(){
             var url_esp = $("#t_url_1").val();
 
             $("#iframe_transmision_1").attr('src',url_esp);
