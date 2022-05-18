@@ -825,9 +825,9 @@ html;
         }
         $datos_user = RegisterDao::getUserByClave($clave)[0];
 
-        // $nombre = explode(" ", $datos_user['nombre']);
+        $nombre = explode(" ", $datos_user['nombre']);
 
-        $nombre_completo = $datos_user['prefijo'] . " " . $datos_user['nombre'] . " " . $datos_user['apellidop']. " " . $datos_user['apellidom'];
+        $nombre_completo = $datos_user['prefijo'] . " " . $nombre[0] . " " . $datos_user['apellidop']. " " . $datos_user['apellidom'];
         $nombre_completo = mb_strtoupper($nombre_completo);
 
 

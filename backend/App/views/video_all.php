@@ -502,6 +502,10 @@
             intervalo = setInterval(function() {
                 tiempo_total++;
 
+                console.log(tiempo_total);
+
+                console.log("duracion "+duracion);
+
                 if (inicio < duracion) {
                     inicio += increment;
                 }
@@ -523,16 +527,16 @@
 
             }, 1000);
 
-            $(window).blur(function() {
-                ventana = 0;
-                increment = 0;
-                console.log('fuera de la ventana');
-            });
-            $(window).focus(function() {
-                ventana = 1;
-                increment = 1;
-                console.log('dentro de la ventana');
-            });
+            // $(window).blur(function() {
+            //     ventana = 0;
+            //     increment = 0;
+            //     console.log('fuera de la ventana');
+            // });
+            // $(window).focus(function() {
+            //     ventana = 1;
+            //     increment = 1;
+            //     console.log('dentro de la ventana');
+            // });
         }
 
         function actualizarProgreso(curso, segundos) {
