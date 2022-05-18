@@ -8,7 +8,7 @@ use \Core\Controller;
 use \App\models\Transmision as TransmisionDao;
 use \App\models\Data as DataDao;
 
-class Transmission extends Controller
+class TransmissionVideo extends Controller
 {
 
     private $_contenedor;
@@ -110,7 +110,7 @@ html;
                          
                           swal("¡Se ha guardado tu prueba correctamente!", "", "success").
                           then((value) => {
-                              window.location.replace("/Transmision/");
+                              window.location.replace("/TransmisionVideo");
                           });
                       }
                       console.log(respuesta);
@@ -232,7 +232,7 @@ html;
         View::set('info_user', $info_user);
         View::set('header', $this->_contenedor->header($extraHeader));
         View::set('footer', $extraFooter);
-        View::render("transmission");
+        View::render("transmission_traduccion");
     }
 
     public function Video(){

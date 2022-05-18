@@ -407,7 +407,7 @@
         console.log("sala " + sala);
 
         $.ajax({
-            url: "/Transmission/getChatById",
+            url: "/TransmissionVideo/getChatById",
             type: "POST",
             data: {
                 id_tipo,
@@ -466,7 +466,7 @@
         }
 
         $.ajax({
-            url: "/Transmission/saveChat",
+            url: "/TransmissionVideo/saveChat",
             type: "POST",
             data: formData,
             contentType: false,
@@ -499,7 +499,7 @@
         var salapre = formData.get('salapre');
 
         $.ajax({
-            url: "/Transmission/savePregunta",
+            url: "/TransmissionVideo/savePregunta",
             type: "POST",
             data: formData,
             contentType: false,
@@ -582,7 +582,7 @@
 
         function actualizarProgreso(transmision, segundos) {
             $.ajax({
-                url: "/Transmission/updateProgress",
+                url: "/TransmissionVideo/updateProgress",
                 type: "POST",
                 data: {
                     transmision,
@@ -604,7 +604,7 @@
 
         function actualizarProgresoConFecha(transmision, segundos) {
             $.ajax({
-                url: "/Transmission/updateProgressWithDate",
+                url: "/TransmissionVideo/updateProgressWithDate",
                 type: "POST",
                 data: {
                     transmision,
