@@ -161,6 +161,7 @@ html;
 
         foreach ($chat_transmision_1 as $chat => $value) {
             $nombre_completo = $value['nombre'] . ' ' . $value['apellidop'] . ' ' . $value['apellidom'];
+            $nombre_completo = mb_strtoupper($nombre_completo);
             $cont_chat_1 .= <<<html
             <div class="d-flex mt-3">
                 <div class="flex-shrink-0">
@@ -186,6 +187,7 @@ html;
 
         foreach ($chat_transmision_2 as $chat => $value) {
             $nombre_completo = $value['nombre'] . ' ' . $value['apellidop'] . ' ' . $value['apellidom'];
+            $nombre_completo = mb_strtoupper($nombre_completo);
             $cont_chat_2 .= <<<html
             <div class="d-flex mt-3">
                 <div class="flex-shrink-0">

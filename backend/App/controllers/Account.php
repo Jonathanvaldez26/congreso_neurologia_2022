@@ -318,10 +318,10 @@ html;
             $especialidad = $_POST['especialidad'];
             // $alergia = $_POST['alergia'];
 
-            $documento->_nombre = $nombre;
+            $documento->_nombre = mb_strtoupper($nombre);
             // $documento->_segundo_nombre = $segundo_nombre;
-            $documento->_apellido_paterno = $apellido_paterno;
-            $documento->_apellido_materno = $apellido_materno;
+            $documento->_apellido_paterno = mb_strtoupper($apellido_paterno);
+            $documento->_apellido_materno = mb_strtoupper($apellido_materno);
             // $documento->_genero = $genero;
             $documento->_pais = $pais;
             $documento->_estado = $estado;

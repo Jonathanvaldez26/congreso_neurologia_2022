@@ -708,6 +708,7 @@ html;
             foreach ($chat_taller as $chat => $value) {
                 $nombre_completo = $value['nombre'] . ' ' . $value['apellidop'] . ' ' . $value['apellidom'];
                 $nombre_completo = utf8_encode($nombre_completo);
+                $nombre_completo = mb_strtoupper($nombre_completo);
                 $cont_chat .= <<<html
             <div class="d-flex mt-3">
                 <div class="flex-shrink-0">
@@ -827,6 +828,7 @@ html;
         // $nombre = explode(" ", $datos_user['nombre']);
 
         $nombre_completo = $datos_user['prefijo'] . " " . $datos_user['nombre'] . " " . $datos_user['apellidop']. " " . $datos_user['apellidom'];
+        $nombre_completo = mb_strtoupper($nombre_completo);
 
 
         $pdf = new \FPDF($orientation = 'L', $unit = 'mm', $format = 'A4');

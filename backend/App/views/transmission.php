@@ -418,7 +418,7 @@
                                 <img alt="Image placeholder" class="avatar rounded-circle" src="../../../img/users_musa/${el.avatar_img}">
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                <h6 class="h5 mt-0">${nombre_completo}</h6>
+                                <h6 class="h5 mt-0">${nombre_completo.toUpperCase()}</h6>
                                 <p class="text-sm">${el.chat}</p>
                                 
                             </div>
