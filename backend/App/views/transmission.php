@@ -743,6 +743,7 @@
             let t_current = $(this).attr('data-transmision');
 
             if (t_current == 1) {
+                console.log("transmision 1");
                 $('#nombre_transmision').html($('#nombre_t1').val());
                 $('#transmision_1').empty();
                 $('#transmision_2').empty();
@@ -761,6 +762,7 @@
             }
 
             if (t_current == 2) {
+                console.log("transmision 2");
                 $('#nombre_transmision').html($('#nombre_t2').val());
                 $('#transmision_1').empty();
                 $('#transmision_2').empty();
