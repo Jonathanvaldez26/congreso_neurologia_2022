@@ -125,7 +125,7 @@
                                         <input type="text" readonly hidden id="duracion_t1" value="<?php echo $transmision_1['duracion']; ?>">
                                         <span type="text" name="time_watch_1" id="time_watch_1"></span>
                                         <section id="iframe_1_section">
-                                            <iframe class="frame-transmision" src="<?php echo $transmision_1['url']; ?>" frameborder="0"></iframe>
+                                            <iframe class="frame-transmision" src="<?php echo $transmision_1['url']; ?>" allow="autoplay; fullscreen;" frameborder="0"></iframe>
                                         </section>
 
                                         <!-- <img id="img-stanby-1" class="frame-transmision" hidden src="/assets/img/stand_by.jpg" alt=""> -->
@@ -246,7 +246,7 @@
                                         <input type="text" readonly hidden id="duracion_t2" value="<?php echo $transmision_2['duracion']; ?>">
                                         <span type="text" name="time_watch_2" id="time_watch_2"></span>
                                         <section id="iframe_2_section">
-                                            <iframe class="frame-transmision" src="<?php echo $transmision_2['url']; ?>" frameborder="0"></iframe>
+                                            <iframe class="frame-transmision" src="<?php echo $transmision_2['url']; ?>" allow="autoplay; fullscreen;" frameborder="0"></iframe>
                                         </section>
 
                                         <!-- <img id="img-stanby-2" class="frame-transmision" hidden src="/assets/img/stand_by.jpg" alt=""> -->
