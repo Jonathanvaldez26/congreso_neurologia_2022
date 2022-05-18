@@ -128,7 +128,7 @@
                                             <iframe class="frame-transmision" src="<?php echo $transmision_1['url']; ?>" frameborder="0"></iframe>
                                         </section>
 
-                                        <img id="img-stanby-1" class="frame-transmision" hidden src="/assets/img/stand_by.jpg" alt="">
+                                        <!-- <img id="img-stanby-1" class="frame-transmision" hidden src="/assets/img/stand_by.jpg" alt=""> -->
                                     </div>
                                 </div>
                                 <div class="row align-items-center px-2 mt-4 mb-2">
@@ -249,7 +249,7 @@
                                             <iframe class="frame-transmision" src="<?php echo $transmision_2['url']; ?>" frameborder="0"></iframe>
                                         </section>
 
-                                        <img id="img-stanby-2" class="frame-transmision" hidden src="/assets/img/stand_by.jpg" alt="">
+                                        <!-- <img id="img-stanby-2" class="frame-transmision" hidden src="/assets/img/stand_by.jpg" alt=""> -->
                                     </div>
                                 </div>
                                 <div class="row align-items-center px-2 mt-4 mb-2">
