@@ -587,21 +587,21 @@
         let duracion_2 = (parseInt(tiempo_2.substr(0, tiempo_2.indexOf(':'))) * 3600) + (parseInt(tiempo_2.substr(tiempo_2.length - 5, 2)) * 60) + (parseInt(tiempo_2.substr(tiempo_2.length - 2, 2)));
 
         // Esconder el iframe y mostrar la imagen si la transmision no está activa
-        if (status_1 == 2) {
-            $('#iframe_1_section').attr('hidden', false);
-            $('#img-stanby-1').attr('hidden', true);
-        } else {
-            $('#iframe_1_section').attr('hidden', true);
-            $('#img-stanby-1').attr('hidden', false);
-        }
+        // if (status_1 == 2) {
+        //     $('#iframe_1_section').attr('hidden', false);
+        //     $('#img-stanby-1').attr('hidden', true);
+        // } else {
+        //     $('#iframe_1_section').attr('hidden', true);
+        //     $('#img-stanby-1').attr('hidden', false);
+        // }
 
-        if (status_2 == 2) {
-            $('#iframe_2_section').attr('hidden', false);
-            $('#img-stanby-2').attr('hidden', true);
-        } else {
-            $('#iframe_2_section').attr('hidden', true);
-            $('#img-stanby-2').attr('hidden', false);
-        }
+        // if (status_2 == 2) {
+        //     $('#iframe_2_section').attr('hidden', false);
+        //     $('#img-stanby-2').attr('hidden', true);
+        // } else {
+        //     $('#iframe_2_section').attr('hidden', true);
+        //     $('#img-stanby-2').attr('hidden', false);
+        // }
 
         var intervalo;
         let tiempo;
