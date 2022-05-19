@@ -394,7 +394,7 @@
     intervalo2();
 
     function intervalo1() {
-        intervalo = setInterval(chats, 60000, 1, 1);
+        intervalo = setInterval(chats, 60000, 3, 1);
     }
 
     function intervalo2() {
