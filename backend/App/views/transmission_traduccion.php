@@ -594,25 +594,58 @@
         //TRANSMISION 1
 
 
+        // $(".form-switch").on("click","button#btn_traduccion_transmision_1_ingles",function(){
+        //     var url_ingles = $("#t_url_2").val();
+
+
+        //     $("#iframe_transmision_1").attr('src',url_ingles);
+        //     $(this).css("display", "none");
+        //     $("#btn_traduccion_transmision_1_esp").css("display", "block");
+        // });
+
+        // $(".form-switch").on("click","button#btn_traduccion_transmision_1_esp",function(){
+        //     var url_esp = $("#t_url_1").val();
+
+        //     $("#iframe_transmision_1").attr('src',url_esp);
+        //     $(this).css("display", "none");
+        //     $("#btn_traduccion_transmision_1_ingles").css("display", "block");
+
+           
+        // });
+
+        //TRANSMISION 1
+
+
         $(".form-switch").on("click","button#btn_traduccion_transmision_1_ingles",function(){
             var url_ingles = $("#t_url_2").val();
 
-            // var url_ingles_existe_imagen_jpg = url_ingles.indexOf('.jpg') > -1;
-            // var url_ingles_existe_imagen_png = url_ingles.indexOf('.png') > -1;
+            var url_ingles_existe_imagen_jpg = url_ingles.indexOf('.jpg') > -1;
+            var url_ingles_existe_imagen_png = url_ingles.indexOf('.png') > -1;
 
-            // console.log(url_ingles_existe_imagen_jpg);
-            // console.log(url_ingles_existe_imagen_png);
+            console.log(url_ingles_existe_imagen_jpg);
+            console.log(url_ingles_existe_imagen_png);
 
-            $("#iframe_transmision_1").attr('src',url_ingles);
-            $(this).css("display", "none");
-            $("#btn_traduccion_transmision_1_esp").css("display", "block");
+            if(url_ingles_existe_imagen_jpg || url_ingles_existe_imagen_png){
+
+
+                $("#iframe_1_section").html(`<img id="img-stanby-1" class="frame-transmision" src="${url_ingles}" alt="">`);               
+                $(this).css("display", "none");
+                $("#btn_traduccion_transmision_1_esp").css("display", "block");            
+            }else{
+                // $("#iframe_transmision_1").attr('src',url_ingles);  
+                $("#iframe_1_section").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="${url_ingles}" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);              
+                $(this).css("display", "none");
+                $("#btn_traduccion_transmision_1_esp").css("display", "block");
+            }
+
             
         });
 
         $(".form-switch").on("click","button#btn_traduccion_transmision_1_esp",function(){
             var url_esp = $("#t_url_1").val();
 
-            $("#iframe_transmision_1").attr('src',url_esp);
+            // $("#iframe_transmision_1").attr('src',url_esp);
+            $("#iframe_1_section").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="${url_esp}" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
             $(this).css("display", "none");
             $("#btn_traduccion_transmision_1_ingles").css("display", "block");
 

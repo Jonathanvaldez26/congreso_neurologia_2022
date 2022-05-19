@@ -142,6 +142,11 @@ class Contenedor extends Controller{
               width: 100%!important;
               
           }
+
+          .img-frame{
+            display: flex; 
+            justify-content: center;
+          }
            
             </style>
         </head>
