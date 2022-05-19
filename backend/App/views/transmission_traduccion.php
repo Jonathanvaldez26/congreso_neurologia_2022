@@ -403,7 +403,7 @@
     }
 
     function intervaloGetUrl() {
-        intervalo = setInterval(getUrlsTransmision, 1000, 3);
+        intervalo = setInterval(getUrlsTransmision, 600000, 3);
     }
 
     function getUrlsTransmision(id_tipo){
