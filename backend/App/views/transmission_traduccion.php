@@ -102,7 +102,7 @@
                                                 </li>
                                             </ul>
                                         </div> -->
-                                        <button id="btn_traduccion_transmision_1_ingles" class="btn bg-gradient-success mb-0 ms-2 mt-4" <?=$permiso_boton_1?>>Canal Ingles</button>
+                                        <button id="btn_traduccion_transmision_1_ingles" class="btn bg-gradient-success mb-0 ms-2 mt-4" <?=$permiso_boton_1?>>Canal Inglés</button>
                                         <button id="btn_traduccion_transmision_1_esp" class="btn bg-gradient-success mb-0 ms-2 mt-4" style="display: none;">Canal Español</button>
                                     </div>
                                 </div>
