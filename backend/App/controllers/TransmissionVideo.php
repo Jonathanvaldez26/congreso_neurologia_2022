@@ -467,6 +467,18 @@ html;
         echo json_encode($chat_transmision);
     }
 
+
+    public function getUrlsById()
+    {
+        //id transmision
+        $id_tipo = $_POST['id_tipo'];
+
+        $transmision = TransmisionDao::getTransmisionById($id_tipo);
+        
+
+        echo json_encode($transmision);
+    }
+
     public function updateProgress()
     {
         $progreso = $_POST['segundos'];

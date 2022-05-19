@@ -392,6 +392,7 @@
 <script>
     intervalo1();
     intervalo2();
+    intervaloGetUrl();
 
     function intervalo1() {
         intervalo = setInterval(chats, 60000, 3, 1);
@@ -399,6 +400,59 @@
 
     function intervalo2() {
         intervalo = setInterval(chats, 60000, 2, 2);
+    }
+
+    function intervaloGetUrl() {
+        intervalo = setInterval(getUrlsTransmision, 1000, 3);
+    }
+
+    function getUrlsTransmision(id_tipo){
+        $.ajax({
+            url: "/TransmissionVideo/getUrlsById",
+            type: "POST",
+            data: {
+                id_tipo
+            },
+            dataType: 'json',
+            beforeSend: function() {
+                console.log("Procesando....");
+            
+
+            },
+            success: function(respuesta) {
+
+                console.log(respuesta);
+
+                $("#t_url_2").val(respuesta.url_2);
+                // var numero_noti = 0;
+
+                // $.each(respuesta, function(index, el) {
+
+                //     //console.log(el.title);
+                //     var nombre_completo = el.nombre + ' ' + el.apellidop + ' ' + el.apellidom;
+
+                //     $("#cont_chat_" + el.sala).append(
+                //         `<div class="d-flex mt-3">
+                //             <div class="flex-shrink-0">
+                //                 <img alt="Image placeholder" class="avatar rounded-circle" src="../../../img/users_musa/${el.avatar_img}">
+                //             </div>
+                //             <div class="flex-grow-1 ms-3">
+                //                 <h6 class="h5 mt-0">${nombre_completo.toUpperCase()}</h6>
+                //                 <p class="text-sm">${el.chat}</p>
+                                
+                //             </div>
+                //         </div>`
+                //     );
+                // });
+
+
+
+            },
+            error: function(respuesta) {
+                console.log(respuesta);
+            }
+
+        });
     }
 
     function chats(id_tipo, sala) {
