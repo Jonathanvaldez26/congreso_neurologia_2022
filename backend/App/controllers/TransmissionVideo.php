@@ -221,6 +221,13 @@ html;
 
         $info_user = DataDao::getInfoUserById($_SESSION['id_registrado']);
 
+        $permiso_boton_1 = $transmision_1['status'] != 1 ? "style=\"display:none;\"" : "";
+
+        // echo $permiso_boton_1;
+        // var_dump($transmision_1);
+        // exit;
+    
+
         View::set('transmision_1', $transmision_1);
         View::set('transmision_2', $transmision_2);
         View::set('chat_transmision_1', $cont_chat_1);
@@ -229,6 +236,7 @@ html;
 
         View::set('secs_t1', $secs_t1);
         View::set('secs_t2', $secs_t2);
+        // View::set('permiso_boton_1',$permiso_boton_1);
         View::set('info_user', $info_user);
         View::set('header', $this->_contenedor->header($extraHeader));
         View::set('footer', $extraFooter);
