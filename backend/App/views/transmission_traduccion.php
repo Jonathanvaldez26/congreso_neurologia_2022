@@ -397,7 +397,7 @@
     intervaloGetUrl();
 
     function intervalo1() {
-        intervalo = setInterval(chats, 60000, 3, 1);
+        intervalo = setInterval(chats, 60000, 4, 1);
     }
 
     function intervalo2() {
