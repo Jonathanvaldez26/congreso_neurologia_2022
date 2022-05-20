@@ -466,7 +466,7 @@
                             
                             // $("#modalPatrocinador").modal('show');
 
-                            setTimeout("location.reload()", 20000);
+                            setTimeout("location.reload()", 5000);
                         });
                     } else {
                         Swal.fire('Lo sentimos, usted ya ha contestado este examen', '', 'info').
