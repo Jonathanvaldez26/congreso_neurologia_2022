@@ -262,7 +262,7 @@
                         <span class="" aria-hidden="true">&times;</span>
                     </button>
                 </div>
-               <div id="cont-modal">
+               <div id="cont-modal" style="display: flex; justify-content: center;">
 
                </div>
             </div>
@@ -420,7 +420,9 @@
 
         $('#enviar_encuesta').on('click', function() {
             // alert('envio de formulario');
-            $("#cont-modal").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="/assets/img/Video_patro.mp4" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
+            // $("#cont-modal").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="/assets/img/Video_patro.gif" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
+            $("#encuesta").modal('toggle');
+            $("#cont-modal").html(`<img src="/assets/img/Video_patro.gif" style="margin: 10px 0 10px 0;">`);
             let enc = $('.encuesta_completa');
             let id_curso = $('#id_curso').val();
 
