@@ -421,8 +421,12 @@
             $("#encuesta").removeClass('show');
             $("#encuesta").modal('toggle');
             $("#cont-modal").html(`<img src="/assets/img/Video_patro.gif" style="margin: 10px 0 10px 0;">`);
-            let enc = $('.encuesta_completa');
+             $("#modalPatrocinador").modal('show');
+
+             setTimeout(function(){
+                let enc = $('.encuesta_completa');
             let id_curso = $('#id_curso').val();
+
 
            
 
@@ -460,7 +464,7 @@
                             // $('#constancia_download_1')[0].click();
                             // window.location.reload();
                             
-                            $("#modalPatrocinador").modal('show');
+                            // $("#modalPatrocinador").modal('show');
 
                             setTimeout("location.reload()", 20000);
                         });
@@ -481,6 +485,8 @@
                     });
                 }
             });
+             }, 10000);
+            
         });
 
         setTimeout(agregarVista, 10000);
