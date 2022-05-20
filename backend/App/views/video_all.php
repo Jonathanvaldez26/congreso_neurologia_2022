@@ -257,10 +257,7 @@
         <div class="modal-dialog modal-size" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalPatrocinadorLabel"></h5>
-                    <button type="button" class="btn bg-gradient-danger text-lg btn-icon-only" data-dismiss="modal" aria-label="Close">
-                        <span class="" aria-hidden="true">&times;</span>
-                    </button>
+                   
                 </div>
                <div id="cont-modal" style="display: flex; justify-content: center;">
 
@@ -421,6 +418,7 @@
         $('#enviar_encuesta').on('click', function() {
             // alert('envio de formulario');
             // $("#cont-modal").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="/assets/img/Video_patro.gif" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
+            $("#encuesta").removeClass('show');
             $("#encuesta").modal('toggle');
             $("#cont-modal").html(`<img src="/assets/img/Video_patro.gif" style="margin: 10px 0 10px 0;">`);
             let enc = $('.encuesta_completa');
