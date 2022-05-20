@@ -461,7 +461,7 @@
                             $("#cont-modal").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="/assets/img/Video_patro.mp4" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
                             $("#modalPatrocinador").modal('show');
 
-                            setTimeout("location.reload()", 12000);
+                            setTimeout("location.reload()", 20000);
                         });
                     } else {
                         Swal.fire('Lo sentimos, usted ya ha contestado este examen', '', 'info').
