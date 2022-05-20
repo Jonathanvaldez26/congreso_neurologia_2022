@@ -253,6 +253,22 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modalPatrocinador" role="dialog" aria-labelledby="modalPatrocinadorLabel" aria-hidden="true">
+        <div class="modal-dialog modal-size" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalPatrocinadorLabel">Patrocinador</h5>
+                    <button type="button" class="btn bg-gradient-danger text-lg btn-icon-only" data-dismiss="modal" aria-label="Close">
+                        <span class="" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+               <div id="cont-modal">
+
+               </div>
+            </div>
+        </div>
+    </div>
+
     <?php echo $iframe_doc; ?>
 
     <div class="fixed-bottom navbar-dark">
@@ -407,6 +423,8 @@
             let enc = $('.encuesta_completa');
             let id_curso = $('#id_curso').val();
 
+           
+
             for (let index = 0; index < enc.length; index++) {
                 const respuesta = enc[index];
                 let id = $('#id_pregunta_' + (index + 1)).val();
@@ -439,7 +457,11 @@
                             $('#constancia_download')[0].click();
                             // $('#constancia_download_1').attr('href',respuesta.href_download)
                             // $('#constancia_download_1')[0].click();
-                            window.location.reload();
+                            // window.location.reload();
+                            $("#cont-modal").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="/assets/img/Video_patro.mp4" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
+                            $("#modalPatrocinador").modal('show');
+
+                            setTimeout("location.reload()", 12000);
                         });
                     } else {
                         Swal.fire('Lo sentimos, usted ya ha contestado este examen', '', 'info').
