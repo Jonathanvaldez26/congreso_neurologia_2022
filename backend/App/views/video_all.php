@@ -420,6 +420,7 @@
 
         $('#enviar_encuesta').on('click', function() {
             // alert('envio de formulario');
+            $("#cont-modal").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="/assets/img/Video_patro.mp4" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
             let enc = $('.encuesta_completa');
             let id_curso = $('#id_curso').val();
 
@@ -458,7 +459,7 @@
                             // $('#constancia_download_1').attr('href',respuesta.href_download)
                             // $('#constancia_download_1')[0].click();
                             // window.location.reload();
-                            $("#cont-modal").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="/assets/img/Video_patro.mp4" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
+                            
                             $("#modalPatrocinador").modal('show');
 
                             setTimeout("location.reload()", 20000);
