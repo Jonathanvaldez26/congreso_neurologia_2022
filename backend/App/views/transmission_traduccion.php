@@ -243,7 +243,7 @@
                                     <div class="row">
                                         <div class="col-12" style="display: flex;justify-content: center;">
                                             
-                                            <button class="btn btn-danger" id="btn_constancia" <?php echo $btn_const?> >Constancia</button>
+                                            <button class="btn btn-danger" id="btn_constancia" <?php echo $btn_const?> >Descarga aquí tu constancia</button>
                                             <a href="/TransmissionVideo/abrirConstancia/<?php echo($info_user['clave'])?>" id="desc_constancia" target="_blank" download="" style="display:none;"> abrir cosntancia</a>
                                            
                                         </div>
