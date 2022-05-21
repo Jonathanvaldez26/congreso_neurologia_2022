@@ -95,7 +95,7 @@ sql;
     public static function getContenidoByAsignacion($id_registrado,$clave_taller){
       $mysqli = Database::getInstance();
       $query=<<<sql
-      SELECT c.nombre, r.nombreconstancia, ac.* FROM asigna_curso ac
+      SELECT c.nombre, r.nombreconstancia, r.avatar_img, ac.* FROM asigna_curso ac
       INNER JOIN registrados r
       ON ac.id_registrado = r.id_registrado
       INNER JOIN cursos c

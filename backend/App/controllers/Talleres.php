@@ -721,12 +721,11 @@ html;
                 </div>
             </div>
 html;
-            $avatar = $value['avatar_img'];
+            // $avatar = $value['avatar_img'];
             }
 
-
-            // var_dump($preguntas)
-
+           
+            $avatar = $permiso_taller[0]['avatar_img'];
 
             View::set('clave', $clave);
             View::set('encuesta', $encuesta);
