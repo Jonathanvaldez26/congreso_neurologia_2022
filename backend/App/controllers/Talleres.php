@@ -727,6 +727,7 @@ html;
 
             // var_dump($preguntas)
 
+
             View::set('clave', $clave);
             View::set('encuesta', $encuesta);
             View::set('id_curso', $id_curso);
