@@ -154,4 +154,23 @@ sql;
         
     }
 
+    public static function insertConstanciaFechaDescarga($data){
+      $mysqli = Database::getInstance(1);
+      $query=<<<sql
+      INSERT INTO descarga_constancia(id_registrado, tipo_constancia,fecha_descarga)
+      VALUES(:id_registrado, :tipo_constancia,:fecha_descarga);
+sql;
+
+          $parametros = array(
+
+          ':id_registrado'=>$data->_id_registrado,
+          ':tipo_constancia'=>$data->_tipo_constancia,
+          ':fecha_descarga'=>$data->_fecha_descarga
+
+          );
+          $id = $mysqli->insert($query,$parametros);
+          return $id;
+        
+    }
+
 }

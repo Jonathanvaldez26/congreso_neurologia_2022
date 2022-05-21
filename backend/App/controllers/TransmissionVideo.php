@@ -594,10 +594,22 @@ html;
     public function abrirConstancia($clave, $id_curso = null)
     {
 
+        date_default_timezone_set("America/Mexico_City");   
+
+        // $this->generaterQr($clave_ticket);
+        $datos_user = RegisterDao::getUserByClave($clave)[0];
+        
+        $data = new \stdClass();            
+        $data->_id_registrado = $datos_user['id_registrado'];
+        $data->_tipo_constancia = "Constancia Virtual";
+        $data->_fecha_descarga = date("Y-m-d h:i:s");
+ 
+        $id = RegisterDao::insertConstanciaFechaDescarga($data);
+
         // $this->generaterQr($clave_ticket);
         $nombre_imagen = 'asistentes.png';
         
-        $datos_user = RegisterDao::getUserByClave($clave)[0];
+        
 
         $nombre = explode(" ", $datos_user['nombre']);
 
