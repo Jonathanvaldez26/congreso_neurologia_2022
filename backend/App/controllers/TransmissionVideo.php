@@ -131,10 +131,10 @@ html;
        
 
 
-        $transmision_1 = TransmisionDao::getTransmisionById(4);
+        $transmision_1 = TransmisionDao::getTransmisionById(5);
         $transmision_2 = TransmisionDao::getTransmisionById(2);
 
-        $transmision_1_p1 = TransmisionDao::getTransmisionById(4);
+        $transmision_1_p1 = TransmisionDao::getTransmisionById(5);
         $transmision_2_p2 = TransmisionDao::getTransmisionById(2);
 
         $data_p1 = new \stdClass();
@@ -347,10 +347,10 @@ html;
        
 
 
-        $transmision_1 = TransmisionDao::getTransmisionById(1);
+        $transmision_1 = TransmisionDao::getTransmisionById(5);
         $transmision_2 = TransmisionDao::getTransmisionById(2);
 
-        $transmision_1_p1 = TransmisionDao::getTransmisionById(1);
+        $transmision_1_p1 = TransmisionDao::getTransmisionById(5);
         $transmision_2_p2 = TransmisionDao::getTransmisionById(2);
 
         $data_p1 = new \stdClass();
