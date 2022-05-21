@@ -1,12 +1,14 @@
 <?php
 
 namespace App\controllers;
+require_once dirname(__DIR__) . '/../public/librerias/fpdf/fpdf.php';
 
 use App\models\General;
 use \Core\View;
 use \Core\Controller;
 use \App\models\Transmision as TransmisionDao;
 use \App\models\Data as DataDao;
+use \App\models\Register as RegisterDao;
 
 class TransmissionVideo extends Controller
 {
@@ -222,10 +224,8 @@ html;
         $info_user = DataDao::getInfoUserById($_SESSION['id_registrado']);
 
         $permiso_boton_1 = $transmision_1['status'] != 1 ? "style=\"display:none;\"" : "";
+        $btn_const = $info_user['modalidad'] == 1 ? "" : "style=\"display:none;\"";
 
-        // echo $permiso_boton_1;
-        // var_dump($transmision_1);
-        // exit;
     
 
         View::set('transmision_1', $transmision_1);
@@ -236,6 +236,7 @@ html;
 
         View::set('secs_t1', $secs_t1);
         View::set('secs_t2', $secs_t2);
+        View::set('btn_const',$btn_const);
         // View::set('permiso_boton_1',$permiso_boton_1);
         View::set('info_user', $info_user);
         View::set('header', $this->_contenedor->header($extraHeader));
@@ -588,5 +589,45 @@ html;
     function generateRandomString($length = 10)
     {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+    }
+
+    public function abrirConstancia($clave, $id_curso = null)
+    {
+
+        // $this->generaterQr($clave_ticket);
+        $nombre_imagen = 'asistentes.png';
+        
+        $datos_user = RegisterDao::getUserByClave($clave)[0];
+
+        $nombre = explode(" ", $datos_user['nombre']);
+
+        $nombre_completo = $datos_user['nombre']  . " " . $datos_user['apellidop']. " " . $datos_user['apellidom'];
+        $nombre_completo = mb_strtoupper($nombre_completo);
+
+
+        $pdf = new \FPDF($orientation = 'L', $unit = 'mm', $format = 'A4');
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
+        $pdf->setY(1);
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Image('constancias/plantillas/'.$nombre_imagen, 0, 0, 296, 210);
+        // $pdf->SetFont('Arial', 'B', 25);
+        // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
+
+        //$pdf->Image('1.png', 1, 0, 190, 190);
+        $pdf->SetFont('Arial', 'B', 5);    //Letra Arial, negrita (Bold), tam. 20
+        //$nombre = utf8_decode("Jonathan Valdez Martinez");
+        //$num_linea =utf8_decode("Línea: 39");
+        //$num_linea2 =utf8_decode("Línea: 39");
+
+        $pdf->SetXY(50, 84);
+        $pdf->SetFont('Arial', 'B', 30);
+        #4D9A9B
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Multicell(220, 10, utf8_decode($nombre_completo), 0, 'C');
+        $pdf->Output();
+        // $pdf->Output('F','constancias/'.$clave.$id_curso.'.pdf');
+
+        // $pdf->Output('F', 'C:/pases_abordar/'. $clave.'.pdf');
     }
 }

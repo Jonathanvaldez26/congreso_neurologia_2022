@@ -239,6 +239,15 @@
                                             </button>
                                         </div>
                                     </form>
+
+                                    <div class="row">
+                                        <div class="col-12" style="display: flex;justify-content: center;">
+                                            
+                                            <button class="btn btn-danger" id="btn_constancia" <?php echo $btn_const?> >Constancia</button>
+                                            <a href="/TransmissionVideo/abrirConstancia/<?php echo($info_user['clave'])?>" id="desc_constancia" target="_blank" download="" style="display:none;"> abrir cosntancia</a>
+                                           
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -389,6 +398,19 @@
 
     <?php echo $footer; ?>
 </main>
+
+<div class="modal fade" id="modalPatrocinador" role="dialog" aria-labelledby="modalPatrocinadorLabel" aria-hidden="true">
+        <div class="modal-dialog modal-size" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                   
+                </div>
+               <div id="cont-modal" style="display: flex; justify-content: center;">
+
+               </div>
+            </div>
+        </div>
+    </div>
 
 
 <script>
@@ -589,6 +611,23 @@
     }
 
     $(document).ready(function() {
+
+        $("#btn_constancia").on('click',function(){
+
+
+            $("#cont-modal").html(`<img src="/assets/img/Video_patro.gif" style="margin: 10px 0 10px 0;">`);
+            $("#modalPatrocinador").modal('show');
+
+            setTimeout(function(){
+                $('#desc_constancia')[0].click(); 
+                $("#modalPatrocinador").toggle();
+                
+                location.reload();
+                
+            },11000);
+
+
+        });
 
 
         //TRANSMISION 1
