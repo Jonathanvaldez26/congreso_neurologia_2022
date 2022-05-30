@@ -10312,10 +10312,6 @@ fieldset:disabled .btn {
   background-color: #fbcf33 !important;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 0d0d2ad34c373bf33fe83c337fe2a81a8d4d3058
 .bg-gray-100 {
   background-color: #f8f9fa !important;
 }
@@ -37065,7 +37061,9 @@ input#chk-6:checked ~ #lbl-6{display: block;}
 }
 
 #body-home{
-  background-image: url(/img/qro.jpg);
+  /* background-image: url(/img/qro.jpg);
+  background-size: cover; */
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url(/img/qro.jpg);
   background-size: cover;
 }
 

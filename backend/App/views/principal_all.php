@@ -7,7 +7,7 @@
 
 <!-- <div id="content"> -->
     
-    <main style ="background: #ffffffa8!important;">
+    <main>
         <!-- <video class="video-fondo" autoplay="true" muted="false" loop="true" src="/videos/dfic.mp4" type="video/mp4">
         </video> -->
 
@@ -128,19 +128,19 @@
                             </div>
                         </div>
 
-                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4" <?=$permisos_congreso;?>>
+                        <!-- <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4" <?=$permisos_congreso;?>>
                             <a href="/TransmissionVideo/">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/14.png)">
                                     <div class="card-body mt-md-3 text-center content-card-home">
                                         <div class="col-12 text-center">
-                                            <!-- <img class="w-30 btn-img-home" src="../../assets/img/icons/iCONOS-02.png"> -->
+                                           
                                         </div>
                                         
-                                        <!-- <p class="opacity-8 mb-0 text-sm">Disponible <i class="fa fa-check-circle me-sm-0" style="color: #01a31c"></i></p> -->
+                                        
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="/Programa/">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/13.png)">

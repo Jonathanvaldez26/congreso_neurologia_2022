@@ -10,6 +10,7 @@ use \Core\Controller;
 use \App\models\Talleres as TalleresDao;
 use \App\models\Transmision as TransmisionDao;
 use \App\models\Register as RegisterDao;
+use \App\models\Programa AS ProgramaDao;
 
 class Talleres extends Controller
 {
@@ -20,8 +21,8 @@ class Talleres extends Controller
     {
         parent::__construct();
         $this->_contenedor = new Contenedor;
-        View::set('header', $this->_contenedor->header());
-        View::set('footer', $this->_contenedor->footer());
+        View::set('header',$this->_contenedor->header());
+        View::set('footer',$this->_contenedor->footer());
     }
 
     public function getUsuario()
@@ -147,6 +148,10 @@ html;
 
             $porcentaje = round(($progreso['segundos'] * 100) / $secs_totales);
 
+
+            $fecha = explode(" ", $value['fecha_curso']);
+            $date = $fecha[0];
+
             $card_cursos .= <<<html
             
 
@@ -156,7 +161,8 @@ html;
                 <div class="card card-body card-course p-0 border-radius-15">
                     <input class="curso" hidden type="text" value="{$value['clave']}" readonly>
                     <div class="caratula-content">
-                        <a href="/Talleres/Video/{$value['clave']}">
+                        <!--<a href="/Talleres/Video/{$value['clave']}">-->
+                        <a href="/Talleres/Programa/{$date}">
                             <img class="caratula-img border-radius-15" src="/caratulas/{$value['caratula']}">
                         </a>
                         <div class="duracion"><p>{$value['duracion']}</p></div>
@@ -747,6 +753,316 @@ html;
             View::render("404");
         }
     }
+
+    public function Programa($fecha){
+        $extraHeader =<<<html
+html;
+                $extraFooter =<<<html
+            <!--footer class="footer pt-0">
+                      <div class="container-fluid">
+                          <div class="row align-items-center justify-content-lg-between">
+                              <div class="col-lg-6 mb-lg-0 mb-4">
+                                  <div class="copyright text-center text-sm text-muted text-lg-start">
+                                      © <script>
+                                          document.write(new Date().getFullYear())
+                                      </script>,
+                                      made with <i class="fa fa-heart"></i> by
+                                      <a href="https://www.creative-tim.com" class="font-weight-bold" target="www.grupolahe.com">Creative GRUPO LAHE</a>.
+                                  </div>
+                              </div>
+                              <div class="col-lg-6">
+                                  <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                                      <li class="nav-item">
+                                          <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">privacy policies</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </footer--    >
+                  <!-- jQuery -->
+                    <script src="/js/jquery.min.js"></script>
+                    <!--   Core JS Files   -->
+                    <script src="/assets/js/core/popper.min.js"></script>
+                    <script src="/assets/js/core/bootstrap.min.js"></script>
+                    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+                    <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+                    <!-- Kanban scripts -->
+                    <script src="/assets/js/plugins/dragula/dragula.min.js"></script>
+                    <script src="/assets/js/plugins/jkanban/jkanban.js"></script>
+                    <script src="/assets/js/plugins/chartjs.min.js"></script>
+                    <script src="/assets/js/plugins/threejs.js"></script>
+                    <script src="/assets/js/plugins/orbit-controls.js"></script>
+                    
+                  <!-- Github buttons -->
+                    <script async defer src="https://buttons.github.io/buttons.js"></script>
+                  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+                    <script src="/assets/js/soft-ui-dashboard.min.js?v=1.0.5"></script>
+        
+                  <!-- VIEJO INICIO -->
+                    <script src="/js/jquery.min.js"></script>
+                  
+                    <script src="/js/custom.min.js"></script>
+        
+                    <script src="/js/validate/jquery.validate.js"></script>
+                    <script src="/js/alertify/alertify.min.js"></script>
+                    <script src="/js/login.js"></script>
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                  <!-- VIEJO FIN -->
+           <script>
+            $( document ).ready(function() {
+        
+                  $("#form_vacunacion").on("submit",function(event){
+                      event.preventDefault();
+                      
+                          var formData = new FormData(document.getElementById("form_vacunacion"));
+                          for (var value of formData.values()) 
+                          {
+                             console.log(value);
+                          }
+                          $.ajax({
+                              url:"/Programa/uploadComprobante",
+                              type: "POST",
+                              data: formData,
+                              cache: false,
+                              contentType: false,
+                              processData: false,
+                              beforeSend: function(){
+                              console.log("Procesando....");
+                          },
+                          success: function(respuesta){
+                              if(respuesta == 'success'){
+                                 // $('#modal_payment_ticket').modal('toggle');
+                                 
+                                  swal("¡Se ha guardado tu prueba correctamente!", "", "success").
+                                  then((value) => {
+                                      window.location.replace("/Programa/");
+                                  });
+                              }
+                              console.log(respuesta);
+                          },
+                          error:function (respuesta)
+                          {
+                              console.log(respuesta);
+                          }
+                      });
+                  });
+        
+              });
+        </script>
+        
+html;
+        
+
+        
+                // ----- Variables para la segunda fecha ----- //
+                // $info_fecha2 = ProgramaDao::getSectionByDate('2022-05-17');
+                $info_fecha2 = ProgramaDao::getSectionByDate($fecha);
+                $d = $this->fechaCastellano($fecha);
+                $programa_fecha2 = <<<html
+               
+                <h5 class="mb-3 text-center">{$d}</h5>  
+                   
+html;
+        
+                foreach ($info_fecha2 as $key => $value) {
+                    $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+        
+                    $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
+                    $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+        
+                    $max_time = $value['duracion'];
+                    $duracion_sec = substr($max_time,strlen($max_time)-2,2);
+                    $duracion_min = substr($max_time,strlen($max_time)-5,2);
+                    $duracion_hrs = substr($max_time,0,strpos($max_time,':'));
+        
+                    $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+        
+                    $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+        
+                    $coordinador_1 = '';
+        
+                    if($value['id_coordinador'] != 0){
+                        $coordinador_1 = <<<html
+                        <span class="color-vine font-14 text-bold">
+                            {$value['tipo_coordinador']}:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_coordinador']} {$value['nombre_coordinador']}
+                        </span>
+                        <br>
+html;
+        
+                    }
+        
+                    $coordinador_2 = '';
+        
+                    if($value['id_coordinador_2'] != 0){
+                        $coordinador_2 = <<<html
+                        <span class="color-vine font-14 text-bold">
+                        {$value['tipo_coordinador_2']}:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_coordinador_2']} {$value['nombre_coordinador_2']}
+                        </span>
+                        <br>
+html;
+        
+                    }
+        
+                    $coordinador_3 = '';
+        
+                    if($value['id_coordinador_3'] != 0){
+                        $coordinador_3 = <<<html
+                        <span class="color-vine font-14 text-bold">
+                        {$value['tipo_coordinador_3']}:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_coordinador_3']} {$value['nombre_coordinador_3']}
+                        </span>
+                        <br>
+html;
+        
+                    }
+        
+        
+                    $profesor_1 = '';
+        
+                    if($value['id_profesor'] != 0){
+                        $profesor_1 = <<<html
+                        <span class="color-vine font-14 text-bold">
+                        {$value['tipo_profesor']}:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo']} {$value['nombre_profesor']}
+                        </span>
+                        <p class="color-vine font-12 mb-0 text-sm">
+                            {$value['desc_profesor']}
+                        </p>
+html;
+        
+                    }
+        
+                    $profesor_2 = '';
+        
+                    if($value['id_profesor_2'] != 0){
+                        $profesor_2 = <<<html
+                        <span class="color-vine font-14 text-bold">
+                        {$value['tipo_profesor_2']}:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_2']} {$value['nombre_profesor_2']}
+                        </span>
+                        <p class="color-vine font-12 mb-0 text-sm">
+                            {$value['desc_profesor_2']}
+                        </p>
+html;
+        
+                    }
+        
+                    $profesor_3 = '';
+        
+                    if($value['id_profesor_3'] != 0){
+                        $profesor_3 = <<<html
+                        <span class="color-vine font-14 text-bold">
+                        {$value['tipo_profesor_3']}:
+                        </span>
+                        <br>
+                        <span class="color-vine font-14 text-bold">
+                            {$value['prefijo_3']} {$value['nombre_profesor_3']}
+                        </span>
+                        <p class="color-vine font-12 mb-0 text-sm">
+                            {$value['desc_profesor_3']}
+                        </p>
+html;
+        
+                    }
+        
+        
+                    if($value['id_programa'] == '108'){
+                        $simposio = <<<html
+                        <span class="color-yellow text-bold">
+                                    {$hora_inicio}
+                        </span>
+                        <br>
+html;
+                    }
+                    else{
+                        $simposio = <<<html
+                        <span class="color-yellow text-bold">
+                                    {$hora_inicio} - {$hora_fin}
+                        </span>
+                        <br>
+html;
+                    }
+        
+        
+                    $programa_fecha2 .= <<<html
+                        <div class="row mb-3">
+                            <div class="col-12 col-md-2">
+                                {$simposio}
+                            </div>
+                            <div class="col-12 col-md-6">
+                            <a href="/Programa/Video/{$value['clave']}">
+                                    <span class="color-green text-bold font-20 text-lg">
+                                        {$value['descripcion']}
+                                    </span>
+                                    <br><br>
+                                    <span class="text-bold font-14 text-lg">
+                                    {$value['subtitulo']}
+                                    </span>
+                                    <br><br>
+                                    <span class="text-bold font-14 text-lg">
+                                        {$value['descripcion_subtitulo']}
+                                    </span>
+                                    <br><br>
+                                    <span class="mt-4">
+                                        <b>Progreso: $porcentaje %</b>
+                                        <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
+                                    </span>
+                            </a>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                {$coordinador_1}
+                                {$coordinador_2}
+                                {$coordinador_3}
+                                {$profesor_1}
+                                {$profesor_2}
+                                {$profesor_3}
+                            </div>
+                        </div>
+html;
+                }
+        
+              
+                View::set('programa_fecha2',$programa_fecha2);                
+                View::set('header',$this->_contenedor->header($extraHeader));
+                View::set('footer',$this->_contenedor->footer($extraFooter));
+                View::render("programa_talleres");        
+    }
+
+    function fechaCastellano ($fecha) {
+        $fecha = substr($fecha, 0, 10);
+        $numeroDia = date('d', strtotime($fecha));
+        $dia = date('l', strtotime($fecha));
+        $mes = date('F', strtotime($fecha));
+        $anio = date('Y', strtotime($fecha));
+
+        $dias_ES = array("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo");
+        $dias_EN = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+        $nombredia = str_replace($dias_EN, $dias_ES, $dia);
+        $meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+        $meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+        $nombreMes = str_replace($meses_EN, $meses_ES, $mes);
+
+        return $nombredia." ".$numeroDia." de ".$nombreMes." de ".$anio;
+    }
+  
 
     public function saveChat()
     {
