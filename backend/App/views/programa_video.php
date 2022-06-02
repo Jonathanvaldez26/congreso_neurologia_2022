@@ -225,7 +225,7 @@
                 $('#porcentaje').html(porcentaje_num.toFixed(0)+' %');
             },1000);
 
-            $(window).blur(function() {
+            /*$(window).blur(function() {
                 ventana = 0;
                 increment = 0;
                 console.log('fuera de la ventana');
@@ -234,7 +234,7 @@
                 ventana = 1;
                 increment = 1;
                 console.log('dentro de la ventana');
-            });
+            });*/
         }
 
         function actualizarProgreso(programa, segundos){
