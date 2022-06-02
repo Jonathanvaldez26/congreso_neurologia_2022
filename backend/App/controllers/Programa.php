@@ -1196,7 +1196,7 @@ html;
         $programa = ProgramaDao::getProgramByClave($clave);
 
         $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $programa['id_programa']);
-        if ($progreso_curso) {
+        if ($progreso_curso) { 
             $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $programa['id_programa']);
         } else {
             ProgramaDao::insertProgreso($_SESSION['id_registrado'], $programa['id_programa']);
