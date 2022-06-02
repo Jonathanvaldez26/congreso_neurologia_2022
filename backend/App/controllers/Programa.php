@@ -770,6 +770,10 @@ html;
             $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
 
             $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+            if($porcentaje>=100){
+            $porcentaje=100;
+            }
+            //$porcentaje=100;
 
             $coordinador_1 = '';
 
@@ -897,7 +901,7 @@ html;
                             </span>
                             <br><br>
                             <span class="mt-4">
-                                <b>Progreso: $porcentaje %</b>
+                                <b>Progresoo: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
                             </span>
                         </a>
@@ -1333,7 +1337,7 @@ html;
             } else {
                 echo 'fail';
             }
-        } else {
+        } else { 
             echo 'fail REQUEST';
         }
     }
