@@ -174,7 +174,7 @@ html;
                         </span>
                     </div>
                     <div class="col-12 col-md-6">
-                        <!--<a href="/Programa/Video/{$value['clave']}">-->
+                        <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
@@ -353,7 +353,7 @@ html;
                         {$simposio}
                     </div>
                     <div class="col-12 col-md-6">
-                    <!--<a href="/Programa/Video/{$value['clave']}">-->
+                    <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
@@ -511,7 +511,7 @@ html;
                         </span>
                     </div>
                     <div class="col-12 col-md-6">
-                        <!--<a href="/Programa/Video/{$value['clave']}">-->
+                        <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
@@ -685,7 +685,7 @@ html;
                             {$simposio}
                     </div>
                     <div class="col-12 col-md-6">
-                        <!--<a href="/Programa/Video/{$value['clave']}">-->
+                        <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
