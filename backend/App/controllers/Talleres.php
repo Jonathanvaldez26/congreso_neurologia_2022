@@ -161,7 +161,8 @@ html;
                 <div class="card card-body card-course p-0 border-radius-15">
                     <input class="curso" hidden type="text" value="{$value['clave']}" readonly>
                     <div class="caratula-content">
-                        <!--<a href="/Talleres/Video/{$value['clave']}">-->
+                    <!-- COMENTADO-->
+                        <a href="/Talleres/Video/{$value['clave']}">
                         <a href="/Talleres/Programa/{$date}">
                             <img class="caratula-img border-radius-15" src="/caratulas/{$value['caratula']}">
                         </a>
