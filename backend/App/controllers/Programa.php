@@ -880,7 +880,7 @@ html;
                             </span>
                             <br><br>
                             <span class="mt-4">
-                                <b>Progresoo: $porcentaje %</b>
+                                <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
                             </span>
                         </a>
