@@ -1184,6 +1184,7 @@ html;
         $url = $info_video['url'];
         $duracion = $info_video['duracion'];
 
+
         $coordinador = $info_video['prefijo_coordinador'] . ' ' . $info_video['nombre_coordinador'];
         $profesor = $info_video['prefijo'] . ' ' . $info_video['nombre_profesor'];
         $desc_profesor = $info_video['desc_profesor'];
@@ -1194,9 +1195,12 @@ html;
 
         $secs_totales = (intval($duracion_hrs) * 3600) + (intval($duracion_min) * 60) + intval($duracion_sec);
         $programa = ProgramaDao::getProgramByClave($clave);
+        if ($info_video['url']=='no_preguntas') {
+            $urlimagen = 'https://2022.congresoneuropediatria.com/img/no_preguntas.png';
+        }
 
         $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $programa['id_programa']);
-        if ($progreso_curso) { 
+        if ($progreso_curso) {
             $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $programa['id_programa']);
         } else {
             ProgramaDao::insertProgreso($_SESSION['id_registrado'], $programa['id_programa']);
@@ -1210,7 +1214,28 @@ html;
         <!--h4 class="mb-1 mt-1 text-center">Video</h4-->      
 html;
 
-        $video_programa .= <<<html
+        if ($urlimagen) { 
+
+            $video_programa .= <<<html
+    <div class="embed-responsive embed-responsive-16by9">
+    <div style="padding:56.25% 0 0 0;position:relative;">
+    <!--<iframe src="{$url}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>-->
+    <img style="position:absolute;top:0;left:0;width:100%;height:100%;"  src="{$urlimagen}">
+    </div>
+    
+    </div>
+
+     <!--<div class="embed-responsive embed-responsive-16by9">
+     <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://vimeo.com/event/1796392/embed" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
+     </div>-->
+
+
+
+
+html;
+        } else {
+
+            $video_programa .= <<<html
           <div class="embed-responsive embed-responsive-16by9">
           <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="{$url}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
           </div>
@@ -1223,6 +1248,7 @@ html;
 
 
 html;
+        }
 
 
 
