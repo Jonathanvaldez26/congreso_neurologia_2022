@@ -572,7 +572,7 @@
             $.ajax({
                 url: "/Talleres/updateProgress",
                 type: "POST",
-                data: {
+                data: { 
                     curso,
                     segundos
                 },

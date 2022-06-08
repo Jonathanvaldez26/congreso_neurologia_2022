@@ -1,29 +1,34 @@
 <?php
+
 namespace App\controllers;
 
 use \Core\View;
 use \Core\Controller;
-use \App\models\Programa AS ProgramaDao;
+use \App\models\Programa as ProgramaDao;
 
-class Programa extends Controller{
+class Programa extends Controller
+{
 
     private $_contenedor;
 
-    function __construct(){
+    function __construct()
+    {
         parent::__construct();
         $this->_contenedor = new Contenedor;
-        View::set('header',$this->_contenedor->header());
-        View::set('footer',$this->_contenedor->footer());
+        View::set('header', $this->_contenedor->header());
+        View::set('footer', $this->_contenedor->footer());
     }
 
-    public function getUsuario(){
+    public function getUsuario()
+    {
         return $this->__usuario;
     }
 
-    public function index() {
-        $extraHeader =<<<html
+    public function index()
+    {
+        $extraHeader = <<<html
 html;
-        $extraFooter =<<<html
+        $extraFooter = <<<html
     <!--footer class="footer pt-0">
               <div class="container-fluid">
                   <div class="row align-items-center justify-content-lg-between">
@@ -130,22 +135,22 @@ html;
 html;
 
         foreach ($info_fecha1 as $key => $value) {
-            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $value['id_programa']);
 
-            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
-            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+            $hora_inicio = substr($value['hora_inicio'], 0, strlen($value['hora_inicio']) - 3);
+            $hora_fin = substr($value['hora_fin'], 0, strlen($value['hora_fin']) - 3);
 
             $max_time = $value['duracion'];
-            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
-            $duracion_min = substr($max_time,strlen($max_time)-5,2);
-            $duracion_hrs = substr($max_time,0,strpos($max_time,':'));
+            $duracion_sec = substr($max_time, strlen($max_time) - 2, 2);
+            $duracion_min = substr($max_time, strlen($max_time) - 5, 2);
+            $duracion_hrs = substr($max_time, 0, strpos($max_time, ':'));
 
-            $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+            $secs_totales = (intval($duracion_hrs) * 3600) + (intval($duracion_min) * 60) + intval($duracion_sec);
 
-            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+            $porcentaje = round(($progreso['segundos'] * 100) / $secs_totales);
 
 
-            if($value['id_coordinador'] != '' || $value['id_coordinador'] != 0){
+            if ($value['id_coordinador'] != '' || $value['id_coordinador'] != 0) {
                 $coordinador_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                     Coordinador:
@@ -156,8 +161,7 @@ html;
                 </span>
                 <br>
 html;
-
-            }else{
+            } else {
                 $coordinador_1 = '';
             }
 
@@ -170,7 +174,7 @@ html;
                         </span>
                     </div>
                     <div class="col-12 col-md-6">
-                        <!--<a href="/Programa/Video/{$value['clave']}">-->
+                        <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
@@ -214,23 +218,23 @@ html;
 html;
 
         foreach ($info_fecha2 as $key => $value) {
-            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $value['id_programa']);
 
-            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
-            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+            $hora_inicio = substr($value['hora_inicio'], 0, strlen($value['hora_inicio']) - 3);
+            $hora_fin = substr($value['hora_fin'], 0, strlen($value['hora_fin']) - 3);
 
             $max_time = $value['duracion'];
-            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
-            $duracion_min = substr($max_time,strlen($max_time)-5,2);
-            $duracion_hrs = substr($max_time,0,strpos($max_time,':'));
+            $duracion_sec = substr($max_time, strlen($max_time) - 2, 2);
+            $duracion_min = substr($max_time, strlen($max_time) - 5, 2);
+            $duracion_hrs = substr($max_time, 0, strpos($max_time, ':'));
 
-            $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+            $secs_totales = (intval($duracion_hrs) * 3600) + (intval($duracion_min) * 60) + intval($duracion_sec);
 
-            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+            $porcentaje = round(($progreso['segundos'] * 100) / $secs_totales);
 
             $coordinador_1 = '';
 
-            if($value['id_coordinador'] != 0){
+            if ($value['id_coordinador'] != 0) {
                 $coordinador_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                     {$value['tipo_coordinador']}:
@@ -241,12 +245,11 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
             $coordinador_2 = '';
 
-            if($value['id_coordinador_2'] != 0){
+            if ($value['id_coordinador_2'] != 0) {
                 $coordinador_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_2']}:
@@ -257,12 +260,11 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
             $coordinador_3 = '';
 
-            if($value['id_coordinador_3'] != 0){
+            if ($value['id_coordinador_3'] != 0) {
                 $coordinador_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_3']}:
@@ -273,13 +275,12 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
 
             $profesor_1 = '';
 
-            if($value['id_profesor'] != 0){
+            if ($value['id_profesor'] != 0) {
                 $profesor_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor']}:
@@ -292,12 +293,11 @@ html;
                     {$value['desc_profesor']}
                 </p>
 html;
-
             }
 
             $profesor_2 = '';
 
-            if($value['id_profesor_2'] != 0){
+            if ($value['id_profesor_2'] != 0) {
                 $profesor_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_2']}:
@@ -310,12 +310,11 @@ html;
                     {$value['desc_profesor_2']}
                 </p>
 html;
-
             }
 
             $profesor_3 = '';
 
-            if($value['id_profesor_3'] != 0){
+            if ($value['id_profesor_3'] != 0) {
                 $profesor_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_3']}:
@@ -328,19 +327,17 @@ html;
                     {$value['desc_profesor_3']}
                 </p>
 html;
-
             }
 
 
-            if($value['id_programa'] == '108'){
+            if ($value['id_programa'] == '108') {
                 $simposio = <<<html
                 <span class="color-yellow text-bold">
                             {$hora_inicio}
                 </span>
                 <br>
 html;
-            }
-            else{
+            } else {
                 $simposio = <<<html
                 <span class="color-yellow text-bold">
                             {$hora_inicio} - {$hora_fin}
@@ -356,7 +353,7 @@ html;
                         {$simposio}
                     </div>
                     <div class="col-12 col-md-6">
-                    <!--<a href="/Programa/Video/{$value['clave']}">-->
+                    <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
@@ -395,23 +392,23 @@ html;
 html;
 
         foreach ($info_fecha3 as $key => $value) {
-            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $value['id_programa']);
 
-            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
-            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+            $hora_inicio = substr($value['hora_inicio'], 0, strlen($value['hora_inicio']) - 3);
+            $hora_fin = substr($value['hora_fin'], 0, strlen($value['hora_fin']) - 3);
 
             $max_time = $value['duracion'];
-            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
-            $duracion_min = substr($max_time,strlen($max_time)-5,2);
-            $duracion_hrs = substr($max_time,0,strpos($max_time,':'));
+            $duracion_sec = substr($max_time, strlen($max_time) - 2, 2);
+            $duracion_min = substr($max_time, strlen($max_time) - 5, 2);
+            $duracion_hrs = substr($max_time, 0, strpos($max_time, ':'));
 
-            $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+            $secs_totales = (intval($duracion_hrs) * 3600) + (intval($duracion_min) * 60) + intval($duracion_sec);
 
-            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+            $porcentaje = round(($progreso['segundos'] * 100) / $secs_totales);
 
             $coordinador_1 = '';
 
-            if($value['id_coordinador'] != 0){
+            if ($value['id_coordinador'] != 0) {
                 $coordinador_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                     {$value['tipo_coordinador']}:
@@ -422,12 +419,11 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
             $coordinador_2 = '';
 
-            if($value['id_coordinador_2'] != 0){
+            if ($value['id_coordinador_2'] != 0) {
                 $coordinador_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_2']}:
@@ -438,12 +434,11 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
             $coordinador_3 = '';
 
-            if($value['id_coordinador_3'] != 0){
+            if ($value['id_coordinador_3'] != 0) {
                 $coordinador_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_3']}:
@@ -454,13 +449,12 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
 
             $profesor_1 = '';
 
-            if($value['id_profesor'] != 0){
+            if ($value['id_profesor'] != 0) {
                 $profesor_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor']}:
@@ -473,12 +467,11 @@ html;
                     {$value['desc_profesor']}
                 </p>
 html;
-
             }
 
             $profesor_2 = '';
 
-            if($value['id_profesor_2'] != 0){
+            if ($value['id_profesor_2'] != 0) {
                 $profesor_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_2']}:
@@ -491,12 +484,11 @@ html;
                     {$value['desc_profesor_2']}
                 </p>
 html;
-
             }
 
             $profesor_3 = '';
 
-            if($value['id_profesor_3'] != 0){
+            if ($value['id_profesor_3'] != 0) {
                 $profesor_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_3']}:
@@ -509,7 +501,6 @@ html;
                     {$value['desc_profesor_3']}
                 </p>
 html;
-
             }
 
             $programa_fecha3 .= <<<html
@@ -520,7 +511,7 @@ html;
                         </span>
                     </div>
                     <div class="col-12 col-md-6">
-                        <!--<a href="/Programa/Video/{$value['clave']}">-->
+                        <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
@@ -560,24 +551,24 @@ html;
 
         if ($info_fecha4) {
             foreach ($info_fecha4 as $key => $value) {
-            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+                $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $value['id_programa']);
 
-            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
-            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+                $hora_inicio = substr($value['hora_inicio'], 0, strlen($value['hora_inicio']) - 3);
+                $hora_fin = substr($value['hora_fin'], 0, strlen($value['hora_fin']) - 3);
 
-            $max_time = $value['duracion'];
-            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
-            $duracion_min = substr($max_time,strlen($max_time)-5,2);
-            $duracion_hrs = substr($max_time,0,strpos($max_time,':'));
+                $max_time = $value['duracion'];
+                $duracion_sec = substr($max_time, strlen($max_time) - 2, 2);
+                $duracion_min = substr($max_time, strlen($max_time) - 5, 2);
+                $duracion_hrs = substr($max_time, 0, strpos($max_time, ':'));
 
-            $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+                $secs_totales = (intval($duracion_hrs) * 3600) + (intval($duracion_min) * 60) + intval($duracion_sec);
 
-            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+                $porcentaje = round(($progreso['segundos'] * 100) / $secs_totales);
 
-            $coordinador_1 = '';
+                $coordinador_1 = '';
 
-            if($value['id_coordinador'] != 0){
-                $coordinador_1 = <<<html
+                if ($value['id_coordinador'] != 0) {
+                    $coordinador_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                     {$value['tipo_coordinador']}:
                 </span>
@@ -587,13 +578,12 @@ html;
                 </span>
                 <br>
 html;
+                }
 
-            }
+                $coordinador_2 = '';
 
-            $coordinador_2 = '';
-
-            if($value['id_coordinador_2'] != 0){
-                $coordinador_2 = <<<html
+                if ($value['id_coordinador_2'] != 0) {
+                    $coordinador_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_2']}:
                 </span>
@@ -603,13 +593,12 @@ html;
                 </span>
                 <br>
 html;
+                }
 
-            }
+                $coordinador_3 = '';
 
-            $coordinador_3 = '';
-
-            if($value['id_coordinador_3'] != 0){
-                $coordinador_3 = <<<html
+                if ($value['id_coordinador_3'] != 0) {
+                    $coordinador_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_3']}:
                 </span>
@@ -619,14 +608,13 @@ html;
                 </span>
                 <br>
 html;
+                }
 
-            }
 
+                $profesor_1 = '';
 
-            $profesor_1 = '';
-
-            if($value['id_profesor'] != 0){
-                $profesor_1 = <<<html
+                if ($value['id_profesor'] != 0) {
+                    $profesor_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor']}:
                 </span>
@@ -638,13 +626,12 @@ html;
                     {$value['desc_profesor']}
                 </p>
 html;
+                }
 
-            }
+                $profesor_2 = '';
 
-            $profesor_2 = '';
-
-            if($value['id_profesor_2'] != 0){
-                $profesor_2 = <<<html
+                if ($value['id_profesor_2'] != 0) {
+                    $profesor_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_2']}:
                 </span>
@@ -656,13 +643,12 @@ html;
                     {$value['desc_profesor_2']}
                 </p>
 html;
+                }
 
-            }
+                $profesor_3 = '';
 
-            $profesor_3 = '';
-
-            if($value['id_profesor_3'] != 0){
-                $profesor_3 = <<<html
+                if ($value['id_profesor_3'] != 0) {
+                    $profesor_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_3']}:
                 </span>
@@ -674,34 +660,32 @@ html;
                     {$value['desc_profesor_3']}
                 </p>
 html;
+                }
 
-            }
 
-
-            if($value['id_programa'] == '172'){
-                $simposio = <<<html
+                if ($value['id_programa'] == '172') {
+                    $simposio = <<<html
                 <span class="color-yellow text-bold" style="border:solid 15px red; display:none; color: orange; background-color: blue; cursor: pointer; ">
                             {$hora_inicio} - {$hora_fin}
                 </span>
                 <br>
 html;
-            }
-            else{
-                $simposio = <<<html
+                } else {
+                    $simposio = <<<html
                 <span class="color-yellow text-bold">
                             {$hora_inicio} - {$hora_fin}
                 </span>
                 <br>
 html;
-            }
+                }
 
-            $programa_fecha4 .= <<<html
+                $programa_fecha4 .= <<<html
                 <div class="row mb-3">
                     <div class="col-12 col-md-2">
                             {$simposio}
                     </div>
                     <div class="col-12 col-md-6">
-                        <!--<a href="/Programa/Video/{$value['clave']}">-->
+                        <a href="/Programa/Video/{$value['clave']}">
                             <span class="color-green text-bold font-20 text-lg">
                                 {$value['descripcion']}
                             </span>
@@ -733,21 +717,22 @@ html;
             }
         }
 
-        
 
-        View::set('programa_fecha1',$programa_fecha1);
-        View::set('programa_fecha2',$programa_fecha2);
-        View::set('programa_fecha3',$programa_fecha3);
-        View::set('programa_fecha4',$programa_fecha4);
-        View::set('header',$this->_contenedor->header($extraHeader));
-        View::set('footer',$this->_contenedor->footer($extraFooter));
+
+        View::set('programa_fecha1', $programa_fecha1);
+        View::set('programa_fecha2', $programa_fecha2);
+        View::set('programa_fecha3', $programa_fecha3);
+        View::set('programa_fecha4', $programa_fecha4);
+        View::set('header', $this->_contenedor->header($extraHeader));
+        View::set('footer', $this->_contenedor->footer($extraFooter));
         View::render("programa");
     }
 
-    public function sala_uno(){
+    public function sala_uno()
+    {
 
         // ----- Variables para la primer fecha ----- //
-        $info_fecha1 = ProgramaDao::getSectionByDateSala('2022-05-18',1);
+        $info_fecha1 = ProgramaDao::getSectionByDateSala('2022-05-18', 1);
         $programa_fecha1 = '';
 
         $programa_fecha1 = <<<html
@@ -757,23 +742,27 @@ html;
 html;
 
         foreach ($info_fecha1 as $key => $value) {
-            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $value['id_programa']);
 
-            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
-            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+            $hora_inicio = substr($value['hora_inicio'], 0, strlen($value['hora_inicio']) - 3);
+            $hora_fin = substr($value['hora_fin'], 0, strlen($value['hora_fin']) - 3);
 
             $max_time = $value['duracion'];
-            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
-            $duracion_min = substr($max_time,strlen($max_time)-5,2);
-            $duracion_hrs = substr($max_time,0,strpos($max_time,':'));
+            $duracion_sec = substr($max_time, strlen($max_time) - 2, 2);
+            $duracion_min = substr($max_time, strlen($max_time) - 5, 2);
+            $duracion_hrs = substr($max_time, 0, strpos($max_time, ':'));
 
-            $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+            $secs_totales = (intval($duracion_hrs) * 3600) + (intval($duracion_min) * 60) + intval($duracion_sec);
 
-            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+            $porcentaje = round(($progreso['segundos'] * 100) / $secs_totales);
+            if ($porcentaje >= 100) {
+                $porcentaje = 100;
+            }
+            //$porcentaje=100;
 
             $coordinador_1 = '';
 
-            if($value['id_coordinador'] != 0){
+            if ($value['id_coordinador'] != 0) {
                 $coordinador_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                     {$value['tipo_coordinador']}:
@@ -784,12 +773,11 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
             $coordinador_2 = '';
 
-            if($value['id_coordinador_2'] != 0){
+            if ($value['id_coordinador_2'] != 0) {
                 $coordinador_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_2']}:
@@ -800,12 +788,11 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
             $coordinador_3 = '';
 
-            if($value['id_coordinador_3'] != 0){
+            if ($value['id_coordinador_3'] != 0) {
                 $coordinador_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_3']}:
@@ -816,13 +803,12 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
 
             $profesor_1 = '';
 
-            if($value['id_profesor'] != 0){
+            if ($value['id_profesor'] != 0) {
                 $profesor_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor']}:
@@ -835,12 +821,11 @@ html;
                     {$value['desc_profesor']}
                 </p>
 html;
-
             }
 
             $profesor_2 = '';
 
-            if($value['id_profesor_2'] != 0){
+            if ($value['id_profesor_2'] != 0) {
                 $profesor_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_2']}:
@@ -853,12 +838,11 @@ html;
                     {$value['desc_profesor_2']}
                 </p>
 html;
-
             }
 
             $profesor_3 = '';
 
-            if($value['id_profesor_3'] != 0){
+            if ($value['id_profesor_3'] != 0) {
                 $profesor_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_3']}:
@@ -871,7 +855,6 @@ html;
                     {$value['desc_profesor_3']}
                 </p>
 html;
-
             }
 
 
@@ -914,13 +897,14 @@ html;
 html;
         }
 
-        View::set('programa_fecha1',$programa_fecha1);
+        View::set('programa_fecha1', $programa_fecha1);
         View::render("programa_sala_uno");
     }
 
-    public function sala_dos(){
+    public function sala_dos()
+    {
         // ----- Variables para la primer fecha ----- //
-        $info_fecha1 = ProgramaDao::getSectionByDateSala('2022-05-18',2);
+        $info_fecha1 = ProgramaDao::getSectionByDateSala('2022-05-18', 2);
         $programa_fecha1 = '';
 
         $programa_fecha1 = <<<html
@@ -934,23 +918,23 @@ html;
 html;
 
         foreach ($info_fecha1 as $key => $value) {
-            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$value['id_programa']);
+            $progreso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $value['id_programa']);
 
-            $hora_inicio =substr($value['hora_inicio'],0,strlen($value['hora_inicio'])-3);
-            $hora_fin = substr($value['hora_fin'],0,strlen($value['hora_fin'])-3);
+            $hora_inicio = substr($value['hora_inicio'], 0, strlen($value['hora_inicio']) - 3);
+            $hora_fin = substr($value['hora_fin'], 0, strlen($value['hora_fin']) - 3);
 
             $max_time = $value['duracion'];
-            $duracion_sec = substr($max_time,strlen($max_time)-2,2);
-            $duracion_min = substr($max_time,strlen($max_time)-5,2);
-            $duracion_hrs = substr($max_time,0,strpos($max_time,':'));
+            $duracion_sec = substr($max_time, strlen($max_time) - 2, 2);
+            $duracion_min = substr($max_time, strlen($max_time) - 5, 2);
+            $duracion_hrs = substr($max_time, 0, strpos($max_time, ':'));
 
-            $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
+            $secs_totales = (intval($duracion_hrs) * 3600) + (intval($duracion_min) * 60) + intval($duracion_sec);
 
-            $porcentaje = round(($progreso['segundos']*100)/$secs_totales);
+            $porcentaje = round(($progreso['segundos'] * 100) / $secs_totales);
 
             $coordinador_1 = '';
 
-            if($value['id_coordinador'] != 0){
+            if ($value['id_coordinador'] != 0) {
                 $coordinador_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                     {$value['tipo_coordinador']}:
@@ -961,12 +945,11 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
             $coordinador_2 = '';
 
-            if($value['id_coordinador_2'] != 0){
+            if ($value['id_coordinador_2'] != 0) {
                 $coordinador_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_2']}:
@@ -977,12 +960,11 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
             $coordinador_3 = '';
 
-            if($value['id_coordinador_3'] != 0){
+            if ($value['id_coordinador_3'] != 0) {
                 $coordinador_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_coordinador_3']}:
@@ -993,13 +975,12 @@ html;
                 </span>
                 <br>
 html;
-
             }
 
 
             $profesor_1 = '';
 
-            if($value['id_profesor'] != 0){
+            if ($value['id_profesor'] != 0) {
                 $profesor_1 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor']}:
@@ -1012,12 +993,11 @@ html;
                     {$value['desc_profesor']}
                 </p>
 html;
-
             }
 
             $profesor_2 = '';
 
-            if($value['id_profesor_2'] != 0){
+            if ($value['id_profesor_2'] != 0) {
                 $profesor_2 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_2']}:
@@ -1030,12 +1010,11 @@ html;
                     {$value['desc_profesor_2']}
                 </p>
 html;
-
             }
 
             $profesor_3 = '';
 
-            if($value['id_profesor_3'] != 0){
+            if ($value['id_profesor_3'] != 0) {
                 $profesor_3 = <<<html
                 <span class="color-vine font-14 text-bold">
                 {$value['tipo_profesor_3']}:
@@ -1048,7 +1027,6 @@ html;
                     {$value['desc_profesor_3']}
                 </p>
 html;
-
             }
 
 
@@ -1090,15 +1068,16 @@ html;
                 </div>
 html;
         }
-        
-        View::set('programa_fecha1',$programa_fecha1);
+
+        View::set('programa_fecha1', $programa_fecha1);
         View::render("programa_sala_dos");
     }
 
-    public function Video($clave) {
-        $extraHeader =<<<html
+    public function Video($clave)
+    {
+        $extraHeader = <<<html
 html;
-        $extraFooter =<<<html
+        $extraFooter = <<<html
     <!--footer class="footer pt-0">
               <div class="container-fluid">
                   <div class="row align-items-center justify-content-lg-between">
@@ -1205,68 +1184,99 @@ html;
         $url = $info_video['url'];
         $duracion = $info_video['duracion'];
 
-        $coordinador = $info_video['prefijo_coordinador'].' '.$info_video['nombre_coordinador'];
-        $profesor = $info_video['prefijo'].' '.$info_video['nombre_profesor'];
+
+        $coordinador = $info_video['prefijo_coordinador'] . ' ' . $info_video['nombre_coordinador'];
+        $profesor = $info_video['prefijo'] . ' ' . $info_video['nombre_profesor'];
         $desc_profesor = $info_video['desc_profesor'];
 
-        $duracion_sec = substr($duracion,strlen($duracion)-2,2);
-        $duracion_min = substr($duracion,strlen($duracion)-5,2);
-        $duracion_hrs = substr($duracion,0,strpos($duracion,':'));
-        
-        $secs_totales = (intval($duracion_hrs)*3600)+(intval($duracion_min)*60)+intval($duracion_sec);
-        $programa = ProgramaDao::getProgramByClave($clave);
+        $duracion_sec = substr($duracion, strlen($duracion) - 2, 2);
+        $duracion_min = substr($duracion, strlen($duracion) - 5, 2);
+        $duracion_hrs = substr($duracion, 0, strpos($duracion, ':'));
 
-        $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$programa['id_programa']);
-        if ($progreso_curso) {
-            $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$programa['id_programa']);
-        } else {
-            ProgramaDao::insertProgreso($_SESSION['id_registrado'],$programa['id_programa']);
-            $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'],$programa['id_programa']);
+        $secs_totales = (intval($duracion_hrs) * 3600) + (intval($duracion_min) * 60) + intval($duracion_sec);
+        $programa = ProgramaDao::getProgramByClave($clave);
+        if ($info_video['url']=='no_preguntas') {
+            $urlimagen = 'https://2022.congresoneuropediatria.com/img/no_preguntas.png';
         }
 
-        $porcentaje = round(($progreso_curso['segundos']*100)/$secs_totales);
+        $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $programa['id_programa']);
+        if ($progreso_curso) {
+            $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $programa['id_programa']);
+        } else {
+            ProgramaDao::insertProgreso($_SESSION['id_registrado'], $programa['id_programa']);
+            $progreso_curso = ProgramaDao::getProgreso($_SESSION['id_registrado'], $programa['id_programa']);
+        }
+
+        $porcentaje = round(($progreso_curso['segundos'] * 100) / $secs_totales);
 
 
         $video_programa = <<<html
         <!--h4 class="mb-1 mt-1 text-center">Video</h4-->      
 html;
 
-        $video_programa .= <<<html
-            <div class="row mb-3 mt-0 m-auto">
-                <div class="col-12 col-md-12 m-auto">
-                    <div class="row">
-                        <iframe id="iframe" class="bg-gradient-warning iframe-course" src="{$url}" width="640" height="521" frameborder="0">a</iframe>
-                    </div>
-                </div>
-            </div>
+        if ($urlimagen) { 
+
+            $video_programa .= <<<html
+    <div class="embed-responsive embed-responsive-16by9">
+    <div style="padding:56.25% 0 0 0;position:relative;">
+    <!--<iframe src="{$url}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>-->
+    <img style="position:absolute;top:0;left:0;width:100%;height:100%;"  src="{$urlimagen}">
+    </div>
+    
+    </div>
+
+     <!--<div class="embed-responsive embed-responsive-16by9">
+     <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://vimeo.com/event/1796392/embed" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
+     </div>-->
+
+
+
+
 html;
+        } else {
+
+            $video_programa .= <<<html
+          <div class="embed-responsive embed-responsive-16by9">
+          <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="{$url}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
+          </div>
+
+           <!--<div class="embed-responsive embed-responsive-16by9">
+           <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://vimeo.com/event/1796392/embed" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
+           </div>-->
 
 
 
-        View::set('video_programa',$video_programa);
-        View::set('nombre_programa',$nombre_programa);
-        View::set('hora_inicio',$hora_inicio);
-        View::set('hora_fin',$hora_fin);
-        View::set('id_programa',$id_programa);
-        View::set('url',$url);
-        View::set('porcentaje',$porcentaje);
-        View::set('coordinador',$coordinador);
-        View::set('profesor',$profesor);
-        View::set('desc_profesor',$desc_profesor);
-        View::set('progreso_curso',$progreso_curso);
-        View::set('secs_totales',$secs_totales);
-        View::set('header',$this->_contenedor->header($extraHeader));
-        View::set('footer',$this->_contenedor->footer($extraFooter));
+
+html;
+        }
+
+
+
+        View::set('video_programa', $video_programa);
+        View::set('nombre_programa', $nombre_programa);
+        View::set('hora_inicio', $hora_inicio);
+        View::set('hora_fin', $hora_fin);
+        View::set('id_programa', $id_programa);
+        View::set('url', $url);
+        View::set('porcentaje', $porcentaje);
+        View::set('coordinador', $coordinador);
+        View::set('profesor', $profesor);
+        View::set('desc_profesor', $desc_profesor);
+        View::set('progreso_curso', $progreso_curso);
+        View::set('secs_totales', $secs_totales);
+        View::set('header', $this->_contenedor->header($extraHeader));
+        View::set('footer', $this->_contenedor->footer($extraFooter));
         View::render("programa_video");
     }
 
-    public function updateProgress(){
+    public function updateProgress()
+    {
         $progreso = $_POST['segundos'];
         $programa = $_POST['programa'];
 
-        ProgramaDao::updateProgresoFecha($programa, $_SESSION['id_registrado'],$progreso);
+        ProgramaDao::updateProgresoFecha($programa, $_SESSION['id_registrado'], $progreso);
 
-        echo 'minuto '.$progreso.' '.$programa;
+        echo 'minuto ' . $progreso . ' ' . $programa;
     }
 
     // public function Vistas(){
@@ -1279,29 +1289,31 @@ html;
     //     echo $clave;
     // }
 
-    public function Likes(){
+    public function Likes()
+    {
         $clave = $_POST['clave'];
         $id_curso = ProgramaDao::getProgramByClave($clave)['id_curso'];
 
-        $hay_like = ProgramaDao::getlike($id_curso,$_SESSION['id_registrado']);
+        $hay_like = ProgramaDao::getlike($id_curso, $_SESSION['id_registrado']);
         // var_dump($hay_like);
 
         if ($hay_like) {
             $status = 0;
             if ($hay_like['status'] == 1) {
                 $status = 0;
-            } else if ($hay_like['status'] == 0){
+            } else if ($hay_like['status'] == 0) {
                 $status = 1;
             }
-            ProgramaDao::updateLike($id_curso,$_SESSION['id_registrado'],$status);
+            ProgramaDao::updateLike($id_curso, $_SESSION['id_registrado'], $status);
             // echo 'siuu '.$clave;
         } else {
-            ProgramaDao::insertLike($id_curso,$_SESSION['id_registrado']);
+            ProgramaDao::insertLike($id_curso, $_SESSION['id_registrado']);
             // echo 'nooouuu '.$clave;
         }
     }
 
-    public function uploadComprobante(){
+    public function uploadComprobante()
+    {
 
         $documento = new \stdClass();
 
@@ -1310,17 +1322,17 @@ html;
             $marca_ = '';
             $usuario = $_POST["user_"];
             $numero_dosis = $_POST['numero_dosis'];
-            foreach($_POST['checkbox_marcas'] as $selected){
-                $marca_ = $selected."/ ";
+            foreach ($_POST['checkbox_marcas'] as $selected) {
+                $marca_ = $selected . "/ ";
             }
             $marca = $marca_;
             $file = $_FILES["file_"];
 
             $pdf = $this->generateRandomString();
 
-            move_uploaded_file($file["tmp_name"], "comprobante_vacunacion/".$pdf.'.pdf');
+            move_uploaded_file($file["tmp_name"], "comprobante_vacunacion/" . $pdf . '.pdf');
 
-            $documento->_url = $pdf.'.pdf';
+            $documento->_url = $pdf . '.pdf';
             $documento->_user = $usuario;
             $documento->_numero_dosis = $numero_dosis;
             $documento->_marca_dosis = $marca;
@@ -1329,7 +1341,6 @@ html;
 
             if ($id) {
                 echo 'success';
-
             } else {
                 echo 'fail';
             }
@@ -1338,8 +1349,8 @@ html;
         }
     }
 
-    function generateRandomString($length = 10) {
+    function generateRandomString($length = 10)
+    {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
     }
-
 }
