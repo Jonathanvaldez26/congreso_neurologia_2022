@@ -366,11 +366,11 @@ html;
                                 {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
-                            <!--<span class="mt-4">
+                            <span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
-                            </span>-->
-                    <!--</a>-->
+                            </span>
+                    </a>
                     </div>
                     <div class="col-12 col-md-4">
                         {$coordinador_1}
@@ -524,11 +524,11 @@ html;
                                 {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
-                            <!--<span class="mt-4">
+                            <span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
-                            </span>-->
-                        <!--</a>-->
+                            </span>
+                        </a>
                     </div>
                     <div class="col-12 col-md-4">
                         {$coordinador_1}
@@ -633,7 +633,7 @@ html;
                 if ($value['id_profesor_2'] != 0) {
                     $profesor_2 = <<<html
                 <span class="color-vine font-14 text-bold">
-                {$value['tipo_profesor_2']}:
+                {$value['tipo_profesor_2']}: 
                 </span>
                 <br>
                 <span class="color-vine font-14 text-bold">
@@ -698,11 +698,11 @@ html;
                                 {$value['descripcion_subtitulo']}
                             </span>
                             <br><br>
-                            <!--<span class="mt-4">
+                            <span class="mt-4">
                                 <b>Progreso: $porcentaje %</b>
                                 <progress class="barra_progreso_small_green mt-2" max="$secs_totales" value="{$progreso['segundos']}"></progress>
-                            </span>-->
-                        <!--</a>-->
+                            </span>
+                        </a>
                     </div>
                     <div class="col-12 col-md-4">
                         {$coordinador_1}
