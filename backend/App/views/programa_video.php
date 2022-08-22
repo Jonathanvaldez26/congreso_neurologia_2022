@@ -138,7 +138,7 @@
                     <!-- <img alt="Image" src="../../../assets/img/bruce-mars.jpg" class="avatar"> -->
                         <div class="ms-0 text-center">
                             <!-- <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'].' '.$info_user['nombre'];?></h6> -->
-                            <span class="text-lg text-center text-dark opacity-8">Progresoo <span id="porcentaje"><?php echo $porcentaje;?> %</span> </span>
+                            <span class="text-lg text-center text-dark opacity-8">Progreso <span id="porcentaje"><?php echo $porcentaje;?> %</span> </span>
                         </div>
                     </div>
                 </div>
@@ -218,6 +218,9 @@
                 if (tiempo_total % 60 == 0) {
                     console.log('Ejecutamos Ajax');
                     actualizarProgreso($('#id_programa').val(),inicio);
+                }
+                if (porcentaje_num >= 79) {
+                    $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
                 }
 
                 $('#barra_progreso').val(inicio);
