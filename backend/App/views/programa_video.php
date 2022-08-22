@@ -195,6 +195,21 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modalPatrocinador" role="dialog" aria-labelledby="modalPatrocinadorLabel" aria-hidden="true">
+        <div class="modal-dialog modal-size" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                   
+                </div>
+               <div id="cont-modal" style="display: flex; justify-content: center;">
+
+               </div>
+            </div>
+        </div>
+    </div>
+
+    <?php echo $iframe_doc; ?>
+
         <div class="fixed-bottom navbar-dark">
             <!-- <a class="navbar-brand" href="#!">Footer</a> -->
             <?php echo $footer; ?>
@@ -205,6 +220,82 @@
 
 <script>
     $(document).ready(function() {
+
+        let list_r = [];
+
+        $('#enviar_encuesta').on('click', function() {
+            // alert('envio de formulario');
+            // $("#cont-modal").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="/assets/img/Video_patro.gif" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
+            $("#encuesta").removeClass('show');
+            $("#encuesta").modal('toggle');
+            $("#cont-modal").html(`<img src="/assets/img/Video_patro.gif" style="margin: 10px 0 10px 0;">`);
+             $("#modalPatrocinador").modal('show');
+
+             setTimeout(function(){
+                let enc = $('.encuesta_completa');
+            let id_curso = $('#id_curso').val();
+
+
+           
+
+            for (let index = 0; index < enc.length; index++) {
+                const respuesta = enc[index];
+                let id = $('#id_pregunta_' + (index + 1)).val();
+                let res = $('input[name=pregunta_' + (index + 1) + ']:checked', enc[index]).val();
+                let res_id = [id, res];
+                list_r.push(res_id);
+                // console.log(res_id);
+            }
+
+            // alert(list_r);
+            $.ajax({
+                url: "/Talleres/guardarRespuestas",
+                type: "POST",
+                dataType: 'json',
+                data: {
+                    list_r,
+                    id_curso
+                },
+                beforeSend: function() {
+                    console.log("Procesando....");
+                },
+                success: function(respuesta) {
+                    console.log(respuesta);
+
+                    if (respuesta.status == 'success') {
+                        Swal.fire('Se ha guardado correctamente su examen', '', 'success').
+                        then((result) => {
+                            console.log('a');
+                            $('#constancia_download').attr('href', respuesta.href)
+                            $('#constancia_download')[0].click();
+                            // $('#constancia_download_1').attr('href',respuesta.href_download)
+                            // $('#constancia_download_1')[0].click();
+                            // window.location.reload();
+                            
+                            // $("#modalPatrocinador").modal('show');
+
+                            setTimeout("location.reload()", 5000);
+                        });
+                    } else {
+                        Swal.fire('Lo sentimos, usted ya ha contestado este examen', '', 'info').
+                        then((result) => {
+                            console.log('b');
+                            window.location.reload();
+                        });
+                    }
+
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                    Swal.fire('Ha ocurrido un error, contacte con soporte', '', 'error').
+                    then((result) => {
+                        console.log('c');
+                    });
+                }
+            });
+             }, 10000);
+            
+        });
 
         // setTimeout(mandarMensaje, 10000);
 
