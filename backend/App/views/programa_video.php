@@ -1,10 +1,9 @@
 <title>
-    Cursos Video - Neuropediatría
+    Cursos - Neuropediatría
 </title>
 <?php echo $header; ?>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
-
     <nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky" id="navbarBlur" data-scroll="true">
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
@@ -27,9 +26,8 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Home/">Inicio</a></li>
-                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Talleres/">Talleres</a></li>
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Programa/">Programa</a></li>
                     <li class="breadcrumb-item text-sm">Video</li>
-                    <li class="breadcrumb-item text-sm"><?php echo $nombre_taller; ?></li>
                 </ol>
             </nav>
 
@@ -70,20 +68,24 @@
                         </div>
                         <div class="col-sm-auto col-8 my-auto">
                             <div class="h-100">
-                                <h5 class="mb-1 font-weight-bolder" id="nombre_transmision">
-                                    <?php echo $nombre_taller; ?>
-                                </h5>
+                                <h4 class="mb-3 text-center color-green"><?php echo $nombre_programa; ?></h4>
+                                <div class="">
+                                    <span class="color-yellow ">
+                                        Horario:
+                                        <?php echo $hora_inicio . ' - ' . $hora_fin; ?>
+                                    </span>
+                                </div>
 
                                 <input type="text" id="nombre_t1" value="<?php echo $transmision_1['nombre']; ?>" readonly hidden>
                                 <input type="text" id="nombre_t2" value="<?php echo $transmision_2['nombre']; ?>" readonly hidden>
-                                <p class="mb-0 font-weight-bold text-sm">
 
-                                </p>
                             </div>
                         </div>
 
-                        <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
-
+                        <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 me-4">
+                            <a href="/Programa/">
+                                <span class="text-dark"><i class="fas fa-undo"></i> Regresar</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -96,94 +98,39 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12 col-md-12 m-auto text-center">
-                                <?php echo $contenido_taller; ?>
+                                <?php echo $video_programa; ?>
                             </div>
                         </div>
-                        <hr class="horizontal dark my-3">
+                        <hr class="horizontal dark">
                         <!-- Comments -->
                         <div class="mb-1">
-                            <div id="cont_chat" class="text-scroll">
-                                <?php echo $cont_chat; ?>
-                            </div>
-
-                            <div class="d-flex mt-4">
-                                <div class="flex-shrink-0">
-                                    <img alt="Image placeholder" class="avatar rounded-circle me-3" src="../../../img/users_musa/<?=$avatar;?>">
-                                </div>
-                                <div class="flex-grow-1 my-auto">
-                                    <form class="align-items-center" id="form_chat" method="post">
-                                        <input type="hidden" name="id_tipo" id="id_tipo" value="<?= $id_curso ?>">
-                                        <input type="hidden" name="sala" id="sala" value="1">
-                                        <div class="d-flex">
-                                            <div class="input-group">
-                                                <input type="text" name="txt_chat" id="txt_chat" class="form-control" placeholder="Escribe un comentario para todos los asistentes." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
-                                            </div>
-                                            <button class="btn bg-gradient-primary mb-0 ms-2" onclick="saveChat()">
-                                                <i class="ni ni-send"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-
-                                </div>
+                            <div class="col-12 col-md-12">
+                                <span class="color-vine font-18 text-bold mb-2">
+                                    Coordinador:
+                                </span>
+                                <br>
+                                <span class="color-vine font-14 text-bold">
+                                    <?php echo $coordinador; ?>
+                                </span>
+                                <br><br>
+                                <span class="color-vine font-18 text-bold">
+                                    Profesor:
+                                </span>
+                                <br>
+                                <span class="color-vine font-16 text-bold">
+                                    <?php echo $profesor; ?>
+                                </span><br><br>
+                                <p class="color-vine font-14 text-sm">
+                                    <?php echo $desc_profesor; ?>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-4">
-            <div class="card">
+                <div class="card">
                     <div class="card blur shadow-blur max-height-vh-70">
-                        <div class="card-header shadow-lg">
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <div class="d-flex align-items-center">
-                                        <!--img alt="Image" src="assets/img/bruce-mars.jpg" class="avatar"-->
-                                        <div class="ms-3">
-                                            <div class="d-flex align-items-center">
-                                                <img alt="Image" src="../../../img/users_musa/<?=$avatar;?>" class="avatar">
-                                                <div class="ms-3">
-                                                    <h6 class="mb-0 d-block"><?php echo $info_user['prefijo'] . ' ' . $info_user['nombre']; ?></h6>
-                                                    <span class="text-sm text-dark opacity-8">Tus Preguntas al Ponente</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="card-footer d-block">
-                            <form class="align-items-center" autocomplete="nope" id="form_pregunta" method="post" onsubmit="return false;" accept-charset="utf-8">
-                                <div class="d-flex">
-                                    <div class="input-group" style="display: none;">
-                                        <input type="text" name="id_tipopre" id="id_tipopre" value="<?= $id_curso; ?>">
-                                        <input type="text" name="salapre" id="salapre" value="1">
-
-                                    </div>
-
-                                    <div class="input-group">
-
-                                        <input type="text" name="txt_pregunta" id="txt_pregunta" class="form-control" placeholder="Escribe tu pregunta al ponente aquí." aria-label="Message example input" onfocus="focused(this)" onfocusout="defocused(this)">
-                                    </div>
-
-
-                                    <div class="input-group" style="display: none;">
-                                        <input class="form-control" style="visibility: hidden" type="hidden" name="registrado" id="registrado" value="90323" onfocus="focused(this)" onfocusout="defocused(this)">
-
-                                    </div>
-                                    <button class="btn bg-gradient-success mb-0 ms-2" onclick="savePregunta()">
-                                        <i class="ni ni-send"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mt-3">
-                    <div class="card blur shadow-blur max-height-vh-70">
-
                         <div class="card-header shadow-lg">
                             <div class="row">
                                 <div class="col-md-12">
@@ -198,8 +145,9 @@
                             </div>
                         </div>
                         <div class="card-footer d-block">
+
                             <progress id="barra_progreso" max="<?php echo $secs_totales; ?>" value="<?php echo $progreso_curso['segundos']; ?>"></progress>
-                            <input type="text" name="" id="id_curso" hidden readonly value="<?php echo $id_curso; ?>">
+                            <input type="text" name="" id="id_programa" hidden readonly value="<?php echo $id_programa; ?>">
                         </div>
                         <div class="row m-auto">
                             <div class="col-12" id="btn-examen">
@@ -208,19 +156,13 @@
                         </div>
                     </div>
                 </div>
-
-                
             </div>
         </div>
 
-
         <br>
         <br>
-    </div>
-    <br>
-    <br>
 
-    <!-- Modal -->
+        <!-- Modal -->
     <div class="modal fade" id="encuesta" role="dialog" aria-labelledby="encuestaLabel" aria-hidden="true">
         <div class="modal-dialog modal-size" role="document">
             <div class="modal-content">
@@ -253,274 +195,50 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modalPatrocinador" role="dialog" aria-labelledby="modalPatrocinadorLabel" aria-hidden="true">
-        <div class="modal-dialog modal-size" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                   
-                </div>
-               <div id="cont-modal" style="display: flex; justify-content: center;">
-
-               </div>
-            </div>
+        <div class="fixed-bottom navbar-dark">
+            <!-- <a class="navbar-brand" href="#!">Footer</a> -->
+            <?php echo $footer; ?>
         </div>
-    </div>
-
-    <?php echo $iframe_doc; ?>
-
-    <div class="fixed-bottom navbar-dark">
-        <!-- <a class="navbar-brand" href="#!">Footer</a> -->
-        <?php echo $footer; ?>
-    </div>
 
 </main>
 
 
 <script>
-    intervalo1();
-    function intervalo1() {
-        intervalo = setInterval(chats, 60000, $("#id_tipo").val(), 1);
-    }
-
-    function saveChat() {
-        //event.preventDefault(event);
-        var formData = new FormData(document.getElementById("form_chat"));
-
-        var id_tipo = formData.get('id_tipo');
-        var sala = formData.get('sala');
-
-
-        for (var value of formData.values()) {
-            console.log(value);
-        }
-
-        $.ajax({
-            url: "/Talleres/saveChat",
-            type: "POST",
-            data: formData,
-            contentType: false,
-            processData: false,
-            beforeSend: function() {
-                event.preventDefault();
-                document.getElementById("txt_chat").value = "";
-                console.log("Procesando....");
-                // alert('Se está borrando');
-            },
-            success: function(respuesta) {
-                console.log(respuesta);
-                chats(id_tipo, sala);
-
-            },
-            error: function(respuesta) {
-                console.log(respuesta);
-
-            }
-        });
-    }
-
-    function savePregunta() {
-        //event.preventDefault(event);
-        var formData = new FormData(document.getElementById("form_pregunta"));
-
-        var id_tipopre = formData.get('id_tipopre');
-        var salapre = formData.get('salapre');
-
-        $.ajax({
-            url: "/Talleres/savePregunta",
-            type: "POST",
-            data: formData,
-            contentType: false,
-            processData: false,
-            beforeSend: function() {
-                event.preventDefault();
-                document.getElementById("txt_pregunta").value = "";
-                console.log("Procesando....");
-                // alert('Se está borrando');
-            },
-            success: function(respuesta) {
-                console.log(respuesta);
-                if (respuesta == "success") {
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Su preguntaha sido enviada correctamente',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-
-
-
-            },
-            error: function(respuesta) {
-                console.log(respuesta);
-
-            }
-        });
-    }
-
-    function chats(id_tipo, sala) {
-
-        console.log(id_tipo);
-        console.log("sala " + sala);
-
-        $.ajax({
-            url: "/Talleres/getChatById",
-            type: "POST",
-            data: {
-                id_tipo,
-                sala
-            },
-            dataType: 'json',
-            beforeSend: function() {
-                console.log("Procesando....");
-                $("#cont_chat").empty();
-
-            },
-            success: function(respuesta) {
-
-                console.log(respuesta);
-                // var numero_noti = 0;
-
-                $.each(respuesta, function(index, el) {
-
-                    // console.log(el.title);
-                    var nombre_completo = el.nombre + ' ' + el.apellidop + ' ' + el.apellidom;
-
-                    $("#cont_chat").append(
-                        `<div class="d-flex mt-3">
-                            <div class="flex-shrink-0">
-                                <img alt="Image placeholder" class="avatar rounded-circle" src="../../../img/users_musa/${el.avatar_img}">
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="h5 mt-0">${nombre_completo.toUpperCase()}</h6>
-                                <p class="text-sm">${el.chat}</p>
-                                
-                            </div>
-                        </div>`
-                    );
-                });
-
-
-
-            },
-            error: function(respuesta) {
-                console.log(respuesta);
-            }
-
-        });
-    }
-
     $(document).ready(function() {
 
-        let list_r = [];
+        // setTimeout(mandarMensaje, 10000);
 
-        $('#enviar_encuesta').on('click', function() {
-            // alert('envio de formulario');
-            // $("#cont-modal").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="/assets/img/Video_patro.gif" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
-            $("#encuesta").removeClass('show');
-            $("#encuesta").modal('toggle');
-            $("#cont-modal").html(`<img src="/assets/img/Video_patro.gif" style="margin: 10px 0 10px 0;">`);
-             $("#modalPatrocinador").modal('show');
+        // var vista = 0;
+        // function mandarMensaje() {
+        //     vista++;
+        //     console.log("Vista nueva al video: "+vista);
 
-             setTimeout(function(){
-                let enc = $('.encuesta_completa');
-            let id_curso = $('#id_curso').val();
+        //     clave_video = $('#clave_video').val();
 
+        //     $.ajax({
+        //         url: "/Programa/Vistas",
+        //         type: "POST",
+        //         data: {clave_video},
+        //         beforeSend: function() {
+        //             console.log("Procesando....");
+        //         },
+        //         success: function(respuesta) {
 
-           
+        //             console.log(respuesta);
 
-            for (let index = 0; index < enc.length; index++) {
-                const respuesta = enc[index];
-                let id = $('#id_pregunta_' + (index + 1)).val();
-                let res = $('input[name=pregunta_' + (index + 1) + ']:checked', enc[index]).val();
-                let res_id = [id, res];
-                list_r.push(res_id);
-                // console.log(res_id);
-            }
-
-            // alert(list_r);
-            $.ajax({
-                url: "/Talleres/guardarRespuestas",
-                type: "POST",
-                dataType: 'json',
-                data: {
-                    list_r,
-                    id_curso
-                },
-                beforeSend: function() {
-                    console.log("Procesando....");
-                },
-                success: function(respuesta) {
-                    console.log(respuesta);
-
-                    if (respuesta.status == 'success') {
-                        Swal.fire('Se ha guardado correctamente su examen', '', 'success').
-                        then((result) => {
-                            console.log('a');
-                            $('#constancia_download').attr('href', respuesta.href)
-                            $('#constancia_download')[0].click();
-                            // $('#constancia_download_1').attr('href',respuesta.href_download)
-                            // $('#constancia_download_1')[0].click();
-                            // window.location.reload();
-                            
-                            // $("#modalPatrocinador").modal('show');
-
-                            setTimeout("location.reload()", 5000);
-                        });
-                    } else {
-                        Swal.fire('Lo sentimos, usted ya ha contestado este examen', '', 'info').
-                        then((result) => {
-                            console.log('b');
-                            window.location.reload();
-                        });
-                    }
-
-                },
-                error: function(respuesta) {
-                    console.log(respuesta);
-                    Swal.fire('Ha ocurrido un error, contacte con soporte', '', 'error').
-                    then((result) => {
-                        console.log('c');
-                    });
-                }
-            });
-             }, 10000);
-            
-        });
-
-        setTimeout(agregarVista, 10000);
-
-        var vista = 0;
-
-        function agregarVista() {
-            vista++;
-            console.log("Vista nueva al video: " + vista);
-
-            clave_video = $('#clave_video').val();
-
-            $.ajax({
-                url: "/Talleres/Vistas",
-                type: "POST",
-                data: {
-                    clave_video
-                },
-                beforeSend: function() {
-                    console.log("Procesando....");
-                },
-                success: function(respuesta) {
-
-                    console.log(respuesta);
-
-                },
-                error: function(respuesta) {
-                    console.log(respuesta);
-                }
-            });
-        }
+        //         },
+        //         error: function(respuesta) {
+        //             console.log(respuesta);
+        //         }
+        //     });
+        // }
 
         let inicio = $('#barra_progreso').val();
         let duracion = $('#barra_progreso').attr('max');
+
+        console.log(inicio);
+        console.log(duracion);
+        console.log($('#id_programa').val());
 
         let porcentaje_num = (inicio * 100) / parseInt(duracion);
         let increment = 1;
@@ -531,20 +249,14 @@
             intervalo = setInterval(function() {
                 tiempo_total++;
 
-                console.log(tiempo_total);
-
-                console.log("duracion "+duracion);
-
-                if (inicio < duracion) {
+                if (inicio <= duracion) {
                     inicio += increment;
                 }
 
                 if (tiempo_total % 60 == 0) {
                     console.log('Ejecutamos Ajax');
-                    actualizarProgreso($('#id_curso').val(), inicio);
-
+                    actualizarProgreso($('#id_programa').val(), inicio);
                 }
-
                 if (porcentaje_num >= 79) {
                     $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
                 }
@@ -552,35 +264,35 @@
                 $('#barra_progreso').val(inicio);
                 porcentaje_num = (inicio * 100) / parseInt(duracion);
                 $('#porcentaje').html(porcentaje_num.toFixed(0) + ' %');
-
-
             }, 1000);
 
-            // $(window).blur(function() {
-            //     ventana = 0;
-            //     increment = 0;
-            //     console.log('fuera de la ventana');
-            // });
-            // $(window).focus(function() {
-            //     ventana = 1;
-            //     increment = 1;
-            //     console.log('dentro de la ventana');
-            // });
+            /*$(window).blur(function() {
+                ventana = 0;
+                increment = 0;
+                console.log('fuera de la ventana');
+            });
+            $(window).focus(function() {
+                ventana = 1;
+                increment = 1;
+                console.log('dentro de la ventana');
+            });*/
         }
 
-        function actualizarProgreso(curso, segundos) {
+        function actualizarProgreso(programa, segundos) {
             $.ajax({
-                url: "/Talleres/updateProgress",
+                url: "/Programa/updateProgress",
                 type: "POST",
-                data: { 
-                    curso,
+                data: {
+                    programa,
                     segundos
                 },
                 beforeSend: function() {
                     console.log("Procesando....");
                 },
                 success: function(respuesta) {
+
                     console.log(respuesta);
+
                 },
                 error: function(respuesta) {
                     console.log(respuesta);
@@ -588,10 +300,49 @@
             });
         }
 
-        // function boton(){
+        // function boton() {
         //     $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
         // }
         // boton();
+
         countTime();
     });
 </script>
+
+
+
+
+<!-- <p>1</p>
+
+                <input type="checkbox" class="btn-face-green" id="btn-check-prueba">
+                <label for="btn-check-prueba" class="color-face-green">aaaaa
+                    <i class="fas fa-grin-beam text-lg"></i>
+                </label>
+
+                <input type="checkbox" class="btn-face-red" id="btn-check-prueba-2">
+                <label for="btn-check-prueba-2" class="color-face-red">aaaaa
+                    <i class="fas fa-angry text-lg"></i>
+                </label>
+
+                <input type="checkbox" class="btn-face-yellow" id="btn-check-prueba-5">
+                <label for="btn-check-prueba-5" class="color-face-yellow">aaaaa
+                    <i class="fas fa-grin-beam text-lg"></i>
+                </label>
+
+                <input type="checkbox" class="btn-face-orange" id="btn-check-prueba-6">
+                <label for="btn-check-prueba-6" class="color-face-orange">aaaaa
+                    <i class="fas fa-grin-beam text-lg"></i>
+                </label>
+
+                <p>2</p>
+
+                <input type="checkbox" class="btn-face-green" id="btn-check-prueba-3">
+                <label for="btn-check-prueba-3" class="color-face-green">aaaaa
+                    <i class="fas fa-grin-beam text-lg"></i>
+                </label>
+
+                <input type="checkbox" class="btn-face-red" id="btn-check-prueba-4">
+                <label for="btn-check-prueba-4" class="color-face-red">aaaaa
+                    <i class="fas fa-angry text-lg"></i>
+                </label> 
+                <div class="card-body p-3"-->
