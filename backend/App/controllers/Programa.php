@@ -6,7 +6,7 @@ use \Core\View;
 use \Core\Controller;
 use \App\models\Programa as ProgramaDao;
 use \App\models\Talleres as TalleresDao;
-
+ 
 class Programa extends Controller
 {
 
@@ -30,7 +30,7 @@ class Programa extends Controller
         $extraHeader = <<<html
 html;
         $extraFooter = <<<html
-    <!--footer class="footer pt-0">
+    <!--footer class="footer pt-0"> 
               <div class="container-fluid">
                   <div class="row align-items-center justify-content-lg-between">
                       <div class="col-lg-6 mb-lg-0 mb-4">
