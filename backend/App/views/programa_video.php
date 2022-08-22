@@ -224,7 +224,7 @@
         let list_r = [];
 
         $('#enviar_encuesta').on('click', function() {
-            alert('envio de formulario');
+            // alert('envio de formulario');
             // $("#cont-modal").html(`<iframe class="frame-transmision" id="iframe_transmision_1" src="/assets/img/Video_patro.gif" allow="autoplay; fullscreen;" frameborder="0" ></iframe>`);
             $("#encuesta").removeClass('show');
             $("#encuesta").modal('toggle');
