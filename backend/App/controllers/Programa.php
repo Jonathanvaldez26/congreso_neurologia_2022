@@ -5,6 +5,7 @@ namespace App\controllers;
 use \Core\View;
 use \Core\Controller;
 use \App\models\Programa as ProgramaDao;
+use \App\models\Talleres as TalleresDao;
 
 class Programa extends Controller
 {
