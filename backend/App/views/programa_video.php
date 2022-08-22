@@ -219,9 +219,9 @@
                     console.log('Ejecutamos Ajax');
                     actualizarProgreso($('#id_programa').val(),inicio);
                 }
-                if (porcentaje_num >= 79) {
-                    $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
-                }
+                // if (porcentaje_num >= 79) {
+                //     $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
+                // }
 
                 $('#barra_progreso').val(inicio);
                 porcentaje_num = (inicio*100)/parseInt(duracion);
@@ -258,6 +258,11 @@
                 }
             });
         }
+
+         function boton(){
+            $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
+        }
+        boton();
 
         countTime();
     }); 
