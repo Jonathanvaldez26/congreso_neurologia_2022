@@ -162,6 +162,39 @@
         <br>
         <br>
 
+        <!-- Modal -->
+    <div class="modal fade" id="encuesta" role="dialog" aria-labelledby="encuestaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-size" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="encuestaLabel">Examen para <?php echo $nombre_taller; ?></h5>
+                    <button type="button" class="btn bg-gradient-danger text-lg btn-icon-only" data-dismiss="modal" aria-label="Close">
+                        <span class="" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="encuesta_curso" action="" method="post">
+                    <div class="modal-body">
+                        <div>
+                            <p class="text-success text-center">
+                                <strong>Instrucciones:</strong> Responde a cada una de las preguntas, que a continuación se presentan
+                            </p>
+                        </div>
+                        <hr class="horizontal dark my-3">
+                        <div class="encuesta">
+                            <?php echo $encuesta; ?>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="enviar_encuesta" class="btn bg-gradient-success">Enviar</button>
+                        <a href="" id="constancia_download" target="_blank" download style="display: none;">descargar</a>
+                        <a href="" id="constancia_download_1" download style="display: none;">descargar</a>
+                        <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
         <div class="fixed-bottom navbar-dark">
             <!-- <a class="navbar-brand" href="#!">Footer</a> -->
             <?php echo $footer; ?>
