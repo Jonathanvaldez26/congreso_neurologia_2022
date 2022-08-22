@@ -240,4 +240,15 @@ sql;
 sql;
     return $mysqli->update($query);
   } 
+
+
+  public static function getDataUser($id_registrado){
+    $mysqli = Database::getInstance(true);
+    $query =<<<sql
+    SELECT * FROM registrados
+    WHERE id_registrado = $id_registrado 
+sql;
+
+    return $mysqli->queryOne($query);
+  }
 }

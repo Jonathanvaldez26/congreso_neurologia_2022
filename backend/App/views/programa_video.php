@@ -186,7 +186,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" id="enviar_encuesta" class="btn bg-gradient-success">Enviar</button>
-                        <a href="" id="constancia_download" target="_blank" download style="display: none;">descargar</a>
+                        <a href="/Talleres/abrirConstancia/<?=$data_user['clave']?>/1" id="constancia_download" target="_blank" download style="display: none;">descargar</a>
                         <a href="" id="constancia_download_1" download style="display: none;">descargar</a>
                         <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
@@ -199,7 +199,9 @@
         <div class="modal-dialog modal-size" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                   
+                    <button type="button" id="close_modal_patrocinador" style="display: none;" class="btn bg-gradient-danger text-lg btn-icon-only" data-dismiss="modal" aria-label="Close">
+                        <span class="" aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                <div id="cont-modal" style="display: flex; justify-content: center;">
 
@@ -222,6 +224,23 @@
     $(document).ready(function() {
 
         let list_r = [];
+
+        
+
+        $("#btn-examen").on("click","button#btn_desc_constancia",function(){
+            $("#cont-modal").html(`<img src="/assets/img/Video_patro.gif" style="margin: 10px 0 10px 0;">`);
+            $("#btn_desc_constancia").attr('data-toggle','modal'); 
+            $("#btn_desc_constancia").attr('data-target','#modalPatrocinador');
+            $('#constancia_download')[0].click();
+
+            setTimeout(function(){
+                $("#close_modal_patrocinador").click();
+               
+            },3000)
+
+            
+            
+        })
 
         $('#enviar_encuesta').on('click', function() {
             // alert('envio de formulario');
@@ -348,9 +367,9 @@
                     console.log('Ejecutamos Ajax');
                     actualizarProgreso($('#id_programa').val(), inicio);
                 }
-                if (porcentaje_num >= 79) {
-                    $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
-                }
+                // if (porcentaje_num >= 79) {
+                //     $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#modalPatrocinador" id="btn_desc_constancia">Descargar Constancia</button>');
+                // }
 
                 $('#barra_progreso').val(inicio);
                 porcentaje_num = (inicio * 100) / parseInt(duracion);
@@ -395,6 +414,9 @@
         //     $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;" data-toggle="modal" data-target="#encuesta">Examen</button>');
         // }
         // boton();
+        if (porcentaje_num >= 79) {
+            $('#btn-examen').html('<button type="button" class="btn btn-primary" style="background-color: orangered!important;"  id="btn_desc_constancia">Descargar Constancia</button>');
+        }         
 
         countTime();
     });

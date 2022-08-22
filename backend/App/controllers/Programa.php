@@ -1173,6 +1173,8 @@ html;
 
 html;
 
+        $data_user = ProgramaDao::getDataUser($_SESSION['id_registrado']);
+
         // ----- Variables para la primer fecha ----- //
         $info_video = ProgramaDao::getProgramByClave($clave);
         $video_programa = '';
@@ -1250,8 +1252,8 @@ html;
 html;
         }
 
-
-
+        
+        View::set('data_user',$data_user);
         View::set('video_programa', $video_programa);
         View::set('nombre_programa', $nombre_programa);
         View::set('hora_inicio', $hora_inicio);
